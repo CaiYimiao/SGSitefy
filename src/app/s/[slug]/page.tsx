@@ -89,6 +89,15 @@ export default async function PublishedSite({
     if (el.is("img")) el.attr("src", url);
   }
 
+  // Inject AI-generated bespoke HTML into declared regions (already sanitised
+  // at build time). Replaces the region's placeholder content.
+  const bespoke = (spec.bespoke ?? {}) as Record<string, string>;
+  for (const [region, html] of Object.entries(bespoke)) {
+    if (!html) continue;
+    const el = $(`[data-bespoke="${region}"]`);
+    if (el.length) el.html(html);
+  }
+
   // Inject brand CSS variables into <head>
   const cssVars = buildCssVars(spec.theme, template.tokens ?? {});
   $("head").prepend(`<style>:root{${cssVars}}</style>`);

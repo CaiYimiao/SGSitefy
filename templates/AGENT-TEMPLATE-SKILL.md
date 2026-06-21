@@ -116,7 +116,7 @@ Visual-led: full-bleed hero, large asymmetric gallery (CSS columns / grid spans)
 **Every template, every kind, must:**
 - Be **bilingual EN/中文** — every text node carries `data-en` + `data-zh`; a `toggleLang()` swaps text and flips `<html lang>`; nested-HTML nodes use `data-rich` + innerHTML swap.
 - Be **responsive** (hamburger nav < 760px) and **a11y-clean** (landmarks, alt text, heading order, ≥4.5:1 contrast, visible focus).
-- End the footer with `Built with SGSitefy · powered by Antigravity`.
+- End the footer with `Built with SGSitefy`.
 - Carry the **slot contract** in §4 so agents fill, not free-code.
 
 ---

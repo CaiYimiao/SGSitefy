@@ -90,6 +90,8 @@ export const SiteSpecSchema = z.object({
   sections: z.array(SectionSchema).default([]),
   /** Flat slot map produced by the slot pipeline — consumed by the HTML renderer. */
   slots: z.record(SlotValueSchema).optional(),
+  /** Sanitised AI-generated HTML per bespoke region id — injected by the renderer. */
+  bespoke: z.record(z.string()).optional(),
 });
 
 export type SiteSpec = z.infer<typeof SiteSpecSchema>;

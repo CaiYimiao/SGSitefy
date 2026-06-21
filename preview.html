@@ -1031,7 +1031,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: 
           <div class="blog-item bl-pending" id="bl-4"><span class="bl-icon">○</span> Applying brand colours &amp; layout…</div>
           <div class="blog-item bl-pending" id="bl-5"><span class="bl-icon">○</span> Optimising for mobile &amp; SEO…</div>
         </div>
-        <p class="hint" style="margin-top:16px;font-size:.68rem;color:var(--subtle)">powered by Antigravity</p>
+        <p class="hint" style="margin-top:16px;font-size:.68rem;color:var(--subtle)">powered by Gemini</p>
       </div>
 
       <!-- step 5: Domain -->
@@ -1718,7 +1718,7 @@ function switchAiMode(mode) {
     if (captureBtn) captureBtn.style.display = '';
     if (inp) inp.placeholder = 'Describe a change to make…';
     if (fabSub) fabSub.textContent = 'Edit this page';
-    if (welcome) welcome.innerHTML = 'Your site is ready! Select an area or describe a change and I\'ll apply it live via Antigravity.';
+    if (welcome) welcome.innerHTML = 'Your site is ready! Select an area or describe a change and I\'ll apply it live via Gemini.';
   } else {
     if (captureBtn) captureBtn.style.display = 'none';
     if (inp) inp.placeholder = 'Ask about SGSitefy…';
@@ -1858,7 +1858,7 @@ function aiSend() {
 
   var s = aiMode === 'chat'
     ? aiAddTyping()
-    : aiAddStatus('Applying your change via Antigravity…');
+    : aiAddStatus('Applying your change via Gemini…');
 
   if (aiMode === 'chat') {
     fetch('/api/chat', {
@@ -1894,7 +1894,7 @@ function aiSend() {
         aiAddMsg('Your site looks great! Hit the <b>Go Live</b> button to publish it with your custom domain.', 'ai-msg');
       } else {
         if (data.spec) window.__siteSpec = data.spec;
-        aiAddMsg('Done! Change applied via Antigravity. Want to tweak anything else?', 'ai-msg');
+        aiAddMsg('Done! Change applied via Gemini. Want to tweak anything else?', 'ai-msg');
       }
     })
     .catch(function() {
@@ -2067,7 +2067,7 @@ document.addEventListener('keydown', function (e) {
       <div class="ai-panel-avatar" aria-hidden="true">✦</div>
       <div class="ai-panel-title">
         <strong id="ai-panel-title">SitefyAI</strong>
-        <span>powered by Antigravity</span>
+        <span>powered by Gemini</span>
       </div>
       <button class="ai-panel-close" onclick="closeAiPanel()" aria-label="Close SitefyAI panel">✕</button>
     </div>
@@ -2090,7 +2090,7 @@ document.addEventListener('keydown', function (e) {
         <button class="ai-send-btn" onclick="aiSend()" aria-label="Send message">Send</button>
       </div>
     </div>
-    <div class="ai-powered-tag">SitefyAI · <span>powered by Antigravity</span></div>
+    <div class="ai-powered-tag">SitefyAI · <span>powered by Gemini</span></div>
   </div>
   <div class="ai-fab-bar">
     <button class="ai-drag-handle" id="ai-drag" aria-label="Drag to move SitefyAI" title="Drag to move">

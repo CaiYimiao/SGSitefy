@@ -4,9 +4,10 @@ import { finalizeSite } from "@/lib/site-store";
 import { extractBrand } from "@/agents/brand-extractor";
 import { fillCopy } from "@/agents/copy-fill";
 import { generateImages } from "@/agents/image-gen";
+import { generateBespokeRegions } from "@/agents/bespoke-gen";
 import { purchaseDomain, setNameservers, pollDomainStatus, PLATFORM_NAMESERVERS, PLATFORM_CNAME } from "@/agents/domain-setup";
 import { pickLibraryTemplate } from "@/lib/pick-library-template";
-import { extractSlots, categorizeSlots, fillChromeSlots, fillFactualSlots, fillImageSlots } from "@/lib/slot-utils";
+import { extractSlots, extractBespokeRegions, categorizeSlots, fillChromeSlots, fillFactualSlots, fillImageSlots } from "@/lib/slot-utils";
 import { SiteSpecSchema } from "@/lib/site-spec";
 import type { CompanyProfile } from "@/types/company-profile";
 import type { Registrar } from "@/agents/domain-setup";
@@ -63,7 +64,7 @@ export const buildSite = inngest.createFunction(
       const html = fs.readFileSync(htmlPath, "utf-8");
       const allSlots = extractSlots(html);
       const buckets = categorizeSlots(allSlots);
-      return Promise.resolve({ allSlots, ...buckets });
+      return Promise.resolve({ allSlots, copySlots: buckets.copy });
     });
 
     // Re-read for use in later steps (Inngest serializes step return values)
@@ -72,13 +73,22 @@ export const buildSite = inngest.createFunction(
       return Promise.resolve(extractSlots(html));
     });
 
-    // Step 4: copy-fill and image-gen run in parallel
-    const [copyResult, images] = await Promise.all([
+    // Detect bespoke regions the template opts into (AI-generated custom HTML)
+    const bespokeRegions = await step.run("extract-bespoke", () => {
+      const html = fs.readFileSync(htmlPath, "utf-8");
+      return Promise.resolve(extractBespokeRegions(html));
+    });
+
+    // Step 4: copy-fill, image-gen, and bespoke-gen run in parallel
+    const [copyResult, images, bespoke] = await Promise.all([
       step.run("copy-fill", () =>
         fillCopy(profile, description, brand, copySlots, template.sections)
       ),
       step.run("image-gen", () =>
         generateImages(profile.nameEn ?? "Company", brand)
+      ),
+      step.run("bespoke-gen", () =>
+        generateBespokeRegions(profile, description, brand, bespokeRegions, photoUrls)
       ),
     ]);
 
@@ -126,6 +136,7 @@ export const buildSite = inngest.createFunction(
         },
         sections: [],
         slots,
+        bespoke,
       };
 
       const valid = SiteSpecSchema.safeParse(assembled);

@@ -134,6 +134,7 @@ model Site {
   org          Organization @relation(fields: [orgId], references: [id])
   slug         String     @unique
   customDomain String?    @unique
+  domainStatus String?    // PENDING | LIVE | DNS_TIMEOUT — custom-domain provisioning state
   template     String     @default("industrial")
   spec         Json?
   themeTokens  Json?

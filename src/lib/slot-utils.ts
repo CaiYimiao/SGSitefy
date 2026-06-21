@@ -59,6 +59,25 @@ export function extractSlots(html: string): string[] {
   return [...seen];
 }
 
+/**
+ * Extract bespoke regions a template declares for AI-generated custom HTML.
+ * A template opts in with: <div data-bespoke="region-id" data-brief="what to build">
+ * Returns [{ region, brief }] — empty if the template has no bespoke regions.
+ */
+export function extractBespokeRegions(html: string): { region: string; brief: string }[] {
+  const out: { region: string; brief: string }[] = [];
+  const seen = new Set<string>();
+  // Match the opening tag carrying data-bespoke, in any attribute order
+  for (const m of html.matchAll(/<[^>]*\bdata-bespoke="([^"]+)"[^>]*>/g)) {
+    const region = m[1];
+    if (seen.has(region)) continue;
+    seen.add(region);
+    const briefMatch = m[0].match(/\bdata-brief="([^"]*)"/);
+    out.push({ region, brief: briefMatch?.[1] ?? "" });
+  }
+  return out;
+}
+
 /** Split a slot list into the four buckets. */
 export function categorizeSlots(slots: string[]): {
   chrome: string[];

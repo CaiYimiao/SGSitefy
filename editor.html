@@ -435,7 +435,7 @@ button { font-family: var(--font-b); }
       <div class="ai-avatar" aria-hidden="true">✦</div>
       <div class="ai-panel-title">
         <strong>SitefyAI</strong>
-        <span>powered by Antigravity · edit mode</span>
+        <span>powered by Gemini · edit mode</span>
       </div>
       <button class="ai-panel-close" onclick="closeAiPanel()" aria-label="Close">✕</button>
     </div>
@@ -451,7 +451,7 @@ button { font-family: var(--font-b); }
         <button class="ai-send" onclick="aiSend()">Send</button>
       </div>
     </div>
-    <div class="ai-powered">SitefyAI · powered by Antigravity</div>
+    <div class="ai-powered">SitefyAI · powered by Gemini</div>
   </div>
 
   <div class="ai-fab-bar">
@@ -518,7 +518,7 @@ button { font-family: var(--font-b); }
   var buildBanner = document.createElement('div');
   buildBanner.id = 'build-banner';
   buildBanner.style.cssText = 'position:fixed;top:var(--bar-h);left:0;right:0;z-index:700;background:#11264f;color:#fff;text-align:center;padding:10px 16px;font-size:.82rem;font-family:var(--font-d);display:flex;align-items:center;justify-content:center;gap:10px;';
-  buildBanner.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;display:inline-block;flex-shrink:0"></span>SitefyAI is building your site via Antigravity…';
+  buildBanner.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;display:inline-block;flex-shrink:0"></span>SitefyAI is building your site via Gemini…';
   document.body.appendChild(buildBanner);
 
   var polls = 0;
@@ -810,7 +810,7 @@ function aiSend() {
   var hadCrop=!!aiCrop;
   aiRemoveAttach();
 
-  var s=aiAddStatus(hadCrop?'Sending selection + note to Antigravity…':'Applying your change via Antigravity…');
+  var s=aiAddStatus(hadCrop?'Sending selection + note to Gemini…':'Applying your change via Gemini…');
 
   fetch('/api/editor',{
     method:'POST',
@@ -826,7 +826,7 @@ function aiSend() {
       if(!livePanelOpen) openLivePanel();
     } else {
       if(data.spec) window.__siteSpec=data.spec;
-      aiAddMsg('Done! Change applied via Antigravity. Want to tweak anything else?','ai-msg');
+      aiAddMsg('Done! Change applied via Gemini. Want to tweak anything else?','ai-msg');
     }
   })
   .catch(function(){
