@@ -11,7 +11,9 @@ import { ArrowRight, ArrowLeft, Loader2, Plus, X, Check } from "lucide-react";
 
 const STEPS = ["UEN", "Details", "Photos", "Describe", "Generate", "Done"];
 
-export function OnboardingWizard() {
+const DRAFT_KEY = "sitefy_wizard_draft";
+
+export function OnboardingWizard({ loggedIn }: { loggedIn: boolean }) {
   const [step, setStep] = React.useState(0);
   const [uen, setUen] = React.useState("");
   const [profile, setProfile] = React.useState<Partial<CompanyProfile>>({});
@@ -25,10 +27,36 @@ export function OnboardingWizard() {
   const [buildProgress, setBuildProgress] = React.useState(0);
   const [buildStage, setBuildStage] = React.useState("");
   const [siteUrl, setSiteUrl] = React.useState<string | null>(null);
+  const [restored, setRestored] = React.useState(false);
   const progressRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
   const pollRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
   const set = (patch: Partial<CompanyProfile>) => setProfile((p) => ({ ...p, ...patch }));
+
+  // Restore an in-progress draft (e.g. after the login redirect, or if the
+  // user closed the tab mid-wizard) so nothing is ever re-entered.
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem(DRAFT_KEY);
+      if (raw) {
+        const d = JSON.parse(raw);
+        if (d.uen) setUen(d.uen);
+        if (d.profile) setProfile(d.profile);
+        if (Array.isArray(d.photos)) setPhotos(d.photos);
+        if (d.description) setDescription(d.description);
+        if (typeof d.step === "number" && d.step >= 0 && d.step <= 3) setStep(d.step);
+      }
+    } catch { /* ignore */ }
+    setRestored(true);
+  }, []);
+
+  // Persist the editable steps (0–3) so a refresh / login round-trip keeps state.
+  React.useEffect(() => {
+    if (!restored || step > 3) return;
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify({ step, uen, profile, photos, description }));
+    } catch { /* ignore */ }
+  }, [restored, step, uen, profile, photos, description]);
 
   async function importFromLink() {
     setImporting(true);
@@ -73,6 +101,16 @@ export function OnboardingWizard() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Lookup failed");
       setProfile({ ...data.profile });
+
+      // Login gates here — after the UEN is entered and looked up, before we
+      // save anything. Persist the draft so they return straight to step 1.
+      if (!loggedIn) {
+        try {
+          localStorage.setItem(DRAFT_KEY, JSON.stringify({ step: 1, uen, profile: data.profile, photos, description }));
+        } catch { /* ignore */ }
+        window.location.href = `/signin?callbackUrl=${encodeURIComponent("/new")}`;
+        return;
+      }
       setStep(1);
     } catch (e) {
       setError((e as Error).message);
@@ -140,6 +178,7 @@ export function OnboardingWizard() {
           const d = await r.json() as { status: string; previewUrl?: string };
           if (d.status === "DONE") {
             clearTimers();
+            try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
             setBuildProgress(100);
             setBuildStage("Your site is ready!");
             setSiteUrl(`/s/${slug}`);

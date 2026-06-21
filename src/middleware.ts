@@ -12,7 +12,9 @@ import authConfig from "@/auth.config";
  */
 const { auth } = NextAuth(authConfig);
 
-const PROTECTED = [/^\/dashboard(\/|$)/, /^\/new(\/|$)/, /^\/editor(\/|$)/];
+// /new is intentionally NOT gated: the wizard lets visitors enter their UEN
+// first, then prompts login before saving/continuing past step 1.
+const PROTECTED = [/^\/dashboard(\/|$)/, /^\/editor(\/|$)/];
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;
