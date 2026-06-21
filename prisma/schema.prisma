@@ -25,6 +25,7 @@ enum SiteStatus {
   BUILDING
   PREVIEW
   PUBLISHED
+  FAILED
 }
 
 enum BuildStatus {
