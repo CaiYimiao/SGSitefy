@@ -36,10 +36,12 @@ export const buildSite = inngest.createFunction(
     onFailure: async ({ event, error }) => {
       const original = (event as { data: { event: { data: BuildRequested } } }).data.event.data;
       console.error(`build-site failed for build ${original.buildId}:`, error);
-      await db.build.update({
-        where: { id: original.buildId },
-        data: { status: "FAILED" },
-      }).catch(() => {});
+      // Update BOTH the build row and the site row (the dashboard shows site
+      // status) so a failed build stops showing "Building" forever.
+      await Promise.all([
+        db.build.update({ where: { id: original.buildId }, data: { status: "FAILED" } }).catch(() => {}),
+        db.site.update({ where: { id: original.siteId }, data: { status: "FAILED" } }).catch(() => {}),
+      ]);
     },
   },
   async ({ event, step }) => {
