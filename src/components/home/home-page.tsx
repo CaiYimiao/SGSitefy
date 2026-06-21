@@ -318,7 +318,7 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
             {FAQS.map((f) => (
               <details key={f.q} className="faq-item">
                 <summary>{f.q}</summary>
-                <p>{f.a}</p>
+                <div className="faq-body"><div className="faq-body-inner"><p>{f.a}</p></div></div>
               </details>
             ))}
           </div>
