@@ -3,6 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
+import { CookieConsent } from "./cookie-consent";
+import { SitefyChat } from "./sitefy-chat";
 
 const ALLOW_DEV_LOGIN =
   process.env.NEXT_PUBLIC_ALLOW_DEV_LOGIN === "true" || process.env.NODE_ENV !== "production";
@@ -71,13 +73,38 @@ const STEPS = [
   { icon: "◉", num: "Step 03", h: "Get a domain & publish", p: "Search and register your own .com.sg or .sg domain right inside SGSitefy — choose Cloudflare, Namecheap, or GoDaddy. Go live in one click." },
 ];
 
-const TEMPLATES = [
-  { tag: "Industrial", name: "Precision Works", seed: "factory", blurb: "Engineering & fabrication" },
-  { tag: "F&B", name: "Hawker Hub", seed: "hawker", blurb: "Food & beverage" },
-  { tag: "Retail", name: "Shopfront", seed: "boutique", blurb: "Retail & trading" },
-  { tag: "Wellness", name: "Carepoint", seed: "clinic", blurb: "Clinic & wellness" },
-  { tag: "Services", name: "Pinnacle", seed: "office", blurb: "Professional services" },
-  { tag: "F&B", name: "Bento", seed: "cafe", blurb: "Cafés & restaurants" },
+const TPL_FILTERS: { id: string; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "industrial", label: "⚙️ Industrial" },
+  { id: "fnb", label: "🍜 F&B" },
+  { id: "retail", label: "🛍️ Retail" },
+  { id: "wellness", label: "🌿 Clinic" },
+  { id: "services", label: "💼 Services" },
+];
+
+type Tpl = { ind: string; heroBg: string; l1: string; l1w: string; l2w: string; bodyBg?: string; bodyLine: string; blw: string; mini: string; cat: string; name: string };
+
+const TEMPLATES: Tpl[] = [
+  // Industrial
+  { ind: "industrial", heroBg: "#11264f", l1: "#f59e0b", l1w: "55%", l2w: "38%", bodyLine: "#e5e7eb", blw: "45%", mini: "#11264f", cat: "Industrial / Engineering", name: "Seng Hin · multi-page" },
+  { ind: "industrial", heroBg: "#374151", l1: "#f97316", l1w: "48%", l2w: "65%", bodyLine: "#e5e7eb", blw: "52%", mini: "#f97316", cat: "Industrial / Engineering", name: "Precision Works · single-page" },
+  { ind: "industrial", heroBg: "#111827", l1: "#eab308", l1w: "60%", l2w: "40%", bodyLine: "#f3f4f6", blw: "42%", mini: "#eab308", cat: "Industrial / Engineering", name: "MetalForge · showcase" },
+  // F&B
+  { ind: "fnb", heroBg: "#7c2d12", l1: "#fbbf24", l1w: "50%", l2w: "65%", bodyBg: "#fffbf5", bodyLine: "#fde8c8", blw: "40%", mini: "#b45309", cat: "Food & Beverage", name: "Tiong Bahru · multi-page" },
+  { ind: "fnb", heroBg: "#14532d", l1: "#fef08a", l1w: "52%", l2w: "70%", bodyBg: "#f0fdf4", bodyLine: "#bbf7d0", blw: "38%", mini: "#16a34a", cat: "Food & Beverage", name: "Hawker Hub · single-page" },
+  { ind: "fnb", heroBg: "#be123c", l1: "#fda4af", l1w: "55%", l2w: "42%", bodyBg: "#fff7ed", bodyLine: "#fed7aa", blw: "44%", mini: "#f43f5e", cat: "Food & Beverage", name: "Bento Co. · showcase" },
+  // Retail
+  { ind: "retail", heroBg: "#1f2937", l1: "#ef4444", l1w: "55%", l2w: "42%", bodyLine: "#e5e7eb", blw: "50%", mini: "#ef4444", cat: "Retail / Trading", name: "Lian Huat · multi-page" },
+  { ind: "retail", heroBg: "#4c1d95", l1: "#f9a8d4", l1w: "50%", l2w: "65%", bodyBg: "#faf5ff", bodyLine: "#e9d5ff", blw: "46%", mini: "#7c3aed", cat: "Retail / Trading", name: "ShopFront · single-page" },
+  { ind: "retail", heroBg: "#0f172a", l1: "#0d9488", l1w: "54%", l2w: "44%", bodyLine: "#ccfbf1", blw: "48%", mini: "#0d9488", cat: "Retail / Trading", name: "MktPlace · showcase" },
+  // Wellness
+  { ind: "wellness", heroBg: "#0f766e", l1: "#a7f3d0", l1w: "48%", l2w: "60%", bodyBg: "#f0fdf9", bodyLine: "#99f6e4", blw: "44%", mini: "#14b8a6", cat: "Clinic / Wellness", name: "Serene · multi-page" },
+  { ind: "wellness", heroBg: "#5b21b6", l1: "#d1fae5", l1w: "52%", l2w: "66%", bodyBg: "#faf5ff", bodyLine: "#ddd6fe", blw: "43%", mini: "#7c3aed", cat: "Clinic / Wellness", name: "Vitality · single-page" },
+  { ind: "wellness", heroBg: "#7f1d1d", l1: "#fed7aa", l1w: "50%", l2w: "58%", bodyBg: "#fffbeb", bodyLine: "#fde68a", blw: "40%", mini: "#f97316", cat: "Clinic / Wellness", name: "CarePoint · showcase" },
+  // Services
+  { ind: "services", heroBg: "#1e3a8a", l1: "#818cf8", l1w: "55%", l2w: "38%", bodyLine: "#e0e7ff", blw: "47%", mini: "#6366f1", cat: "Professional Services", name: "Apex · multi-page" },
+  { ind: "services", heroBg: "#064e3b", l1: "#fbbf24", l1w: "53%", l2w: "40%", bodyBg: "#f0fdf4", bodyLine: "#bbf7d0", blw: "45%", mini: "#059669", cat: "Professional Services", name: "Pinnacle · single-page" },
+  { ind: "services", heroBg: "#18181b", l1: "#3b82f6", l1w: "57%", l2w: "44%", bodyLine: "#dbeafe", blw: "48%", mini: "#3b82f6", cat: "Professional Services", name: "Consult SG · showcase" },
 ];
 
 const FAQS = [
@@ -96,6 +123,7 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
   const [login, setLogin] = React.useState<{ open: boolean; mode: "login" | "signup" }>({ open: false, mode: "login" });
   const openLogin = (mode: "login" | "signup") => setLogin({ open: true, mode });
   const closeLogin = () => setLogin((l) => ({ ...l, open: false }));
+  const [tplFilter, setTplFilter] = React.useState("all");
 
   // Auto-advance the hero carousel
   React.useEffect(() => {
@@ -245,19 +273,36 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
 
       {/* ── TEMPLATES ── */}
       <section id="templates" className="wrap" style={{ padding: "64px 0 84px" }}>
-        <p className="sec-eyebrow">Templates</p>
-        <h2 className="sec-title">A hand-crafted design for every trade</h2>
-        <p className="sec-sub">Five industries, each with its own typography, palette, and layout. SitefyAI picks the right one and themes it to your brand.</p>
-        <div className="tmpl-grid">
-          {TEMPLATES.map((t) => (
-            <Link key={t.name} href="/new" className="tmpl-card">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`https://picsum.photos/seed/${t.seed}/600/400`} alt={`${t.name} template preview`} />
-              <div className="tmpl-meta">
-                <span className="tmpl-tag">{t.tag}</span>
-                <div className="tmpl-name">{t.name}</div>
-                <div className="tmpl-blurb">{t.blurb}</div>
+        <p className="sec-eyebrow">Template library</p>
+        <h2 className="sec-title">Built for your trade, branded to your logo</h2>
+        <p className="sec-sub">SGSitefy reads your brand logo and pulls its exact colours into the layout automatically — no colour-picker needed. Each template is hand-crafted for one industry so the structure is always right, and SitefyAI writes every word.</p>
+        <div className="tpl-filter">
+          {TPL_FILTERS.map((f) => (
+            <button key={f.id} className={`tpl-tab${tplFilter === f.id ? " active" : ""}`} onClick={() => setTplFilter(f.id)}>{f.label}</button>
+          ))}
+        </div>
+        <div className="tpl-grid">
+          {TEMPLATES.filter((t) => tplFilter === "all" || t.ind === tplFilter).map((t) => (
+            <Link key={t.name} href="/new" className="tpl-card" data-ind={t.ind}>
+              <div className="tpl-thumb">
+                <div className="tpl-chrome">
+                  <span className="tpl-dot" style={{ background: "#ff5f57" }} /><span className="tpl-dot" style={{ background: "#febc2e" }} /><span className="tpl-dot" style={{ background: "#28c840" }} />
+                  <div className="tpl-urlbar" />
+                </div>
+                <div className="tpl-hero" style={{ background: t.heroBg, height: 46 }}>
+                  <div className="tpl-line" style={{ background: t.l1, width: t.l1w }} />
+                  <div className="tpl-line" style={{ background: "rgba(255,255,255,.32)", width: t.l2w }} />
+                </div>
+                <div className="tpl-body" style={t.bodyBg ? { background: t.bodyBg } : undefined}>
+                  <div className="tpl-line" style={{ background: t.bodyLine, width: t.blw }} />
+                  <div className="tpl-cards">
+                    <div className="tpl-card-mini" style={{ background: t.mini, opacity: 1 }} />
+                    <div className="tpl-card-mini" style={{ background: t.mini, opacity: 1 }} />
+                    <div className="tpl-card-mini" style={{ background: t.mini, opacity: 1 }} />
+                  </div>
+                </div>
               </div>
+              <div className="tpl-meta"><span><strong>{t.cat}</strong><span>{t.name}</span></span><span className="arr">↗</span></div>
             </Link>
           ))}
         </div>
@@ -322,6 +367,10 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
 
       {/* ── LOGIN MODAL ── */}
       <LoginModal open={login.open} mode={login.mode} onClose={closeLogin} onSwap={(m) => setLogin({ open: true, mode: m })} />
+
+      {/* ── COOKIE CONSENT + CHAT ── */}
+      <CookieConsent />
+      <SitefyChat />
     </div>
   );
 }
