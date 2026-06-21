@@ -2,7 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
+
+const ALLOW_DEV_LOGIN =
+  process.env.NEXT_PUBLIC_ALLOW_DEV_LOGIN === "true" || process.env.NODE_ENV !== "production";
 
 /** SGSitefy lion mark (Singapore merlion-crown nod). */
 function LionMark({ className }: { className?: string }) {
@@ -90,6 +93,9 @@ const FAQS = [
 
 export function HomePage({ user }: { user: { name: string | null; email: string | null } | null }) {
   const [slide, setSlide] = React.useState(0);
+  const [login, setLogin] = React.useState<{ open: boolean; mode: "login" | "signup" }>({ open: false, mode: "login" });
+  const openLogin = (mode: "login" | "signup") => setLogin({ open: true, mode });
+  const closeLogin = () => setLogin((l) => ({ ...l, open: false }));
 
   // Auto-advance the hero carousel
   React.useEffect(() => {
@@ -138,11 +144,11 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
             </span>
           ) : (
             <>
-              <Link className="pv-btn pv-signup" href="/signin">Sign up</Link>
-              <Link className="pv-btn pv-login" href="/signin">
+              <button className="pv-btn pv-signup" onClick={() => openLogin("signup")}>Sign up</button>
+              <button className="pv-btn pv-login" onClick={() => openLogin("login")}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14a4 4 0 1 1 3.87-5h9.13a1 1 0 0 1 .7.29l1.5 1.5a1 1 0 0 1 0 1.42l-2.5 2.5a1 1 0 0 1-1.4 0l-1.1-1.1-1.1 1.1a1 1 0 0 1-1.42 0L13 14H10.87A4 4 0 0 1 7 14Zm-1-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" /></svg>
                 Login
-              </Link>
+              </button>
             </>
           )}
         </div>
@@ -313,6 +319,69 @@ export function HomePage({ user }: { user: { name: string | null; email: string 
           </div>
         </div>
       </footer>
+
+      {/* ── LOGIN MODAL ── */}
+      <LoginModal open={login.open} mode={login.mode} onClose={closeLogin} onSwap={(m) => setLogin({ open: true, mode: m })} />
+    </div>
+  );
+}
+
+function LoginModal({ open, mode, onClose, onSwap }: {
+  open: boolean;
+  mode: "login" | "signup";
+  onClose: () => void;
+  onSwap: (m: "login" | "signup") => void;
+}) {
+  const [email, setEmail] = React.useState("");
+  const isSignup = mode === "signup";
+
+  // Close on Escape
+  React.useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  const doEmail = () => {
+    if (!email.trim()) return;
+    signIn("credentials", { email: email.trim(), callbackUrl: "/dashboard" });
+  };
+
+  return (
+    <div className={`lg-back${open ? " show" : ""}`} role="dialog" aria-modal="true" aria-labelledby="lg-title" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="lg-card">
+        <div className="lg-head">
+          <button className="lg-x" onClick={onClose} aria-label="Close">✕</button>
+          <div className="lg-mark" aria-hidden="true"><LionMark /></div>
+          <div className="lg-title" id="lg-title">{isSignup ? "Create your SGSitefy account" : "Log in to SGSitefy"}</div>
+          <div className="lg-sub">{isSignup ? "Build your bilingual business site in minutes." : "Save your site and pick up where you left off."}</div>
+        </div>
+        <div className="lg-body">
+          <button className="lg-oauth" onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>
+            <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8a12 12 0 1 1 0-24c3.1 0 5.9 1.2 8 3.1l5.7-5.7A20 20 0 1 0 24 44c11 0 20-8 20-20 0-1.3-.1-2.3-.4-3.5z" /><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7A20 20 0 0 0 6.3 14.7z" /><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 12.7 28l-6.5 5C9.5 39.6 16.2 44 24 44z" /><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C39.9 35.6 44 30.4 44 24c0-1.3-.1-2.3-.4-3.5z" /></svg>
+            Continue with Google
+          </button>
+          <button className="lg-oauth" onClick={() => signIn("facebook", { callbackUrl: "/dashboard" })}>
+            <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z" /></svg>
+            Continue with Facebook
+          </button>
+          {ALLOW_DEV_LOGIN && (
+            <>
+              <div className="lg-or">or</div>
+              <div className="lg-field">
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" aria-label="Email" onKeyDown={(e) => { if (e.key === "Enter") doEmail(); }} />
+              </div>
+              <button className="lg-primary" onClick={doEmail}>Continue with email</button>
+            </>
+          )}
+          <p className="lg-toggle">
+            <span>{isSignup ? "Already have an account?" : "New to SGSitefy?"}</span>{" "}
+            <button onClick={() => onSwap(isSignup ? "login" : "signup")}>{isSignup ? "Log in" : "Sign up"}</button>
+          </p>
+          <p className="lg-note">Sign in with Google or Facebook — no password stored. By continuing you agree to our <Link href="/terms" target="_blank" rel="noopener">Terms</Link>.</p>
+        </div>
+      </div>
     </div>
   );
 }
