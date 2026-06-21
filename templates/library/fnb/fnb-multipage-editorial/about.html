@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="The Larder — About" data-zh="食房 — 关于">The Larder — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Larder" data-zh="食房">The Larder</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="about.kick" data-en="Our story" data-zh="我们的故事">Our story</p>
+    <h1 data-slot="about.title" data-en="A house built on patience." data-zh="以耐心建立的餐桌。">A house built on patience.</h1>
+    <p data-slot="about.lead" data-en="Placeholder lead — one or two sentences that frame the restaurant's character." data-zh="占位引言——一两句话勾勒餐厅的气质。">Placeholder lead — one or two sentences that frame the restaurant's character.</p>
+  </section>
+
+  <section class="wrap cols">
+    <img src="https://picsum.photos/seed/edit-about1/600/750" data-slot="about.image" data-en-alt="The founders" data-zh-alt="创办人" alt="The founders" />
+    <div>
+      <h2 data-slot="about.h2" data-en="How it began" data-zh="起源">How it began</h2>
+      <p class="body" data-slot="about.body" data-en="Placeholder narrative — origin, values, and the road to today. Ground every claim in the real company profile." data-zh="占位叙述——起源、价值观与一路走来的历程。所有内容须基于真实企业资料。">Placeholder narrative — origin, values, and the road to today. Ground every claim in the real company profile.</p>
+    </div>
+  </section>
+
+  <section class="wrap cols rev">
+    <div>
+      <h2 data-slot="about.h3" data-en="What we believe" data-zh="我们的信念">What we believe</h2>
+      <p class="body" data-slot="about.body2" data-en="Placeholder — the philosophy in the kitchen and at the table. Keep it sincere, not boastful." data-zh="占位文字——厨房与餐桌间的理念。真诚而不夸耀。">Placeholder — the philosophy in the kitchen and at the table. Keep it sincere, not boastful.</p>
+    </div>
+    <img src="https://picsum.photos/seed/edit-about2/600/700" data-slot="about.image2" data-en-alt="Detail shot" data-zh-alt="细节特写" alt="Detail shot" />
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Come see for yourself." data-zh="欢迎亲身体验。">Come see for yourself.</h2>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Plan a visit" data-zh="规划到访">Plan a visit</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="The Larder" data-zh="食房">The Larder</span>
+    <span data-slot="footer.addr" data-en="Duxton Hill, Singapore" data-zh="新加坡达士敦山">Duxton Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

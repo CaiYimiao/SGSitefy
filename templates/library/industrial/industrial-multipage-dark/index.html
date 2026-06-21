@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Precision Industrial" data-zh="公司 — 精密工业">Company — Precision Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" aria-current="page" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Advanced Manufacturing" data-zh="先进制造">Advanced Manufacturing</p>
+    <h1 data-slot="hero.headline" data-en="Where Precision" data-zh="精密成就" data-rich>Where Precision<br><em data-en="Meets Power." data-zh="力量。">Meets Power.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the premium promise of the work." data-zh="主标题副文 — 高端品质承诺。">Hero supporting line — the premium promise of the work.</p>
+    <div class="cta-row">
+      <a class="btn" href="contact.html" data-slot="hero.cta1" data-en="Request Consultation" data-zh="预约咨询">Request Consultation</a>
+      <a class="btn ghost" href="services.html" data-slot="hero.cta2" data-en="Explore Services" data-zh="探索服务">Explore Services</a>
+    </div>
+  </div>
+  <div class="wrap hero-img">
+    <img src="https://picsum.photos/seed/dark-hero/1600/600" alt="" data-slot="hero.image" data-en-alt="Precision facility" data-zh-alt="精密设施">
+  </div>
+</section>
+
+<section class="trust" aria-label="Trust">
+  <div class="wrap">
+    <div data-slot="trust.0" data-en="<b>18</b><span>Years of mastery</span>" data-zh="<b>18</b><span>年专精</span>" data-rich><b>18</b><span>Years of mastery</span></div>
+    <div data-slot="trust.1" data-en="<b>ISO</b><span>9001 &amp; 14001</span>" data-zh="<b>ISO</b><span>9001 与 14001</span>" data-rich><b>ISO</b><span>9001 &amp; 14001</span></div>
+    <div data-slot="trust.2" data-en="<b>±5µm</b><span>Tolerance</span>" data-zh="<b>±5µm</b><span>公差</span>" data-rich><b>±5µm</b><span>Tolerance</span></div>
+    <div data-slot="trust.3" data-en="<b>40+</b><span>Global clients</span>" data-zh="<b>40+</b><span>全球客户</span>" data-rich><b>40+</b><span>Global clients</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about">
+    <figure class="about-fig"><img src="https://picsum.photos/seed/dark-about/700/880" alt="" data-slot="about.image" data-en-alt="Workshop detail" data-zh-alt="车间细节"></figure>
+    <div>
+      <p class="eyebrow" data-en="Our Craft" data-zh="我们的工艺">Our Craft</p>
+      <h2 style="font-size:clamp(1.8rem,4.5vw,3rem);margin:.7rem 0 1.2rem" data-slot="about.title" data-en="Engineering as an" data-zh="工程即艺术" data-rich>Engineering as an <em style="font-style:italic;color:var(--brand)">Art.</em></h2>
+      <p data-slot="about.p1" data-en="About paragraph one — the philosophy and standard of the work." data-zh="关于段落一 — 工作的理念与标准。">About paragraph one — the philosophy and standard of the work.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — equipment, materials, expertise." data-zh="关于段落二 — 设备、材料、专长。">About paragraph two — equipment, materials, expertise.</p>
+      <a class="btn ghost" href="about.html" data-en="Our story →" data-zh="我们的故事 →">Our story →</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Capabilities" data-zh="能力">Capabilities</p><h2 data-slot="services.title" data-en="What We" data-zh="我们的" data-rich>What We <em>Master.</em></h2></div>
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="n">01</div><h3 data-slot="services.0.title" data-en="Precision Machining" data-zh="精密加工">Precision Machining</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="services.1.title" data-en="Custom Tooling" data-zh="定制工装">Custom Tooling</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="services.2.title" data-en="Surface Finishing" data-zh="表面处理">Surface Finishing</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="services.3.title" data-en="Assembly" data-zh="装配">Assembly</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">05</div><h3 data-slot="services.4.title" data-en="Quality Control" data-zh="质量控制">Quality Control</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">06</div><h3 data-slot="services.5.title" data-en="R&amp;D Support" data-zh="研发支持">R&amp;D Support</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Portfolio" data-zh="作品集">Portfolio</p><h2 data-slot="work.title" data-en="Selected" data-zh="精选" data-rich>Selected <em>Work.</em></h2></div>
+    <div class="work-grid" data-slot="gallery" data-min="3" data-max="5">
+      <figure><img src="https://picsum.photos/seed/dark-w0/1400/700" alt="" data-slot="gallery.0" data-en-alt="Project one" data-zh-alt="项目一"><figcaption data-slot="gallery.0.cap" data-en="Featured project" data-zh="精选项目">Featured project</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/dark-w1/700/420" alt="" data-slot="gallery.1" data-en-alt="Project two" data-zh-alt="项目二"><figcaption data-slot="gallery.1.cap" data-en="Project two" data-zh="项目二">Project two</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/dark-w2/700/420" alt="" data-slot="gallery.2" data-en-alt="Project three" data-zh-alt="项目三"><figcaption data-slot="gallery.2.cap" data-en="Project three" data-zh="项目三">Project three</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Build something" data-zh="打造非凡" data-rich>Build something <em>exceptional.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite a conversation." data-zh="行动号召副文 — 邀请对话。">CTA supporting line — invite a conversation.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Start a Conversation" data-zh="开启对话">Start a Conversation</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="fbrand" data-slot="footer.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></div><p data-slot="footer.tagline" data-en="Precision industrial manufacturing." data-zh="精密工业制造。">Precision industrial manufacturing.</p></div>
+    <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+    <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

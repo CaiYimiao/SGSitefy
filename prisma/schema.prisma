@@ -1,0 +1,167 @@
+// SGSitefy data model. Postgres (Vercel Postgres / Neon / Supabase).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  EDITOR
+}
+
+enum ConnType {
+  ACRA
+  GOOGLE
+  FACEBOOK
+}
+
+enum SiteStatus {
+  DRAFT
+  BUILDING
+  PREVIEW
+  PUBLISHED
+}
+
+enum BuildStatus {
+  QUEUED
+  RUNNING
+  DONE
+  FAILED
+}
+
+model User {
+  id            String       @id @default(cuid())
+  email         String       @unique
+  name          String?
+  emailVerified DateTime?
+  image         String?
+  memberships   Membership[]
+  accounts      Account[]
+  sessions      Session[]
+  createdAt     DateTime     @default(now())
+}
+
+// ── Auth.js (NextAuth v5) adapter models ──
+// Account links a User to an OAuth provider (Google / Facebook).
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Organization {
+  id        String        @id @default(cuid())
+  name      String
+  members   Membership[]
+  company   Company?
+  sites     Site[]
+  createdAt DateTime      @default(now())
+}
+
+model Membership {
+  id     String       @id @default(cuid())
+  role   Role         @default(OWNER)
+  userId String
+  user   User         @relation(fields: [userId], references: [id])
+  orgId  String
+  org    Organization @relation(fields: [orgId], references: [id])
+
+  @@unique([userId, orgId])
+}
+
+model Company {
+  id                String       @id @default(cuid())
+  orgId             String       @unique
+  org               Organization @relation(fields: [orgId], references: [id])
+  uen               String?
+  nameEn            String?
+  nameZh            String?
+  ssic              String?
+  address           String?
+  incorporationDate String?
+  status            String?
+  phone             String?
+  email             String?
+  source            String?
+  raw               Json?
+  updatedAt         DateTime     @updatedAt
+}
+
+model Connection {
+  id        String   @id @default(cuid())
+  orgId     String
+  type      ConnType
+  payload   Json?
+  createdAt DateTime @default(now())
+}
+
+model Site {
+  id           String     @id @default(cuid())
+  orgId        String
+  org          Organization @relation(fields: [orgId], references: [id])
+  slug         String     @unique
+  customDomain String?    @unique
+  template     String     @default("industrial")
+  spec         Json?
+  themeTokens  Json?
+  status       SiteStatus @default(DRAFT)
+  assets       Asset[]
+  builds       Build[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Asset {
+  id        String   @id @default(cuid())
+  siteId    String
+  site      Site     @relation(fields: [siteId], references: [id])
+  url       String
+  source    String?
+  slot      String?
+  alt       String?
+  createdAt DateTime @default(now())
+}
+
+model Build {
+  id         String      @id @default(cuid())
+  siteId     String
+  site       Site        @relation(fields: [siteId], references: [id])
+  status     BuildStatus @default(QUEUED)
+  logs       Json?
+  tokenCost  Int?
+  previewUrl String?
+  createdAt  DateTime    @default(now())
+}

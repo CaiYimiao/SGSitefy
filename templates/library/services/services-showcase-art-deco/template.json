@@ -1,0 +1,11 @@
+{
+  "id": "services-showcase-art-deco",
+  "industry": "services",
+  "kind": "showcase",
+  "aesthetic": "art-deco",
+  "fonts": { "display": "Cormorant Garamond", "text": "Jost" },
+  "tokens": { "ink": "#f4e9cf", "bg": "#0f2620", "surface": "#143229", "brand": "#c9a449", "accent": "#9c5a3c" },
+  "sections": ["hero", "marquee", "about", "work", "atelier", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

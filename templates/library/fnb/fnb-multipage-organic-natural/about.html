@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Field & Spoon — About" data-zh="田与勺 — 关于">Field &amp; Spoon — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Field &amp; Spoon" data-zh="田与勺"><span class="leaf"></span>Field &amp; Spoon</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="about.kick" data-en="About us" data-zh="关于我们">About us</p>
+    <h1 data-slot="about.title" data-en="Rooted in the soil we cook from." data-zh="扎根于我们烹饪所用的土地。">Rooted in the soil we cook from.</h1>
+    <p data-slot="about.lead" data-en="Placeholder lead — a sentence on the farm-to-table ethos." data-zh="占位引言——一句话概括从农场到餐桌的理念。">Placeholder lead — a sentence on the farm-to-table ethos.</p>
+  </section>
+
+  <section class="wrap cols">
+    <div class="pic"><img src="https://picsum.photos/seed/organic-about1/700/560" data-slot="about.image" data-en-alt="Farmers and produce" data-zh-alt="农人与作物" alt="Farmers and produce" /></div>
+    <div>
+      <h2 data-slot="about.h2" data-en="From the ground up" data-zh="从土地开始">From the ground up</h2>
+      <p data-slot="about.body" data-en="Placeholder — the founding story and farm partnerships. Keep claims grounded in the real profile." data-zh="占位文字——创立故事与农场合作。所有内容须基于真实资料。">Placeholder — the founding story and farm partnerships. Keep claims grounded in the real profile.</p>
+    </div>
+  </section>
+
+  <section class="wrap cols rev">
+    <div class="pic"><img src="https://picsum.photos/seed/organic-about2/700/560" data-slot="about.image2" data-en-alt="Kitchen prep" data-zh-alt="厨房备餐" alt="Kitchen prep" /></div>
+    <div>
+      <h2 data-slot="about.h3" data-en="Less waste, more flavour" data-zh="减少浪费，增添风味">Less waste, more flavour</h2>
+      <p data-slot="about.body2" data-en="Placeholder — sustainability practices, seasonal menus, composting, packaging. Sincere, specific." data-zh="占位文字——可持续做法、时令菜单、堆肥、包装。真诚而具体。">Placeholder — sustainability practices, seasonal menus, composting, packaging. Sincere, specific.</p>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Taste the difference." data-zh="品尝其中不同。">Taste the difference.</h2>
+    <a class="btn" href="menu.html" data-slot="cta.button" data-en="Browse the menu" data-zh="浏览菜单">Browse the menu</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Field &amp; Spoon" data-zh="田与勺">Field &amp; Spoon</span>
+    <span data-slot="footer.addr" data-en="Dempsey Hill, Singapore" data-zh="新加坡登布西山">Dempsey Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

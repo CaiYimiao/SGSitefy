@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Industrial Works" data-zh="公司 — 工业制造">Company — Industrial Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Marlowe<i>&amp;</i>Co" data-zh="马洛<i>&amp;</i>公司" data-rich>Marlowe<i>&amp;</i>Co</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" aria-current="page" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="masthead">
+  <div class="wrap">
+    <div class="meta">
+      <span data-slot="mast.left" data-en="Est. 1991 · Singapore" data-zh="创立于1991 · 新加坡">Est. 1991 · Singapore</span>
+      <span data-slot="mast.right" data-en="Industrial Fabrication &amp; Supply" data-zh="工业制造与供应">Industrial Fabrication &amp; Supply</span>
+    </div>
+    <h1 data-slot="hero.headline" data-en="The work of" data-zh="工艺成就" data-rich>The work of <em>good metal.</em></h1>
+    <div class="sub">
+      <p class="who" data-slot="hero.who" data-en="A workshop for industry, built on standards." data-zh="为工业而建的工坊，以标准立身。">A workshop for industry, built on standards.</p>
+      <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — what you make, who you supply, and the standard you hold to." data-zh="主标题副文 — 你制造什么、供应给谁、坚守何种标准。">Hero supporting line — what you make, who you supply, and the standard you hold to.</p>
+    </div>
+  </div>
+  <img class="feature-img" src="https://picsum.photos/seed/edit-hero/1700/620" alt="" data-slot="hero.image" data-en-alt="Workshop interior" data-zh-alt="车间内部">
+</header>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-en="The House" data-zh="本坊">The House</p>
+      <p class="lede" data-slot="intro.lede" data-en="Three decades of fabrication, held to a single standard." data-zh="三十年制造，只守一种标准。" data-rich>Three decades of fabrication, held to a <em>single standard.</em></p>
+    </div>
+    <div class="prose">
+      <p data-slot="intro.p1" data-en="Intro paragraph one — the founding, the discipline, and what makes the shop different from the next one down the road." data-zh="介绍段落一 — 创立、纪律，以及与同行的不同之处。">Intro paragraph one — the founding, the discipline, and what makes the shop different from the next one down the road.</p>
+      <p data-slot="intro.p2" data-en="Intro paragraph two — capabilities, the materials you favour, and the clients you serve." data-zh="介绍段落二 — 能力、偏好的材料、服务的客户。">Intro paragraph two — capabilities, the materials you favour, and the clients you serve.</p>
+      <p data-slot="intro.p3" data-en="Intro paragraph three — the promise that keeps customers coming back." data-zh="介绍段落三 — 让客户回头的承诺。">Intro paragraph three — the promise that keeps customers coming back.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="tri" data-slot="trust" data-min="3" data-max="3">
+      <div><div class="n" data-slot="trust.0.n" data-en="33" data-zh="33">33</div><div class="l" data-slot="trust.0.l" data-en="Years in operation" data-zh="经营年数">Years in operation</div></div>
+      <div><div class="n" data-slot="trust.1.n" data-en="ISO" data-zh="ISO">ISO</div><div class="l" data-slot="trust.1.l" data-en="9001 certified" data-zh="9001 认证">9001 certified</div></div>
+      <div><div class="n" data-slot="trust.2.n" data-en="700+" data-zh="700+">700+</div><div class="l" data-slot="trust.2.l" data-en="Projects delivered" data-zh="交付项目">Projects delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="col-head"><h2 data-slot="svc.title" data-en="Selected" data-zh="精选" data-rich>Selected <em>services.</em></h2><p class="muted" data-slot="svc.intro" data-en="A short index of what the workshop offers. The full account lives on the services page." data-zh="工坊服务简明索引。完整内容见服务页。">A short index of what the workshop offers. The full account lives on the services page.</p></div>
+    <div class="index" data-slot="services" data-min="3" data-max="5">
+      <div class="row"><div class="no">01</div><h3 data-slot="services.0.title" data-en="Steel Fabrication" data-zh="钢结构制造">Steel Fabrication</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="row"><div class="no">02</div><h3 data-slot="services.1.title" data-en="Precision Welding" data-zh="精密焊接">Precision Welding</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="row"><div class="no">03</div><h3 data-slot="services.2.title" data-en="Machining" data-zh="机械加工">Machining</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="row"><div class="no">04</div><h3 data-slot="services.3.title" data-en="Finishing &amp; Coating" data-zh="表面处理与喷涂">Finishing &amp; Coating</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="A standing" data-zh="长期" data-rich>A standing <em>invitation.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite a quote, a visit, a conversation." data-zh="行动号召副文 — 邀请报价、到访、洽谈。">CTA supporting line — invite a quote, a visit, a conversation.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><div class="fb" data-slot="footer.name" data-en="Marlowe<i>&amp;</i>Co" data-zh="马洛<i>&amp;</i>公司" data-rich>Marlowe<i>&amp;</i>Co</div><p data-slot="footer.tagline" data-en="Industrial fabrication &amp; supply." data-zh="工业制造与供应。">Industrial fabrication &amp; supply.</p></div>
+      <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+      <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+      <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    </div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Maison — Home" data-zh="名店 — 首页">Maison — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-en="MAISON" data-zh="名店">MAISON</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="hero">
+  <div class="htxt">
+    <span class="kick" data-slot="hero.kick" data-en="Established in Singapore" data-zh="始于新加坡">Established in Singapore</span>
+    <h1 data-slot="hero.headline" data-rich data-en="Quiet luxury, <em>kept simple</em>" data-zh="静奢之美，<em>归于简约</em>">Quiet luxury, <em>kept simple</em></h1>
+    <p data-slot="hero.lede" data-en="One refined sentence on what the house offers and the feeling it leaves behind." data-zh="一句优雅的话，道出本店所呈，与它留下的余韵。">One refined sentence on what the house offers and the feeling it leaves behind.</p>
+    <a class="btn solid" href="products.html" data-slot="hero.cta" data-en="View the collection" data-zh="浏览系列">View the collection</a>
+  </div>
+  <img src="https://picsum.photos/seed/luxehero/900/1100" data-slot="hero.image" data-en-alt="Signature piece" data-zh-alt="招牌之作" alt="Signature piece">
+</section>
+
+<section class="wrap sec">
+  <div class="split">
+    <img class="stx" src="https://picsum.photos/seed/luxefeat1/700/860" data-slot="feature1.image" data-en-alt="Detail" data-zh-alt="细节" alt="Detail">
+    <div>
+      <span class="kick" data-slot="feature1.kick" data-en="The house" data-zh="本店之道">The house</span>
+      <h2 data-slot="feature1.title" data-en="An eye for the considered" data-zh="对细节的执着">An eye for the considered</h2>
+      <p data-slot="feature1.body" data-en="Two or three composed sentences on the philosophy of the house and the care behind each piece." data-zh="两三句从容的话，讲述本店的理念，以及每件作品背后的用心。">Two or three composed sentences on the philosophy of the house and the care behind each piece.</p>
+      <a class="btn" href="about.html" data-slot="feature1.cta" data-en="Our story" data-zh="我们的故事">Our story</a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <blockquote data-slot="quote.text" data-en="“A line a cherished client once shared with us.”" data-zh="“一位挚爱顾客曾与我们分享的一句话。”">“A line a cherished client once shared with us.”</blockquote>
+  <cite data-slot="quote.cite" data-en="A client, with us for years" data-zh="一位多年相伴的顾客">A client, with us for years</cite>
+</section>
+
+<section class="wrap sec">
+  <span class="kick" data-slot="featured.kick" data-en="Selected pieces" data-zh="精选之作">Selected pieces</span>
+  <h2 class="h2" data-slot="featured.title" data-rich data-en="From the <em>collection</em>" data-zh="本季<em>系列</em>">From the <em>collection</em></h2>
+  <div class="pgrid" data-slot="featured" data-min="3" data-max="3">
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxf1/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><h3 data-en="Piece One" data-zh="作品一">Piece One</h3><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxf2/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><h3 data-en="Piece Two" data-zh="作品二">Piece Two</h3><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxf3/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><h3 data-en="Piece Three" data-zh="作品三">Piece Three</h3><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+  </div>
+  <p style="margin-top:var(--gap)"><a class="btn" href="products.html" data-slot="featured.cta" data-en="See all pieces" data-zh="查看全部">See all pieces</a></p>
+</section>
+</main>
+<footer>
+  <div class="fcols">
+    <span class="fbrand" data-slot="footer.brand" data-en="MAISON" data-zh="名店">MAISON</span>
+    <nav aria-label="Footer">
+      <a href="index.html" data-slot="footer.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="footer.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="footer.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="footer.contact" data-en="Visit" data-zh="到店">Visit</a>
+    </nav>
+  </div>
+  <div class="fbot">
+    <span data-slot="footer.copy" data-en="© Maison Name, Singapore" data-zh="© 名店，新加坡">© Maison Name, Singapore</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

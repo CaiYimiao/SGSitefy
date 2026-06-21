@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hawker Hub — Heritage Street Food, Old Airport Road Singapore</title>
+<meta name="description" content="Hawker Hub at 51 Old Airport Road — a family-run hawker stall serving halal Singapore street food daily. Dine-in or takeaway." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   Hawker Hub — F&B one-pager · SGSitefy
+   Theme: forest green #14532d, bright yellow #fef08a, bg #f7fee7
+   ============================================================ */
+:root{
+  --green:#14532d; --green-2:#166534; --green-d:#0c3a1f;
+  --yellow:#fef08a; --yellow-2:#fde047; --yellow-d:#eab308;
+  --ink:#14210f; --muted:#4b5d3f; --line:#dce8c8; --bg:#f7fee7; --soft:#ecfccb;
+  --maxw:1180px; --shadow:0 18px 50px rgba(20,83,45,.14);
+  --fh:'Archivo',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:74px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.65}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:50px;padding:14px 28px;font-family:var(--fb);font-weight:700;font-size:.9rem;letter-spacing:.3px;cursor:pointer;transition:.22s}
+.btn-yellow{background:var(--yellow-2);color:var(--green-d)}.btn-yellow:hover{background:var(--yellow);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff}.btn-ghost:hover{background:#fff;color:var(--green)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-2);transform:translateY(-2px)}
+.eyebrow{font-family:var(--fb);text-transform:uppercase;letter-spacing:3px;color:var(--green-2);font-weight:800;font-size:.78rem;margin-bottom:10px;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:24px;height:3px;background:var(--yellow-d);border-radius:2px}
+.sec{padding:78px 0}
+.lead{color:var(--muted);margin-top:12px;max-width:660px;font-size:1.04rem;line-height:1.7}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+/* ── Header / Nav ── */
+.header{position:sticky;top:0;z-index:80;background:var(--green);box-shadow:0 2px 18px rgba(12,58,31,.28)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mk{width:46px;height:46px;border-radius:14px;background:var(--yellow-2);color:var(--green-d);display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.15rem;flex-shrink:0;transform:rotate(-4deg)}
+.brand b{font-family:var(--fh);color:#fff;font-size:1.16rem;letter-spacing:.2px;display:block;line-height:1.05}
+.brand small{font-size:.62rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fb);font-weight:600;font-size:.86rem;letter-spacing:.2px;color:#eaf5dd;padding:10px 13px;border-radius:8px;transition:.18s}
+.nav>a:hover{background:rgba(255,255,255,.12);color:#fff}
+.lang{border:2px solid var(--yellow-2);background:transparent;color:var(--yellow);font-family:var(--fb);font-weight:700;font-size:.76rem;padding:6px 12px;border-radius:50px;cursor:pointer;margin-left:8px;transition:.18s}
+.lang:hover{background:var(--yellow-2);color:var(--green-d)}
+.nav-cta{background:var(--yellow-2);color:var(--green-d)!important;font-weight:800;margin-left:8px;border-radius:50px;padding:10px 20px;font-size:.84rem}
+.nav-cta:hover{background:var(--yellow);transform:translateY(-1px)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--yellow);cursor:pointer}
+
+/* ── Hero ── */
+.hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden;background:var(--green-d)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 40%,rgba(12,58,31,.55),rgba(12,58,31,.9))}
+.hero .wrap{position:relative;z-index:3}
+.hero-card{max-width:720px;color:#fff}
+.hero .eyebrow{color:var(--yellow);background:rgba(255,255,255,.08);padding:6px 14px;border-radius:50px}
+.hero .eyebrow::before{display:none}
+.hero h1{font-size:4rem;color:#fff;line-height:1;margin-top:18px;font-weight:900}
+.hero h1 .y{color:var(--yellow-2);display:inline-block}
+.hero p{margin:20px 0 30px;font-size:1.16rem;color:#e8f3dc;max-width:560px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ── Quick info bar ── */
+.infobar{background:var(--yellow-2);border-top:4px solid var(--green)}
+.infobar .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.infobar .it{padding:22px 16px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;border-right:2px solid rgba(20,83,45,.18)}
+.infobar .it:last-child{border:none}
+.infobar .ico{font-size:1.7rem}
+.infobar .tx b{display:block;font-family:var(--fh);color:var(--green-d);font-size:1rem;font-weight:800}
+.infobar .tx span{font-size:.8rem;color:var(--green-2);font-weight:600}
+
+/* ── About ── */
+.about .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
+.about .imgwrap{position:relative}
+.about img{width:100%;height:430px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
+.about .stamp{position:absolute;bottom:-22px;right:-12px;background:var(--green);color:var(--yellow);font-family:var(--fh);font-weight:900;border-radius:18px;padding:16px 22px;text-align:center;box-shadow:var(--shadow);transform:rotate(-5deg)}
+.about .stamp b{display:block;font-size:1.9rem;line-height:1}
+.about .stamp span{font-size:.66rem;letter-spacing:2px;text-transform:uppercase;color:#dfeccb}
+.about ul{list-style:none;margin:18px 0 0}
+.about li{padding-left:30px;position:relative;margin-bottom:11px;color:var(--muted);font-size:.96rem}
+.about li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--green-d);background:var(--yellow-2);width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:.7rem;font-weight:800}
+
+/* ── Menu ── */
+.menu{background:var(--soft)}
+.menu-cat{margin-top:46px}
+.menu-cat:first-of-type{margin-top:36px}
+.cat-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.cat-head h3{font-family:var(--fh);font-size:1.7rem;color:var(--green);font-weight:900}
+.cat-head .line{flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--yellow-d) 0 8px,transparent 8px 16px);border-radius:2px}
+.dish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dish{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.26s;box-shadow:0 4px 14px rgba(20,83,45,.06)}
+.dish:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.dish img{width:100%;height:150px;object-fit:cover}
+.dish .db{padding:16px}
+.dish h4{font-family:var(--fh);font-size:1.02rem;color:var(--ink);margin-bottom:4px;font-weight:800}
+.dish p{font-size:.82rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.dish .price{display:inline-block;background:var(--yellow-2);color:var(--green-d);font-family:var(--fh);font-weight:900;font-size:.95rem;padding:4px 12px;border-radius:50px}
+
+/* ── Why us ── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.why{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 24px;transition:.25s;box-shadow:0 4px 12px rgba(20,83,45,.05)}
+.why:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.why .ico{width:52px;height:52px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:1.6rem;margin-bottom:14px}
+.why h4{font-family:var(--fh);color:var(--green);font-size:1.12rem;margin-bottom:7px;font-weight:800}
+.why p{font-size:.9rem;color:var(--muted)}
+
+/* ── Gallery ── */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.gal figure{position:relative;border-radius:14px;overflow:hidden;margin:0}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:.5s}.gal figure:hover img{transform:scale(1.08)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 12px;background:linear-gradient(transparent,rgba(12,58,31,.88));color:#fff;font-size:.84rem;font-weight:700;opacity:0;transition:.3s}
+.gal figure:hover figcaption{opacity:1}
+
+/* ── Location + hours ── */
+.loc{background:var(--green)}
+.loc .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.loc .info{background:var(--green-d);color:#fff;padding:44px 40px}
+.loc .info h3{color:var(--yellow);font-size:1.5rem;margin-bottom:18px;font-weight:900}
+.loc .info p{color:#dceccb;margin-bottom:10px;font-size:.96rem;display:flex;gap:10px;align-items:flex-start}
+.loc .info .ic{color:var(--yellow-2)}
+.hours{margin-top:24px;border-top:1px solid rgba(255,255,255,.15);padding-top:20px}
+.hours .row{display:flex;justify-content:space-between;padding:7px 0;font-size:.92rem;color:#dceccb;border-bottom:1px solid rgba(255,255,255,.08)}
+.hours .row:last-child{border:none}
+.hours .row b{color:#fff;font-weight:700}
+.loc iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+
+/* ── Contact ── */
+.contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:start}
+.clist{list-style:none}
+.clist li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.95rem;align-items:flex-start}
+.clist li:last-child{border:none}
+.clist .cic{width:38px;height:38px;border-radius:12px;background:var(--yellow-2);color:var(--green-d);display:grid;place-items:center;flex-shrink:0;font-size:1.1rem}
+.clist b{color:var(--ink);display:block;font-size:.84rem;text-transform:uppercase;letter-spacing:.5px}
+.cform{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+.cform h3{font-family:var(--fh);color:var(--green);font-size:1.4rem;margin-bottom:18px;font-weight:900}
+.f-group{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;margin-bottom:14px}.f.full{grid-column:1/-1}
+.f label{font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.f input,.f textarea,.f select{border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff;transition:.18s}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--yellow-d);box-shadow:0 0 0 3px rgba(234,179,8,.18)}
+
+/* ── Footer ── */
+.foot{background:var(--green-d);color:#aac49a}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1.2fr;gap:34px;padding:54px 0 36px}
+.foot h4{color:#fff;font-family:var(--fh);font-size:1rem;margin-bottom:14px;font-weight:800}
+.foot a{display:block;color:#aac49a;padding:4px 0;font-size:.9rem}.foot a:hover{color:var(--yellow)}
+.foot p{font-size:.88rem;margin-bottom:8px;color:#aac49a}
+.foot .cn{color:var(--yellow);letter-spacing:1px;margin:8px 0 6px;font-family:var(--fh);font-size:.92rem}
+.foot .soc{display:flex;gap:8px;margin:14px 0}
+.foot .soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;color:var(--yellow);font-size:.9rem}
+.foot .soc a:hover{background:var(--yellow-2);color:var(--green-d)}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:16px 24px;font-size:.8rem;color:#7d9a6c;flex-wrap:wrap;gap:6px}
+
+/* ── FABs ── */
+.fab{position:fixed;right:22px;z-index:70;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.24);cursor:pointer;border:none;color:#fff;transition:.25s}
+.fab-wa{bottom:88px;background:#25d366;font-size:1.5rem}.fab-wa:hover{transform:scale(1.08)}
+.fab-top{bottom:22px;background:var(--green);font-size:1.4rem;opacity:0;pointer-events:none}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* ── Responsive ── */
+@media(max-width:960px){
+  .nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--green);padding:12px;box-shadow:var(--shadow);z-index:79}
+  .nav.open{display:flex}.burger{display:block}
+  .about .grid,.loc .grid,.contact .grid{grid-template-columns:1fr;gap:34px}
+  .dish-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .infobar .grid{grid-template-columns:1fr}
+  .infobar .it{border-right:none;border-bottom:2px solid rgba(20,83,45,.18)}
+  .infobar .it:last-child{border:none}
+  .hero h1{font-size:2.6rem}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .f-group{grid-template-columns:1fr}
+  .about .stamp{right:12px}
+}
+@media(max-width:560px){
+  .dish-grid,.why-grid,.gal,.foot .grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}
+}
+:focus-visible{outline:3px solid var(--yellow-d);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Hawker Hub home">
+      <span class="mk" aria-hidden="true">HH</span>
+      <span><b data-en="Hawker Hub" data-zh="小贩中心">Hawker Hub</b><small data-en="Old Airport Road · Est. 2018" data-zh="旧机场路 · 创立2018">Old Airport Road · Est. 2018</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about" data-en="Story" data-zh="故事">Story</a>
+      <a href="#menu" data-en="Menu" data-zh="菜单">Menu</a>
+      <a href="#why" data-en="Why Us" data-zh="为何选我们">Why Us</a>
+      <a href="#gallery" data-en="Gallery" data-zh="图集">Gallery</a>
+      <a href="#location" data-en="Find Us" data-zh="如何到访">Find Us</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="#contact" class="nav-cta" data-en="Order Now" data-zh="立即订购">Order Now</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top" aria-label="Hero">
+  <img src="https://picsum.photos/seed/hawkerhub-hero/1600/900" alt="Sizzling hawker wok with street food" />
+  <div class="wrap">
+    <div class="hero-card">
+      <span class="eyebrow" data-en="🔥 Halal · Open Daily · Old Airport Road" data-zh="🔥 清真 · 每日营业 · 旧机场路">🔥 Halal · Open Daily · Old Airport Road</span>
+      <h1>
+        <span data-rich
+          data-en="Real hawker flavour, <span class='y'>wok-fired daily</span>"
+          data-zh="正宗小贩风味，<span class='y'>每日现炒现做</span>">Real hawker flavour, <span class="y">wok-fired daily</span></span>
+      </h1>
+      <p data-en="Three generations, one family recipe. Tuck into hearty Singapore street food at #01-15 Old Airport Road — dine-in or grab-and-go, every plate cooked fresh to order." data-zh="三代传承，一脉家传秘方。在旧机场路 #01-15 大快朵颐地道新加坡街头美食——堂食或外带，每一盘都现点现做。">Three generations, one family recipe. Tuck into hearty Singapore street food at #01-15 Old Airport Road — dine-in or grab-and-go, every plate cooked fresh to order.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn btn-yellow" data-en="See the Menu" data-zh="查看菜单">See the Menu</a>
+        <a href="#location" class="btn btn-ghost" data-en="Get Directions" data-zh="获取路线">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick info bar -->
+<section class="infobar" aria-label="Quick info">
+  <div class="wrap">
+    <div class="grid">
+      <div class="it"><span class="ico" aria-hidden="true">☪</span><div class="tx"><b data-en="Halal Certified" data-zh="清真认证">Halal Certified</b><span data-en="Muslim-owned kitchen" data-zh="穆斯林经营厨房">Muslim-owned kitchen</span></div></div>
+      <div class="it"><span class="ico" aria-hidden="true">⏰</span><div class="tx"><b data-en="Open Daily" data-zh="每日营业">Open Daily</b><span data-en="10:30am – 9:30pm" data-zh="上午10:30 – 晚上9:30">10:30am – 9:30pm</span></div></div>
+      <div class="it"><span class="ico" aria-hidden="true">🥡</span><div class="tx"><b data-en="Dine-in &amp; Takeaway" data-zh="堂食与外带">Dine-in &amp; Takeaway</b><span data-en="Islandwide delivery too" data-zh="亦提供全岛外送">Islandwide delivery too</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <div class="imgwrap reveal">
+        <img src="https://picsum.photos/seed/hawkerhub-family/900/700" alt="Family hawker team behind the stall" />
+        <div class="stamp"><b>2018</b><span data-en="Since" data-zh="创立于">Since</span></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</span>
+        <h2 data-en="A family stall with a big appetite for tradition" data-zh="一家充满传统热忱的家族摊位">A family stall with a big appetite for tradition</h2>
+        <p class="lead" data-en="Hawker Hub began in 2018 when the Tan family brought Grandpa's char kway teow recipe to a humble unit at Old Airport Road. Today we still fire every order in cast-iron woks over roaring flames — the only way real hawker food should taste." data-zh="小贩中心始于2018年，陈家将爷爷的炒粿条秘方带到旧机场路一个朴实的摊位。时至今日，我们仍以铸铁镬大火现炒每一道菜——这才是真正小贩美食应有的滋味。">Hawker Hub began in 2018 when the Tan family brought Grandpa's char kway teow recipe to a humble unit at Old Airport Road. Today we still fire every order in cast-iron woks over roaring flames — the only way real hawker food should taste.</p>
+        <ul>
+          <li data-en="Family recipes passed down three generations" data-zh="家传秘方，三代传承">Family recipes passed down three generations</li>
+          <li data-en="Fresh ingredients sourced daily from the wet market" data-zh="每日从巴刹采购新鲜食材">Fresh ingredients sourced daily from the wet market</li>
+          <li data-en="Halal certified — everyone's welcome at our table" data-zh="清真认证——欢迎每一位食客">Halal certified — everyone's welcome at our table</li>
+        </ul>
+        <a href="#menu" class="btn btn-green" style="margin-top:22px" data-en="Explore Our Dishes →" data-zh="探索我们的美食 →">Explore Our Dishes →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="The Menu" data-zh="菜单">The Menu</span>
+      <h2 class="reveal" data-en="What's cooking today" data-zh="今日精选">What's cooking today</h2>
+      <p class="lead reveal" style="margin:12px auto 0" data-en="All dishes wok-fired to order. Prices in S$, nett — no GST, no service charge." data-zh="所有菜肴现点现炒。价格以新币计，净价——无消费税，无服务费。">All dishes wok-fired to order. Prices in S$, nett — no GST, no service charge.</p>
+    </div>
+
+    <!-- Category 1: Wok Classics -->
+    <div class="menu-cat reveal">
+      <div class="cat-head"><h3 data-en="Wok Classics" data-zh="镬气经典">Wok Classics</h3><span class="line" aria-hidden="true"></span></div>
+      <div class="dish-grid">
+        <div class="dish"><img src="https://picsum.photos/seed/hh-ckt/400/300" alt="Char kway teow"><div class="db"><h4 data-en="Char Kway Teow" data-zh="炒粿条">Char Kway Teow</h4><p data-en="Flat rice noodles, cockles, lap cheong, smoky wok hei." data-zh="扁河粉、鲜蚶、腊肠，十足镬气。">Flat rice noodles, cockles, lap cheong, smoky wok hei.</p><span class="price">S$6.50</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-hokkien/400/300" alt="Hokkien mee"><div class="db"><h4 data-en="Hokkien Prawn Mee" data-zh="福建虾面">Hokkien Prawn Mee</h4><p data-en="Egg noodles braised in rich prawn-and-pork stock." data-zh="黄面以浓郁虾猪高汤焖煮。">Egg noodles braised in rich prawn-and-pork stock.</p><span class="price">S$7.00</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-friedrice/400/300" alt="Fried rice"><div class="db"><h4 data-en="Sambal Fried Rice" data-zh="参峇炒饭">Sambal Fried Rice</h4><p data-en="Fragrant wok-tossed rice with house sambal &amp; egg." data-zh="香喷喷的镬炒饭，配自制参峇与煎蛋。">Fragrant wok-tossed rice with house sambal &amp; egg.</p><span class="price">S$6.00</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-beehoon/400/300" alt="Fried bee hoon"><div class="db"><h4 data-en="Singapore Bee Hoon" data-zh="星洲炒米粉">Singapore Bee Hoon</h4><p data-en="Springy rice vermicelli, curry spice, prawns &amp; veg." data-zh="弹牙米粉，咖喱香料，鲜虾蔬菜。">Springy rice vermicelli, curry spice, prawns &amp; veg.</p><span class="price">S$6.50</span></div></div>
+      </div>
+    </div>
+
+    <!-- Category 2: Rice & Soup -->
+    <div class="menu-cat reveal">
+      <div class="cat-head"><h3 data-en="Rice &amp; Soup" data-zh="饭与汤">Rice &amp; Soup</h3><span class="line" aria-hidden="true"></span></div>
+      <div class="dish-grid">
+        <div class="dish"><img src="https://picsum.photos/seed/hh-chickenrice/400/300" alt="Chicken rice"><div class="db"><h4 data-en="Hainanese Chicken Rice" data-zh="海南鸡饭">Hainanese Chicken Rice</h4><p data-en="Tender poached chicken, fragrant rice, chilli &amp; ginger." data-zh="嫩滑白斩鸡、香米饭，配辣椒姜蓉。">Tender poached chicken, fragrant rice, chilli &amp; ginger.</p><span class="price">S$5.50</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-laksa/400/300" alt="Laksa"><div class="db"><h4 data-en="Katong Laksa" data-zh="加东叻沙">Katong Laksa</h4><p data-en="Coconut curry broth, thick bee hoon, prawns, cockles." data-zh="椰香咖喱汤底，粗米粉、鲜虾与鲜蚶。">Coconut curry broth, thick bee hoon, prawns, cockles.</p><span class="price">S$7.00</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-curry/400/300" alt="Curry chicken"><div class="db"><h4 data-en="Curry Chicken Rice" data-zh="咖喱鸡饭">Curry Chicken Rice</h4><p data-en="Slow-simmered curry with potato over steamed rice." data-zh="慢炖咖喱配马铃薯，淋上白饭。">Slow-simmered curry with potato over steamed rice.</p><span class="price">S$6.50</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-soup/400/300" alt="Bak kut teh"><div class="db"><h4 data-en="Peppery Bak Kut Teh" data-zh="胡椒肉骨茶">Peppery Bak Kut Teh</h4><p data-en="Pork rib soup, white pepper, garlic &amp; dough fritters." data-zh="排骨汤、白胡椒、蒜头配油条。">Pork rib soup, white pepper, garlic &amp; dough fritters.</p><span class="price">S$8.00</span></div></div>
+      </div>
+    </div>
+
+    <!-- Category 3: Sides & Sips -->
+    <div class="menu-cat reveal">
+      <div class="cat-head"><h3 data-en="Sides &amp; Sips" data-zh="小食与饮品">Sides &amp; Sips</h3><span class="line" aria-hidden="true"></span></div>
+      <div class="dish-grid">
+        <div class="dish"><img src="https://picsum.photos/seed/hh-satay/400/300" alt="Satay"><div class="db"><h4 data-en="Chicken Satay (10 sticks)" data-zh="鸡肉沙嗲（10串）">Chicken Satay (10 sticks)</h4><p data-en="Charcoal-grilled skewers with peanut sauce." data-zh="炭烤鸡肉串，配花生酱。">Charcoal-grilled skewers with peanut sauce.</p><span class="price">S$8.00</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-popiah/400/300" alt="Popiah"><div class="db"><h4 data-en="Fresh Popiah" data-zh="新鲜薄饼">Fresh Popiah</h4><p data-en="Soft rolls stuffed with braised turnip &amp; peanuts." data-zh="软润薄饼，包裹焖萝卜与花生。">Soft rolls stuffed with braised turnip &amp; peanuts.</p><span class="price">S$4.50</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-teh/400/300" alt="Teh tarik"><div class="db"><h4 data-en="Teh Tarik" data-zh="拉茶">Teh Tarik</h4><p data-en="Frothy pulled milk tea, hot or iced." data-zh="香浓拉茶，冷热皆宜。">Frothy pulled milk tea, hot or iced.</p><span class="price">S$2.00</span></div></div>
+        <div class="dish"><img src="https://picsum.photos/seed/hh-chendol/400/300" alt="Chendol"><div class="db"><h4 data-en="Gula Melaka Chendol" data-zh="椰糖煎蕊">Gula Melaka Chendol</h4><p data-en="Shaved ice, pandan jelly, coconut &amp; palm sugar." data-zh="刨冰、香兰青粿条、椰浆与椰糖。">Shaved ice, pandan jelly, coconut &amp; palm sugar.</p><span class="price">S$3.50</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="sec" id="why">
+  <div class="wrap center">
+    <span class="eyebrow reveal" data-en="Why Hawker Hub" data-zh="为何选小贩中心">Why Hawker Hub</span>
+    <h2 class="reveal" data-en="Food worth queuing for" data-zh="值得排队的美食">Food worth queuing for</h2>
+    <div class="why-grid" style="text-align:left">
+      <div class="why reveal"><div class="ico" aria-hidden="true">🔥</div><h4 data-en="True Wok Hei" data-zh="十足镬气">True Wok Hei</h4><p data-en="High-flame cast-iron woks give every plate that smoky char you can't fake." data-zh="大火铸铁镬赋予每一盘无可替代的焦香镬气。">High-flame cast-iron woks give every plate that smoky char you can't fake.</p></div>
+      <div class="why reveal"><div class="ico" aria-hidden="true">👨‍👩‍👧</div><h4 data-en="Family Recipes" data-zh="家传秘方">Family Recipes</h4><p data-en="Three generations of seasoning, sambal and stock — nothing store-bought." data-zh="三代传承的调味、参峇与高汤——绝不假手现成品。">Three generations of seasoning, sambal and stock — nothing store-bought.</p></div>
+      <div class="why reveal"><div class="ico" aria-hidden="true">☪</div><h4 data-en="Halal Certified" data-zh="清真认证">Halal Certified</h4><p data-en="Fully halal kitchen so the whole neighbourhood can dine with us." data-zh="全清真厨房，让整个社区都能与我们共享美食。">Fully halal kitchen so the whole neighbourhood can dine with us.</p></div>
+      <div class="why reveal"><div class="ico" aria-hidden="true">🛵</div><h4 data-en="Quick Takeaway" data-zh="快速外带">Quick Takeaway</h4><p data-en="Order ahead by phone and skip the queue, or get it delivered islandwide." data-zh="电话预订免排队，或享全岛外送服务。">Order ahead by phone and skip the queue, or get it delivered islandwide.</p></div>
+      <div class="why reveal"><div class="ico" aria-hidden="true">💰</div><h4 data-en="Hawker Prices" data-zh="小贩价格">Hawker Prices</h4><p data-en="Honest, nett pricing. No GST, no service charge — just good value." data-zh="实在净价。无消费税、无服务费——物超所值。">Honest, nett pricing. No GST, no service charge — just good value.</p></div>
+      <div class="why reveal"><div class="ico" aria-hidden="true">🌿</div><h4 data-en="Daily Fresh" data-zh="每日新鲜">Daily Fresh</h4><p data-en="We shop the wet market every morning — nothing sits overnight." data-zh="我们每天清晨采购巴刹食材——绝不隔夜。">We shop the wet market every morning — nothing sits overnight.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="sec" id="gallery" style="background:var(--soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal" data-en="Gallery" data-zh="图集">Gallery</span>
+    <h2 class="reveal" data-en="Straight from the wok" data-zh="刚出镬的美味">Straight from the wok</h2>
+    <div class="gal reveal" role="list">
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g1/500/400" alt="Char kway teow plate"><figcaption data-en="Char Kway Teow" data-zh="炒粿条">Char Kway Teow</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g2/500/400" alt="Bowl of laksa"><figcaption data-en="Katong Laksa" data-zh="加东叻沙">Katong Laksa</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g3/500/400" alt="Satay on grill"><figcaption data-en="Charcoal Satay" data-zh="炭烤沙嗲">Charcoal Satay</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g4/500/400" alt="Chicken rice plate"><figcaption data-en="Chicken Rice" data-zh="鸡饭">Chicken Rice</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g5/500/400" alt="Teh tarik glass"><figcaption data-en="Teh Tarik" data-zh="拉茶">Teh Tarik</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/hh-g6/500/400" alt="Chendol dessert"><figcaption data-en="Gula Melaka Chendol" data-zh="椰糖煎蕊">Gula Melaka Chendol</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Location + Hours -->
+<section class="sec loc" id="location">
+  <div class="wrap">
+    <div class="grid">
+      <div class="info">
+        <span class="eyebrow" style="color:var(--yellow)" data-en="Find Us" data-zh="如何到访">Find Us</span>
+        <h3 data-en="Old Airport Road Food Centre" data-zh="旧机场路熟食中心">Old Airport Road Food Centre</h3>
+        <p><span class="ic" aria-hidden="true">📍</span><span>51 Old Airport Road, #01-15<br>Singapore 390051</span></p>
+        <p><span class="ic" aria-hidden="true">🚇</span><span data-en="5 min walk from Dakota MRT (DT25)" data-zh="距离 Dakota 地铁站 (DT25) 步行5分钟">5 min walk from Dakota MRT (DT25)</span></p>
+        <p><span class="ic" aria-hidden="true">☎</span><span><a href="tel:+6567428181">+65 6742 8181</a></span></p>
+        <div class="hours">
+          <div class="row"><span data-en="Monday – Thursday" data-zh="周一至周四">Monday – Thursday</span><b>10:30am – 9:30pm</b></div>
+          <div class="row"><span data-en="Friday – Sunday" data-zh="周五至周日">Friday – Sunday</span><b>10:00am – 10:00pm</b></div>
+          <div class="row"><span data-en="Public Holidays" data-zh="公共假期">Public Holidays</span><b data-en="Open as usual" data-zh="照常营业">Open as usual</b></div>
+        </div>
+      </div>
+      <iframe title="Hawker Hub location map" loading="lazy" src="https://maps.google.com/maps?q=51%20Old%20Airport%20Road%20Singapore&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow" data-en="Get in Touch" data-zh="联系我们">Get in Touch</span>
+        <h2 data-en="Order ahead or cater your next event" data-zh="提前订餐或承办您的活动">Order ahead or cater your next event</h2>
+        <p class="lead" data-en="Ring us to pre-order and skip the lunch queue, or ask about bulk catering trays for offices and gatherings." data-zh="致电预订，午餐免排队；亦可咨询办公室与聚会的大盘外烩服务。">Ring us to pre-order and skip the lunch queue, or ask about bulk catering trays for offices and gatherings.</p>
+        <ul class="clist">
+          <li><span class="cic" aria-hidden="true">📍</span><span><b data-en="Address" data-zh="地址">Address</b>51 Old Airport Road, #01-15, Singapore 390051</span></li>
+          <li><span class="cic" aria-hidden="true">☎</span><span><b data-en="Phone" data-zh="电话">Phone</b><a href="tel:+6567428181">+65 6742 8181</a></span></li>
+          <li><span class="cic" aria-hidden="true">✉</span><span><b data-en="Email" data-zh="电邮">Email</b><a href="mailto:eat@hawkerhub.sg">eat@hawkerhub.sg</a></span></li>
+          <li><span class="cic" aria-hidden="true">🏢</span><span><b data-en="Company" data-zh="公司">Company</b>Hawker Hub Pte Ltd · UEN 201833221J</span></li>
+        </ul>
+      </div>
+      <form class="cform reveal" onsubmit="return handleSubmit(event)">
+        <h3 data-en="Send us an order enquiry" data-zh="发送订餐查询">Send us an order enquiry</h3>
+        <div class="f-group">
+          <div class="f"><label for="n" data-en="Name" data-zh="姓名">Name</label><input id="n" name="name" type="text" required></div>
+          <div class="f"><label for="p" data-en="Phone" data-zh="电话">Phone</label><input id="p" name="phone" type="tel" required></div>
+        </div>
+        <div class="f full"><label for="t" data-en="Order type" data-zh="订餐类型">Order type</label>
+          <select id="t" name="type">
+            <option data-en="Takeaway pre-order" data-zh="外带预订">Takeaway pre-order</option>
+            <option data-en="Catering enquiry" data-zh="外烩查询">Catering enquiry</option>
+            <option data-en="Islandwide delivery" data-zh="全岛外送">Islandwide delivery</option>
+          </select>
+        </div>
+        <div class="f full"><label for="m" data-en="Your message" data-zh="您的留言">Your message</label><textarea id="m" name="message" rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-green" style="width:100%" data-en="Send Enquiry" data-zh="发送查询">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="#top" class="brand" aria-label="Hawker Hub">
+          <span class="mk" aria-hidden="true">HH</span>
+          <span><b style="color:#fff;font-family:var(--fh)">Hawker Hub</b><small>小贩中心私人有限公司</small></span>
+        </a>
+        <p class="cn">小贩中心私人有限公司</p>
+        <p data-en="Family-run hawker stall serving halal Singapore street food at Old Airport Road since 2018." data-zh="家族经营的小贩摊位，自2018年起在旧机场路供应清真新加坡街头美食。">Family-run hawker stall serving halal Singapore street food at Old Airport Road since 2018.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="TikTok">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Explore" data-zh="探索">Explore</h4>
+        <a href="#about" data-en="Our Story" data-zh="我们的故事">Our Story</a>
+        <a href="#menu" data-en="Menu" data-zh="菜单">Menu</a>
+        <a href="#why" data-en="Why Us" data-zh="为何选我们">Why Us</a>
+        <a href="#gallery" data-en="Gallery" data-zh="图集">Gallery</a>
+        <a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Visit Us" data-zh="到访我们">Visit Us</h4>
+        <p>51 Old Airport Road, #01-15<br>Singapore 390051</p>
+        <p><a href="tel:+6567428181">+65 6742 8181</a></p>
+        <p><a href="mailto:eat@hawkerhub.sg">eat@hawkerhub.sg</a></p>
+        <p data-en="Open daily · 10:30am – 9:30pm" data-zh="每日营业 · 上午10:30 – 晚上9:30">Open daily · 10:30am – 9:30pm</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Hawker Hub Pte Ltd · UEN 201833221J</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FABs -->
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ── Language toggle ── */
+var ZH=false;
+function toggleLang(){
+  ZH=!ZH;
+  document.documentElement.lang=ZH?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=ZH?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    if(v==null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=ZH?'EN':'中文';});
+}
+
+/* ── Hamburger ── */
+var burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){nav.classList.toggle('open');});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');});});
+
+/* ── Reveal on scroll ── */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* ── Back to top ── */
+var toTop=document.getElementById('toTop');
+window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>500);});
+
+/* ── Form ── */
+function handleSubmit(e){e.preventDefault();alert(ZH?'谢谢！我们会尽快与您联系。':'Thank you! We will get back to you shortly.');e.target.reset();return false;}
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

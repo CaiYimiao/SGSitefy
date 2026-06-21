@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Consult SG — Digital Strategy, Design &amp; Growth Consultancy, Singapore</title>
+<meta name="description" content="Consult SG Pte Ltd is a Singapore digital consultancy (est. 2019). Strategy, brand, web/app, growth, data and automation for ambitious teams." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#18181b; --ink-2:#27272a; --bg:#fff; --soft:#f4f4f5; --line:#e4e4e7;
+  --blue:#3b82f6; --blue-d:#2563eb; --blue-l:#dbeafe;
+  --muted:#71717a;
+  --maxw:1200px;
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:74px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:900;line-height:1.02;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:9px;border:none;border-radius:100px;padding:14px 26px;font-family:var(--fh);font-weight:800;font-size:.86rem;letter-spacing:.2px;cursor:pointer;transition:.22s}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,130,246,.35)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--ink-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.3);color:#fff}.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-line{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.72rem;color:var(--blue);background:var(--blue-l);padding:7px 14px;border-radius:100px}
+.sec{padding:104px 0}
+.sec h2{font-size:3rem;letter-spacing:-.03em}
+.lead{color:var(--muted);margin-top:18px;max-width:600px;font-size:1.08rem;line-height:1.65}
+.center{text-align:center}.center .lead{margin:18px auto 0}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
+
+/* header */
+.header{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+.header.scrolled{border-bottom-color:var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--fh);font-weight:900;font-size:1.18rem;letter-spacing:-.02em}
+.brand .dot{width:34px;height:34px;border-radius:9px;background:var(--ink);display:grid;place-items:center;flex-shrink:0;position:relative}
+.brand .dot::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--blue)}
+.brand span{color:var(--ink)}.brand i{color:var(--blue);font-style:normal}
+.nav{display:flex;align-items:center;gap:4px}
+.nav>a{font-family:var(--fh);font-weight:700;font-size:.84rem;color:var(--ink-2);padding:9px 14px;border-radius:8px;transition:.2s}
+.nav>a:hover{background:var(--soft)}
+.lang{border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:var(--fh);font-weight:800;font-size:.78rem;padding:8px 12px;border-radius:8px;cursor:pointer;margin-left:8px;transition:.2s}
+.lang:hover{border-color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff!important;border-radius:100px;padding:10px 20px!important;margin-left:8px}
+.nav-cta:hover{background:var(--blue)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--ink);cursor:pointer}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:120px 0 130px}
+.hero::before{content:"";position:absolute;top:-200px;right:-150px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.5),transparent 62%);filter:blur(20px)}
+.hero::after{content:"";position:absolute;bottom:-260px;left:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.22),transparent 60%);filter:blur(20px)}
+.hero .wrap{position:relative;z-index:2;max-width:1000px;text-align:center}
+.hero .tag{background:rgba(59,130,246,.16);color:#93c5fd;margin-bottom:26px}
+.hero h1{font-size:5rem;color:#fff;letter-spacing:-.04em;line-height:.96}
+.hero h1 .grad{background:linear-gradient(100deg,#3b82f6,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{margin:28px auto 38px;font-size:1.28rem;color:#a1a1aa;max-width:660px;line-height:1.55}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-top:64px;padding-top:42px;border-top:1px solid rgba(255,255,255,.1)}
+.hero-stats div b{font-family:var(--fh);font-size:2.6rem;font-weight:900;background:linear-gradient(100deg,#3b82f6,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.hero-stats div span{font-size:.84rem;color:#a1a1aa;letter-spacing:.5px}
+
+/* logo strip */
+.logos{background:#fff;border-bottom:1px solid var(--line)}
+.logos .wrap{padding:44px 24px}
+.logos .lab{text-align:center;font-family:var(--fh);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.74rem;color:var(--muted);margin-bottom:28px}
+.logos .row{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.logos .chip{font-family:var(--fh);font-weight:900;font-size:1.15rem;color:var(--ink);opacity:.42;letter-spacing:-.02em;transition:.3s;padding:6px 4px;display:flex;align-items:center;gap:7px}
+.logos .chip:hover{opacity:1;color:var(--blue)}
+.logos .chip .b{width:18px;height:18px;border-radius:5px;background:currentColor}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;transition:.3s;position:relative;overflow:hidden}
+.svc:hover{border-color:var(--ink);transform:translateY(-6px);box-shadow:0 24px 50px rgba(24,24,27,.1)}
+.svc .n{font-family:var(--fh);font-weight:900;font-size:.85rem;color:var(--muted);letter-spacing:1px}
+.svc .ic{width:60px;height:60px;border-radius:16px;background:var(--soft);color:var(--ink);display:grid;place-items:center;margin:18px 0 22px;transition:.3s}
+.svc:hover .ic{background:var(--blue);color:#fff}
+.svc .ic svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:1.35rem;letter-spacing:-.02em}
+.svc p{font-size:.94rem;color:var(--muted);line-height:1.65;margin-top:10px}
+
+/* process */
+.process{background:var(--ink);color:#fff}
+.process h2{color:#fff}
+.process .lead{color:#a1a1aa}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px;position:relative}
+.step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:32px 26px;transition:.3s}
+.step:hover{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.5)}
+.step .num{font-family:var(--fh);font-weight:900;font-size:2.6rem;background:linear-gradient(100deg,#3b82f6,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{color:#fff;font-size:1.3rem;margin:14px 0 10px}
+.step p{color:#a1a1aa;font-size:.92rem;line-height:1.6}
+
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.case{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:.3s;display:flex;flex-direction:column}
+.case:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(24,24,27,.12)}
+.case .img{height:200px;overflow:hidden;position:relative}
+.case .img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.case:hover .img img{transform:scale(1.06)}
+.case .img .cat{position:absolute;top:16px;left:16px;background:rgba(24,24,27,.85);color:#fff;font-family:var(--fh);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;padding:6px 12px;border-radius:100px;backdrop-filter:blur(6px)}
+.case .body{padding:26px;display:flex;flex-direction:column;flex:1}
+.case h3{font-size:1.28rem;letter-spacing:-.02em}
+.case p{font-size:.92rem;color:var(--muted);line-height:1.6;margin-top:10px;flex:1}
+.case .metric{display:flex;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.case .metric div b{font-family:var(--fh);font-weight:900;font-size:1.7rem;color:var(--blue);display:block;line-height:1}
+.case .metric div span{font-size:.76rem;color:var(--muted);letter-spacing:.3px}
+
+/* why */
+.why{background:var(--soft)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+.w{background:#fff;border-radius:18px;padding:30px;border:1px solid var(--line);transition:.3s}
+.w:hover{border-color:var(--blue);box-shadow:0 16px 36px rgba(59,130,246,.12)}
+.w .pin{width:44px;height:44px;border-radius:12px;background:var(--blue-l);color:var(--blue-d);display:grid;place-items:center;font-family:var(--fh);font-weight:900;margin-bottom:16px}
+.w h4{font-size:1.2rem;letter-spacing:-.02em}
+.w p{color:var(--muted);font-size:.93rem;line-height:1.65;margin-top:9px}
+
+/* culture gallery */
+.culture h2{color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px;margin-top:54px}
+.gallery .g{border-radius:18px;overflow:hidden;position:relative}
+.gallery .g img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gallery .g:hover img{transform:scale(1.07)}
+.gallery .g::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(24,24,27,.4),transparent 55%);opacity:0;transition:.3s}
+.gallery .g:hover::after{opacity:1}
+.gallery .g1{grid-column:span 2;grid-row:span 2}
+.gallery .g4{grid-column:span 2}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;top:-180px;left:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.3),transparent 62%);filter:blur(20px)}
+.contact-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.contact h2{color:#fff;font-size:3rem}
+.contact .lead{color:#a1a1aa}
+.clist{list-style:none;margin-top:30px}
+.clist li{display:flex;gap:16px;padding:15px 0;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.1)}
+.clist li:last-child{border:none}
+.clist .ic{width:42px;height:42px;border-radius:12px;background:rgba(59,130,246,.18);color:#93c5fd;display:grid;place-items:center;flex-shrink:0}
+.clist .txt{color:#d4d4d8;font-size:.96rem}
+.clist .txt strong{display:block;color:#fff;font-family:var(--fh);font-size:.74rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.cform{background:#fff;border-radius:22px;padding:38px;color:var(--ink)}
+.cform h3{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:6px}
+.cform .note{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column}.f.full{grid-column:1/-1}
+.f label{font-family:var(--fh);font-size:.72rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.f input,.f textarea,.f select{border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:.95rem;color:var(--ink);transition:.2s;background:var(--soft)}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(59,130,246,.12)}
+.f textarea{resize:vertical}
+.cform .ok{display:none;background:var(--blue-l);border:1px solid var(--blue);color:var(--blue-d);border-radius:12px;padding:14px;margin-bottom:18px;font-size:.92rem}
+.cform .ok.show{display:block}
+
+/* footer */
+.foot{background:#0a0a0b;color:#a1a1aa}
+.foot .grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.2fr;gap:40px;padding:70px 0 42px}
+.foot .brand span{color:#fff}
+.foot .cn{color:#71717a;margin:14px 0 10px;font-size:.94rem;letter-spacing:.5px}
+.foot h4{color:#fff;font-family:var(--fh);font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.foot a{display:block;color:#a1a1aa;padding:5px 0;font-size:.89rem}.foot a:hover{color:var(--blue)}
+.foot p{font-size:.89rem;margin-bottom:8px;color:#71717a}
+.foot .soc{display:flex;gap:9px;margin:16px 0}
+.foot .soc a{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);display:grid;place-items:center;padding:0;font-size:.82rem}
+.foot .soc a:hover{background:var(--blue);color:#fff}
+.foot .bar{border-top:1px solid rgba(255,255,255,.08)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:20px 24px;font-size:.78rem;color:#52525b;flex-wrap:wrap;gap:8px}
+
+/* floating */
+.fab-top{position:fixed;right:22px;bottom:22px;z-index:70;width:50px;height:50px;border-radius:14px;background:var(--blue);color:#fff;border:none;display:grid;place-items:center;font-size:1.3rem;cursor:pointer;box-shadow:0 10px 28px rgba(59,130,246,.4);opacity:0;pointer-events:none;transition:.3s}
+.fab-top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:980px){
+  .nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:14px;box-shadow:0 24px 50px rgba(24,24,27,.12);z-index:99;gap:4px;border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}.burger{display:block}
+  .nav>a{padding:12px 14px}
+  .svc-grid,.steps,.cases,.wgrid{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery .g1,.gallery .g4{grid-column:span 1;grid-row:span 1}
+  .contact-wrap{grid-template-columns:1fr;gap:40px}
+  .hero h1{font-size:3.4rem}
+  .foot .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .sec{padding:72px 0}.sec h2{font-size:2.1rem}
+  .svc-grid,.steps,.cases,.wgrid,.fgrid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .hero{padding:84px 0 90px}.hero h1{font-size:2.6rem}
+  .hero p.sub{font-size:1.1rem}
+  .hero-stats{gap:30px}
+  .contact h2{font-size:2.1rem}
+  .foot .grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body id="top">
+
+<!-- header -->
+<header class="header" id="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="dot"></span><span>Consult<i>SG</i></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#services" data-en="Services" data-zh="服务">Services</a>
+    <a href="#process" data-en="Process" data-zh="流程">Process</a>
+    <a href="#work" data-en="Work" data-zh="案例">Work</a>
+    <a href="#why" data-en="Why Us" data-zh="为何选择">Why Us</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#contact" class="nav-cta" data-en="Get Started" data-zh="立即开始">Get Started</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- hero -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag" data-en="Singapore Digital Consultancy · Est. 2019" data-zh="新加坡数字顾问 · 创立于2019年">Singapore Digital Consultancy · Est. 2019</span>
+    <h1><span data-rich
+      data-en="We build the <span class='grad'>digital edge</span> ambitious teams grow on."
+      data-zh="我们为雄心团队打造赖以成长的<span class='grad'>数字优势</span>。">We build the <span class="grad">digital edge</span> ambitious teams grow on.</span></h1>
+    <p class="sub" data-en="Consult SG partners with founders and brands across Singapore to turn strategy into products, growth and measurable results — fast." data-zh="新顾问与新加坡的创始人及品牌携手，将战略迅速转化为产品、增长与可衡量的成果。">Consult SG partners with founders and brands across Singapore to turn strategy into products, growth and measurable results — fast.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-blue" data-en="Get Started →" data-zh="立即开始 →">Get Started →</a>
+      <a href="#work" class="btn btn-ghost" data-en="See Our Work" data-zh="查看案例">See Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>120+</b><span data-en="Projects shipped" data-zh="交付项目">Projects shipped</span></div>
+      <div><b>40+</b><span data-en="Brands partnered" data-zh="合作品牌">Brands partnered</span></div>
+      <div><b>5</b><span data-en="Years building" data-zh="深耕年限">Years building</span></div>
+      <div><b>4.9★</b><span data-en="Client rating" data-zh="客户评分">Client rating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- logo strip -->
+<section class="logos"><div class="wrap">
+  <p class="lab" data-en="Trusted by teams scaling across Singapore &amp; the region" data-zh="深受新加坡及区域成长团队信赖">Trusted by teams scaling across Singapore &amp; the region</p>
+  <div class="row">
+    <span class="chip"><span class="b"></span>Northwind</span>
+    <span class="chip"><span class="b"></span>Lumio</span>
+    <span class="chip"><span class="b"></span>Harbourly</span>
+    <span class="chip"><span class="b"></span>Pavé</span>
+    <span class="chip"><span class="b"></span>Switchgrid</span>
+    <span class="chip"><span class="b"></span>Cobalt</span>
+  </div>
+</div></section>
+
+<!-- services -->
+<section class="sec" id="services"><div class="wrap center">
+  <span class="tag reveal" data-en="What We Do" data-zh="我们的服务">What We Do</span>
+  <h2 class="reveal" style="margin-top:18px" data-en="Full-stack consulting, end to end" data-zh="全栈式咨询，从头到尾">Full-stack consulting, end to end</h2>
+  <p class="lead reveal" data-en="One partner for strategy, design, build and growth — so nothing gets lost in the handoff." data-zh="战略、设计、开发与增长由同一伙伴负责——交接之间，不留断点。">One partner for strategy, design, build and growth — so nothing gets lost in the handoff.</p>
+  <div class="svc-grid" style="text-align:left">
+    <div class="svc reveal"><div class="n">01</div><div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 4v8M16 28v-8M4 16h8M28 16h-8M16 16l6-6"/></svg></div><h3 data-en="Digital Strategy" data-zh="数字战略">Digital Strategy</h3><p data-en="Roadmaps, positioning and go-to-market plans grounded in real data and your business goals." data-zh="以真实数据与业务目标为基础的路线图、定位与市场进入策略。">Roadmaps, positioning and go-to-market plans grounded in real data and your business goals.</p></div>
+    <div class="svc reveal"><div class="n">02</div><div class="ic"><svg viewBox="0 0 32 32"><path d="M6 22l9-9 4 4 7-7M22 6h4v4"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg></div><h3 data-en="Brand &amp; Design" data-zh="品牌与设计">Brand &amp; Design</h3><p data-en="Identity systems, UI/UX and design that makes your product feel inevitable." data-zh="品牌识别系统、UI/UX 及让您的产品浑然天成的设计。">Identity systems, UI/UX and design that makes your product feel inevitable.</p></div>
+    <div class="svc reveal"><div class="n">03</div><div class="ic"><svg viewBox="0 0 32 32"><path d="M11 9l-6 7 6 7M21 9l6 7-6 7M18 6l-4 20"/></svg></div><h3 data-en="Web &amp; App Development" data-zh="网站与应用开发">Web &amp; App Development</h3><p data-en="Fast, scalable websites and apps built on modern stacks and shipped on time." data-zh="基于现代技术栈、快速且可扩展的网站与应用，按时交付。">Fast, scalable websites and apps built on modern stacks and shipped on time.</p></div>
+    <div class="svc reveal"><div class="n">04</div><div class="ic"><svg viewBox="0 0 32 32"><path d="M4 26V6M4 26h24M9 22V14M15 22V9M21 22V17M27 22V11"/></svg></div><h3 data-en="Growth Marketing" data-zh="增长营销">Growth Marketing</h3><p data-en="Performance campaigns, SEO and lifecycle funnels engineered to compound month over month." data-zh="精心设计的效果广告、SEO 及生命周期漏斗，逐月复利增长。">Performance campaigns, SEO and lifecycle funnels engineered to compound month over month.</p></div>
+    <div class="svc reveal"><div class="n">05</div><div class="ic"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="8" rx="11" ry="4"/><path d="M5 8v8c0 2.2 4.9 4 11 4s11-1.8 11-4V8M5 16v8c0 2.2 4.9 4 11 4s11-1.8 11-4v-8"/></svg></div><h3 data-en="Data &amp; Analytics" data-zh="数据与分析">Data &amp; Analytics</h3><p data-en="Dashboards, attribution and insight pipelines that turn your data into decisions." data-zh="将数据转化为决策的仪表盘、归因分析与数据洞察管道。">Dashboards, attribution and insight pipelines that turn your data into decisions.</p></div>
+    <div class="svc reveal"><div class="n">06</div><div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="4"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7 7l3 3M22 22l3 3M25 7l-3 3M10 22l-3 3"/></svg></div><h3 data-en="Automation" data-zh="自动化">Automation</h3><p data-en="Workflow automation and AI integrations that cut busywork and free your team to build." data-zh="削减繁琐工作的流程自动化与 AI 集成，让团队专注创造。">Workflow automation and AI integrations that cut busywork and free your team to build.</p></div>
+  </div>
+</div></section>
+
+<!-- process -->
+<section class="sec process" id="process"><div class="wrap center">
+  <span class="tag reveal" style="background:rgba(59,130,246,.16);color:#93c5fd" data-en="How We Work" data-zh="合作方式">How We Work</span>
+  <h2 class="reveal" style="margin-top:18px" data-en="A process built to move fast and de-risk" data-zh="为快速推进与降低风险而设计的流程">A process built to move fast and de-risk</h2>
+  <p class="lead reveal" data-en="Four clear phases, transparent at every step — you always know what's next." data-zh="四个清晰阶段，每一步都透明——您始终清楚下一步。">Four clear phases, transparent at every step — you always know what's next.</p>
+  <div class="steps" style="text-align:left">
+    <div class="step reveal"><div class="num">01</div><h4 data-en="Discover" data-zh="探索">Discover</h4><p data-en="We dig into your market, users and goals to define what winning actually looks like." data-zh="我们深入研究您的市场、用户与目标，明确真正的制胜之道。">We dig into your market, users and goals to define what winning actually looks like.</p></div>
+    <div class="step reveal"><div class="num">02</div><h4 data-en="Design" data-zh="设计">Design</h4><p data-en="We prototype and pressure-test the experience before a single line of code ships." data-zh="在编写任何代码之前，我们先制作原型并对体验进行严格验证。">We prototype and pressure-test the experience before a single line of code ships.</p></div>
+    <div class="step reveal"><div class="num">03</div><h4 data-en="Build" data-zh="构建">Build</h4><p data-en="We ship in fast, focused sprints with working demos at the end of every cycle." data-zh="我们以快速、专注的迭代交付，每个周期结束都有可运行的演示。">We ship in fast, focused sprints with working demos at the end of every cycle.</p></div>
+    <div class="step reveal"><div class="num">04</div><h4 data-en="Scale" data-zh="扩展">Scale</h4><p data-en="We measure, optimise and grow — turning launch into sustained momentum." data-zh="我们衡量、优化并增长——将上线转化为持续的发展动能。">We measure, optimise and grow — turning launch into sustained momentum.</p></div>
+  </div>
+</div></section>
+
+<!-- case studies -->
+<section class="sec" id="work"><div class="wrap center">
+  <span class="tag reveal" data-en="Selected Work" data-zh="精选案例">Selected Work</span>
+  <h2 class="reveal" style="margin-top:18px" data-en="Results we're proud to put numbers to" data-zh="我们引以为傲、有据可查的成果">Results we're proud to put numbers to</h2>
+  <p class="lead reveal" data-en="Real engagements, real metrics — here's a snapshot of what partnership delivers." data-zh="真实的合作，真实的数据——这是合作所带来成果的缩影。">Real engagements, real metrics — here's a snapshot of what partnership delivers.</p>
+  <div class="cases" style="text-align:left">
+    <div class="case reveal">
+      <div class="img"><img src="https://picsum.photos/seed/consultsg-fintech/640/420" alt="Fintech case study" /><span class="cat" data-en="Fintech" data-zh="金融科技">Fintech</span></div>
+      <div class="body">
+        <h3 data-en="Payments app relaunch" data-zh="支付应用重启上线">Payments app relaunch</h3>
+        <p data-en="Rebuilt onboarding and the core flow for a regional payments startup, cutting drop-off dramatically." data-zh="为一家区域支付初创公司重建注册与核心流程，大幅降低流失率。">Rebuilt onboarding and the core flow for a regional payments startup, cutting drop-off dramatically.</p>
+        <div class="metric">
+          <div><b>+68%</b><span data-en="Activation rate" data-zh="激活率">Activation rate</span></div>
+          <div><b>-41%</b><span data-en="Onboarding drop-off" data-zh="注册流失">Onboarding drop-off</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="case reveal">
+      <div class="img"><img src="https://picsum.photos/seed/consultsg-retail/640/420" alt="Retail case study" /><span class="cat" data-en="E-commerce" data-zh="电子商务">E-commerce</span></div>
+      <div class="body">
+        <h3 data-en="DTC brand growth engine" data-zh="DTC 品牌增长引擎">DTC brand growth engine</h3>
+        <p data-en="Built a full-funnel growth system for a homegrown retail brand expanding across Southeast Asia." data-zh="为一家拓展东南亚市场的本土零售品牌打造全漏斗增长系统。">Built a full-funnel growth system for a homegrown retail brand expanding across Southeast Asia.</p>
+        <div class="metric">
+          <div><b>3.2x</b><span data-en="Online revenue" data-zh="线上营收">Online revenue</span></div>
+          <div><b>-29%</b><span data-en="Cost per acquisition" data-zh="获客成本">Cost per acquisition</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="case reveal">
+      <div class="img"><img src="https://picsum.photos/seed/consultsg-saas/640/420" alt="SaaS case study" /><span class="cat" data-en="SaaS" data-zh="软件服务">SaaS</span></div>
+      <div class="body">
+        <h3 data-en="B2B platform &amp; automation" data-zh="B2B 平台与自动化">B2B platform &amp; automation</h3>
+        <p data-en="Designed and shipped a B2B portal with automated workflows that reclaimed hundreds of hours a month." data-zh="设计并交付了一个 B2B 门户及自动化流程，每月节省数百工时。">Designed and shipped a B2B portal with automated workflows that reclaimed hundreds of hours a month.</p>
+        <div class="metric">
+          <div><b>+54%</b><span data-en="Team output" data-zh="团队产出">Team output</span></div>
+          <div><b>200h</b><span data-en="Saved monthly" data-zh="每月节省">Saved monthly</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- why -->
+<section class="sec why" id="why"><div class="wrap center">
+  <span class="tag reveal" data-en="Why Work With Us" data-zh="为何与我们合作">Why Work With Us</span>
+  <h2 class="reveal" style="margin-top:18px" data-en="Six reasons teams stick with Consult SG" data-zh="团队选择新顾问的六大理由">Six reasons teams stick with Consult SG</h2>
+  <div class="wgrid" style="text-align:left">
+    <div class="w reveal"><div class="pin">01</div><h4 data-en="Senior team, no juniors hidden" data-zh="资深团队，绝无隐形新手">Senior team, no juniors hidden</h4><p data-en="The people in the pitch are the people doing the work — experienced makers, start to finish." data-zh="提案时见到的人，就是实际操盘的人——经验丰富，全程参与。">The people in the pitch are the people doing the work — experienced makers, start to finish.</p></div>
+    <div class="w reveal"><div class="pin">02</div><h4 data-en="Fixed scope, fixed price" data-zh="范围固定，价格透明">Fixed scope, fixed price</h4><p data-en="Clear deliverables and pricing agreed upfront — no surprise invoices, ever." data-zh="交付内容与价格事先明确约定——绝无意外账单。">Clear deliverables and pricing agreed upfront — no surprise invoices, ever.</p></div>
+    <div class="w reveal"><div class="pin">03</div><h4 data-en="Ship in weeks, not quarters" data-zh="以周计交付，而非按季">Ship in weeks, not quarters</h4><p data-en="Tight sprints and working demos mean you see real progress fast." data-zh="紧凑的迭代与可运行演示，让您迅速看到真实进展。">Tight sprints and working demos mean you see real progress fast.</p></div>
+    <div class="w reveal"><div class="pin">04</div><h4 data-en="Data over opinions" data-zh="用数据说话">Data over opinions</h4><p data-en="Every decision is backed by metrics — we test, learn and double down on what works." data-zh="每个决策都有数据支撑——我们测试、学习，并加码有效之道。">Every decision is backed by metrics — we test, learn and double down on what works.</p></div>
+    <div class="w reveal"><div class="pin">05</div><h4 data-en="Bilingual &amp; regional" data-zh="双语与区域视野">Bilingual &amp; regional</h4><p data-en="English and Mandarin fluency to launch across Singapore, China and Southeast Asia." data-zh="精通中英文，助您在新加坡、中国及东南亚市场落地。">English and Mandarin fluency to launch across Singapore, China and Southeast Asia.</p></div>
+    <div class="w reveal"><div class="pin">06</div><h4 data-en="We stay after launch" data-zh="上线之后，依然同行">We stay after launch</h4><p data-en="Launch is the start. We keep optimising so your numbers keep climbing." data-zh="上线只是起点。我们持续优化，让您的数据节节攀升。">Launch is the start. We keep optimising so your numbers keep climbing.</p></div>
+  </div>
+</div></section>
+
+<!-- culture gallery -->
+<section class="sec culture"><div class="wrap center">
+  <span class="tag reveal" data-en="Inside Consult SG" data-zh="走进新顾问">Inside Consult SG</span>
+  <h2 class="reveal" style="margin-top:18px" data-en="A studio built on curiosity and craft" data-zh="以好奇心与匠心打造的工作室">A studio built on curiosity and craft</h2>
+  <div class="gallery">
+    <div class="g g1 reveal"><img src="https://picsum.photos/seed/consultsg-studio1/800/800" alt="Studio" /></div>
+    <div class="g reveal"><img src="https://picsum.photos/seed/consultsg-team2/420/420" alt="Team working" /></div>
+    <div class="g reveal"><img src="https://picsum.photos/seed/consultsg-desk3/420/420" alt="Workspace" /></div>
+    <div class="g g4 reveal"><img src="https://picsum.photos/seed/consultsg-meeting4/840/420" alt="Meeting" /></div>
+    <div class="g reveal"><img src="https://picsum.photos/seed/consultsg-coffee5/420/420" alt="Culture" /></div>
+    <div class="g reveal"><img src="https://picsum.photos/seed/consultsg-whiteboard6/420/420" alt="Whiteboard session" /></div>
+  </div>
+</div></section>
+
+<!-- contact -->
+<section class="sec contact" id="contact"><div class="wrap"><div class="contact-wrap">
+  <div class="reveal">
+    <span class="tag" style="background:rgba(59,130,246,.16);color:#93c5fd" data-en="Get Started" data-zh="立即开始">Get Started</span>
+    <h2 style="margin-top:18px" data-en="Let's build something worth shipping" data-zh="一起打造值得交付的产品">Let's build something worth shipping</h2>
+    <p class="lead" data-en="Tell us what you're working on. We'll come back within one business day with how we'd approach it." data-zh="告诉我们您正在做的项目。我们将在一个工作日内回复，说明我们的方案。">Tell us what you're working on. We'll come back within one business day with how we'd approach it.</p>
+    <ul class="clist">
+      <li><span class="ic">⌖</span><span class="txt"><strong data-en="Studio" data-zh="工作室">Studio</strong>79 Anson Road, #20-01, Singapore 079906</span></li>
+      <li><span class="ic">☎</span><span class="txt"><strong data-en="Phone" data-zh="电话">Phone</strong>+65 6911 3300</span></li>
+      <li><span class="ic">✉</span><span class="txt"><strong data-en="Email" data-zh="电邮">Email</strong>hello@consultsg.co</span></li>
+      <li><span class="ic">◷</span><span class="txt"><strong data-en="Hours" data-zh="办公时间">Hours</strong><span data-en="Monday – Friday, 9:30am – 6:30pm" data-zh="周一至周五 9:30–18:30">Monday – Friday, 9:30am – 6:30pm</span></span></li>
+    </ul>
+  </div>
+  <div class="cform reveal">
+    <h3 data-en="Start a project" data-zh="启动项目">Start a project</h3>
+    <p class="note" data-en="No commitment — just a conversation." data-zh="无需承诺——先聊聊看。">No commitment — just a conversation.</p>
+    <div class="ok" id="ok" data-en="Got it — thanks! We'll be in touch within one business day." data-zh="收到，谢谢！我们将在一个工作日内与您联系。">Got it — thanks! We'll be in touch within one business day.</div>
+    <form onsubmit="return submitForm(event)">
+      <div class="fgrid">
+        <div class="f"><label data-en="Name" data-zh="姓名">Name</label><input type="text" required /></div>
+        <div class="f"><label data-en="Company" data-zh="公司">Company</label><input type="text" /></div>
+        <div class="f"><label data-en="Email" data-zh="电邮">Email</label><input type="email" required /></div>
+        <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel" /></div>
+        <div class="f full"><label data-en="What do you need?" data-zh="您需要什么服务？">What do you need?</label>
+          <select>
+            <option data-en="Digital Strategy" data-zh="数字战略">Digital Strategy</option>
+            <option data-en="Brand &amp; Design" data-zh="品牌与设计">Brand &amp; Design</option>
+            <option data-en="Web &amp; App Development" data-zh="网站与应用开发">Web &amp; App Development</option>
+            <option data-en="Growth Marketing" data-zh="增长营销">Growth Marketing</option>
+            <option data-en="Data &amp; Analytics" data-zh="数据与分析">Data &amp; Analytics</option>
+            <option data-en="Automation" data-zh="自动化">Automation</option>
+          </select>
+        </div>
+        <div class="f full"><label data-en="Tell us about your project" data-zh="项目简介">Tell us about your project</label><textarea rows="4" required></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-blue" style="margin-top:22px;width:100%;justify-content:center" data-en="Send Project Brief →" data-zh="发送项目简介 →">Send Project Brief →</button>
+    </form>
+  </div>
+</div></div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="dot"></span><span style="color:#fff">Consult<i style="color:var(--blue)">SG</i></span></a>
+      <p class="cn">新顾问私人有限公司</p>
+      <p data-en="A Singapore digital consultancy turning strategy into products, growth and measurable results — since 2019." data-zh="一家将战略转化为产品、增长与可衡量成果的新加坡数字顾问公司——自2019年起。">A Singapore digital consultancy turning strategy into products, growth and measurable results — since 2019.</p>
+      <div class="soc"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">✕</a></div>
+    </div>
+    <div>
+      <h4 data-en="Services" data-zh="服务">Services</h4>
+      <a href="#services" data-en="Digital Strategy" data-zh="数字战略">Digital Strategy</a>
+      <a href="#services" data-en="Brand &amp; Design" data-zh="品牌与设计">Brand &amp; Design</a>
+      <a href="#services" data-en="Development" data-zh="开发">Development</a>
+      <a href="#services" data-en="Growth Marketing" data-zh="增长营销">Growth Marketing</a>
+    </div>
+    <div>
+      <h4 data-en="Studio" data-zh="工作室">Studio</h4>
+      <a href="#work" data-en="Our Work" data-zh="案例">Our Work</a>
+      <a href="#process" data-en="Process" data-zh="流程">Process</a>
+      <a href="#why" data-en="Why Us" data-zh="为何选择">Why Us</a>
+    </div>
+    <div>
+      <h4 data-en="Contact" data-zh="联系方式">Contact</h4>
+      <p>79 Anson Road, #20-01<br>Singapore 079906</p>
+      <p>+65 6911 3300<br>hello@consultsg.co</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 Consult SG Pte Ltd · UEN 201988776C</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang === 'zh';
+  var to = zh ? 'en' : 'zh';
+  document.documentElement.lang = to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    if(el.hasAttribute('data-rich')){
+      el.innerHTML = el.getAttribute('data-'+to);
+    } else {
+      el.textContent = el.getAttribute('data-'+to);
+    }
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? '中文' : 'EN'; });
+}
+function submitForm(e){
+  e.preventDefault();
+  var ok = document.getElementById('ok');
+  ok.classList.add('show');
+  e.target.reset();
+  ok.scrollIntoView({behavior:'smooth',block:'center'});
+  return false;
+}
+var header = document.getElementById('header'), toTop = document.getElementById('toTop');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  if(window.scrollY > 600) toTop.classList.add('show'); else toTop.classList.remove('show');
+});
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); });
+});
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

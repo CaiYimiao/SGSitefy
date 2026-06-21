@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Services — Wellness Practice" data-zh="服务 — 健康中心">Services — Wellness Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Verdant<span class='dot'></span>" data-zh="青苑<span class='dot'></span>" data-rich>Verdant<span class="dot"></span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" aria-current="page" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Our Services" data-zh="我们的服务">Our Services</p>
+    <h1 data-slot="services.headline" data-en="Care, mapped to you." data-zh="为您量身的照护。">Care, mapped to you.</h1>
+    <p data-slot="services.sub" data-en="Page intro — one line on the breadth of services offered." data-zh="页面引言 — 一句关于服务范围的话。">Page intro — one line on the breadth of services offered.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="card-grid" data-slot="services" data-min="3" data-max="6">
+      <article class="card"><div class="ic">01</div><h3 data-slot="services.0.title" data-en="Initial Consultation" data-zh="首次问诊">Initial Consultation</h3><p data-slot="services.0.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+      <article class="card"><div class="ic">02</div><h3 data-slot="services.1.title" data-en="Physical Therapy" data-zh="物理治疗">Physical Therapy</h3><p data-slot="services.1.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+      <article class="card"><div class="ic">03</div><h3 data-slot="services.2.title" data-en="Nutrition Plans" data-zh="营养方案">Nutrition Plans</h3><p data-slot="services.2.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+      <article class="card"><div class="ic">04</div><h3 data-slot="services.3.title" data-en="Health Screening" data-zh="健康筛查">Health Screening</h3><p data-slot="services.3.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+      <article class="card"><div class="ic">05</div><h3 data-slot="services.4.title" data-en="Ongoing Care" data-zh="长期照护">Ongoing Care</h3><p data-slot="services.4.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+      <article class="card"><div class="ic">06</div><h3 data-slot="services.5.title" data-en="Wellness Coaching" data-zh="健康指导">Wellness Coaching</h3><p data-slot="services.5.desc" data-en="Service description placeholder — what it covers and who it's for." data-zh="服务描述占位 — 内容与适用对象。">Service description placeholder — what it covers and who it's for.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split rev">
+    <div class="split-text">
+      <p class="eyebrow" data-en="Pricing" data-zh="收费">Pricing</p>
+      <h2 data-slot="pricing.title" data-en="Clear, upfront, no surprises." data-zh="清晰透明，绝无意外。">Clear, upfront, no surprises.</h2>
+      <p data-slot="pricing.p1" data-en="Pricing paragraph — how fees work and what's included." data-zh="收费段落 — 费用如何计算及包含内容。">Pricing paragraph — how fees work and what's included.</p>
+      <ul class="checklist">
+        <li data-slot="pricing.point.0" data-en="A first pricing assurance." data-zh="第一项收费保证。">A first pricing assurance.</li>
+        <li data-slot="pricing.point.1" data-en="A second pricing assurance." data-zh="第二项收费保证。">A second pricing assurance.</li>
+        <li data-slot="pricing.point.2" data-en="A third pricing assurance." data-zh="第三项收费保证。">A third pricing assurance.</li>
+      </ul>
+    </div>
+    <figure class="split-fig"><img src="https://picsum.photos/seed/clin-svc/800/640" alt="" data-slot="pricing.image" data-en-alt="Reception desk" data-zh-alt="前台"></figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2 data-slot="cta.headline" data-en="Not sure where to begin?" data-zh="不确定从哪里开始？">Not sure where to begin?</h2>
+      <p data-slot="cta.sub" data-en="CTA supporting line — offer a guiding first step." data-zh="行动号召副文 — 提供引导性的第一步。">CTA supporting line — offer a guiding first step.</p>
+      <a class="btn" href="contact.html" data-slot="cta.button" data-en="Ask Us Anything" data-zh="向我们咨询">Ask Us Anything</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-brand" data-slot="footer.name" data-en="Verdant — Wellness Practice" data-zh="青苑 — 健康中心">Verdant — Wellness Practice</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

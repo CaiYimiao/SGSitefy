@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Centre Name" data-zh="联系 — 中心名称">Contact — Centre Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Centre Name" data-zh="中心名称">Centre Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Services" data-zh="服务">Services</a></li>
+        <li><a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap grid12">
+      <h1 data-slot="contact.headline" data-en="Book or ask a question" data-zh="预约或提出疑问">Book or ask a question</h1>
+      <div class="meta" data-slot="contact.meta" data-en="Contact / Visit us" data-zh="联系 / 到访我们">Contact / Visit us</div>
+      <p data-slot="contact.sub" data-en="We reply within one working day. Walk-ins welcome during opening hours." data-zh="我们将于一个工作日内回复。营业时间内欢迎直接到访。">Placeholder sub.</p>
+    </div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap grid12 cgrid">
+      <div class="l info">
+        <span class="eyebrow" data-slot="contact.info.eyebrow" data-en="Find us" data-zh="找到我们">Find us</span>
+        <p data-slot="contact.address" data-en="Block 000 Street Name #01-00, Singapore 000000" data-zh="新加坡 街道名称 第000座 #01-00，邮编 000000">Address placeholder</p>
+        <p data-slot="contact.phone" data-en="Phone: +65 0000 0000" data-zh="电话：+65 0000 0000">Phone placeholder</p>
+        <p data-slot="contact.email" data-en="Email: hello@centre.sg" data-zh="邮箱：hello@centre.sg">Email placeholder</p>
+        <h2 style="font-size:var(--s2);margin:1.6rem 0 .8rem" data-slot="hours.headline" data-en="Opening hours" data-zh="营业时间">Opening hours</h2>
+        <ul class="hours">
+          <li><span data-slot="hours.0.day" data-en="Mon – Fri" data-zh="周一至周五">Mon – Fri</span><span data-slot="hours.0.time" data-en="8:30am – 7:00pm" data-zh="上午8:30 – 晚上7:00">8:30am – 7:00pm</span></li>
+          <li><span data-slot="hours.1.day" data-en="Saturday" data-zh="周六">Saturday</span><span data-slot="hours.1.time" data-en="9:00am – 1:00pm" data-zh="上午9:00 – 下午1:00">9:00am – 1:00pm</span></li>
+          <li><span data-slot="hours.2.day" data-en="Sun &amp; PH" data-zh="周日及公共假期">Sun &amp; PH</span><span data-slot="hours.2.time" data-en="Closed" data-zh="休息">Closed</span></li>
+        </ul>
+      </div>
+      <div class="r">
+        <span class="eyebrow" data-slot="contact.form.eyebrow" data-en="Send a message" data-zh="发送讯息">Send a message</span>
+        <form onsubmit="return false">
+          <label class="field"><span data-slot="form.name" data-en="Name" data-zh="姓名">Name</span><input type="text" name="name" autocomplete="name"></label>
+          <label class="field"><span data-slot="form.contact" data-en="Phone or email" data-zh="电话或邮箱">Phone or email</span><input type="text" name="contact" autocomplete="tel"></label>
+          <label class="field"><span data-slot="form.message" data-en="How can we help?" data-zh="我们能如何协助？">How can we help?</span><textarea name="message" rows="4"></textarea></label>
+          <button type="submit" class="btn" data-slot="form.submit" data-en="Send request" data-zh="发送请求">Send request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap imgband"><img src="https://picsum.photos/seed/wellswiss-map/1500/500" data-slot="contact.map.image" data-en-alt="Map to the centre" data-zh-alt="前往中心的地图" alt="Map to the centre"></div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Centre Name. All rights reserved." data-zh="© 中心名称。版权所有。">© Centre Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

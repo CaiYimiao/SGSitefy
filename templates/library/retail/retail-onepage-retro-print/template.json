@@ -1,0 +1,17 @@
+{
+  "id": "retail-onepage-retro-print",
+  "industry": "retail",
+  "kind": "onepage",
+  "aesthetic": "retro-print",
+  "fonts": { "display": "Fraunces", "text": "Newsreader" },
+  "tokens": {
+    "ink": "#2b211a",
+    "bg": "#efe6d2",
+    "surface": "#f8f2e4",
+    "brand": "#bf3f2c",
+    "accent": "#3f6b4f"
+  },
+  "sections": ["nav","hero","categories","featured","about","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Clinic Name" data-zh="关于 — 诊所名称">About — Clinic Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Clinic Name" data-zh="诊所名称">Clinic Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Treatments" data-zh="诊疗">Treatments</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="masthead">
+    <div class="wrap">
+      <div class="kicker"><span data-slot="about.kicker.l" data-en="About" data-zh="关于">About</span><span data-slot="about.kicker.r" data-en="Our story" data-zh="我们的故事">Our story</span></div>
+      <h1 data-slot="about.headline" data-en="Built on listening" data-zh="始于倾听">Built on listening</h1>
+      <div class="lead">
+        <p data-slot="about.lead1" data-en="Placeholder opening — the founding story and the belief behind the clinic, in two editorial sentences." data-zh="开篇占位文字——创办故事与诊所信念，两句编辑式描述。">Placeholder opening.</p>
+        <p data-slot="about.lead2" data-en="Second column placeholder — the team and the standard of care." data-zh="第二列占位文字——团队与护理标准。">Second placeholder.</p>
+      </div>
+    </div>
+    <div class="wrap feature-img"><img src="https://picsum.photos/seed/welled-about-hero/1500/660" data-slot="about.image" data-en-alt="Clinic team" data-zh-alt="诊所团队" alt="Clinic team"></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split flip">
+      <img src="https://picsum.photos/seed/welled-about-2/640/760" data-slot="about.image2" data-en-alt="Consultation in progress" data-zh-alt="诊疗进行中" alt="Consultation in progress">
+      <div>
+        <span class="eyebrow" data-slot="about.s2.eyebrow" data-en="Our approach" data-zh="我们的理念">Our approach</span>
+        <h2 data-slot="about.s2.headline" data-en="Time, given generously" data-zh="慷慨给予的时间">Time, given generously</h2>
+        <p data-slot="about.s2.body1" data-en="Placeholder paragraph about how the clinic works day to day." data-zh="关于诊所日常运作的正文占位文字。">Placeholder.</p>
+        <p data-slot="about.s2.body2" data-en="Second placeholder paragraph — credentials and continuity of care." data-zh="第二段占位文字——资质与持续护理。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bigquote alt">
+    <div class="wrap">
+      <p data-slot="about.quote" data-en="“Placeholder values statement — what the clinic refuses to compromise on.”" data-zh="“价值观陈述占位——诊所绝不妥协之处。”">Placeholder.</p>
+      <footer data-slot="about.quote.author" data-en="— The team" data-zh="— 全体团队">— The team</footer>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 data-slot="about.cta.headline" data-en="Meet us in person" data-zh="亲临与我们相见">Meet us in person</h2>
+      <p data-slot="about.cta.sub" data-en="We'd love to welcome you to the clinic." data-zh="我们期待在诊所迎接您。">We'd love to welcome you.</p>
+      <a href="contact.html" class="btn" data-slot="about.cta.button" data-en="Get in touch" data-zh="联系我们">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Clinic Name. All rights reserved." data-zh="© 诊所名称。版权所有。">© Clinic Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

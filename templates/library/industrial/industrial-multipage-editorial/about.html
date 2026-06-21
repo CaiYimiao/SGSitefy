@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Industrial Works" data-zh="关于 — 工业制造">About — Industrial Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Marlowe<i>&amp;</i>Co" data-zh="马洛<i>&amp;</i>公司" data-rich>Marlowe<i>&amp;</i>Co</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" aria-current="page" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="phead">
+  <div class="wrap">
+    <div class="kick"><span data-en="About" data-zh="关于">About</span><span data-en="Chapter 01" data-zh="第一章">Chapter 01</span></div>
+    <h1 data-slot="about.headline" data-en="A house built on" data-zh="以严谨" data-rich>A house built on <em>discipline.</em></h1>
+    <p class="lead" data-slot="about.sub" data-en="Page intro — one line on who you are and the standard you keep." data-zh="页面引言 — 关于你是谁与所守标准的一句话。">Page intro — one line on who you are and the standard you keep.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap split">
+    <figure class="split-fig"><img src="https://picsum.photos/seed/edit-about/720/900" alt="" data-slot="about.image" data-en-alt="Founder at the bench" data-zh-alt="创始人在工作台旁"></figure>
+    <div class="prose">
+      <p data-slot="about.p1" data-en="About paragraph one — origin and founding principle. The first sentence sets the drop cap, so make it count." data-zh="关于段落一 — 起源与创立理念。首句设有首字下沉，请用心撰写。">About paragraph one — origin and founding principle. The first sentence sets the drop cap, so make it count.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — the equipment, the materials, the people behind the work." data-zh="关于段落二 — 设备、材料、团队。">About paragraph two — the equipment, the materials, the people behind the work.</p>
+      <p data-slot="about.p3" data-en="About paragraph three — how the shop has changed and what has stayed the same." data-zh="关于段落三 — 工坊的变与不变。">About paragraph three — how the shop has changed and what has stayed the same.</p>
+      <p data-slot="about.p4" data-en="About paragraph four — where you are headed and the promise you keep." data-zh="关于段落四 — 未来方向与坚守的承诺。">About paragraph four — where you are headed and the promise you keep.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="col-head"><h2 data-slot="values.title" data-en="What we" data-zh="我们" data-rich>What we <em>hold to.</em></h2><p class="muted" data-slot="values.intro" data-en="The principles that decide how the work gets done." data-zh="决定工作方式的原则。">The principles that decide how the work gets done.</p></div>
+    <div class="index" data-slot="values" data-min="3" data-max="4">
+      <div class="row"><div class="no">01</div><h3 data-slot="values.0.title" data-en="Precision First" data-zh="精度至上">Precision First</h3><p data-slot="values.0.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></div>
+      <div class="row"><div class="no">02</div><h3 data-slot="values.1.title" data-en="Honest Timelines" data-zh="诚信交期">Honest Timelines</h3><p data-slot="values.1.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></div>
+      <div class="row"><div class="no">03</div><h3 data-slot="values.2.title" data-en="Lasting Partnerships" data-zh="长久合作">Lasting Partnerships</h3><p data-slot="values.2.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Come see the" data-zh="欢迎参观" data-rich>Come see the <em>workshop.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite a visit or a conversation." data-zh="行动号召副文 — 邀请到访或洽谈。">CTA supporting line — invite a visit or a conversation.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Get in Touch" data-zh="联系我们">Get in Touch</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><div class="fb" data-slot="footer.name" data-en="Marlowe<i>&amp;</i>Co" data-zh="马洛<i>&amp;</i>公司" data-rich>Marlowe<i>&amp;</i>Co</div><p data-slot="footer.tagline" data-en="Industrial fabrication &amp; supply." data-zh="工业制造与供应。">Industrial fabrication &amp; supply.</p></div>
+      <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+      <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+      <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    </div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seng Hin Engineering Pte Ltd — Precision Metal Fabrication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#11264f; --navy-2:#1b356e; --navy-d:#0b1b3a;
+  --gold:#f5b21a; --gold-d:#d99405;
+  --ink:#1f2733; --muted:#5b6573; --line:#e4e7ec; --bg:#fff; --soft:#f5f8fc;
+  --maxw:1180px; --shadow:0 18px 50px rgba(17,38,79,.12);
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.1;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:12px 22px;font-family:var(--fh);font-weight:700;font-size:.86rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn-gold{background:var(--gold);color:var(--navy-d)}.btn-gold:hover{background:var(--gold-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{background:#fff;color:var(--navy)}
+.eyebrow{font-family:var(--fh);text-transform:uppercase;letter-spacing:3px;color:var(--gold-d);font-weight:700;font-size:.82rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+.sec{padding:74px 0}.sec h2{font-size:2.2rem;color:var(--navy)}
+.lead{color:var(--muted);margin-top:10px;max-width:640px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+/* top bar */
+.topbar{background:var(--navy-d);color:#cdd6e6;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px}
+.topbar a{color:#cdd6e6;margin-right:18px}.topbar a:hover{color:var(--gold)}
+.topbar .ic{color:var(--gold);margin-right:5px}
+.topbar .wa{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#25d366;color:#fff;margin-left:4px}
+
+/* header */
+.header{position:sticky;top:0;z-index:80;background:#fff;box-shadow:0 2px 16px rgba(17,38,79,.08)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mk{width:42px;height:42px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:var(--gold);display:grid;place-items:center;font-family:var(--fh);font-weight:800;font-size:1.1rem}
+.brand b{font-family:var(--fh);color:var(--navy);font-size:1.12rem;letter-spacing:1px;display:block;line-height:1}
+.brand small{font-size:.62rem;color:var(--muted);letter-spacing:3px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a,.drop>button{font-family:var(--fh);font-weight:600;text-transform:uppercase;font-size:.8rem;letter-spacing:.5px;color:var(--ink);padding:10px 13px;border-radius:6px;background:none;border:none;cursor:pointer;font-family:var(--fh)}
+.nav>a:hover,.drop>button:hover{background:var(--soft);color:var(--navy)}
+.drop{position:relative}
+.drop>button::after{content:"▾";margin-left:5px;font-size:.7rem}
+.drop-menu{position:absolute;top:100%;left:0;min-width:220px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;z-index:90}
+.drop:hover .drop-menu,.drop:focus-within .drop-menu{opacity:1;visibility:visible;transform:none}
+.drop-menu a{display:block;padding:9px 12px;border-radius:6px;font-size:.88rem;color:var(--ink)}
+.drop-menu a:hover{background:var(--soft);color:var(--navy)}
+.lang{border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-family:var(--fh);font-weight:700;font-size:.74rem;padding:6px 10px;border-radius:6px;cursor:pointer;margin-left:6px}
+.lang:hover{background:var(--navy);color:#fff}
+.navphone{background:var(--navy);color:#fff!important;margin-left:6px}
+.burger{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer}
+
+/* hero */
+.hero{position:relative;height:88vh;min-height:540px;overflow:hidden;background:var(--navy-d)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.slide.on{opacity:1}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,16,36,.85) 0%,rgba(8,16,36,.5) 55%,transparent 100%)}
+.hero-in{position:relative;z-index:3;height:100%;display:flex;align-items:center}
+.hero-card{max-width:680px;color:#fff}
+.hero-card .eyebrow{color:var(--gold)}
+.hero-card h1{font-size:3.1rem;color:#fff;text-transform:uppercase}
+.hero-card h1 .y{color:var(--gold)}
+.hero-card p{margin:16px 0 26px;font-size:1.15rem;color:#dbe3f2;max-width:520px}
+.dots{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:9px}
+.dots button{width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:transparent;cursor:pointer;transition:.3s;padding:0}
+.dots button.on{background:var(--gold);border-color:var(--gold);width:30px;border-radius:6px}
+
+/* strip / stats */
+.strip{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-top:4px solid var(--gold)}
+.strip .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip .it{padding:26px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.strip .it:last-child{border:none}
+.strip .n{font-family:var(--fh);font-size:2.1rem;font-weight:800;color:var(--gold)}
+.strip .l{font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:#c4cde0}
+
+/* visit / map */
+.visit .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.visit .info{background:var(--navy);color:#fff;padding:38px}
+.visit .info h3{color:var(--gold);font-size:1.4rem;margin-bottom:12px}
+.visit .info p{color:#dbe3f2;margin-bottom:8px}
+.visit iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+
+/* who */
+.who .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+.who img{width:100%;height:380px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+.who ul{list-style:none;margin:16px 0 0}
+.who li{padding-left:28px;position:relative;margin-bottom:9px}
+.who li::before{content:"✓";position:absolute;left:0;color:#fff;background:var(--gold);width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:.7rem}
+
+/* services */
+.services{background:var(--soft)}
+.svc-group{margin-top:30px}
+.svc-group h3{font-family:var(--fh);font-size:1rem;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 20px;transition:.3s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-5px)}
+.card .ic{width:50px;height:50px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:var(--gold);display:grid;place-items:center;margin-bottom:13px}
+.card .ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7}
+.card h4{color:var(--navy);font-size:1.06rem;margin-bottom:5px}
+.card p{font-size:.88rem;color:var(--muted)}
+
+/* materials */
+.mats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.mat{position:relative;height:220px;border-radius:12px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:var(--shadow)}
+.mat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mat::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(17,38,79,.85),transparent 70%)}
+.mat span{position:relative;z-index:2;padding:20px;color:#fff}
+.mat b{font-family:var(--fh);font-size:1.3rem;display:block}
+.mat small{color:#dbe3f2}
+
+/* capabilities table */
+.caps table{width:100%;border-collapse:collapse;margin-top:24px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.caps th{background:var(--navy);color:#fff;text-align:left;padding:14px 18px;font-family:var(--fh);font-size:.82rem;text-transform:uppercase;letter-spacing:1px}
+.caps td{padding:13px 18px;border-top:1px solid var(--line);font-size:.92rem}
+.caps tr:nth-child(even) td{background:var(--soft)}
+.caps td:first-child{font-weight:600;color:var(--navy)}
+
+/* why */
+.why{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff}
+.why .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.why .w{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:26px}
+.why .no{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--gold)}
+.why h4{margin:8px 0 6px;font-size:1.12rem}
+.why p{color:#c4cde0;font-size:.92rem}
+
+/* certs */
+.certs{text-align:center}
+.cert-row{display:flex;justify-content:center;flex-wrap:wrap;gap:26px;margin-top:30px}
+.cert{border:1px solid var(--line);border-radius:12px;padding:22px 30px;min-width:170px;background:#fff}
+.cert .b{width:46px;height:46px;margin:0 auto 10px;border-radius:50%;background:var(--soft);display:grid;place-items:center;color:var(--navy)}
+.cert b{font-family:var(--fh);color:var(--navy);display:block}
+.cert small{color:var(--muted);font-size:.78rem}
+
+/* process */
+.proc{background:var(--soft)}
+.steps{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:30px}
+.step{text-align:center;position:relative}
+.step .n{width:46px;height:46px;margin:0 auto 10px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:var(--fh);font-weight:800;display:grid;place-items:center}
+.step b{font-size:.84rem;color:var(--navy);display:block}
+.step:not(:last-child)::after{content:"";position:absolute;top:23px;left:60%;right:-40%;height:2px;background:var(--line)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.gal figure{position:relative;border-radius:10px;overflow:hidden;margin:0}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:.5s}
+.gal figure:hover img{transform:scale(1.08)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 12px 10px;background:linear-gradient(transparent,rgba(8,16,36,.85));color:#fff;font-size:.8rem;font-weight:600;opacity:0;transition:.3s}
+.gal figure:hover figcaption{opacity:1}
+
+/* contact */
+.contact{background:linear-gradient(135deg,#0d1d3e,#16306e);color:#fff}
+.contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:center}
+.contact h2{color:#fff}.contact .lead{color:#c9d2e4}
+.clist{list-style:none;margin-top:18px}
+.clist li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#dbe3f2;font-size:.95rem}
+.clist .ic{width:32px;height:32px;border-radius:8px;background:var(--gold);color:var(--navy-d);display:grid;place-items:center;flex-shrink:0}
+.form{background:#fff;border-radius:14px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px;box-shadow:var(--shadow)}
+.form .f{display:flex;flex-direction:column}.form .full{grid-column:1/-1}
+.form label{font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.form input,.form textarea{border:1px solid var(--line);border-radius:8px;padding:11px 13px;font-family:inherit;font-size:.92rem}
+
+/* footer */
+.foot{background:var(--navy-d);color:#a9b4cc}
+.foot .grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:34px;padding:54px 0 36px}
+.foot h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.foot .cn{color:#e6c6c8;letter-spacing:1px;margin:10px 0 6px}
+.foot a{display:block;color:#a9b4cc;padding:4px 0;font-size:.9rem}.foot a:hover{color:var(--gold)}
+.foot p{font-size:.9rem;margin-bottom:8px}
+.foot .soc{display:flex;gap:8px;margin:14px 0}
+.foot .soc a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;color:#cdd6e6}
+.foot .soc a:hover{background:var(--gold);color:var(--navy-d)}
+.foot .badges{display:flex;gap:10px;margin-top:10px}
+.foot .badges span{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 10px;font-size:.7rem;color:#cdd6e6}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:16px 24px;font-size:.8rem;color:#8fa0c2}
+
+/* floating */
+.fab{position:fixed;right:20px;z-index:70;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;border:none;color:#fff}
+.fab-wa{bottom:84px;background:#25d366;font-size:1.5rem}
+.fab-top{bottom:20px;background:var(--navy);font-size:1.3rem;opacity:0;pointer-events:none;transition:.3s}
+.fab-top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:920px){
+  .nav{display:none}.burger{display:block}
+  .who .grid,.visit .grid,.contact .grid{grid-template-columns:1fr;gap:26px}
+  .cards{grid-template-columns:repeat(2,1fr)}.why .wgrid{grid-template-columns:1fr}
+  .mats{grid-template-columns:1fr}.strip .grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}.step::after{display:none}
+  .gal{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr 1fr}.hero-card h1{font-size:2.1rem}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.slide{transition:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div><a href="tel:+6597124408"><span class="ic">☎</span><span data-en="24-Hour Hotline:" data-zh="24小时热线：">24-Hour Hotline:</span> +65 9712 4408</a><a href="mailto:sales@senghineng.com.sg"><span class="ic">✉</span> sales@senghineng.com.sg</a></div>
+  <div><span data-en="Chat with us" data-zh="联系我们">Chat with us</span><a href="#" class="wa" aria-label="WhatsApp">✆</a></div>
+</div></div>
+
+<header class="header"><div class="wrap">
+  <a href="#home" class="brand"><span class="mk">SH</span><span><b>SENG HIN</b><small>ENGINEERING</small></span></a>
+  <nav class="nav" id="nav">
+    <a href="#home" data-en="Home" data-zh="主页">Home</a>
+    <div class="drop"><button data-en="About" data-zh="关于我们">About</button>
+      <div class="drop-menu">
+        <a href="#who" data-en="Who We Are" data-zh="我们是谁">Who We Are</a>
+        <a href="#certs" data-en="Certifications" data-zh="资质认证">Certifications</a>
+        <a href="#caps" data-en="Capabilities" data-zh="设备能力">Capabilities</a>
+        <a href="#proc" data-en="Production Process" data-zh="生产流程">Production Process</a>
+      </div>
+    </div>
+    <div class="drop"><button data-en="Services" data-zh="服务项目">Services</button>
+      <div class="drop-menu">
+        <a href="#services" data-en="Laser Cutting" data-zh="激光切割">Laser Cutting</a>
+        <a href="#services" data-en="Metal Bending" data-zh="金属折弯">Metal Bending</a>
+        <a href="#services" data-en="Metal Rolling" data-zh="金属卷圆">Metal Rolling</a>
+        <a href="#services" data-en="Metal Shearing" data-zh="金属剪切">Metal Shearing</a>
+        <a href="#services" data-en="Stainless / Steel / Aluminium" data-zh="不锈钢 / 钢 / 铝加工">Stainless / Steel / Aluminium</a>
+        <a href="#services" data-en="Design Consultancy" data-zh="设计咨询">Design Consultancy</a>
+      </div>
+    </div>
+    <a href="#materials" data-en="Products" data-zh="产品">Products</a>
+    <a href="#gallery" data-en="Projects" data-zh="工程实例">Projects</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" id="lang" onclick="setLang(LANG==='en'?'zh':'en')">中文</button>
+    <a href="#contact" class="btn btn-gold navphone" style="text-transform:none" data-en="Get a Quote" data-zh="索取报价">Get a Quote</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').style.display=document.getElementById('nav').style.display==='flex'?'none':'flex'">☰</button>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="slide on"><img src="https://picsum.photos/seed/laser1/1600/900" alt="Laser cutting" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/weld2/1600/900" alt="Welding" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/cnc3/1600/900" alt="CNC bending" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/metal4/1600/900" alt="Metal parts" /></div>
+  <div class="hero-in"><div class="wrap"><div class="hero-card">
+    <p class="eyebrow" data-en="Precision Metal Fabrication · Since 1998" data-zh="精密金属加工 · 始于 1998 年">Precision Metal Fabrication · Since 1998</p>
+    <h1><span data-rich>Engineered to spec, <span class="y">delivered on time</span></span></h1>
+    <p data-en="Fibre-laser cutting, CNC bending, rolling and welding — under one roof in Tuas, for any order size." data-zh="激光切割、数控折弯、卷圆与焊接——大士一站式车间，任何订量皆可承接。">Fibre-laser cutting, CNC bending, rolling and welding — under one roof in Tuas, for any order size.</p>
+    <a href="#contact" class="btn btn-gold" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+    <a href="#services" class="btn btn-ghost" data-en="Our Services" data-zh="服务项目">Our Services</a>
+  </div></div></div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<!-- STATS -->
+<section class="strip"><div class="wrap"><div class="grid">
+  <div class="it"><div class="n">1998</div><div class="l" data-en="Established" data-zh="成立年份">Established</div></div>
+  <div class="it"><div class="n">12,000+</div><div class="l" data-en="Parts / Year" data-zh="年加工件数">Parts / Year</div></div>
+  <div class="it"><div class="n">24h</div><div class="l" data-en="Hotline & Support" data-zh="热线与支持">Hotline &amp; Support</div></div>
+  <div class="it"><div class="n">3</div><div class="l" data-en="Core Metals" data-zh="核心金属">Core Metals</div></div>
+</div></div></section>
+
+<!-- VISIT / MAP -->
+<section class="sec visit"><div class="wrap">
+  <p class="eyebrow reveal" data-en="Visit Us" data-zh="莅临我们">Visit Us</p>
+  <h2 class="reveal" data-en="Our Tuas workshop" data-zh="大士车间" style="color:var(--navy)">Our Tuas workshop</h2>
+  <div class="grid reveal" style="margin-top:24px">
+    <div class="info">
+      <h3 data-en="Seng Hin Engineering Pte Ltd" data-zh="成兴工程私人有限公司">Seng Hin Engineering Pte Ltd</h3>
+      <p data-en="20 Tuas Avenue 1, Singapore 639490" data-zh="新加坡大士一道20号，邮编 639490">20 Tuas Avenue 1, Singapore 639490</p>
+      <p data-en="Tel / Fax: +65 6863 2210" data-zh="电话 / 传真：+65 6863 2210">Tel / Fax: +65 6863 2210</p>
+      <p data-en="24-Hour Hotline: +65 9712 4408" data-zh="24小时热线：+65 9712 4408">24-Hour Hotline: +65 9712 4408</p>
+      <p data-en="Mon–Sat, 8.30am–6pm" data-zh="周一至周六 上午8:30 – 下午6:00">Mon–Sat, 8.30am–6pm</p>
+    </div>
+    <iframe loading="lazy" title="Map" src="https://maps.google.com/maps?q=20+Tuas+Avenue+1,+Singapore+639490&amp;z=15&amp;output=embed"></iframe>
+  </div>
+</div></section>
+
+<!-- WHO -->
+<section class="sec who" id="who"><div class="wrap"><div class="grid">
+  <div class="reveal"><img src="https://picsum.photos/seed/workshop9/900/700" alt="Workshop" /></div>
+  <div class="reveal">
+    <p class="eyebrow" data-en="Who We Are" data-zh="我们是谁">Who We Are</p>
+    <h2 data-en="A precision fabrication partner you can rely on" data-zh="值得信赖的精密加工伙伴">A precision fabrication partner you can rely on</h2>
+    <p class="lead" data-en="Seng Hin Engineering has fabricated precision metal components in Singapore since 1998. From our Tuas workshop we combine fibre-laser cutting, CNC bending, rolling and welding with hands-on engineering — turning your drawings into finished parts with speed and consistency." data-zh="自1998年起，成兴工程便在新加坡从事精密金属加工。我们在大士的车间集激光切割、数控折弯、卷圆与焊接于一体，并提供实地工程支持，将您的图纸快速、稳定地变为成品。">Seng Hin Engineering has fabricated precision metal components in Singapore since 1998. From our Tuas workshop we combine fibre-laser cutting, CNC bending, rolling and welding with hands-on engineering — turning your drawings into finished parts with speed and consistency.</p>
+    <ul>
+      <li data-en="Customised sheet-metal fabrication, prototype to batch" data-zh="定制钣金加工，样品至批量">Customised sheet-metal fabrication, prototype to batch</li>
+      <li data-en="Stainless steel, mild steel & aluminium under one roof" data-zh="不锈钢、低碳钢与铝材一站式加工">Stainless steel, mild steel &amp; aluminium under one roof</li>
+      <li data-en="In-house engineering & DFM support on every job" data-zh="每个项目均提供内部工程与可制造性支持">In-house engineering &amp; DFM support on every job</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<!-- SERVICES -->
+<section class="sec services" id="services"><div class="wrap">
+  <p class="eyebrow reveal" data-en="What We Do" data-zh="我们做什么">What We Do</p>
+  <h2 class="reveal" data-en="Complete fabrication, in-house" data-zh="一站式内部加工">Complete fabrication, in-house</h2>
+  <p class="lead reveal" data-en="Every process under one roof — so your parts are cut, formed, joined and finished without ever leaving our workshop." data-zh="所有工序集于一处——您的部件无需离开车间即可完成切割、成型、连接与表面处理。">Every process under one roof — so your parts are cut, formed, joined and finished without ever leaving our workshop.</p>
+
+  <div class="svc-group reveal"><h3 data-en="Processing" data-zh="加工工序">Processing</h3>
+  <div class="cards">
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4h8l-1.5 6h-5z"/><path d="M16 10v8"/><path d="M6 23h20"/><path d="M13 23l3-4 3 4"/></svg></div><h4 data-en="Laser Cutting" data-zh="激光切割">Laser Cutting</h4><p data-en="High-precision fibre-laser profiles in steel, stainless and aluminium." data-zh="钢、不锈钢与铝材的高精度光纤激光切割。">High-precision fibre-laser profiles in steel, stainless and aluminium.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M5 24V14a6 6 0 0 1 6-6h11"/><path d="M19 5l3.5 3-3.5 3"/></svg></div><h4 data-en="Metal Bending" data-zh="金属折弯">Metal Bending</h4><p data-en="CNC press-brake bending to tight, repeatable tolerances." data-zh="数控折弯机精密折弯，公差稳定可重复。">CNC press-brake bending to tight, repeatable tolerances.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="22" r="3.2"/><circle cx="22" cy="22" r="3.2"/><path d="M4 15c5-5.5 19-5.5 24 0"/></svg></div><h4 data-en="Metal Rolling" data-zh="金属卷圆">Metal Rolling</h4><p data-en="Plate & sheet rolling for cylinders, cones and curved sections." data-zh="板材卷圆，制作圆筒、锥体与弧形件。">Plate &amp; sheet rolling for cylinders, cones and curved sections.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M5 23h22"/><path d="M7 23L23 7"/><path d="M19 7h5v5"/></svg></div><h4 data-en="Metal Shearing" data-zh="金属剪切">Metal Shearing</h4><p data-en="Fast, accurate shearing to size raw sheet and plate." data-zh="快速精准剪切，按尺寸裁切板材。">Fast, accurate shearing to size raw sheet and plate.</p></div>
+  </div></div>
+
+  <div class="svc-group reveal"><h3 data-en="Fabrication & Design" data-zh="加工与设计">Fabrication &amp; Design</h3>
+  <div class="cards">
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M5 25h13"/><path d="M9 25l10-14"/><path d="M19 11l4-3 2.5 3.5-4 3z"/></svg></div><h4 data-en="Stainless Steel" data-zh="不锈钢加工">Stainless Steel</h4><p data-en="Hygienic, corrosion-resistant fabrication & welding." data-zh="卫生、耐腐蚀的加工与焊接。">Hygienic, corrosion-resistant fabrication &amp; welding.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="20" height="20" rx="2"/><path d="M6 13h20M13 6v20"/></svg></div><h4 data-en="Mild Steel" data-zh="低碳钢加工">Mild Steel</h4><p data-en="Strong, cost-effective structural & enclosure work." data-zh="坚固经济的结构件与外壳加工。">Strong, cost-effective structural &amp; enclosure work.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l11 6v12l-11 6L5 22V10z"/></svg></div><h4 data-en="Aluminium" data-zh="铝材加工">Aluminium</h4><p data-en="Lightweight precision components & assemblies." data-zh="轻量化精密部件与组件。">Lightweight precision components &amp; assemblies.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22l1.8-5.5L19 5l4 4L11.5 20.2z"/><path d="M16 8l4 4"/></svg></div><h4 data-en="Design Consultancy" data-zh="设计咨询">Design Consultancy</h4><p data-en="DFM advice to optimise your part for cost & manufacture." data-zh="提供可制造性建议，优化成本与生产。">DFM advice to optimise your part for cost &amp; manufacture.</p></div>
+  </div></div>
+</div></section>
+
+<!-- MATERIALS -->
+<section class="sec" id="materials"><div class="wrap">
+  <p class="eyebrow reveal" data-en="Materials" data-zh="材料">Materials</p>
+  <h2 class="reveal" data-en="Three core metals" data-zh="三种核心金属" style="color:var(--navy)">Three core metals</h2>
+  <div class="mats reveal">
+    <div class="mat"><img src="https://picsum.photos/seed/ss/600/400" alt="Stainless"><span><b data-en="Stainless Steel" data-zh="不锈钢">Stainless Steel</b><small data-en="Hygienic & corrosion-resistant" data-zh="卫生耐腐蚀">Hygienic &amp; corrosion-resistant</small></span></div>
+    <div class="mat"><img src="https://picsum.photos/seed/ms/600/400" alt="Mild steel"><span><b data-en="Mild Steel" data-zh="低碳钢">Mild Steel</b><small data-en="Strong & cost-effective" data-zh="坚固经济">Strong &amp; cost-effective</small></span></div>
+    <div class="mat"><img src="https://picsum.photos/seed/al/600/400" alt="Aluminium"><span><b data-en="Aluminium" data-zh="铝材">Aluminium</b><small data-en="Lightweight precision" data-zh="轻量精密">Lightweight precision</small></span></div>
+  </div>
+</div></section>
+
+<!-- CAPABILITIES -->
+<section class="sec caps" id="caps"><div class="wrap">
+  <p class="eyebrow reveal" data-en="Capabilities" data-zh="设备能力">Capabilities</p>
+  <h2 class="reveal" data-en="Our equipment & limits" data-zh="设备与加工范围" style="color:var(--navy)">Our equipment &amp; limits</h2>
+  <table class="reveal">
+    <thead><tr><th data-en="Process" data-zh="工序">Process</th><th data-en="Machine" data-zh="设备">Machine</th><th data-en="Capacity" data-zh="加工能力">Capacity</th></tr></thead>
+    <tbody>
+      <tr><td data-en="Laser Cutting" data-zh="激光切割">Laser Cutting</td><td data-en="Fibre laser, 4kW" data-zh="光纤激光 4kW">Fibre laser, 4kW</td><td data-en="Up to 20mm MS / 12mm SS / 8mm Al · bed 3000×1500mm" data-zh="低碳钢≤20mm / 不锈钢≤12mm / 铝≤8mm · 幅面 3000×1500mm">Up to 20mm MS / 12mm SS / 8mm Al · bed 3000×1500mm</td></tr>
+      <tr><td data-en="Bending" data-zh="折弯">Bending</td><td data-en="CNC press brake" data-zh="数控折弯机">CNC press brake</td><td data-en="175 ton · 3200mm length" data-zh="175吨 · 长度 3200mm">175 ton · 3200mm length</td></tr>
+      <tr><td data-en="Rolling" data-zh="卷圆">Rolling</td><td data-en="3-roll plate roller" data-zh="三辊卷板机">3-roll plate roller</td><td data-en="Up to 6mm · 2000mm width" data-zh="≤6mm · 宽度 2000mm">Up to 6mm · 2000mm width</td></tr>
+      <tr><td data-en="Shearing" data-zh="剪切">Shearing</td><td data-en="Hydraulic guillotine" data-zh="液压剪板机">Hydraulic guillotine</td><td data-en="Up to 10mm · 3000mm" data-zh="≤10mm · 3000mm">Up to 10mm · 3000mm</td></tr>
+      <tr><td data-en="Welding" data-zh="焊接">Welding</td><td data-en="MIG / TIG / spot" data-zh="MIG / TIG / 点焊">MIG / TIG / spot</td><td data-en="Stainless, steel & aluminium" data-zh="不锈钢、钢与铝">Stainless, steel &amp; aluminium</td></tr>
+      <tr><td data-en="Finishing" data-zh="表面处理">Finishing</td><td data-en="Partner network" data-zh="合作网络">Partner network</td><td data-en="Powder coating · sandblasting · brushing" data-zh="粉末喷涂 · 喷砂 · 拉丝">Powder coating · sandblasting · brushing</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<!-- WHY -->
+<section class="sec why"><div class="wrap">
+  <p class="eyebrow reveal" style="color:var(--gold)" data-en="Why Engage Us" data-zh="为何选择我们">Why Engage Us</p>
+  <h2 class="reveal" style="color:#fff" data-en="Built around your deadline" data-zh="围绕您的交期而生">Built around your deadline</h2>
+  <div class="wgrid">
+    <div class="w reveal"><div class="no">01</div><h4 data-en="Responsive 24/7 service" data-zh="全天候快速响应">Responsive 24/7 service</h4><p data-en="A real hotline that picks up and keeps your job moving." data-zh="真人接听的热线，让您的项目持续推进。">A real hotline that picks up and keeps your job moving.</p></div>
+    <div class="w reveal"><div class="no">02</div><h4 data-en="No minimum order" data-zh="无最低订量">No minimum order</h4><p data-en="One piece or one thousand — every order is welcome." data-zh="一件或一千件——皆欢迎承接。">One piece or one thousand — every order is welcome.</p></div>
+    <div class="w reveal"><div class="no">03</div><h4 data-en="Strong material stock" data-zh="充足原料库存">Strong material stock</h4><p data-en="Healthy on-hand stock for faster starts and reliable lead times." data-zh="充足现货，开工更快、交期更稳。">Healthy on-hand stock for faster starts and reliable lead times.</p></div>
+    <div class="w reveal"><div class="no">04</div><h4 data-en="Same-day collection" data-zh="当日交货">Same-day collection</h4><p data-en="Urgent qualifying jobs ready for collection the same day." data-zh="紧急且符合条件的订单可当日取货。">Urgent qualifying jobs ready for collection the same day.</p></div>
+    <div class="w reveal"><div class="no">05</div><h4 data-en="One-stop fabrication" data-zh="一站式加工">One-stop fabrication</h4><p data-en="Cut, form, weld and finish — all under one roof." data-zh="切割、成型、焊接与处理，一站完成。">Cut, form, weld and finish — all under one roof.</p></div>
+    <div class="w reveal"><div class="no">06</div><h4 data-en="Small & intricate parts" data-zh="小件与精细件">Small &amp; intricate parts</h4><p data-en="Experienced with the fine, fiddly parts others turn away." data-zh="擅长他人不愿承接的细小精密部件。">Experienced with the fine, fiddly parts others turn away.</p></div>
+  </div>
+</div></section>
+
+<!-- CERTIFICATIONS -->
+<section class="sec certs" id="certs"><div class="wrap">
+  <p class="eyebrow reveal" style="justify-content:center" data-en="Accredited & Trusted" data-zh="资质与信誉">Accredited &amp; Trusted</p>
+  <h2 class="reveal" style="color:var(--navy)" data-en="Certifications" data-zh="资质认证">Certifications</h2>
+  <div class="cert-row reveal">
+    <div class="cert"><div class="b">✓</div><b>ISO 9001:2015</b><small data-en="Quality Management" data-zh="质量管理体系">Quality Management</small></div>
+    <div class="cert"><div class="b">★</div><b>bizSafe Star</b><small data-en="Workplace Safety" data-zh="职场安全">Workplace Safety</small></div>
+    <div class="cert"><div class="b">✓</div><b>ISO 45001</b><small data-en="Health & Safety" data-zh="健康与安全">Health &amp; Safety</small></div>
+    <div class="cert"><div class="b">⚙</div><b data-en="Progressive Co." data-zh="前进企业">Progressive Co.</b><small data-en="SME Accredited" data-zh="中小企业认证">SME Accredited</small></div>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section class="sec proc" id="proc"><div class="wrap">
+  <p class="eyebrow reveal" data-en="How We Work" data-zh="工作流程">How We Work</p>
+  <h2 class="reveal" style="color:var(--navy)" data-en="From enquiry to delivery" data-zh="从询价到交付">From enquiry to delivery</h2>
+  <div class="steps reveal">
+    <div class="step"><div class="n">1</div><b data-en="Enquiry & Quote" data-zh="询价报价">Enquiry &amp; Quote</b></div>
+    <div class="step"><div class="n">2</div><b data-en="Design / DFM" data-zh="设计 / 可制造性">Design / DFM</b></div>
+    <div class="step"><div class="n">3</div><b data-en="Laser Cutting" data-zh="激光切割">Laser Cutting</b></div>
+    <div class="step"><div class="n">4</div><b data-en="Bending & Forming" data-zh="折弯成型">Bending &amp; Forming</b></div>
+    <div class="step"><div class="n">5</div><b data-en="Welding & Assembly" data-zh="焊接装配">Welding &amp; Assembly</b></div>
+    <div class="step"><div class="n">6</div><b data-en="Finishing" data-zh="表面处理">Finishing</b></div>
+    <div class="step"><div class="n">7</div><b data-en="QC & Delivery" data-zh="质检交付">QC &amp; Delivery</b></div>
+  </div>
+</div></section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery"><div class="wrap">
+  <p class="eyebrow reveal" data-en="Our Work" data-zh="工程实例">Our Work</p>
+  <h2 class="reveal" style="color:var(--navy)" data-en="Recent projects" data-zh="近期项目">Recent projects</h2>
+  <div class="gal reveal">
+    <figure><img src="https://picsum.photos/seed/p1/500/375" alt=""><figcaption data-en="Stainless enclosures" data-zh="不锈钢外壳">Stainless enclosures</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p2/500/375" alt=""><figcaption data-en="Laser-cut panels" data-zh="激光切割板">Laser-cut panels</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p3/500/375" alt=""><figcaption data-en="Ducting & hoods" data-zh="风管与抽风罩">Ducting &amp; hoods</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p4/500/375" alt=""><figcaption data-en="Machine guards" data-zh="机器防护罩">Machine guards</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p5/500/375" alt=""><figcaption data-en="Rolled cylinders" data-zh="卷制圆筒">Rolled cylinders</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p6/500/375" alt=""><figcaption data-en="Brackets & mounts" data-zh="支架与安装件">Brackets &amp; mounts</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p7/500/375" alt=""><figcaption data-en="Custom assemblies" data-zh="定制组件">Custom assemblies</figcaption></figure>
+    <figure><img src="https://picsum.photos/seed/p8/500/375" alt=""><figcaption data-en="Sheet-metal cabinets" data-zh="钣金机柜">Sheet-metal cabinets</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact"><div class="wrap"><div class="grid">
+  <div class="reveal">
+    <p class="eyebrow" style="color:var(--gold)" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+    <h2 data-en="Send us your drawings" data-zh="把图纸发给我们">Send us your drawings</h2>
+    <p class="lead" data-en="Tell us about your part and we'll reply within one business day." data-zh="告诉我们您的部件需求，我们将在一个工作日内回复。">Tell us about your part and we'll reply within one business day.</p>
+    <ul class="clist">
+      <li><span class="ic">☷</span> 20 Tuas Avenue 1, Singapore 639490</li>
+      <li><span class="ic">☎</span> +65 6863 2210 · <span data-en="Hotline" data-zh="热线">Hotline</span> +65 9712 4408</li>
+      <li><span class="ic">✉</span> sales@senghineng.com.sg</li>
+    </ul>
+  </div>
+  <form class="form reveal" onsubmit="return false">
+    <div class="f"><label data-en="Name" data-zh="姓名">Name</label><input type="text" /></div>
+    <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel" /></div>
+    <div class="f full"><label data-en="Email" data-zh="电邮">Email</label><input type="email" /></div>
+    <div class="f full"><label data-en="What do you need fabricated?" data-zh="您需要加工什么？">What do you need fabricated?</label><textarea rows="4"></textarea></div>
+    <button class="btn btn-gold full" type="submit" data-en="Send Enquiry" data-zh="发送询问">Send Enquiry</button>
+  </form>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#home" class="brand"><span class="mk">SH</span><span><b style="color:#fff">SENG HIN</b><small>ENGINEERING</small></span></a>
+      <p class="cn" data-en="成兴工程私人有限公司" data-zh="成兴工程私人有限公司">成兴工程私人有限公司</p>
+      <p style="color:#a9b4cc" data-en="Precision metal fabrication in Singapore since 1998. Laser cutting, bending, rolling, shearing & welding — customised to your needs." data-zh="自1998年起立足新加坡的精密金属加工——激光切割、折弯、卷圆、剪切与焊接，按需定制。">Precision metal fabrication in Singapore since 1998. Laser cutting, bending, rolling, shearing &amp; welding — customised to your needs.</p>
+      <div class="soc"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="YouTube">▶</a></div>
+      <div class="badges"><span>ISO 9001</span><span>bizSafe Star</span><span>ISO 45001</span></div>
+    </div>
+    <div><h4 data-en="Company" data-zh="公司">Company</h4>
+      <a href="#who" data-en="Who We Are" data-zh="我们是谁">Who We Are</a><a href="#caps" data-en="Capabilities" data-zh="设备能力">Capabilities</a><a href="#certs" data-en="Certifications" data-zh="资质认证">Certifications</a><a href="#proc" data-en="Process" data-zh="生产流程">Process</a>
+    </div>
+    <div><h4 data-en="Services" data-zh="服务">Services</h4>
+      <a href="#services" data-en="Laser Cutting" data-zh="激光切割">Laser Cutting</a><a href="#services" data-en="Bending & Rolling" data-zh="折弯与卷圆">Bending &amp; Rolling</a><a href="#services" data-en="Fabrication" data-zh="加工">Fabrication</a><a href="#services" data-en="Design Consultancy" data-zh="设计咨询">Design Consultancy</a>
+    </div>
+    <div><h4 data-en="Contact" data-zh="联系方式">Contact</h4>
+      <p style="color:#a9b4cc">20 Tuas Avenue 1<br>Singapore 639490</p>
+      <p style="color:#a9b4cc">Tel/Fax: +65 6863 2210<br>Hotline: +65 9712 4408<br>sales@senghineng.com.sg</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap"><span>© 2026 Seng Hin Engineering Pte Ltd · UEN 199801234X</span><span>Built with SGSitefy · powered by Antigravity</span></div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* hero slider */
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dotsWrap=document.getElementById('dots'),i=0,timer;
+  slides.forEach(function(_,k){var b=document.createElement('button');if(k===0)b.className='on';b.setAttribute('aria-label','Slide '+(k+1));b.onclick=function(){go(k);rest();};dotsWrap.appendChild(b);});
+  var dots=[].slice.call(dotsWrap.children);
+  function go(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('on',k===i);});dots.forEach(function(d,k){d.classList.toggle('on',k===i);});}
+  function rest(){clearInterval(timer);timer=setInterval(function(){go(i+1);},5000);}
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce)rest();
+  var hero=document.getElementById('home');
+  hero.addEventListener('mouseenter',function(){clearInterval(timer);});
+  hero.addEventListener('mouseleave',function(){if(!reduce)rest();});
+})();
+
+/* language toggle */
+var LANG='en';
+function setLang(l){
+  LANG=l;
+  document.querySelectorAll('[data-en]').forEach(function(n){
+    if(n.hasAttribute('data-rich'))return;
+    n.textContent = (l==='zh' && n.getAttribute('data-zh')) ? n.getAttribute('data-zh') : n.getAttribute('data-en');
+  });
+  // hero rich headline
+  var h=document.querySelector('[data-rich]');
+  if(h)h.innerHTML = (l==='zh') ? '按图定制，<span class="y">准时交付</span>' : 'Engineered to spec, <span class="y">delivered on time</span>';
+  document.documentElement.lang = (l==='zh')?'zh':'en';
+  var b=document.getElementById('lang'); if(b)b.textContent=(l==='zh')?'EN':'中文';
+}
+
+/* scroll reveal + back to top */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  window.addEventListener('scroll',function(){document.getElementById('toTop').classList.toggle('show',window.scrollY>500);},{passive:true});
+})();
+</script>
+</body>
+</html>

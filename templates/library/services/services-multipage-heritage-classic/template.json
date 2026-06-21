@@ -1,0 +1,11 @@
+{
+  "id": "services-multipage-heritage-classic",
+  "industry": "services",
+  "kind": "multipage",
+  "aesthetic": "heritage-classic",
+  "fonts": { "display": "Playfair Display", "text": "Spectral" },
+  "tokens": { "ink": "#23201a", "bg": "#f3ece0", "surface": "#e6dcc8", "brand": "#7a2e2e", "accent": "#b08a3e" },
+  "sections": ["index", "about", "services", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

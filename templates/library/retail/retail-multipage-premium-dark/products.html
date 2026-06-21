@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Collection — Store Name" data-zh="系列 — 店名">Collection — Store Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-rich data-en="STORE<span>.</span>" data-zh="店名<span>.</span>">STORE<span>.</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" aria-current="page" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="品牌">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phero">
+  <span class="eyebrow" data-slot="products.eyebrow" data-en="The collection" data-zh="商品系列">The collection</span>
+  <h1 data-slot="products.headline" data-en="Every piece, considered" data-zh="每一件，皆经斟酌">Every piece, considered</h1>
+  <p class="lede" data-slot="products.lede" data-en="One line introducing the breadth and selectivity of the range." data-zh="一句话介绍商品的广度与甄选标准。">One line introducing the breadth and selectivity of the range.</p>
+</section>
+<section class="wrap sec">
+  <div class="prods" data-slot="products" data-min="3" data-max="9">
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp1/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp2/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp3/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp4/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp5/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkpp6/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product Name" data-zh="商品名称">Product Name</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+  </div>
+</section>
+</main>
+<footer><div class="row">
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</div></footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

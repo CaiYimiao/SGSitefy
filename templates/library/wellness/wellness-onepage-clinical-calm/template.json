@@ -1,0 +1,11 @@
+{
+  "id": "wellness-onepage-clinical-calm",
+  "industry": "wellness",
+  "kind": "onepage",
+  "aesthetic": "clinical-calm",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#16201f", "bg": "#f5f8f7", "surface": "#ffffff", "brand": "#2f6f6a", "accent": "#c8d9d2" },
+  "sections": ["hero","trust","about","treatments","proof","cta","contact","footer"],
+  "serviceCount": 5,
+  "entry": "index.html"
+}

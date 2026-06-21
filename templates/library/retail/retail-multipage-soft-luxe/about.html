@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Maison — The House" data-zh="名店 — 关于">Maison — The House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-en="MAISON" data-zh="名店">MAISON</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" aria-current="page" data-slot="nav.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phead">
+  <span class="kick" data-slot="phead.kick" data-en="The house" data-zh="本店之道">The house</span>
+  <h1 data-slot="phead.title" data-rich data-en="A small house, <em>built to last</em>" data-zh="一家小店，<em>立而恒久</em>">A small house, <em>built to last</em></h1>
+  <p data-slot="phead.lede" data-en="One graceful sentence introducing the people and intent behind the house." data-zh="一句优雅的话，介绍本店背后之人与初心。">One graceful sentence introducing the people and intent behind the house.</p>
+</section>
+
+<section class="wrap sec">
+  <div class="split">
+    <img src="https://picsum.photos/seed/luxeabout/720/880" data-slot="about.image" data-en-alt="The founder" data-zh-alt="创办人" alt="The founder">
+    <div>
+      <span class="kick" data-slot="about.kick" data-en="Our beginning" data-zh="缘起">Our beginning</span>
+      <h2 data-slot="about.title" data-en="It began with one idea" data-zh="始于一个念头">It began with one idea</h2>
+      <p data-slot="about.body" data-en="Two or three measured sentences on how the house began, who founded it, and what it set out to do." data-zh="两三句从容的话，讲述本店如何起步、由谁创办，又怀着怎样的初衷。">Two or three measured sentences on how the house began, who founded it, and what it set out to do.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <blockquote data-slot="about.quote" data-en="“A line that captures what the house believes in.”" data-zh="“一句话，道尽本店所信。”">“A line that captures what the house believes in.”</blockquote>
+  <cite data-slot="about.cite" data-en="The founder" data-zh="创办人">The founder</cite>
+</section>
+
+<section class="wrap sec">
+  <span class="kick" data-slot="values.kick" data-en="What guides us" data-zh="我们的准则">What guides us</span>
+  <h2 class="h2" data-slot="values.title" data-en="Three quiet principles" data-zh="三条静默的准则">Three quiet principles</h2>
+  <div class="vlist" data-slot="values" data-min="3" data-max="3">
+    <div class="v"><span class="n">01</span><h3 data-en="Principle One" data-zh="准则一">Principle One</h3><p data-en="A short line on the first thing the house holds to." data-zh="一句话，说说本店秉持的第一件事。">A short line on the first thing the house holds to.</p></div>
+    <div class="v"><span class="n">02</span><h3 data-en="Principle Two" data-zh="准则二">Principle Two</h3><p data-en="A short line on the second thing the house holds to." data-zh="一句话，说说本店秉持的第二件事。">A short line on the second thing the house holds to.</p></div>
+    <div class="v"><span class="n">03</span><h3 data-en="Principle Three" data-zh="准则三">Principle Three</h3><p data-en="A short line on the third thing the house holds to." data-zh="一句话，说说本店秉持的第三件事。">A short line on the third thing the house holds to.</p></div>
+  </div>
+  <p style="margin-top:var(--gap)"><a class="btn solid" href="contact.html" data-slot="about.cta" data-en="Visit the maison" data-zh="到店拜访">Visit the maison</a></p>
+</section>
+</main>
+<footer>
+  <div class="fcols">
+    <span class="fbrand" data-slot="footer.brand" data-en="MAISON" data-zh="名店">MAISON</span>
+    <nav aria-label="Footer">
+      <a href="index.html" data-slot="footer.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="footer.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="footer.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="footer.contact" data-en="Visit" data-zh="到店">Visit</a>
+    </nav>
+  </div>
+  <div class="fbot">
+    <span data-slot="footer.copy" data-en="© Maison Name, Singapore" data-zh="© 名店，新加坡">© Maison Name, Singapore</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

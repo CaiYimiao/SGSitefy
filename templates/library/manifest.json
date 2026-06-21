@@ -1,0 +1,1512 @@
+{
+  "name": "SGSitefy agent template library",
+  "note": "Reference templates consumed by Antigravity build agents (not shown on the marketing site). Query by {industry, kind, aesthetic}. See AGENT-TEMPLATE-SKILL.md for the slot contract and model routing.",
+  "kinds": [
+    "onepage",
+    "multipage",
+    "showcase"
+  ],
+  "industries": [
+    "industrial",
+    "fnb",
+    "retail",
+    "wellness",
+    "services"
+  ],
+  "generated": "2026-06-20",
+  "count": 45,
+  "templates": [
+    {
+      "id": "fnb-multipage-editorial",
+      "industry": "fnb",
+      "kind": "multipage",
+      "aesthetic": "editorial",
+      "fonts": {
+        "display": "Playfair Display",
+        "text": "Newsreader"
+      },
+      "tokens": {
+        "ink": "#1a1916",
+        "bg": "#fbfaf7",
+        "surface": "#eeece4",
+        "brand": "#8a2b2b",
+        "accent": "#3a4a3f"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-multipage-editorial/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "menu.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-multipage-heritage",
+      "industry": "fnb",
+      "kind": "multipage",
+      "aesthetic": "warm-craft-heritage",
+      "fonts": {
+        "display": "Zilla Slab",
+        "text": "Spectral"
+      },
+      "tokens": {
+        "ink": "#241c17",
+        "bg": "#f5ece0",
+        "surface": "#e9dcc8",
+        "brand": "#8c2f1f",
+        "accent": "#1f5240"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-multipage-heritage/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "menu.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-multipage-organic-natural",
+      "industry": "fnb",
+      "kind": "multipage",
+      "aesthetic": "organic-natural",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Source Sans 3"
+      },
+      "tokens": {
+        "ink": "#23291f",
+        "bg": "#f3f1e7",
+        "surface": "#e4e6d2",
+        "brand": "#5c7345",
+        "accent": "#c08a3e"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-multipage-organic-natural/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "menu.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-onepage-retro-print",
+      "industry": "fnb",
+      "kind": "onepage",
+      "aesthetic": "retro-print",
+      "fonts": {
+        "display": "Yeseva One",
+        "text": "Work Sans"
+      },
+      "tokens": {
+        "ink": "#22201c",
+        "bg": "#efe7d3",
+        "surface": "#e1d3b0",
+        "brand": "#bc3b2e",
+        "accent": "#2e6b62"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-onepage-retro-print/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-onepage-warm-craft",
+      "industry": "fnb",
+      "kind": "onepage",
+      "aesthetic": "warm-craft",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#2b1d14",
+        "bg": "#f7efe2",
+        "surface": "#efe2cd",
+        "brand": "#b5481f",
+        "accent": "#5a6e4a"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-onepage-warm-craft/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-onepage-zine-collage",
+      "industry": "fnb",
+      "kind": "onepage",
+      "aesthetic": "zine-collage",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Space Mono"
+      },
+      "tokens": {
+        "ink": "#181818",
+        "bg": "#f4f0e6",
+        "surface": "#ffe14d",
+        "brand": "#e8431f",
+        "accent": "#1452c7"
+      },
+      "sections": [
+        "hero",
+        "quickinfo",
+        "about",
+        "menu",
+        "social",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-onepage-zine-collage/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-showcase-art-deco",
+      "industry": "fnb",
+      "kind": "showcase",
+      "aesthetic": "art-deco",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Jost"
+      },
+      "tokens": {
+        "ink": "#0f1a17",
+        "bg": "#0b1411",
+        "surface": "#13211c",
+        "brand": "#c8a35b",
+        "accent": "#1d6f5c"
+      },
+      "sections": [
+        "hero",
+        "strip",
+        "gallery",
+        "feature",
+        "menu",
+        "social",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-showcase-art-deco/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-showcase-bold-maximalist",
+      "industry": "fnb",
+      "kind": "showcase",
+      "aesthetic": "bold-maximalist",
+      "fonts": {
+        "display": "Anton",
+        "text": "DM Sans"
+      },
+      "tokens": {
+        "ink": "#161310",
+        "bg": "#fff3df",
+        "surface": "#ff5a36",
+        "brand": "#11804f",
+        "accent": "#ffd23f"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "gallery",
+        "feature",
+        "menu",
+        "social",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "fnb/fnb-showcase-bold-maximalist/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "fnb-showcase-soft-luxe",
+      "industry": "fnb",
+      "kind": "showcase",
+      "aesthetic": "soft-luxe",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#2c2520",
+        "bg": "#f7f1ea",
+        "surface": "#ece1d4",
+        "brand": "#8c6a4f",
+        "accent": "#a8b08f"
+      },
+      "sections": [
+        "hero",
+        "intro",
+        "gallery",
+        "feature",
+        "menu",
+        "social",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 5,
+      "path": "fnb/fnb-showcase-soft-luxe/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-multipage-dark",
+      "industry": "industrial",
+      "kind": "multipage",
+      "aesthetic": "premium-dark",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Albert Sans"
+      },
+      "tokens": {
+        "ink": "#f0ece4",
+        "bg": "#0f1110",
+        "surface": "#181b1a",
+        "brand": "#c9a25e",
+        "accent": "#5fa8a0"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "services",
+        "work",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-multipage-dark/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-multipage-editorial",
+      "industry": "industrial",
+      "kind": "multipage",
+      "aesthetic": "editorial",
+      "fonts": {
+        "display": "Libre Caslon Display",
+        "text": "Work Sans"
+      },
+      "tokens": {
+        "ink": "#1b1815",
+        "bg": "#f4f1ea",
+        "surface": "#e7e1d3",
+        "brand": "#9c3b22",
+        "accent": "#2f4538"
+      },
+      "sections": [
+        "index",
+        "about",
+        "services",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-multipage-editorial/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-multipage-swiss",
+      "industry": "industrial",
+      "kind": "multipage",
+      "aesthetic": "swiss-minimal",
+      "fonts": {
+        "display": "Archivo",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#121212",
+        "bg": "#fafafa",
+        "surface": "#ededed",
+        "brand": "#e23a1e",
+        "accent": "#1a1a1a"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "services",
+        "work",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-multipage-swiss/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-onepage-brutalist",
+      "industry": "industrial",
+      "kind": "onepage",
+      "aesthetic": "brutalist-industrial",
+      "fonts": {
+        "display": "Archivo Black",
+        "text": "IBM Plex Mono"
+      },
+      "tokens": {
+        "ink": "#16130f",
+        "bg": "#f2efe7",
+        "surface": "#e3ddcd",
+        "brand": "#d6431a",
+        "accent": "#1c2b2a"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "services",
+        "work",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-onepage-brutalist/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-onepage-heritage",
+      "industry": "industrial",
+      "kind": "onepage",
+      "aesthetic": "heritage-classic",
+      "fonts": {
+        "display": "Playfair Display",
+        "text": "Source Sans 3"
+      },
+      "tokens": {
+        "ink": "#1e2733",
+        "bg": "#f6f1e7",
+        "surface": "#ece3d2",
+        "brand": "#7a4a1e",
+        "accent": "#b58a3c"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "services",
+        "work",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 5,
+      "path": "industrial/industrial-onepage-heritage/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-onepage-mono",
+      "industry": "industrial",
+      "kind": "onepage",
+      "aesthetic": "mono-technical",
+      "fonts": {
+        "display": "Space Mono",
+        "text": "IBM Plex Sans"
+      },
+      "tokens": {
+        "ink": "#0e1417",
+        "bg": "#fbfcfb",
+        "surface": "#eef2f1",
+        "brand": "#0a6e5c",
+        "accent": "#e8a317"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "services",
+        "work",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-onepage-mono/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-showcase-bold-maximalist",
+      "industry": "industrial",
+      "kind": "showcase",
+      "aesthetic": "bold-maximalist",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Spline Sans Mono"
+      },
+      "tokens": {
+        "ink": "#0d0d0e",
+        "bg": "#ece9e2",
+        "surface": "#1a1a1c",
+        "brand": "#ff4d1c",
+        "accent": "#e8ff3a"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "intro",
+        "work",
+        "capabilities",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 4,
+      "path": "industrial/industrial-showcase-bold-maximalist/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-showcase-kinetic-modern",
+      "industry": "industrial",
+      "kind": "showcase",
+      "aesthetic": "kinetic-modern",
+      "fonts": {
+        "display": "Syne",
+        "text": "Hanken Grotesk"
+      },
+      "tokens": {
+        "ink": "#0a1622",
+        "bg": "#eef2f5",
+        "surface": "#ffffff",
+        "brand": "#1763ff",
+        "accent": "#13c4c0"
+      },
+      "sections": [
+        "hero",
+        "stats",
+        "work",
+        "systems",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "industrial/industrial-showcase-kinetic-modern/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "industrial-showcase-warm-craft",
+      "industry": "industrial",
+      "kind": "showcase",
+      "aesthetic": "warm-craft",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#2a201a",
+        "bg": "#f5ede1",
+        "surface": "#e9dcc8",
+        "brand": "#bb5a37",
+        "accent": "#5c6b4a"
+      },
+      "sections": [
+        "hero",
+        "ribbon",
+        "story",
+        "gallery",
+        "offer",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 4,
+      "path": "industrial/industrial-showcase-warm-craft/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-multipage-editorial",
+      "industry": "retail",
+      "kind": "multipage",
+      "aesthetic": "editorial",
+      "fonts": {
+        "display": "Playfair Display",
+        "text": "Source Serif 4"
+      },
+      "tokens": {
+        "ink": "#1c1a17",
+        "bg": "#fbfaf7",
+        "surface": "#ffffff",
+        "brand": "#7a1f2b",
+        "accent": "#b08d3a"
+      },
+      "sections": [
+        "nav",
+        "hero",
+        "categories",
+        "featured",
+        "editorial",
+        "about",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "retail/retail-multipage-editorial/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "products.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-multipage-premium-dark",
+      "industry": "retail",
+      "kind": "multipage",
+      "aesthetic": "premium-dark",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Mulish"
+      },
+      "tokens": {
+        "ink": "#f3efe8",
+        "bg": "#16140f",
+        "surface": "#211e17",
+        "brand": "#c9a96a",
+        "accent": "#6f8f7d"
+      },
+      "sections": [
+        "nav",
+        "hero",
+        "categories",
+        "featured",
+        "about",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "retail/retail-multipage-premium-dark/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "products.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-multipage-soft-luxe",
+      "industry": "retail",
+      "kind": "multipage",
+      "aesthetic": "soft-luxe refined",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Jost"
+      },
+      "tokens": {
+        "ink": "#2b2724",
+        "bg": "#f6f1ec",
+        "surface": "#fffdfb",
+        "brand": "#a8806a",
+        "accent": "#7b8b7e"
+      },
+      "sections": [
+        "index",
+        "about",
+        "products",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "retail/retail-multipage-soft-luxe/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "products.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-onepage-bold-maximalist",
+      "industry": "retail",
+      "kind": "onepage",
+      "aesthetic": "bold-maximalist",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "IBM Plex Sans"
+      },
+      "tokens": {
+        "ink": "#0e0e0e",
+        "bg": "#fff200",
+        "surface": "#ffffff",
+        "brand": "#ff3b00",
+        "accent": "#0033ff"
+      },
+      "sections": [
+        "nav",
+        "hero",
+        "categories",
+        "featured",
+        "about",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "retail/retail-onepage-bold-maximalist/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-onepage-retro-print",
+      "industry": "retail",
+      "kind": "onepage",
+      "aesthetic": "retro-print",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Newsreader"
+      },
+      "tokens": {
+        "ink": "#2b211a",
+        "bg": "#efe6d2",
+        "surface": "#f8f2e4",
+        "brand": "#bf3f2c",
+        "accent": "#3f6b4f"
+      },
+      "sections": [
+        "nav",
+        "hero",
+        "categories",
+        "featured",
+        "about",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "retail/retail-onepage-retro-print/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-onepage-swiss-minimal",
+      "industry": "retail",
+      "kind": "onepage",
+      "aesthetic": "swiss-minimal",
+      "fonts": {
+        "display": "Archivo",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#1a1a18",
+        "bg": "#f5f4f0",
+        "surface": "#ffffff",
+        "brand": "#c0392b",
+        "accent": "#2c3e50"
+      },
+      "sections": [
+        "nav",
+        "hero",
+        "categories",
+        "featured",
+        "about",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "retail/retail-onepage-swiss-minimal/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-showcase-kinetic-modern",
+      "industry": "retail",
+      "kind": "showcase",
+      "aesthetic": "premium-dark kinetic",
+      "fonts": {
+        "display": "Syne",
+        "text": "IBM Plex Sans"
+      },
+      "tokens": {
+        "ink": "#ededeb",
+        "bg": "#0d0f0e",
+        "surface": "#181b19",
+        "brand": "#c6f24e",
+        "accent": "#ff6a3d"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "gallery",
+        "feature",
+        "stats",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 5,
+      "path": "retail/retail-showcase-kinetic-modern/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-showcase-organic-natural",
+      "industry": "retail",
+      "kind": "showcase",
+      "aesthetic": "warm-craft organic",
+      "fonts": {
+        "display": "Newsreader",
+        "text": "Hanken Grotesk"
+      },
+      "tokens": {
+        "ink": "#33372c",
+        "bg": "#f0ebe0",
+        "surface": "#fbf8f1",
+        "brand": "#8a9a5b",
+        "accent": "#bc6c3c"
+      },
+      "sections": [
+        "hero",
+        "values",
+        "gallery",
+        "feature",
+        "process",
+        "visit",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "retail/retail-showcase-organic-natural/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "retail-showcase-zine-collage",
+      "industry": "retail",
+      "kind": "showcase",
+      "aesthetic": "cut-paper editorial zine",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#241c17",
+        "bg": "#f4ead7",
+        "surface": "#fffaf0",
+        "brand": "#e0452c",
+        "accent": "#2f5d50"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "gallery",
+        "feature",
+        "editorial",
+        "stockists",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "retail/retail-showcase-zine-collage/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-multipage-clinical-calm",
+      "industry": "services",
+      "kind": "multipage",
+      "aesthetic": "clinical-calm",
+      "fonts": {
+        "display": "Outfit",
+        "text": "Source Serif 4"
+      },
+      "tokens": {
+        "ink": "#1b2a2e",
+        "bg": "#f5f8f7",
+        "surface": "#ffffff",
+        "brand": "#2f8f83",
+        "accent": "#c98a4b"
+      },
+      "sections": [
+        "index",
+        "about",
+        "services",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-multipage-clinical-calm/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-multipage-editorial",
+      "industry": "services",
+      "kind": "multipage",
+      "aesthetic": "editorial",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Newsreader"
+      },
+      "tokens": {
+        "ink": "#1a1714",
+        "bg": "#f7f3ec",
+        "surface": "#ece5d8",
+        "brand": "#9a3b2e",
+        "accent": "#33564a"
+      },
+      "sections": [
+        "index",
+        "about",
+        "services",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-multipage-editorial/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-multipage-heritage-classic",
+      "industry": "services",
+      "kind": "multipage",
+      "aesthetic": "heritage-classic",
+      "fonts": {
+        "display": "Playfair Display",
+        "text": "Spectral"
+      },
+      "tokens": {
+        "ink": "#23201a",
+        "bg": "#f3ece0",
+        "surface": "#e6dcc8",
+        "brand": "#7a2e2e",
+        "accent": "#b08a3e"
+      },
+      "sections": [
+        "index",
+        "about",
+        "services",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-multipage-heritage-classic/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "services.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-onepage-mono-technical",
+      "industry": "services",
+      "kind": "onepage",
+      "aesthetic": "mono-technical",
+      "fonts": {
+        "display": "Space Mono",
+        "text": "IBM Plex Sans"
+      },
+      "tokens": {
+        "ink": "#0e1413",
+        "bg": "#f4f6f3",
+        "surface": "#e4e8e2",
+        "brand": "#0a6b5a",
+        "accent": "#d2552a"
+      },
+      "sections": [
+        "hero",
+        "credentials",
+        "about",
+        "services",
+        "team",
+        "proof",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-onepage-mono-technical/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-onepage-premium-dark",
+      "industry": "services",
+      "kind": "onepage",
+      "aesthetic": "premium-dark",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#f3efe9",
+        "bg": "#121311",
+        "surface": "#1c1e1b",
+        "brand": "#c8a14a",
+        "accent": "#5b7a6b"
+      },
+      "sections": [
+        "hero",
+        "credentials",
+        "about",
+        "services",
+        "team",
+        "proof",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-onepage-premium-dark/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-onepage-swiss-minimal",
+      "industry": "services",
+      "kind": "onepage",
+      "aesthetic": "swiss-minimal",
+      "fonts": {
+        "display": "Archivo",
+        "text": "Source Serif 4"
+      },
+      "tokens": {
+        "ink": "#15171a",
+        "bg": "#fbfaf8",
+        "surface": "#eeece6",
+        "brand": "#c8341f",
+        "accent": "#1b3a5c"
+      },
+      "sections": [
+        "hero",
+        "credentials",
+        "about",
+        "services",
+        "team",
+        "proof",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-onepage-swiss-minimal/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-showcase-art-deco",
+      "industry": "services",
+      "kind": "showcase",
+      "aesthetic": "art-deco",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Jost"
+      },
+      "tokens": {
+        "ink": "#f4e9cf",
+        "bg": "#0f2620",
+        "surface": "#143229",
+        "brand": "#c9a449",
+        "accent": "#9c5a3c"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "about",
+        "work",
+        "atelier",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-showcase-art-deco/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-showcase-bold-maximalist",
+      "industry": "services",
+      "kind": "showcase",
+      "aesthetic": "bold-maximalist",
+      "fonts": {
+        "display": "Anton",
+        "text": "Sometype Mono"
+      },
+      "tokens": {
+        "ink": "#16140f",
+        "bg": "#f6f1e7",
+        "surface": "#ffe14d",
+        "brand": "#e8431f",
+        "accent": "#1d4ed8"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "about",
+        "work",
+        "stats",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-showcase-bold-maximalist/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "services-showcase-kinetic-modern",
+      "industry": "services",
+      "kind": "showcase",
+      "aesthetic": "kinetic-modern",
+      "fonts": {
+        "display": "Syne",
+        "text": "DM Sans"
+      },
+      "tokens": {
+        "ink": "#eef0f2",
+        "bg": "#0a0c10",
+        "surface": "#13161c",
+        "brand": "#39ff8a",
+        "accent": "#6c5bff"
+      },
+      "sections": [
+        "hero",
+        "ticker",
+        "about",
+        "work",
+        "process",
+        "cta",
+        "contact"
+      ],
+      "serviceCount": 6,
+      "path": "services/services-showcase-kinetic-modern/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-multipage-editorial",
+      "industry": "wellness",
+      "kind": "multipage",
+      "aesthetic": "editorial",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Source Sans 3"
+      },
+      "tokens": {
+        "ink": "#1c1a17",
+        "bg": "#faf6f0",
+        "surface": "#ffffff",
+        "brand": "#b14a2f",
+        "accent": "#dfae6a"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "wellness/wellness-multipage-editorial/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "treatments.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-multipage-heritage",
+      "industry": "wellness",
+      "kind": "multipage",
+      "aesthetic": "heritage",
+      "fonts": {
+        "display": "Marcellus",
+        "text": "Spectral"
+      },
+      "tokens": {
+        "ink": "#23211c",
+        "bg": "#f3ede1",
+        "surface": "#fbf7ee",
+        "brand": "#5a3a2e",
+        "accent": "#3f5340"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "wellness/wellness-multipage-heritage/index.html",
+      "pages": [
+        "about.html",
+        "index.html",
+        "treatments.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-multipage-swiss-minimal",
+      "industry": "wellness",
+      "kind": "multipage",
+      "aesthetic": "swiss-minimal",
+      "fonts": {
+        "display": "Archivo",
+        "text": "IBM Plex Sans"
+      },
+      "tokens": {
+        "ink": "#111312",
+        "bg": "#fbfbf9",
+        "surface": "#ffffff",
+        "brand": "#11635a",
+        "accent": "#e4e9e1"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 6,
+      "path": "wellness/wellness-multipage-swiss-minimal/index.html",
+      "pages": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "treatments.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-onepage-clinical-calm",
+      "industry": "wellness",
+      "kind": "onepage",
+      "aesthetic": "clinical-calm",
+      "fonts": {
+        "display": "Fraunces",
+        "text": "Public Sans"
+      },
+      "tokens": {
+        "ink": "#16201f",
+        "bg": "#f5f8f7",
+        "surface": "#ffffff",
+        "brand": "#2f6f6a",
+        "accent": "#c8d9d2"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 5,
+      "path": "wellness/wellness-onepage-clinical-calm/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-onepage-organic-natural",
+      "industry": "wellness",
+      "kind": "onepage",
+      "aesthetic": "organic-natural",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Newsreader"
+      },
+      "tokens": {
+        "ink": "#2a2620",
+        "bg": "#f3eee3",
+        "surface": "#fbf8f1",
+        "brand": "#7d6a3f",
+        "accent": "#a9b58c"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "wellness/wellness-onepage-organic-natural/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-onepage-soft-luxe",
+      "industry": "wellness",
+      "kind": "onepage",
+      "aesthetic": "soft-luxe",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Mulish"
+      },
+      "tokens": {
+        "ink": "#231f1d",
+        "bg": "#f7f2ec",
+        "surface": "#fffdfb",
+        "brand": "#9c7a5b",
+        "accent": "#d8c3a5"
+      },
+      "sections": [
+        "hero",
+        "trust",
+        "about",
+        "treatments",
+        "proof",
+        "cta",
+        "contact",
+        "footer"
+      ],
+      "serviceCount": 5,
+      "path": "wellness/wellness-onepage-soft-luxe/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-showcase-kinetic-modern",
+      "industry": "wellness",
+      "kind": "showcase",
+      "aesthetic": "kinetic-modern",
+      "fonts": {
+        "display": "Syne",
+        "text": "DM Sans"
+      },
+      "tokens": {
+        "ink": "#f0f2ec",
+        "bg": "#16181a",
+        "surface": "#202325",
+        "brand": "#c9f24d",
+        "accent": "#ff5e3a"
+      },
+      "sections": [
+        "hero",
+        "marquee",
+        "ethos",
+        "gallery",
+        "classes",
+        "quote",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "wellness/wellness-showcase-kinetic-modern/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-showcase-soft-luxe",
+      "industry": "wellness",
+      "kind": "showcase",
+      "aesthetic": "soft-luxe",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "text": "Jost"
+      },
+      "tokens": {
+        "ink": "#3a322c",
+        "bg": "#f6efe7",
+        "surface": "#fffdf9",
+        "brand": "#9a7b5a",
+        "accent": "#d8c3ad"
+      },
+      "sections": [
+        "hero",
+        "intro",
+        "gallery",
+        "ritual",
+        "quote",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "wellness/wellness-showcase-soft-luxe/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "wellness-showcase-warm-craft",
+      "industry": "wellness",
+      "kind": "showcase",
+      "aesthetic": "warm-craft",
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "text": "Newsreader"
+      },
+      "tokens": {
+        "ink": "#2e221a",
+        "bg": "#efe6d8",
+        "surface": "#f8f2e8",
+        "brand": "#b1542f",
+        "accent": "#7a8b5f"
+      },
+      "sections": [
+        "hero",
+        "ethos",
+        "gallery",
+        "craft",
+        "quote",
+        "cta",
+        "footer"
+      ],
+      "serviceCount": 4,
+      "path": "wellness/wellness-showcase-warm-craft/index.html",
+      "pages": [
+        "index.html"
+      ],
+      "status": "complete"
+    }
+  ]
+}

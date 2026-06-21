@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="The Larder — Menu" data-zh="食房 — 菜单">The Larder — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Larder" data-zh="食房">The Larder</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" aria-current="page" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="menu.kick" data-en="The menu" data-zh="菜单">The menu</p>
+    <h1 data-slot="menu.title" data-en="A short list, changed often." data-zh="精简菜单，时常更替。">A short list, changed often.</h1>
+    <p data-slot="menu.lead" data-en="Placeholder — note dietary options or that the menu follows the season." data-zh="占位文字——说明饮食选项，或菜单随季节而变。">Placeholder — note dietary options or that the menu follows the season.</p>
+  </section>
+
+  <section class="wrap menu-sec">
+    <div class="menu-group">
+      <p class="gt" data-slot="menu.g0.title" data-en="To begin" data-zh="前菜">To begin</p>
+      <div data-slot="menu.g0.items" data-min="2" data-max="4">
+        <div class="item"><h3 data-slot="menu.0.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.0.price" data-en="$16" data-zh="$16">$16</span><p data-slot="menu.0.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+        <div class="item"><h3 data-slot="menu.1.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.1.price" data-en="$18" data-zh="$18">$18</span><p data-slot="menu.1.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+      </div>
+    </div>
+    <div class="menu-group">
+      <p class="gt" data-slot="menu.g1.title" data-en="Mains" data-zh="主菜">Mains</p>
+      <div data-slot="menu.g1.items" data-min="2" data-max="4">
+        <div class="item"><h3 data-slot="menu.2.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.2.price" data-en="$34" data-zh="$34">$34</span><p data-slot="menu.2.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+        <div class="item"><h3 data-slot="menu.3.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.3.price" data-en="$38" data-zh="$38">$38</span><p data-slot="menu.3.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+      </div>
+    </div>
+    <div class="menu-group">
+      <p class="gt" data-slot="menu.g2.title" data-en="To finish" data-zh="甜点">To finish</p>
+      <div data-slot="menu.g2.items" data-min="1" data-max="3">
+        <div class="item"><h3 data-slot="menu.4.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.4.price" data-en="$14" data-zh="$14">$14</span><p data-slot="menu.4.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+        <div class="item"><h3 data-slot="menu.5.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.5.price" data-en="$12" data-zh="$12">$12</span><p data-slot="menu.5.desc" data-en="Short editorial description." data-zh="简短描述。">Short editorial description.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Ready when you are." data-zh="随时恭候。">Ready when you are.</h2>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Book a table" data-zh="预订餐桌">Book a table</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="The Larder" data-zh="食房">The Larder</span>
+    <span data-slot="footer.addr" data-en="Duxton Hill, Singapore" data-zh="新加坡达士敦山">Duxton Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact &amp; Reservations — Tiong Bahru Bakehouse</title>
+<meta name="description" content="Visit Tiong Bahru Bakehouse at 56 Eng Hoon Street, Singapore. Make a reservation, enquire about catering, or just say hello." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar" role="banner">
+  <div class="wrap">
+    <div>
+      <a href="tel:+6562225678"><span class="ic">☎</span> <span data-en="Call us:" data-zh="致电我们：">Call us:</span> +65 6222 5678</a>
+      <a href="mailto:hello@tiongbahru-bakehouse.sg"><span class="ic">✉</span> hello@tiongbahru-bakehouse.sg</a>
+    </div>
+    <div>
+      <span data-en="Chat &amp; order on WhatsApp" data-zh="WhatsApp 聊天及订购">Chat &amp; order on WhatsApp</span>
+      <a href="#" class="wa" aria-label="WhatsApp">✆</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse home">
+      <span class="mk" aria-hidden="true">TBB</span>
+      <span><b data-en="Tiong Bahru Bakehouse" data-zh="中峇鲁烘焙坊">Tiong Bahru Bakehouse</b><small data-en="Artisan Bakery &amp; Café" data-zh="手工烘焙与咖啡馆">Artisan Bakery &amp; Café</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+      <a href="menu.html"  data-en="Menu" data-zh="菜单">Menu</a>
+      <a href="contact.html" class="active" data-en="Contact" data-zh="联系我们">Contact</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="#reserve" class="btn nav-cta" data-en="Order / Reserve" data-zh="订购 / 预订">Order / Reserve</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="phero" aria-label="Contact page banner">
+  <div class="wrap">
+    <h1 data-en="Find Us &amp; Say Hello" data-zh="来找我们">Find Us &amp; Say Hello</h1>
+    <p class="crumb">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a> /
+      <span data-en="Contact" data-zh="联系我们">Contact</span>
+    </p>
+  </div>
+</section>
+
+<!-- Contact body -->
+<section class="sec" id="contact-main">
+  <div class="wrap">
+    <div class="contact-wrap">
+
+      <!-- Left: info + hours -->
+      <div class="reveal">
+        <div class="contact-info">
+          <p class="eyebrow" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+          <h2 data-en="We'd love to hear from you" data-zh="期待您的来信">We'd love to hear from you</h2>
+          <p class="lead" data-en="Whether you're planning a visit, enquiring about a custom cake, looking for catering or just want to chat bread — drop us a line and we'll reply within one business day." data-zh="无论是计划到访、咨询定制蛋糕、洽谈餐饮服务，还是单纯想聊聊面包——请随时联系我们，我们将在一个工作日内回复。">Whether you're planning a visit, enquiring about a custom cake, looking for catering or just want to chat bread — drop us a line and we'll reply within one business day.</p>
+        </div>
+
+        <ul class="clist" style="margin-top:24px">
+          <li>
+            <span class="cic" aria-hidden="true">📍</span>
+            <span>
+              <strong data-en="Address" data-zh="地址">Address</strong><br>
+              56 Eng Hoon Street, Singapore 160056
+            </span>
+          </li>
+          <li>
+            <span class="cic" aria-hidden="true">☎</span>
+            <span>
+              <strong data-en="Phone" data-zh="电话">Phone</strong><br>
+              <a href="tel:+6562225678" style="color:var(--rust)">+65 6222 5678</a>
+            </span>
+          </li>
+          <li>
+            <span class="cic" aria-hidden="true">✉</span>
+            <span>
+              <strong data-en="Email" data-zh="电邮">Email</strong><br>
+              <a href="mailto:hello@tiongbahru-bakehouse.sg" style="color:var(--rust)">hello@tiongbahru-bakehouse.sg</a>
+            </span>
+          </li>
+          <li>
+            <span class="cic" aria-hidden="true">✆</span>
+            <span>
+              <strong data-en="WhatsApp" data-zh="WhatsApp">WhatsApp</strong><br>
+              <span data-en="Chat or place orders at +65 9111 2345" data-zh="通过 +65 9111 2345 聊天或下单">Chat or place orders at +65 9111 2345</span>
+            </span>
+          </li>
+          <li>
+            <span class="cic" aria-hidden="true">◎</span>
+            <span>
+              <strong data-en="Social Media" data-zh="社交媒体">Social Media</strong><br>
+              <span data-en="@tiongbahru.bakehouse on Instagram &amp; Facebook" data-zh="Instagram 及 Facebook：@tiongbahru.bakehouse">@tiongbahru.bakehouse on Instagram &amp; Facebook</span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- Opening hours table -->
+        <h3 style="font-family:var(--fh);color:var(--rust);margin-top:32px;margin-bottom:4px;font-size:1.2rem" data-en="Opening Hours" data-zh="营业时间">Opening Hours</h3>
+        <table class="hours-table" aria-label="Opening hours">
+          <thead>
+            <tr>
+              <th data-en="Day" data-zh="日期">Day</th>
+              <th data-en="Hours" data-zh="时间">Hours</th>
+              <th data-en="Kitchen" data-zh="厨房">Kitchen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Monday" data-zh="周一">Monday</td>
+              <td data-en="Closed" data-zh="休息">Closed</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td data-en="Tuesday – Friday" data-zh="周二至周五">Tuesday – Friday</td>
+              <td>8:00 am – 6:00 pm</td>
+              <td data-en="Until 3 pm" data-zh="至下午3时">Until 3 pm</td>
+            </tr>
+            <tr>
+              <td data-en="Saturday" data-zh="周六">Saturday</td>
+              <td>8:00 am – 8:00 pm</td>
+              <td data-en="Until 5 pm" data-zh="至下午5时">Until 5 pm</td>
+            </tr>
+            <tr>
+              <td data-en="Sunday" data-zh="周日">Sunday</td>
+              <td>8:00 am – 8:00 pm</td>
+              <td data-en="Until 5 pm" data-zh="至下午5时">Until 5 pm</td>
+            </tr>
+            <tr>
+              <td data-en="Public Holidays" data-zh="公共假日">Public Holidays</td>
+              <td>9:00 am – 4:00 pm</td>
+              <td data-en="Limited menu" data-zh="精简菜单">Limited menu</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;font-size:.84rem;color:var(--muted)" data-en="* Hours may vary on eve of public holidays. Follow our Instagram for real-time updates." data-zh="* 公共假日前夕营业时间可能有所调整。请关注我们的 Instagram 获取最新资讯。">* Hours may vary on eve of public holidays. Follow our Instagram for real-time updates.</p>
+      </div>
+
+      <!-- Right: enquiry form -->
+      <div class="reveal" id="reserve">
+        <div class="enquiry-form">
+          <h3 data-en="Send an Enquiry" data-zh="发送询问">Send an Enquiry</h3>
+          <form onsubmit="return false" novalidate aria-label="Enquiry form">
+            <div class="f-group">
+              <div class="f">
+                <label for="fname" data-en="First Name *" data-zh="名字 *">First Name *</label>
+                <input id="fname" type="text" autocomplete="given-name" required placeholder="Wei Ming" />
+              </div>
+              <div class="f">
+                <label for="lname" data-en="Last Name *" data-zh="姓氏 *">Last Name *</label>
+                <input id="lname" type="text" autocomplete="family-name" required placeholder="Tan" />
+              </div>
+            </div>
+            <div class="f-group">
+              <div class="f">
+                <label for="email" data-en="Email Address *" data-zh="电邮地址 *">Email Address *</label>
+                <input id="email" type="email" autocomplete="email" required placeholder="weiming@email.com" />
+              </div>
+              <div class="f">
+                <label for="phone" data-en="Phone / WhatsApp" data-zh="电话 / WhatsApp">Phone / WhatsApp</label>
+                <input id="phone" type="tel" autocomplete="tel" placeholder="+65 9xxx xxxx" />
+              </div>
+            </div>
+            <div class="f">
+              <label for="enquiry-type" data-en="Enquiry Type *" data-zh="询问类型 *">Enquiry Type *</label>
+              <select id="enquiry-type" required>
+                <option value="" data-en="— Please select —" data-zh="— 请选择 —">— Please select —</option>
+                <option value="reservation" data-en="Table Reservation" data-zh="预订座位">Table Reservation</option>
+                <option value="custom-cake" data-en="Custom Celebration Cake" data-zh="定制庆典蛋糕">Custom Celebration Cake</option>
+                <option value="catering" data-en="Corporate / Event Catering" data-zh="企业 / 活动餐饮">Corporate / Event Catering</option>
+                <option value="wholesale" data-en="Wholesale / Bulk Order" data-zh="批发 / 批量订购">Wholesale / Bulk Order</option>
+                <option value="private-hire" data-en="Private Café Hire" data-zh="私人包场">Private Café Hire</option>
+                <option value="other" data-en="Other" data-zh="其他">Other</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <div class="f">
+                <label for="date" data-en="Preferred Date" data-zh="首选日期">Preferred Date</label>
+                <input id="date" type="date" />
+              </div>
+              <div class="f">
+                <label for="guests" data-en="Number of Guests" data-zh="宾客人数">Number of Guests</label>
+                <input id="guests" type="number" min="1" max="200" placeholder="e.g. 4" />
+              </div>
+            </div>
+            <div class="f">
+              <label for="message" data-en="Your Message *" data-zh="您的留言 *">Your Message *</label>
+              <textarea id="message" rows="5" required placeholder="Tell us what you have in mind…" data-en-placeholder="Tell us what you have in mind…" data-zh-placeholder="请告诉我们您的想法……"></textarea>
+            </div>
+            <button class="btn btn-amber" type="submit" style="width:100%;justify-content:center;font-size:.95rem;padding:14px" data-en="Send Enquiry →" data-zh="发送询问 →">Send Enquiry →</button>
+            <p style="margin-top:12px;font-size:.78rem;color:var(--muted);text-align:center" data-en="We reply within one business day. Your data is never sold or shared." data-zh="我们将在一个工作日内回复。您的资料绝不对外出售或共享。">We reply within one business day. Your data is never sold or shared.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="sec" style="padding-top:0" id="map">
+  <div class="wrap">
+    <div class="visit">
+      <div class="grid reveal">
+        <div class="info">
+          <h3 data-en="Getting Here" data-zh="如何到达">Getting Here</h3>
+          <p data-en="We're tucked into the ground floor of a pre-war shophouse on Eng Hoon Street — look for the red awning and the smell of fresh bread." data-zh="我们位于英顺街一座战前店屋底层——寻找红色遮篷与新鲜面包的香气。">We're tucked into the ground floor of a pre-war shophouse on Eng Hoon Street — look for the red awning and the smell of fresh bread.</p>
+          <p style="margin-top:14px"><strong data-en="By MRT" data-zh="乘地铁">By MRT</strong><br>
+            <span data-en="Tiong Bahru MRT (EW17) — 8-minute walk via Tiong Bahru Road." data-zh="中峇鲁地铁站（EW17）——沿中峇鲁路步行约8分钟。">Tiong Bahru MRT (EW17) — 8-minute walk via Tiong Bahru Road.</span>
+          </p>
+          <p style="margin-top:10px"><strong data-en="By Bus" data-zh="乘巴士">By Bus</strong><br>
+            <span data-en="Routes 16, 33, 63, 122, 175 — stop at Tiong Bahru Plaza." data-zh="16、33、63、122、175路——在中峇鲁广场站下车。">Routes 16, 33, 63, 122, 175 — stop at Tiong Bahru Plaza.</span>
+          </p>
+          <p style="margin-top:10px"><strong data-en="Parking" data-zh="停车">Parking</strong><br>
+            <span data-en="Public carpark at Tiong Bahru Plaza (5 min walk). Street parking along Eng Hoon Street on weekday mornings." data-zh="中峇鲁广场公共停车场（步行5分钟）。平日早上英顺街沿路有路边停车位。">Public carpark at Tiong Bahru Plaza (5 min walk). Street parking along Eng Hoon Street on weekday mornings.</span>
+          </p>
+        </div>
+        <iframe
+          loading="lazy"
+          title="Tiong Bahru Bakehouse location map"
+          src="https://maps.google.com/maps?q=56+Eng+Hoon+Street,+Singapore+160056&z=16&output=embed"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-en="See you at the Bakehouse" data-zh="烘焙坊见">See you at the Bakehouse</h2>
+    <p data-en="Come in for breakfast, stay for a second coffee — the sourdough and the seats are always waiting." data-zh="来吃早餐，留下来再喝一杯咖啡——酸面包和座位随时为您候着。">Come in for breakfast, stay for a second coffee — the sourdough and the seats are always waiting.</p>
+    <a href="menu.html" class="btn btn-rust" data-en="Browse the Menu" data-zh="浏览菜单">Browse the Menu</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse">
+          <span class="mk" aria-hidden="true">TBB</span>
+          <span><b style="color:#fff;font-family:var(--fh)">Tiong Bahru Bakehouse</b><small>中峇鲁烘焙坊</small></span>
+        </a>
+        <p class="cn">中峇鲁烘焙坊</p>
+        <p data-en="Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014." data-zh="自2014年起，于新加坡深受喜爱的中峇鲁一带，精心制作天然酵母面包、西点与精品咖啡。">Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="TikTok">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Visit" data-zh="到访">Visit</h4>
+        <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+        <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+        <a href="menu.html" data-en="Menu" data-zh="菜单">Menu</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Menu" data-zh="菜单">Menu</h4>
+        <a href="menu.html#breads" data-en="Breads" data-zh="面包">Breads</a>
+        <a href="menu.html#pastries" data-en="Pastries" data-zh="西点">Pastries</a>
+        <a href="menu.html#coffee" data-en="Coffee" data-zh="咖啡">Coffee</a>
+        <a href="menu.html#bites" data-en="Savoury Bites" data-zh="咸食小食">Savoury Bites</a>
+      </div>
+      <div>
+        <h4 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h4>
+        <p data-en="Tue – Fri: 8 am – 6 pm" data-zh="周二至周五：上午8时–下午6时">Tue – Fri: 8 am – 6 pm</p>
+        <p data-en="Sat – Sun: 8 am – 8 pm" data-zh="周六至周日：上午8时–晚上8时">Sat – Sun: 8 am – 8 pm</p>
+        <p data-en="Mon: Closed" data-zh="周一：休息">Mon: Closed</p>
+        <p style="margin-top:10px">56 Eng Hoon Street<br>Singapore 160056</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Tiong Bahru Bakehouse Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

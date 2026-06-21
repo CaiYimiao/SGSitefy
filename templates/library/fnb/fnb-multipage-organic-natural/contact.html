@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Field & Spoon — Contact" data-zh="田与勺 — 联系">Field &amp; Spoon — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Field &amp; Spoon" data-zh="田与勺"><span class="leaf"></span>Field &amp; Spoon</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="contact.kick" data-en="Visit us" data-zh="到访我们">Visit us</p>
+    <h1 data-slot="contact.title" data-en="Find us at the table." data-zh="在餐桌旁找到我们。">Find us at the table.</h1>
+    <p data-slot="contact.lead" data-en="Placeholder lead — walk-ins welcome; call ahead for larger groups." data-zh="占位引言——欢迎散客；多人聚餐请提前致电。">Placeholder lead — walk-ins welcome; call ahead for larger groups.</p>
+  </section>
+
+  <section class="wrap contact">
+    <div>
+      <h2 data-slot="contact.h2" data-en="Get in touch" data-zh="联系方式">Get in touch</h2>
+      <dl>
+        <dt data-slot="contact.addr.l" data-en="Address" data-zh="地址">Address</dt><dd data-slot="contact.addr" data-en="12 Dempsey Road, Singapore 247700" data-zh="新加坡登布西路12号 247700">12 Dempsey Road, Singapore 247700</dd>
+        <dt data-slot="contact.phone.l" data-en="Phone" data-zh="电话">Phone</dt><dd data-slot="contact.phone" data-en="+65 6567 8901" data-zh="+65 6567 8901">+65 6567 8901</dd>
+        <dt data-slot="contact.email.l" data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="hello@example.sg" data-zh="hello@example.sg">hello@example.sg</dd>
+        <dt data-slot="contact.hours.l" data-en="Hours" data-zh="营业时间">Hours</dt><dd data-slot="contact.hours" data-en="Daily 9:00–18:00" data-zh="每日 9:00–18:00">Daily 9:00–18:00</dd>
+        <dt data-slot="contact.transit.l" data-en="Getting here" data-zh="交通">Getting here</dt><dd data-slot="contact.transit" data-en="Shuttle from Orchard MRT; on-site parking available." data-zh="乌节地铁站有接驳车；现场设有停车场。">Shuttle from Orchard MRT; on-site parking available.</dd>
+      </dl>
+    </div>
+    <div class="map" role="img" aria-label="Map placeholder" data-slot="contact.map"></div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="See you soon." data-zh="期待与你相见。">See you soon.</h2>
+    <p data-slot="cta.sub" data-en="Booking a table for six or more? Drop us a line." data-zh="预订六人以上座位？请与我们联系。">Booking a table for six or more? Drop us a line.</p>
+    <a class="btn" href="menu.html" data-slot="cta.button" data-en="See the menu" data-zh="查看菜单">See the menu</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Field &amp; Spoon" data-zh="田与勺">Field &amp; Spoon</span>
+    <span data-slot="footer.addr" data-en="Dempsey Hill, Singapore" data-zh="新加坡登布西山">Dempsey Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

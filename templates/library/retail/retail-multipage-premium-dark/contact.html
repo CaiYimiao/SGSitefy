@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Contact — Store Name" data-zh="联系 — 店名">Contact — Store Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-rich data-en="STORE<span>.</span>" data-zh="店名<span>.</span>">STORE<span>.</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="品牌">Maison</a>
+      <a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phero">
+  <span class="eyebrow" data-slot="contact.eyebrow" data-en="Visit &amp; enquiries" data-zh="到访与垂询">Visit &amp; enquiries</span>
+  <h1 data-slot="contact.headline" data-en="We look forward to welcoming you" data-zh="期待您的到访">We look forward to welcoming you</h1>
+</section>
+<section class="wrap sec">
+  <div class="contactgrid">
+    <dl>
+      <div><dt data-en="Address" data-zh="地址">Address</dt><dd data-slot="contact.address" data-en="Street address, Singapore" data-zh="新加坡街道地址">Street address, Singapore</dd></div>
+      <div><dt data-en="Hours" data-zh="营业时间">Hours</dt><dd data-slot="contact.hours" data-en="Mon–Sun, 00:00–00:00" data-zh="周一至周日 00:00–00:00">Mon–Sun, 00:00–00:00</dd></div>
+      <div><dt data-en="Telephone" data-zh="电话">Telephone</dt><dd data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</dd></div>
+      <div><dt data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="hello@store.sg" data-zh="hello@store.sg">hello@store.sg</dd></div>
+    </dl>
+    <form onsubmit="return false">
+      <input type="text" data-slot="form.name" data-en-ph="Your name" data-zh-ph="您的姓名" placeholder="Your name" aria-label="Name">
+      <input type="email" data-slot="form.email" data-en-ph="Your email" data-zh-ph="您的邮箱" placeholder="Your email" aria-label="Email">
+      <textarea rows="4" data-slot="form.message" data-en-ph="Your enquiry" data-zh-ph="垂询内容" placeholder="Your enquiry" aria-label="Message"></textarea>
+      <button class="btn solid" type="submit" data-slot="form.submit" data-en="Send enquiry" data-zh="发送垂询">Send enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="row">
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</div></footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

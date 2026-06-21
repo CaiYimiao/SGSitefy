@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Apex Business Consulting Singapore</title>
+<meta name="description" content="Book a free consultation with Apex Business Consulting. Located at 10 Anson Road, International Plaza, Singapore 079903." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6562221888"><span class="ic">☎</span><span data-en="Call us:" data-zh="致电：">Call us:</span> +65 6222 1888</a>
+    <a href="mailto:hello@apexbiz.sg"><span class="ic">✉</span> hello@apexbiz.sg</a>
+  </div>
+  <div><span data-en="Mon–Fri 9am–6pm · Sat 9am–1pm" data-zh="周一至五 9:00–18:00 · 周六 9:00–13:00">Mon–Fri 9am–6pm · Sat 9am–1pm</span></div>
+</div></div>
+
+<!-- header -->
+<header class="header"><div class="wrap">
+  <a href="index.html" class="brand">
+    <span class="mk">AB</span>
+    <span><b>APEX BUSINESS</b><small>CONSULTING</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+    <a href="contact.html" class="active" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="contact.html" class="btn nav-cta" data-en="Free Consultation" data-zh="免费咨询">Free Consultation</a>
+  </nav>
+  <button class="burger" aria-label="Menu">☰</button>
+</div></header>
+
+<!-- page hero -->
+<section class="phero">
+  <div class="wrap">
+    <h1 data-en="Contact Us" data-zh="联系我们">Contact Us</h1>
+    <p class="sub" data-en="Book a free 30-minute consultation — we'll respond within one business day." data-zh="预约30分钟免费咨询——我们将在一个工作日内回复。">Book a free 30-minute consultation — we'll respond within one business day.</p>
+    <p class="crumb"><a href="index.html" data-en="Home" data-zh="主页">Home</a> / <span data-en="Contact" data-zh="联系">Contact</span></p>
+  </div>
+</section>
+
+<!-- contact section -->
+<section class="sec why" style="padding:80px 0" aria-labelledby="contact-h2"><div class="wrap">
+  <div class="contact-wrap">
+
+    <!-- left: info -->
+    <div class="cinfo reveal">
+      <p class="eyebrow" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+      <h2 id="contact-h2" data-en="Speak to an advisor today" data-zh="立即与顾问交流">Speak to an advisor today</h2>
+      <p class="lead" data-en="Whether you need help with accounting, tax filing or corporate secretarial matters, our team is ready to assist — in English or Mandarin." data-zh="无论您需要会计、税务申报还是公司秘书服务，我们的团队随时以英语或普通话为您提供协助。">Whether you need help with accounting, tax filing or corporate secretarial matters, our team is ready to assist — in English or Mandarin.</p>
+
+      <ul class="clist">
+        <li>
+          <span class="ic">☷</span>
+          <div class="txt">
+            <strong data-en="Address" data-zh="地址">Address</strong>
+            10 Anson Road, International Plaza<br>Singapore 079903
+          </div>
+        </li>
+        <li>
+          <span class="ic">☎</span>
+          <div class="txt">
+            <strong data-en="Phone" data-zh="电话">Phone</strong>
+            +65 6222 1888
+          </div>
+        </li>
+        <li>
+          <span class="ic">✉</span>
+          <div class="txt">
+            <strong data-en="Email" data-zh="电邮">Email</strong>
+            hello@apexbiz.sg
+          </div>
+        </li>
+        <li>
+          <span class="ic">◷</span>
+          <div class="txt">
+            <strong data-en="Office Hours" data-zh="办公时间">Office Hours</strong>
+            <span data-en="See schedule below" data-zh="见下方时刻表">See schedule below</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- office hours table -->
+      <div class="hours-table" style="margin-top:26px">
+        <div class="row"><span data-en="Monday – Friday" data-zh="周一至周五">Monday – Friday</span><strong>9:00 am – 6:00 pm</strong></div>
+        <div class="row"><span data-en="Saturday" data-zh="周六">Saturday</span><strong>9:00 am – 1:00 pm</strong></div>
+        <div class="row"><span data-en="Sunday &amp; Public Holidays" data-zh="周日及公众假期">Sunday &amp; Public Holidays</span><strong data-en="Closed" data-zh="休息">Closed</strong></div>
+      </div>
+    </div>
+
+    <!-- right: enquiry form -->
+    <div class="cform reveal">
+      <h3 data-en="Book a Free Consultation" data-zh="预约免费咨询">Book a Free Consultation</h3>
+      <form onsubmit="handleSubmit(event)" novalidate>
+        <div class="fgrid">
+          <div class="f">
+            <label for="c-name" data-en="Full Name *" data-zh="姓名 *">Full Name *</label>
+            <input id="c-name" type="text" autocomplete="name" required placeholder="e.g. John Tan" />
+          </div>
+          <div class="f">
+            <label for="c-phone" data-en="Phone Number" data-zh="联系电话">Phone Number</label>
+            <input id="c-phone" type="tel" autocomplete="tel" placeholder="+65 9xxx xxxx" />
+          </div>
+          <div class="f full">
+            <label for="c-email" data-en="Business Email *" data-zh="公司电邮 *">Business Email *</label>
+            <input id="c-email" type="email" autocomplete="email" required placeholder="you@company.com" />
+          </div>
+          <div class="f full">
+            <label for="c-company" data-en="Company Name" data-zh="公司名称">Company Name</label>
+            <input id="c-company" type="text" autocomplete="organization" placeholder="ABC Pte Ltd" />
+          </div>
+          <div class="f full">
+            <label for="c-service" data-en="Service You're Interested In" data-zh="感兴趣的服务">Service You're Interested In</label>
+            <select id="c-service">
+              <option value="" data-en="— Please select —" data-zh="— 请选择 —">— Please select —</option>
+              <option value="accounting" data-en="Accounting &amp; Bookkeeping" data-zh="会计与记账">Accounting &amp; Bookkeeping</option>
+              <option value="tax" data-en="Tax Advisory &amp; Filing" data-zh="税务咨询与申报">Tax Advisory &amp; Filing</option>
+              <option value="secretarial" data-en="Corporate Secretarial" data-zh="公司秘书服务">Corporate Secretarial</option>
+              <option value="payroll" data-en="Payroll &amp; HR Administration" data-zh="薪资与人力资源管理">Payroll &amp; HR Administration</option>
+              <option value="advisory" data-en="Business Advisory" data-zh="商务咨询">Business Advisory</option>
+              <option value="other" data-en="Other / Not Sure" data-zh="其他 / 未确定">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="f full">
+            <label for="c-msg" data-en="Tell us about your business &amp; needs" data-zh="请简介您的业务及需求">Tell us about your business &amp; needs</label>
+            <textarea id="c-msg" rows="4" placeholder="e.g. We are a 3-year-old F&B company looking for monthly bookkeeping and annual tax filing..."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;margin-top:6px;justify-content:center;padding:14px" data-en="Send Enquiry" data-zh="发送咨询">Send Enquiry</button>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:10px;text-align:center" data-en="We respect your privacy. No spam, ever." data-zh="我们尊重您的隐私，绝不发送垃圾邮件。">We respect your privacy. No spam, ever.</p>
+      </form>
+      <div id="form-thanks" style="display:none;text-align:center;padding:30px 0">
+        <div style="font-size:2.5rem;margin-bottom:10px">✓</div>
+        <h3 style="color:var(--navy)" data-en="Thank you!" data-zh="感谢您！">Thank you!</h3>
+        <p style="color:var(--muted);margin-top:6px" data-en="We'll be in touch within one business day." data-zh="我们将在一个工作日内与您联系。">We'll be in touch within one business day.</p>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- Google Map -->
+<section class="sec" style="padding:0 0 80px"><div class="wrap">
+  <div class="map-wrap reveal">
+    <iframe
+      loading="lazy"
+      title="Apex Business Consulting — 10 Anson Road, International Plaza, Singapore"
+      src="https://maps.google.com/maps?q=10+Anson+Road,+International+Plaza,+Singapore+079903&z=16&output=embed"
+      allowfullscreen
+      aria-hidden="false"
+      tabindex="0">
+    </iframe>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:14px">
+    <strong style="color:var(--navy)" data-en="Nearest MRT:" data-zh="最近地铁站：">Nearest MRT:</strong>
+    <span data-en="Tanjong Pagar MRT (EW15) — 3-minute walk via Anson Road exit." data-zh="丹戎巴葛地铁站（EW15）——由 Anson Road 出口步行约3分钟。">Tanjong Pagar MRT (EW15) — 3-minute walk via Anson Road exit.</span>
+  </p>
+</div></section>
+
+<!-- CTA band -->
+<section class="cta-band"><div class="wrap">
+  <h2 data-en="Prefer to call? We're here." data-zh="更喜欢致电？我们随时恭候。">Prefer to call? We're here.</h2>
+  <p data-en="Reach our team directly at +65 6222 1888, Monday to Friday 9am–6pm." data-zh="直接致电 +65 6222 1888 联系我们的团队，周一至周五 9:00–18:00。">Reach our team directly at +65 6222 1888, Monday to Friday 9am–6pm.</p>
+  <a href="tel:+6562221888" class="btn btn-navy" data-en="Call +65 6222 1888" data-zh="致电 +65 6222 1888">Call +65 6222 1888</a>
+</div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="index.html" class="brand"><span class="mk">AB</span><span><b style="color:#fff">APEX BUSINESS</b><small>CONSULTING</small></span></a>
+      <p class="cn">顶峰商务咨询私人有限公司</p>
+      <p data-en="ACRA-registered accounting, tax and corporate secretarial services for Singapore SMEs — trusted since 2003." data-zh="专为新加坡中小企业提供的 ACRA 注册会计、税务及公司秘书服务——自2003年起值得信赖。">ACRA-registered accounting, tax and corporate secretarial services for Singapore SMEs — trusted since 2003.</p>
+      <div class="soc"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a></div>
+      <div class="badges"><span>ACRA Registered</span><span>ISCA Member</span><span>MOM Accredited</span></div>
+    </div>
+    <div>
+      <h4 data-en="Company" data-zh="公司">Company</h4>
+      <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+      <a href="about.html#team" data-en="Our Team" data-zh="我们的团队">Our Team</a>
+      <a href="about.html#credentials" data-en="Credentials" data-zh="资质认证">Credentials</a>
+    </div>
+    <div>
+      <h4 data-en="Services" data-zh="服务">Services</h4>
+      <a href="services.html#accounting" data-en="Accounting" data-zh="会计">Accounting</a>
+      <a href="services.html#tax" data-en="Tax Advisory" data-zh="税务咨询">Tax Advisory</a>
+      <a href="services.html#secretarial" data-en="Corporate Secretarial" data-zh="公司秘书">Corporate Secretarial</a>
+      <a href="services.html#payroll" data-en="Payroll" data-zh="薪资管理">Payroll</a>
+    </div>
+    <div>
+      <h4 data-en="Contact" data-zh="联系方式">Contact</h4>
+      <p>10 Anson Road<br>International Plaza<br>Singapore 079903</p>
+      <p>+65 6222 1888<br>hello@apexbiz.sg</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 Apex Business Consulting Pte Ltd · UEN 200300001A</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<a href="#c-name" class="fab fab-consult" aria-label="Free Consultation">
+  <span data-en="Free Consult" data-zh="免费咨询">Free Consult</span>
+</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var email = document.getElementById('c-email').value.trim();
+  var name = document.getElementById('c-name').value.trim();
+  if (!name || !email) {
+    alert(LANG === 'zh' ? '请填写姓名和电邮地址。' : 'Please enter your name and email.');
+    return;
+  }
+  form.style.display = 'none';
+  document.getElementById('form-thanks').style.display = 'block';
+  // In production: replace with actual form submission (fetch/XHR to backend)
+}
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

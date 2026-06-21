@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Heng Kee Kopitiam — Home" data-zh="兴记茶室 — 首页">Heng Kee Kopitiam — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-rich data-en="Heng Kee <small>Est. 1968</small>" data-zh="兴记 <small>始于1968</small>">Heng Kee <small>Est. 1968</small></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="Our story" data-zh="本店故事">Our story</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <p class="kick" data-slot="hero.kick" data-en="Kopitiam since 1968" data-zh="自1968年的传统茶室">Kopitiam since 1968</p>
+      <h1 data-slot="hero.headline" data-en="Three generations, one recipe." data-zh="三代人，一个配方。">Three generations, one recipe.</h1>
+      <p data-slot="hero.sub" data-en="Placeholder intro — a family coffeeshop serving the same kaya, toast and kopi since the sixties. Set a warm, rooted tone." data-zh="占位引言——一家自六十年代起便供应同样咖椰、烤面包与咖啡的家庭茶室。营造温暖而扎实的语气。">Placeholder intro — a family coffeeshop serving the same kaya, toast and kopi since the sixties. Set a warm, rooted tone.</p>
+      <a class="btn" href="menu.html" data-slot="hero.cta" data-en="See the menu" data-zh="查看菜单">See the menu</a>
+      <a class="btn alt" href="about.html" data-slot="hero.cta2" data-en="Our story" data-zh="本店故事">Our story</a>
+    </div>
+    <div class="hero-art">
+      <img src="https://picsum.photos/seed/hengkee-hero/680/850" data-slot="hero.image" data-en-alt="Kopi and kaya toast" data-zh-alt="咖啡与咖椰烤面包" alt="Kopi and kaya toast" />
+      <span class="seal" data-slot="hero.badge" data-en="Charcoal-toasted" data-zh="炭火烘烤">Charcoal-toasted</span>
+    </div>
+  </section>
+
+  <section class="quickinfo" aria-label="At a glance">
+    <div class="wrap qi">
+      <div><div class="l" data-slot="quickinfo.hours.l" data-en="Open" data-zh="营业">Open</div><strong data-slot="quickinfo.hours" data-en="Daily 6:30–14:30" data-zh="每日 6:30–14:30">Daily 6:30–14:30</strong></div>
+      <div><div class="l" data-slot="quickinfo.loc.l" data-en="Where" data-zh="地址">Where</div><strong data-slot="quickinfo.loc" data-en="Tiong Bahru" data-zh="中峇鲁">Tiong Bahru</strong></div>
+      <div><div class="l" data-slot="quickinfo.spec.l" data-en="Famous for" data-zh="招牌">Famous for</div><strong data-slot="quickinfo.spec" data-en="Kaya & kopi" data-zh="咖椰与咖啡">Kaya &amp; kopi</strong></div>
+      <div><div class="l" data-slot="quickinfo.call.l" data-en="Call" data-zh="电话">Call</div><strong data-slot="quickinfo.call" data-en="+65 6222 1968" data-zh="+65 6222 1968">+65 6222 1968</strong></div>
+    </div>
+  </section>
+
+  <section class="wrap cols">
+    <div class="pic"><img src="https://picsum.photos/seed/hengkee-feat/700/560" data-slot="about.image" data-en-alt="The old coffeeshop" data-zh-alt="老茶室" alt="The old coffeeshop" /></div>
+    <div>
+      <p class="kick" data-slot="about.kick" data-en="Our way" data-zh="我们的方式">Our way</p>
+      <h2 data-slot="about.headline" data-en="Nothing's changed but the prices." data-zh="除了价格，一切如旧。">Nothing's changed but the prices.</h2>
+      <p data-slot="about.body" data-en="Placeholder — the family heritage, the well-worn marble tables, why regulars have come for decades. Warm and grounded." data-zh="占位文字——家族传承、磨得发亮的大理石桌、为何熟客几十年如一日。温暖而朴实。">Placeholder — the family heritage, the well-worn marble tables, why regulars have come for decades. Warm and grounded.</p>
+    </div>
+  </section>
+
+  <section class="social">
+    <div class="wrap">
+      <h2 data-slot="social.headline" data-en="Loved by the neighbourhood" data-zh="街坊邻里都喜爱">Loved by the neighbourhood</h2>
+      <div class="quotes">
+        <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.0.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+        <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.1.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+        <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.2.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Come for breakfast." data-zh="来吃个早餐吧。">Come for breakfast.</h2>
+    <p data-slot="cta.sub" data-en="No bookings — just walk in, grab a marble table and order at the counter." data-zh="无需预订——直接进来，找张大理石桌，到柜台点单即可。">No bookings — just walk in, grab a marble table and order at the counter.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Find us" data-zh="找到我们">Find us</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Heng Kee Kopitiam" data-zh="兴记茶室">Heng Kee Kopitiam</span>
+    <span data-slot="footer.addr" data-en="Tiong Bahru, Singapore" data-zh="新加坡中峇鲁">Tiong Bahru, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

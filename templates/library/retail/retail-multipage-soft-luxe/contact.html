@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Maison — Visit" data-zh="名店 — 到店">Maison — Visit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-en="MAISON" data-zh="名店">MAISON</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phead">
+  <span class="kick" data-slot="phead.kick" data-en="Visit" data-zh="到店">Visit</span>
+  <h1 data-slot="phead.title" data-rich data-en="We'd love to <em>see you</em>" data-zh="期待与<em>你相见</em>">We'd love to <em>see you</em></h1>
+  <p data-slot="phead.lede" data-en="One welcoming sentence inviting the visitor to drop by or reach out." data-zh="一句温暖的话，邀访客亲临或来信。">One welcoming sentence inviting the visitor to drop by or reach out.</p>
+</section>
+
+<section class="wrap sec">
+  <div class="cgrid">
+    <dl>
+      <div><dt data-en="The maison" data-zh="门店">The maison</dt><dd data-slot="contact.address" data-en="Street address, Singapore" data-zh="新加坡街道地址">Street address, Singapore</dd></div>
+      <div><dt data-en="Hours" data-zh="营业时间">Hours</dt><dd data-slot="contact.hours" data-en="Tue–Sun, 00:00–00:00" data-zh="周二至周日 00:00–00:00">Tue–Sun, 00:00–00:00</dd></div>
+      <div><dt data-en="Telephone" data-zh="电话">Telephone</dt><dd data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</dd></div>
+      <div><dt data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="enquiries@maison.sg" data-zh="enquiries@maison.sg">enquiries@maison.sg</dd></div>
+    </dl>
+    <form onsubmit="return false" aria-label="Enquiry form">
+      <div><label for="cn" data-slot="form.name" data-en="Your name" data-zh="您的姓名">Your name</label>
+      <input id="cn" type="text" autocomplete="name"></div>
+      <div><label for="ce" data-slot="form.email" data-en="Your email" data-zh="您的邮箱">Your email</label>
+      <input id="ce" type="email" autocomplete="email"></div>
+      <div><label for="cm" data-slot="form.message" data-en="Your message" data-zh="您的留言">Your message</label>
+      <textarea id="cm" rows="4"></textarea></div>
+      <button class="btn solid" type="submit" data-slot="form.submit" data-en="Send enquiry" data-zh="发送洽询">Send enquiry</button>
+    </form>
+  </div>
+  <figure class="cmap"><img src="https://picsum.photos/seed/luxemap/1400/470" data-slot="contact.map" data-en-alt="Map to the maison" data-zh-alt="门店地图" alt="Map to the maison"></figure>
+</section>
+</main>
+<footer>
+  <div class="fcols">
+    <span class="fbrand" data-slot="footer.brand" data-en="MAISON" data-zh="名店">MAISON</span>
+    <nav aria-label="Footer">
+      <a href="index.html" data-slot="footer.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="footer.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="footer.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="footer.contact" data-en="Visit" data-zh="到店">Visit</a>
+    </nav>
+  </div>
+  <div class="fbot">
+    <span data-slot="footer.copy" data-en="© Maison Name, Singapore" data-zh="© 名店，新加坡">© Maison Name, Singapore</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

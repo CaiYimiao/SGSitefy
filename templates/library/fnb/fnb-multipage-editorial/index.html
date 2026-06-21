@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="The Larder — Home" data-zh="食房 — 首页">The Larder — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Larder" data-zh="食房">The Larder</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap" style="display:contents">
+      <div class="txt" style="padding-left:28px">
+        <p class="kick" data-slot="hero.kick" data-en="Seasonal · Local · Slow" data-zh="时令 · 本地 · 慢食">Seasonal · Local · Slow</p>
+        <h1 data-slot="hero.headline" data-en="A quiet table for considered cooking." data-zh="一张静谧的餐桌，呈献用心料理。">A quiet table for considered cooking.</h1>
+        <p class="drop" data-slot="hero.sub" data-en="Placeholder introduction — set the tone, describe the dining philosophy, and invite the reader to stay a while." data-zh="占位引言——定下基调，描述用餐理念，邀请读者驻足片刻。">Placeholder introduction — set the tone, describe the dining philosophy, and invite the reader to stay a while.</p>
+        <a class="btn" href="contact.html" data-slot="hero.cta" data-en="Reserve a table" data-zh="预订餐桌">Reserve a table</a>
+        <a class="btn alt" href="menu.html" data-slot="hero.cta2" data-en="View menu" data-zh="查看菜单">View menu</a>
+      </div>
+      <figure>
+        <img src="https://picsum.photos/seed/edit-hero/800/900" data-slot="hero.image" data-en-alt="Dining room" data-zh-alt="用餐空间" alt="Dining room" />
+        <figcaption data-slot="hero.caption" data-en="The main room, set for dinner service." data-zh="主餐厅，晚餐服务前的布置。">The main room, set for dinner service.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="quickinfo">
+    <div class="wrap qi">
+      <div><span class="l" data-slot="quickinfo.hours.l" data-en="Open" data-zh="营业">Open</span><strong data-slot="quickinfo.hours" data-en="Wed–Sun · 18:00–23:00" data-zh="周三至周日 · 18:00–23:00">Wed–Sun · 18:00–23:00</strong></div>
+      <div><span class="l" data-slot="quickinfo.loc.l" data-en="Located" data-zh="地址">Located</span><strong data-slot="quickinfo.loc" data-en="Duxton Hill" data-zh="达士敦山">Duxton Hill</strong></div>
+      <div><span class="l" data-slot="quickinfo.call.l" data-en="Reservations" data-zh="预订">Reservations</span><strong data-slot="quickinfo.call" data-en="+65 6456 7890" data-zh="+65 6456 7890">+65 6456 7890</strong></div>
+    </div>
+  </section>
+
+  <section class="wrap cols">
+    <img src="https://picsum.photos/seed/edit-feat/600/750" data-slot="about.image" data-en-alt="Chef plating" data-zh-alt="主厨摆盘" alt="Chef plating" />
+    <div>
+      <p class="kick" data-slot="about.kick" data-en="The kitchen" data-zh="厨房">The kitchen</p>
+      <h2 data-slot="about.headline" data-en="Few ingredients, treated with respect." data-zh="食材精简，皆怀敬意。">Few ingredients, treated with respect.</h2>
+      <p class="body" data-slot="about.body" data-en="Placeholder feature paragraph — describe sourcing, the menu's rhythm, and the people in the kitchen. Editorial and unhurried." data-zh="占位特写段落——描述采购、菜单节奏与厨房团队。文风从容，似杂志专栏。">Placeholder feature paragraph — describe sourcing, the menu's rhythm, and the people in the kitchen. Editorial and unhurried.</p>
+    </div>
+  </section>
+
+  <section class="social">
+    <div class="wrap">
+      <h2 data-slot="social.headline" data-en="In their words" data-zh="食客之言">In their words</h2>
+      <div class="quotes">
+        <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review quote.”" data-zh="“占位评价。”">“Placeholder review quote.”</p><span data-slot="social.0.name" data-en="— Guest, 2025" data-zh="— 食客，2025">— Guest, 2025</span></figure>
+        <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review quote.”" data-zh="“占位评价。”">“Placeholder review quote.”</p><span data-slot="social.1.name" data-en="— Guest, 2025" data-zh="— 食客，2025">— Guest, 2025</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Join us for dinner." data-zh="与我们共进晚餐。">Join us for dinner.</h2>
+    <p data-slot="cta.sub" data-en="Tables are limited; booking ahead is recommended." data-zh="座位有限，建议提前预订。">Tables are limited; booking ahead is recommended.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Make a reservation" data-zh="立即预订">Make a reservation</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="The Larder" data-zh="食房">The Larder</span>
+    <span data-slot="footer.addr" data-en="Duxton Hill, Singapore" data-zh="新加坡达士敦山">Duxton Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

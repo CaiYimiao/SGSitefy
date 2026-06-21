@@ -1,0 +1,11 @@
+{
+  "id": "services-multipage-editorial",
+  "industry": "services",
+  "kind": "multipage",
+  "aesthetic": "editorial",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Newsreader" },
+  "tokens": { "ink": "#1a1714", "bg": "#f7f3ec", "surface": "#ece5d8", "brand": "#9a3b2e", "accent": "#33564a" },
+  "sections": ["index", "about", "services", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Firm — Professional Services" data-zh="事务所 — 专业服务">Firm — Professional Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Heritage<i>&amp;</i>Partners" data-zh="传承<i>&amp;</i>合伙" data-rich>Heritage<i>&amp;</i>Partners</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" aria-current="page" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="masthead">
+  <div class="wrap">
+    <div class="rule">
+      <span data-slot="mast.left" data-en="Established · Singapore" data-zh="创立 · 新加坡">Established · Singapore</span>
+      <span data-slot="mast.right" data-en="Advisory &amp; Professional Services" data-zh="顾问与专业服务">Advisory &amp; Professional Services</span>
+    </div>
+    <h1 data-slot="hero.headline" data-en="Counsel built on<br><em>a century of practice.</em>" data-zh="以世纪积淀，<br><em>提供专业建言。</em>" data-rich>Counsel built on<br><em>a century of practice.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the disciplines you cover, the clients you serve, and the standard you hold.">Hero supporting line — the disciplines you cover, the clients you serve, and the standard you hold.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-slot="about.eyebrow" data-en="The Firm" data-zh="关于事务所">The Firm</p>
+      <h2 data-slot="about.heading" data-en="A practice measured in trust." data-zh="以信任丈量的事务所。">A practice measured in trust.</h2>
+      <div class="cols" style="margin-top:22px">
+        <p data-slot="about.body.0" data-en="About paragraph one — who the firm is, when it was founded, and the principle it was built on.">About paragraph one — who the firm is, when it was founded, and the principle it was built on.</p>
+        <p data-slot="about.body.1" data-en="About paragraph two — the approach, the people, and what clients can expect from working together.">About paragraph two — the approach, the people, and what clients can expect from working together.</p>
+      </div>
+      <a href="about.html" class="btn" style="margin-top:24px" data-slot="about.cta" data-en="More about us" data-zh="了解更多">More about us</a>
+    </div>
+    <figure class="figure">
+      <img src="https://picsum.photos/seed/heritage-firm-1/720/900" alt="" data-slot="about.image">
+      <figcaption data-slot="about.caption" data-en="Our chambers" data-zh="事务所">Our chambers</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-slot="services.eyebrow" data-en="Practice Areas" data-zh="业务领域">Practice Areas</p>
+      <h2 data-slot="services.heading" data-en="Six disciplines, one standard." data-zh="六大领域，统一标准。">Six disciplines, one standard.</h2>
+    </div>
+    <ol class="svc" data-slot="services" data-min="3" data-max="6">
+      <li><span class="no">01</span><div><h3 data-slot="services.0.title" data-en="Service one" data-zh="服务一">Service one</h3><p data-slot="services.0.desc" data-en="Short description of the first practice area or service offered.">Short description of the first practice area or service offered.</p></div></li>
+      <li><span class="no">02</span><div><h3 data-slot="services.1.title" data-en="Service two" data-zh="服务二">Service two</h3><p data-slot="services.1.desc" data-en="Short description of the second practice area or service offered.">Short description of the second practice area or service offered.</p></div></li>
+      <li><span class="no">03</span><div><h3 data-slot="services.2.title" data-en="Service three" data-zh="服务三">Service three</h3><p data-slot="services.2.desc" data-en="Short description of the third practice area or service offered.">Short description of the third practice area or service offered.</p></div></li>
+      <li><span class="no">04</span><div><h3 data-slot="services.3.title" data-en="Service four" data-zh="服务四">Service four</h3><p data-slot="services.3.desc" data-en="Short description of the fourth practice area or service offered.">Short description of the fourth practice area or service offered.</p></div></li>
+    </ol>
+    <a href="services.html" class="btn" style="margin-top:28px" data-slot="services.cta" data-en="All services" data-zh="全部服务">All services</a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n" data-slot="stats.0.n" data-en="1924" data-zh="1924">1924</div><div class="l" data-slot="stats.0.l" data-en="Founded" data-zh="创立">Founded</div></div>
+      <div class="stat"><div class="n" data-slot="stats.1.n" data-en="40+" data-zh="40+">40+</div><div class="l" data-slot="stats.1.l" data-en="Advisers" data-zh="顾问">Advisers</div></div>
+      <div class="stat"><div class="n" data-slot="stats.2.n" data-en="3,000" data-zh="3,000">3,000</div><div class="l" data-slot="stats.2.l" data-en="Matters handled" data-zh="处理案件">Matters handled</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--ink);color:var(--bg);border:none;text-align:center">
+  <div class="wrap">
+    <h2 data-slot="cta.heading" data-en="Begin with a conversation." data-zh="从一次交谈开始。" style="color:var(--bg)">Begin with a conversation.</h2>
+    <p data-slot="cta.sub" data-en="Tell us what you need; we will tell you how we can help." style="color:#cdbfa6;margin:14px 0 26px">Tell us what you need; we will tell you how we can help.</p>
+    <a href="contact.html" class="btn btn-brand" data-slot="cta.button" data-en="Request a consultation" data-zh="预约咨询">Request a consultation</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h4 data-slot="brand.name" data-en="Heritage &amp; Partners" data-zh="传承 & 合伙">Heritage &amp; Partners</h4>
+        <p data-slot="foot.blurb" data-en="One-line firm description for the footer — what you do and who you serve." style="max-width:42ch">One-line firm description for the footer — what you do and who you serve.</p>
+      </div>
+      <div>
+        <h4 data-en="Navigate" data-zh="导航">Navigate</h4>
+        <a href="about.html" data-en="About" data-zh="关于">About</a>
+        <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Contact" data-zh="联系">Contact</h4>
+        <a href="#" data-slot="foot.address" data-en="Address line, Singapore" data-zh="地址，新加坡">Address line, Singapore</a>
+        <a href="#" data-slot="foot.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</a>
+        <a href="#" data-slot="foot.email" data-en="hello@firm.sg" data-zh="hello@firm.sg">hello@firm.sg</a>
+      </div>
+    </div>
+    <div class="bar">
+      <span data-slot="foot.copyright" data-en="© Firm Pte Ltd" data-zh="© 事务所私人有限公司">© Firm Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

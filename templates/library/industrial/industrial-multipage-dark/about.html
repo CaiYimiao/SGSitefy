@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Precision Industrial" data-zh="关于 — 精密工业">About — Precision Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" aria-current="page" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="phead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+    <h1 data-slot="about.headline" data-en="Built on" data-zh="以严谨" data-rich>Built on <em>discipline.</em></h1>
+    <p data-slot="about.sub" data-en="Page intro — a single line on who you are and the standard you hold." data-zh="页面引言 — 关于你是谁与所守标准的一句话。">Page intro — a single line on who you are and the standard you hold.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap about">
+    <figure class="about-fig"><img src="https://picsum.photos/seed/dark-about-hero/700/880" alt="" data-slot="about.image" data-en-alt="Workshop floor" data-zh-alt="车间"></figure>
+    <div>
+      <p class="eyebrow" data-en="The Workshop" data-zh="工坊">The Workshop</p>
+      <h2 style="font-size:clamp(1.8rem,4.5vw,3rem);margin:.7rem 0 1.2rem" data-slot="about.title" data-en="Two decades of" data-zh="二十年" data-rich>Two decades of <em style="font-style:italic;color:var(--brand)">refinement.</em></h2>
+      <p data-slot="about.p1" data-en="About paragraph one — origin, founding principle, what set you apart from day one." data-zh="关于段落一 — 起源、创立理念、从第一天起的与众不同之处。">About paragraph one — origin, founding principle, what set you apart from day one.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — equipment, materials, the people behind the work." data-zh="关于段落二 — 设备、材料、团队。">About paragraph two — equipment, materials, the people behind the work.</p>
+      <p data-slot="about.p3" data-en="About paragraph three — where you are headed and the promise you keep." data-zh="关于段落三 — 未来方向与坚守的承诺。">About paragraph three — where you are headed and the promise you keep.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="What Guides Us" data-zh="指引我们">What Guides Us</p><h2 data-slot="values.title" data-en="Our" data-zh="我们的" data-rich>Our <em>principles.</em></h2></div>
+    <div class="svc-grid" data-slot="values" data-min="3" data-max="4">
+      <article class="svc"><div class="n">01</div><h3 data-slot="values.0.title" data-en="Precision First" data-zh="精度至上">Precision First</h3><p data-slot="values.0.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="values.1.title" data-en="Honest Timelines" data-zh="诚信交期">Honest Timelines</h3><p data-slot="values.1.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="values.2.title" data-en="Lasting Partnerships" data-zh="长久合作">Lasting Partnerships</h3><p data-slot="values.2.desc" data-en="Value description placeholder." data-zh="价值描述占位。">Value description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Work with" data-zh="与我们" data-rich>Work with <em>us.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite a conversation." data-zh="行动号召副文 — 邀请对话。">CTA supporting line — invite a conversation.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Get in Touch" data-zh="联系我们">Get in Touch</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="fbrand" data-slot="footer.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></div><p data-slot="footer.tagline" data-en="Precision industrial manufacturing." data-zh="精密工业制造。">Precision industrial manufacturing.</p></div>
+    <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+    <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

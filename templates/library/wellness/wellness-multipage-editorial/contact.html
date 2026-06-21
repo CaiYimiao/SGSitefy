@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Clinic Name" data-zh="联系 — 诊所名称">Contact — Clinic Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Clinic Name" data-zh="诊所名称">Clinic Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Treatments" data-zh="诊疗">Treatments</a></li>
+        <li><a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="masthead">
+    <div class="wrap">
+      <div class="kicker"><span data-slot="contact.kicker.l" data-en="Contact" data-zh="联系">Contact</span><span data-slot="contact.kicker.r" data-en="Visit · Call · Write" data-zh="到访 · 致电 · 留言">Visit · Call · Write</span></div>
+      <h1 data-slot="contact.headline" data-en="Come and see us" data-zh="欢迎到访">Come and see us</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap cgrid">
+      <div class="info">
+        <span class="eyebrow" data-slot="contact.info.eyebrow" data-en="Find us" data-zh="找到我们">Find us</span>
+        <h2 data-slot="contact.info.headline" data-en="The clinic" data-zh="诊所地址">The clinic</h2>
+        <p data-slot="contact.address" data-en="Block 000 Street Name #01-00, Singapore 000000" data-zh="新加坡 街道名称 第000座 #01-00，邮编 000000">Address placeholder</p>
+        <p data-slot="contact.phone" data-en="Phone: +65 0000 0000" data-zh="电话：+65 0000 0000">Phone placeholder</p>
+        <p data-slot="contact.email" data-en="Email: hello@clinic.sg" data-zh="邮箱：hello@clinic.sg">Email placeholder</p>
+        <h2 style="margin-top:2rem" data-slot="hours.headline" data-en="Opening hours" data-zh="营业时间">Opening hours</h2>
+        <ul class="hours">
+          <li><span data-slot="hours.0.day" data-en="Mon – Fri" data-zh="周一至周五">Mon – Fri</span><span data-slot="hours.0.time" data-en="8:30am – 7:00pm" data-zh="上午8:30 – 晚上7:00">8:30am – 7:00pm</span></li>
+          <li><span data-slot="hours.1.day" data-en="Saturday" data-zh="周六">Saturday</span><span data-slot="hours.1.time" data-en="9:00am – 1:00pm" data-zh="上午9:00 – 下午1:00">9:00am – 1:00pm</span></li>
+          <li><span data-slot="hours.2.day" data-en="Sun &amp; PH" data-zh="周日及公共假期">Sun &amp; PH</span><span data-slot="hours.2.time" data-en="Closed" data-zh="休息">Closed</span></li>
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow" data-slot="contact.form.eyebrow" data-en="Write to us" data-zh="给我们留言">Write to us</span>
+        <h2 data-slot="contact.form.headline" data-en="Request an appointment" data-zh="预约就诊">Request an appointment</h2>
+        <form onsubmit="event.preventDefault()">
+          <label class="field"><span data-slot="form.name" data-en="Your name" data-zh="您的姓名">Your name</span><input type="text" name="name" autocomplete="name"></label>
+          <label class="field"><span data-slot="form.contact" data-en="Phone or email" data-zh="电话或邮箱">Phone or email</span><input type="text" name="contact"></label>
+          <label class="field"><span data-slot="form.message" data-en="How can we help?" data-zh="我们能为您做些什么？">How can we help?</span><textarea name="message" rows="4"></textarea></label>
+          <button type="submit" class="btn" data-slot="form.submit" data-en="Send request" data-zh="发送请求">Send request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Clinic Name. All rights reserved." data-zh="© 诊所名称。版权所有。">© Clinic Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

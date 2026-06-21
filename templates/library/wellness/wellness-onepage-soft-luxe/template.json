@@ -1,0 +1,11 @@
+{
+  "id": "wellness-onepage-soft-luxe",
+  "industry": "wellness",
+  "kind": "onepage",
+  "aesthetic": "soft-luxe",
+  "fonts": { "display": "Cormorant Garamond", "text": "Mulish" },
+  "tokens": { "ink": "#231f1d", "bg": "#f7f2ec", "surface": "#fffdfb", "brand": "#9c7a5b", "accent": "#d8c3a5" },
+  "sections": ["hero","trust","about","treatments","proof","cta","contact","footer"],
+  "serviceCount": 5,
+  "entry": "index.html"
+}

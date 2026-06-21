@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Services — Meridian" data-zh="服务 — 子午线">Services — Meridian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="MERIDIAN<b>.</b>" data-zh="子午线<b>.</b>" data-rich>MERIDIAN<b>.</b></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" aria-current="page" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="phead">
+  <div class="wrap">
+    <p class="lbl b" data-en="Services" data-zh="服务">Services</p>
+    <h1 data-slot="services.hero" data-en="What We" data-zh="我们的能力" data-rich>What We <span data-en="Do." data-zh="服务。">Do.</span></h1>
+    <p data-slot="services.intro" data-en="Page intro — overview of the service range." data-zh="页面引言 — 服务范围概述。">Page intro — overview of the service range.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="grid12" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="n">01</div><h3 data-slot="services.0.title" data-en="Fabrication" data-zh="制造">Fabrication</h3><p data-slot="services.0.desc" data-en="Service description placeholder — scope, materials, output." data-zh="服务描述占位 — 范围、材料、产出。">Service description placeholder — scope, materials, output.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="services.1.title" data-en="Installation" data-zh="安装">Installation</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="services.2.title" data-en="Maintenance" data-zh="维护">Maintenance</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="services.3.title" data-en="Logistics" data-zh="物流">Logistics</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">05</div><h3 data-slot="services.4.title" data-en="Consulting" data-zh="咨询">Consulting</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">06</div><h3 data-slot="services.5.title" data-en="Commissioning" data-zh="调试">Commissioning</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><div class="num">—</div><h2 data-slot="process.title" data-en="Our Process" data-zh="我们的流程">Our Process</h2><p data-slot="process.kicker" data-en="From brief to handover." data-zh="从需求到交付。">From brief to handover.</p></div>
+    <div class="grid12" data-slot="process" data-min="3" data-max="4">
+      <article class="svc"><div class="n">01</div><h3 data-slot="process.0.title" data-en="Consult" data-zh="咨询">Consult</h3><p data-slot="process.0.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="process.1.title" data-en="Design" data-zh="设计">Design</h3><p data-slot="process.1.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="process.2.title" data-en="Build" data-zh="建造">Build</h3><p data-slot="process.2.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="process.3.title" data-en="Handover" data-zh="交付">Handover</h3><p data-slot="process.3.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap grid12">
+    <h2 data-slot="cta.headline" data-en="Need a quote?" data-zh="需要报价？">Need a quote?</h2>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Contact Us" data-zh="联系我们">Contact Us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid12">
+    <div class="fbrand" data-slot="footer.name" data-en="MERIDIAN." data-zh="子午线.">MERIDIAN.</div>
+    <div class="fcol"><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a> · <a href="services.html" data-en="Services" data-zh="服务">Services</a> · <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div class="fcol"><b data-en="Contact" data-zh="联系">Contact</b><span data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</span></div>
+    <div class="fcol"><b data-en="Address" data-zh="地址">Address</b><span data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</span></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

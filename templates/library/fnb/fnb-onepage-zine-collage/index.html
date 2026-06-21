@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Cut + Paste Diner" data-zh="拼贴小馆">Cut + Paste Diner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#181818; --bg:#f4f0e6; --surface:#ffe14d; --brand:#e8431f; --accent:#1452c7;
+    --display:"Bricolage Grotesque",sans-serif; --text:"Space Mono",monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.55}
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:-.02em}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  :focus-visible{outline:3px dashed var(--accent);outline-offset:3px}
+  .tape{position:absolute;background:rgba(255,225,77,.85);width:90px;height:26px;transform:rotate(-6deg);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:3px solid var(--ink)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.5rem;background:var(--brand);color:#fff;padding:2px 10px;transform:rotate(-2deg)}
+  .nav-links{display:flex;gap:22px;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:.85rem;text-transform:uppercase}
+  .nav-links a:hover{background:var(--accent);color:#fff}
+  .lang{border:2px solid var(--ink);background:var(--surface);padding:5px 12px;font-family:var(--text);font-weight:700;cursor:pointer;font-size:.78rem;text-transform:uppercase}
+  .lang:hover{background:var(--ink);color:var(--surface)}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer}
+  /* hero */
+  .hero{position:relative;padding:70px 0 60px;overflow:hidden}
+  .hero h1{font-size:clamp(3rem,11vw,8rem);text-transform:uppercase;max-width:14ch}
+  .hero h1 mark{background:var(--accent);color:#fff;padding:0 .1em}
+  .hero .lede{font-weight:700;max-width:40ch;margin:24px 0 30px;background:var(--surface);display:inline-block;padding:8px 14px;transform:rotate(-1deg)}
+  .hero-collage{position:absolute;right:0;top:30px;width:42%;max-width:520px}
+  .hero-collage img{border:5px solid var(--ink);transform:rotate(4deg);box-shadow:10px 10px 0 var(--brand)}
+  .hero-collage img:nth-child(2){position:absolute;width:55%;left:-40px;bottom:-50px;transform:rotate(-7deg);box-shadow:8px 8px 0 var(--accent)}
+  .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 26px;text-decoration:none;font-weight:700;text-transform:uppercase;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  /* quickinfo */
+  .quickinfo{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .ticker{display:flex;gap:48px;padding:14px 0;font-weight:700;text-transform:uppercase;font-size:.9rem}
+  .ticker span::before{content:"★ ";color:var(--surface)}
+  /* about */
+  .about{padding:90px 0;display:grid;grid-template-columns:6fr 4fr;gap:48px;align-items:start}
+  .about h2{font-size:clamp(2.2rem,5vw,4rem);text-transform:uppercase;margin-bottom:18px}
+  .about h2 .u{text-decoration:underline wavy var(--brand)}
+  .about-img{position:relative}
+  .about-img img{border:5px solid var(--ink);transform:rotate(-3deg)}
+  /* menu */
+  .menu{background:var(--accent);color:#fff;padding:80px 0;border-top:4px solid var(--ink)}
+  .menu h2{font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin-bottom:36px;color:var(--surface)}
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .item{background:var(--bg);color:var(--ink);border:3px solid var(--ink);padding:18px;box-shadow:6px 6px 0 var(--ink)}
+  .item:nth-child(odd){transform:rotate(-1deg)}
+  .item:nth-child(even){transform:rotate(1deg)}
+  .item .top{display:flex;justify-content:space-between;align-items:baseline}
+  .item h3{font-size:1.4rem;text-transform:uppercase}
+  .item .price{background:var(--brand);color:#fff;font-weight:700;padding:2px 8px}
+  .item p{margin-top:8px;font-size:.85rem}
+  /* social */
+  .social{padding:90px 0}
+  .social h2{font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;margin-bottom:36px}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .quote{border:3px solid var(--ink);padding:22px;position:relative;background:#fff}
+  .quote:nth-child(2){background:var(--surface);transform:rotate(-2deg)}
+  .quote p{font-family:var(--display);font-weight:800;font-size:1.2rem;margin-bottom:12px;line-height:1.1}
+  .quote span{font-size:.8rem;font-weight:700}
+  /* cta */
+  .cta{background:var(--brand);color:#fff;text-align:center;padding:80px 24px;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
+  .cta h2{font-size:clamp(2.5rem,7vw,5rem);text-transform:uppercase}
+  .cta .btn{background:var(--surface);color:var(--ink);margin-top:24px;box-shadow:5px 5px 0 rgba(0,0,0,.4)}
+  /* contact */
+  .contact{padding:90px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .contact h2{font-size:2.6rem;text-transform:uppercase;margin-bottom:20px}
+  .contact dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-weight:700}
+  .contact dt{background:var(--surface);padding:0 6px;text-transform:uppercase}
+  .contact .map{width:100%;height:300px;border:4px solid var(--ink);background:var(--surface)}
+  /* footer */
+  footer.ft{background:var(--ink);color:var(--bg);padding:42px 0;text-align:center}
+  footer.ft .built{margin-top:14px;font-size:.78rem;opacity:.7}
+  @media(max-width:760px){
+    .nav-links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--surface);padding:24px;gap:16px;border-bottom:3px solid var(--ink);transform:translateY(-130%);transition:transform .3s}
+    .nav-links.open{transform:translateY(0)}
+    .burger{display:block}
+    .hero-collage{position:static;width:100%;margin-top:48px}
+    .hero-collage img:nth-child(2){position:static;width:55%;margin-top:18px}
+    .about,.menu-grid,.quotes,.contact{grid-template-columns:1fr;gap:28px}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="ZINE EATS" data-zh="拼贴小馆">ZINE EATS</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="#menu" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="#social" data-slot="nav.reviews" data-en="Reviews" data-zh="评价">Reviews</a></li>
+        <li><a href="#contact" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <h1 data-slot="hero.headline" data-rich data-en="Loud food. <mark>No rules.</mark>" data-zh="重口味。<mark>无规矩。</mark>">Loud food. <mark>No rules.</mark></h1>
+    <p class="lede" data-slot="hero.sub" data-en="A scrappy little diner serving big-flavour plates, cold drinks, and zero pretension." data-zh="一家不拘小节的小餐馆，主打重口味料理、冰饮，毫无做作。">A scrappy little diner serving big-flavour plates, cold drinks, and zero pretension.</p>
+    <div><a class="btn" href="#contact" data-slot="hero.cta" data-en="Drop by" data-zh="来坐坐">Drop by</a></div>
+    <div class="hero-collage">
+      <img src="https://picsum.photos/seed/zine-hero1/520/620" data-slot="hero.image" data-en-alt="Plated diner food" data-zh-alt="餐盘料理" alt="Plated diner food" />
+      <img src="https://picsum.photos/seed/zine-hero2/320/320" data-slot="hero.image2" data-en-alt="Drink close-up" data-zh-alt="饮品特写" alt="Drink close-up" />
+    </div>
+  </section>
+
+  <section class="quickinfo" aria-label="Quick info">
+    <div class="ticker">
+      <span data-slot="quickinfo.0" data-en="Open daily 12–23" data-zh="每日 12–23 营业">Open daily 12–23</span>
+      <span data-slot="quickinfo.1" data-en="Walk-ins welcome" data-zh="欢迎自来">Walk-ins welcome</span>
+      <span data-slot="quickinfo.2" data-en="Cash + cards" data-zh="现金与刷卡">Cash + cards</span>
+      <span data-slot="quickinfo.3" data-en="Halal-friendly" data-zh="清真友好">Halal-friendly</span>
+    </div>
+  </section>
+
+  <section class="wrap about" id="about">
+    <div>
+      <h2 data-slot="about.headline" data-rich data-en="Made in a <span class='u'>tiny kitchen.</span>" data-zh="出自一间<span class='u'>小厨房</span>。">Made in a <span class="u">tiny kitchen.</span></h2>
+      <p data-slot="about.body" data-en="Placeholder — the origin story, the attitude, what the regulars come back for. Keep it punchy." data-zh="占位文字——创立故事、态度、回头客为何而来。简短有力。">Placeholder — the origin story, the attitude, what the regulars come back for. Keep it punchy.</p>
+    </div>
+    <div class="about-img"><img src="https://picsum.photos/seed/zine-about/520/640" data-slot="about.image" data-en-alt="Inside the diner" data-zh-alt="店内一角" alt="Inside the diner" /></div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <h2 data-slot="menu.headline" data-en="The Goods" data-zh="美味清单">The Goods</h2>
+      <div class="menu-grid" data-slot="menu.items" data-min="4" data-max="6">
+        <div class="item"><div class="top"><h3 data-slot="menu.0.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.0.price" data-en="$14" data-zh="$14">$14</span></div><p data-slot="menu.0.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+        <div class="item"><div class="top"><h3 data-slot="menu.1.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.1.price" data-en="$16" data-zh="$16">$16</span></div><p data-slot="menu.1.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+        <div class="item"><div class="top"><h3 data-slot="menu.2.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.2.price" data-en="$12" data-zh="$12">$12</span></div><p data-slot="menu.2.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+        <div class="item"><div class="top"><h3 data-slot="menu.3.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.3.price" data-en="$18" data-zh="$18">$18</span></div><p data-slot="menu.3.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+        <div class="item"><div class="top"><h3 data-slot="menu.4.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.4.price" data-en="$9" data-zh="$9">$9</span></div><p data-slot="menu.4.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+        <div class="item"><div class="top"><h3 data-slot="menu.5.name" data-en="Dish" data-zh="菜名">Dish</h3><span class="price" data-slot="menu.5.price" data-en="$11" data-zh="$11">$11</span></div><p data-slot="menu.5.desc" data-en="What's in it." data-zh="食材简介。">What's in it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap social" id="social">
+    <h2 data-slot="social.headline" data-en="Word on the street" data-zh="街坊好评">Word on the street</h2>
+    <div class="quotes">
+      <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.0.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+      <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.1.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+      <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.2.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 data-slot="cta.headline" data-en="Get in here." data-zh="快来吧。">Get in here.</h2>
+    <div><a class="btn" href="#contact" data-slot="cta.button" data-en="Find the spot" data-zh="找到我们">Find the spot</a></div>
+  </section>
+
+  <section class="wrap contact" id="contact">
+    <div>
+      <h2 data-slot="contact.headline" data-en="Find us" data-zh="找到我们">Find us</h2>
+      <dl>
+        <dt data-slot="contact.addr.l" data-en="Where" data-zh="地址">Where</dt><dd data-slot="contact.addr" data-en="45 Haji Lane, Singapore" data-zh="新加坡哈芝巷45号">45 Haji Lane, Singapore</dd>
+        <dt data-slot="contact.phone.l" data-en="Call" data-zh="电话">Call</dt><dd data-slot="contact.phone" data-en="+65 6234 5678" data-zh="+65 6234 5678">+65 6234 5678</dd>
+        <dt data-slot="contact.email.l" data-en="Mail" data-zh="邮箱">Mail</dt><dd data-slot="contact.email" data-en="yo@example.sg" data-zh="yo@example.sg">yo@example.sg</dd>
+        <dt data-slot="contact.hours.l" data-en="Open" data-zh="营业">Open</dt><dd data-slot="contact.hours" data-en="Daily 12:00–23:00" data-zh="每日 12:00–23:00">Daily 12:00–23:00</dd>
+      </dl>
+    </div>
+    <div class="map" role="img" aria-label="Map placeholder" data-slot="contact.map"></div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <p class="brand" data-slot="footer.name" data-en="ZINE EATS" data-zh="拼贴小馆">ZINE EATS</p>
+    <p class="built">Built with SGSitefy · powered by Antigravity</p>
+  </div>
+</footer>
+
+<script>
+  function toggleLang(){
+    const zh = document.documentElement.lang !== "zh";
+    document.documentElement.lang = zh ? "zh" : "en";
+    document.querySelectorAll("[data-en]").forEach(el=>{
+      const v = zh ? el.getAttribute("data-zh") : el.getAttribute("data-en");
+      if(v==null) return;
+      if(el.hasAttribute("data-rich")) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll("[data-en-alt]").forEach(el=>{
+      el.alt = zh ? el.getAttribute("data-zh-alt") : el.getAttribute("data-en-alt");
+    });
+  }
+  function toggleNav(btn){
+    const l=document.getElementById("navlinks");
+    const o=l.classList.toggle("open");
+    btn.setAttribute("aria-expanded",o);
+  }
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

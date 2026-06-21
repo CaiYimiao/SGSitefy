@@ -1,0 +1,11 @@
+{
+  "id": "fnb-multipage-editorial",
+  "industry": "fnb",
+  "kind": "multipage",
+  "aesthetic": "editorial",
+  "fonts": { "display": "Playfair Display", "text": "Newsreader" },
+  "tokens": { "ink": "#1a1916", "bg": "#fbfaf7", "surface": "#eeece4", "brand": "#8a2b2b", "accent": "#3a4a3f" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

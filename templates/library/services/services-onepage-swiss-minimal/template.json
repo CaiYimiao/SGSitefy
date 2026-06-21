@@ -1,0 +1,11 @@
+{
+  "id": "services-onepage-swiss-minimal",
+  "industry": "services",
+  "kind": "onepage",
+  "aesthetic": "swiss-minimal",
+  "fonts": { "display": "Archivo", "text": "Source Serif 4" },
+  "tokens": { "ink": "#15171a", "bg": "#fbfaf8", "surface": "#eeece6", "brand": "#c8341f", "accent": "#1b3a5c" },
+  "sections": ["hero", "credentials", "about", "services", "team", "proof", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

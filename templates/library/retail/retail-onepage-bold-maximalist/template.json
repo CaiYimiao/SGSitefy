@@ -1,0 +1,17 @@
+{
+  "id": "retail-onepage-bold-maximalist",
+  "industry": "retail",
+  "kind": "onepage",
+  "aesthetic": "bold-maximalist",
+  "fonts": { "display": "Bricolage Grotesque", "text": "IBM Plex Sans" },
+  "tokens": {
+    "ink": "#0e0e0e",
+    "bg": "#fff200",
+    "surface": "#ffffff",
+    "brand": "#ff3b00",
+    "accent": "#0033ff"
+  },
+  "sections": ["nav","hero","categories","featured","about","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

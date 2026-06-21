@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Services — Firm" data-zh="服务 — 事务所">Services — Firm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Atelier" data-zh="工作室">The Atelier</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" aria-current="page" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="masthead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Services" data-zh="服务">Services</p>
+    <h1 data-slot="services.headline" data-en="What we put our name to." data-zh="我们以名担保的服务。">What we put our name to.</h1>
+    <p class="lead" data-slot="services.sub" data-en="Page lead — the breadth of work and how engagements run." data-zh="页面引文 — 业务范围与合作方式。">Page lead — the breadth of work and how engagements run.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="svc-list" data-slot="services" data-min="3" data-max="6">
+      <div class="svc"><div class="num">01</div><h3 data-slot="services.0.title" data-en="Brand Strategy" data-zh="品牌策略">Brand Strategy</h3><p data-slot="services.0.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+      <div class="svc"><div class="num">02</div><h3 data-slot="services.1.title" data-en="Identity Design" data-zh="形象设计">Identity Design</h3><p data-slot="services.1.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+      <div class="svc"><div class="num">03</div><h3 data-slot="services.2.title" data-en="Content & Editorial" data-zh="内容与编辑">Content &amp; Editorial</h3><p data-slot="services.2.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+      <div class="svc"><div class="num">04</div><h3 data-slot="services.3.title" data-en="Naming" data-zh="命名">Naming</h3><p data-slot="services.3.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+      <div class="svc"><div class="num">05</div><h3 data-slot="services.4.title" data-en="Campaigns" data-zh="营销活动">Campaigns</h3><p data-slot="services.4.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+      <div class="svc"><div class="num">06</div><h3 data-slot="services.5.title" data-en="Advisory Retainer" data-zh="顾问服务">Advisory Retainer</h3><p data-slot="services.5.desc" data-en="Service description placeholder — scope and outcome." data-zh="服务描述占位 — 范围与成果。">Service description placeholder — scope and outcome.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="feature flip">
+      <img src="https://picsum.photos/seed/svc-edit-proc/720/900" alt="" data-slot="process.image" data-en-alt="Working session" data-zh-alt="工作会议">
+      <div>
+        <p class="eyebrow" data-en="How we work" data-zh="工作流程">How we work</p>
+        <h2 style="font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;margin:.6rem 0 1.2rem" data-slot="process.title" data-en="A method, not a guess." data-zh="有方法，非猜测。">A method, not a guess.</h2>
+        <p data-slot="process.p1" data-en="Process paragraph one — discovery and framing." data-zh="流程段落一 — 探索与定义。">Process paragraph one — discovery and framing.</p>
+        <p data-slot="process.p2" data-en="Process paragraph two — delivery and handover." data-zh="流程段落二 — 交付与移交。">Process paragraph two — delivery and handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="See something that fits?" data-zh="找到合适的服务了吗？">See something that fits?</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — next step to engage." data-zh="行动号召副文 — 下一步合作。">CTA supporting line — next step to engage.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="The Atelier — Brand & Strategy" data-zh="工作室 — 品牌与策略">The Atelier — Brand &amp; Strategy</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

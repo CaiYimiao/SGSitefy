@@ -1,0 +1,11 @@
+{
+  "id": "fnb-showcase-soft-luxe",
+  "industry": "fnb",
+  "kind": "showcase",
+  "aesthetic": "soft-luxe",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#2c2520", "bg": "#f7f1ea", "surface": "#ece1d4", "brand": "#8c6a4f", "accent": "#a8b08f" },
+  "sections": ["hero", "intro", "gallery", "feature", "menu", "social", "cta", "footer"],
+  "serviceCount": 5,
+  "entry": "index.html"
+}

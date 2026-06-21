@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu — Tiong Bahru Bakehouse</title>
+<meta name="description" content="Browse the full menu at Tiong Bahru Bakehouse — artisan breads, buttery pastries, specialty coffee and savoury bites." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar" role="banner">
+  <div class="wrap">
+    <div>
+      <a href="tel:+6562225678"><span class="ic">☎</span> <span data-en="Call us:" data-zh="致电我们：">Call us:</span> +65 6222 5678</a>
+      <a href="mailto:hello@tiongbahru-bakehouse.sg"><span class="ic">✉</span> hello@tiongbahru-bakehouse.sg</a>
+    </div>
+    <div>
+      <span data-en="Chat &amp; order on WhatsApp" data-zh="WhatsApp 聊天及订购">Chat &amp; order on WhatsApp</span>
+      <a href="#" class="wa" aria-label="WhatsApp">✆</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse home">
+      <span class="mk" aria-hidden="true">TBB</span>
+      <span><b data-en="Tiong Bahru Bakehouse" data-zh="中峇鲁烘焙坊">Tiong Bahru Bakehouse</b><small data-en="Artisan Bakery &amp; Café" data-zh="手工烘焙与咖啡馆">Artisan Bakery &amp; Café</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+      <a href="menu.html" class="active" data-en="Menu" data-zh="菜单">Menu</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="contact.html#reserve" class="btn nav-cta" data-en="Order / Reserve" data-zh="订购 / 预订">Order / Reserve</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="phero" aria-label="Menu page banner">
+  <div class="wrap">
+    <h1 data-en="Our Menu" data-zh="我们的菜单">Our Menu</h1>
+    <p class="crumb">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a> /
+      <span data-en="Menu" data-zh="菜单">Menu</span>
+    </p>
+  </div>
+</section>
+
+<!-- Menu body -->
+<section class="sec" id="menu-body">
+  <div class="wrap">
+
+    <p class="lead reveal" data-en="Everything is baked fresh daily. Prices include GST. Items marked ★ are house specialties. Availability may vary — we sell out when we run out." data-zh="所有品项每日新鲜烘焙。价格含消费税。标有★的为招牌特色品项。供应情况可能有所不同——售完即止。">Everything is baked fresh daily. Prices include GST. Items marked ★ are house specialties. Availability may vary — we sell out when we run out.</p>
+
+    <!-- Tab bar -->
+    <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories" style="margin-top:28px">
+      <button class="tab-btn" data-tab="breads" role="tab" aria-selected="true" data-en="🍞 Breads" data-zh="🍞 面包">🍞 Breads</button>
+      <button class="tab-btn" data-tab="pastries" role="tab" aria-selected="false" data-en="🥐 Pastries" data-zh="🥐 西点">🥐 Pastries</button>
+      <button class="tab-btn" data-tab="coffee" role="tab" aria-selected="false" data-en="☕ Coffee" data-zh="☕ 咖啡">☕ Coffee</button>
+      <button class="tab-btn" data-tab="bites" role="tab" aria-selected="false" data-en="🥗 Savoury Bites" data-zh="🥗 咸食小食">🥗 Savoury Bites</button>
+      <button class="tab-btn" data-tab="sweets" role="tab" aria-selected="false" data-en="🍰 Sweets" data-zh="🍰 甜点">🍰 Sweets</button>
+    </div>
+
+    <!-- BREADS -->
+    <div class="menu-section" id="breads" role="tabpanel">
+      <div class="menu-grid reveal">
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-sourdough/600/400" alt="Country sourdough loaf" />
+          <div class="mc-body">
+            <h4 data-en="Country Sourdough ★" data-zh="乡村天然酵母面包 ★">Country Sourdough ★</h4>
+            <p data-en="72-hour cold-fermented. Crackling crust, open tangy crumb. Available whole or half loaf." data-zh="72小时低温发酵。酥脆外壳，蓬松酸香内芯。可选整条或半条。">72-hour cold-fermented. Crackling crust, open tangy crumb. Available whole or half loaf.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$12 / S$7</span>
+              <span class="badge" data-en="Whole / Half" data-zh="整条 / 半条">Whole / Half</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-sesame/600/400" alt="Black sesame miso loaf" />
+          <div class="mc-body">
+            <h4 data-en="Black Sesame Miso Loaf ★" data-zh="黑芝麻味噌面包 ★">Black Sesame Miso Loaf ★</h4>
+            <p data-en="Nutty, umami-rich sourdough swirled with Kyoto white miso and toasted black sesame paste." data-zh="以京都白味噌与烤黑芝麻酱旋入面团，香浓鲜鲜的天然酵母面包。">Nutty, umami-rich sourdough swirled with Kyoto white miso and toasted black sesame paste.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$16</span>
+              <span class="badge" data-en="Whole Loaf" data-zh="整条">Whole Loaf</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-rye/600/400" alt="Dark rye Vollkornbrot" />
+          <div class="mc-body">
+            <h4 data-en="Dark Rye Vollkornbrot" data-zh="全黑麦面包">Dark Rye Vollkornbrot</h4>
+            <p data-en="100 % rye, slow-baked for 16 hours. Dense, moist and deeply flavoured — ideal with smoked salmon or cream cheese." data-zh="100%黑麦，慢烤16小时。质地密实湿润，风味浓郁——搭配烟熏三文鱼或奶油芝士最佳。">100 % rye, slow-baked for 16 hours. Dense, moist and deeply flavoured — ideal with smoked salmon or cream cheese.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$14</span>
+              <span class="badge" data-en="Whole Loaf" data-zh="整条">Whole Loaf</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-focaccia/600/400" alt="Rosemary focaccia" />
+          <div class="mc-body">
+            <h4 data-en="Rosemary Sea-Salt Focaccia" data-zh="迷迭香海盐佛卡夏">Rosemary Sea-Salt Focaccia</h4>
+            <p data-en="Baked in olive oil on a sheet pan, generously dimpled, finished with fleur de sel and fresh rosemary sprigs." data-zh="橄榄油浸烤，指压成坑，以盐之花与新鲜迷迭香点睛。">Baked in olive oil on a sheet pan, generously dimpled, finished with fleur de sel and fresh rosemary sprigs.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$9</span>
+              <span class="badge" data-en="Per Slab" data-zh="每块">Per Slab</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-epi/600/400" alt="French baguette épi" />
+          <div class="mc-body">
+            <h4 data-en="French Baguette Épi" data-zh="法式麦穗棍子面包">French Baguette Épi</h4>
+            <p data-en="Traditional T65 flour, snap-crisp crust, feather-light interior. Pull-apart wheat-stalk shape — perfect for the table." data-zh="传统T65面粉，外皮酥脆，内芯轻盈。可撕拉的麦穗造型——上桌分享最合适。">Traditional T65 flour, snap-crisp crust, feather-light interior. Pull-apart wheat-stalk shape — perfect for the table.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$6</span>
+              <span class="badge" data-en="Per Stick" data-zh="每根">Per Stick</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bread-pandan/600/400" alt="Pandan coconut pull-apart" />
+          <div class="mc-body">
+            <h4 data-en="Pandan Coconut Pull-Apart ★" data-zh="班兰椰丝撕拉面包 ★">Pandan Coconut Pull-Apart ★</h4>
+            <p data-en="Soft enriched dough swirled with homemade kaya-inspired pandan paste and desiccated coconut. A local twist." data-zh="柔软的重油面团，以自制亚叶风味班兰酱与椰丝旋入其中。充满本地风情。">Soft enriched dough swirled with homemade kaya-inspired pandan paste and desiccated coconut. A local twist.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$13</span>
+              <span class="badge" data-en="Whole Loaf" data-zh="整条">Whole Loaf</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PASTRIES -->
+    <div class="menu-section" id="pastries" role="tabpanel">
+      <div class="menu-grid reveal">
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-croissant/600/400" alt="Butter croissant" />
+          <div class="mc-body">
+            <h4 data-en="Classic Butter Croissant ★" data-zh="经典牛油可颂 ★">Classic Butter Croissant ★</h4>
+            <p data-en="27-layer hand-lamination using AOP Charentes-Poitou butter. Shatteringly crisp outside, honeycomb-soft within." data-zh="27层手工叠层，采用AOP夏朗特-普瓦图牛油。外层酥脆如蝉翼，内里蜂巢般柔软。">27-layer hand-lamination using AOP Charentes-Poitou butter. Shatteringly crisp outside, honeycomb-soft within.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$5.50</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-danish/600/400" alt="Custard kouign-amann" />
+          <div class="mc-body">
+            <h4 data-en="Kouign-Amann ★" data-zh="布列塔尼焦糖酥 ★">Kouign-Amann ★</h4>
+            <p data-en="The Breton classic: caramelised, buttery and salt-flecked. Baked in individual rounds for maximum crust coverage." data-zh="布列塔尼经典：焦糖化、黄油香、点缀海盐。以独立圆形模具烘焙，确保每一面都有焦脆层。">The Breton classic: caramelised, buttery and salt-flecked. Baked in individual rounds for maximum crust coverage.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$6.50</span>
+              <span class="badge" data-en="Limited" data-zh="数量有限">Limited</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-tart/600/400" alt="Egg tart" />
+          <div class="mc-body">
+            <h4 data-en="Portuguese Egg Tart" data-zh="葡式蛋挞">Portuguese Egg Tart</h4>
+            <p data-en="Flaky laminated pastry shell with a barely-set custard centre, charred on top just like the originals from Pastéis de Belém." data-zh="酥脆叠层外壳，柔软嫩滑蛋奶馅，顶部烤出焦糖斑纹，与里斯本正宗如出一辙。">Flaky laminated pastry shell with a barely-set custard centre, charred on top just like the originals from Pastéis de Belém.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$4</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-canele/600/400" alt="Canelé de Bordeaux" />
+          <div class="mc-body">
+            <h4 data-en="Canelé de Bordeaux" data-zh="波尔多可丽露">Canelé de Bordeaux</h4>
+            <p data-en="Beeswax-lined copper moulds, vanilla and dark rum custard, two-day rest before baking. Ebony outside, custardy within." data-zh="蜂蜡铜模，香草与黑朗姆蛋奶馅，静置两天后烘烤。外层乌黑酥脆，内里嫩滑如布丁。">Beeswax-lined copper moulds, vanilla and dark rum custard, two-day rest before baking. Ebony outside, custardy within.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$4.50</span>
+              <span class="badge" data-en="Fri–Sun" data-zh="周五至周日">Fri–Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-almond/600/400" alt="Almond croissant" />
+          <div class="mc-body">
+            <h4 data-en="Almond Croissant ★" data-zh="杏仁可颂 ★">Almond Croissant ★</h4>
+            <p data-en="Day-old croissant soaked in dark rum syrup, filled with frangipane and crowned with flaked almonds. A bakehouse classic." data-zh="隔日可颂以黑朗姆糖浆浸透，填入杏仁奶油馅，饰以片状杏仁。烘焙坊经典之作。">Day-old croissant soaked in dark rum syrup, filled with frangipane and crowned with flaked almonds. A bakehouse classic.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$7</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/pastry-pain/600/400" alt="Pain au chocolat" />
+          <div class="mc-body">
+            <h4 data-en="Pain au Chocolat" data-zh="巧克力可颂">Pain au Chocolat</h4>
+            <p data-en="Two batons of 70 % Valrhona dark chocolate encased in our signature laminated dough. Rich, bittersweet and impossible to share." data-zh="两根70%法芙娜黑巧克力棒，包裹于招牌叠层面团中。浓郁微苦，令人难以分享。">Two batons of 70 % Valrhona dark chocolate encased in our signature laminated dough. Rich, bittersweet and impossible to share.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$6</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="menu-section" id="coffee" role="tabpanel">
+      <div class="menu-grid reveal">
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-flat/600/400" alt="Flat white" />
+          <div class="mc-body">
+            <h4 data-en="Flat White" data-zh="馥芮白">Flat White</h4>
+            <p data-en="Double ristretto, microfoam milk, served in a 160 ml tulip cup. Our house blend: Ethiopia Sidama + Colombia Huila." data-zh="双份浓缩，丝绒奶泡，以160毫升郁金香杯呈上。自家拼配：埃塞俄比亚西达摩 + 哥伦比亚惠拉。">Double ristretto, microfoam milk, served in a 160 ml tulip cup. Our house blend: Ethiopia Sidama + Colombia Huila.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$6.50</span>
+              <span class="badge" data-en="Hot" data-zh="热">Hot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-filter/600/400" alt="Filter coffee pour over" />
+          <div class="mc-body">
+            <h4 data-en="Seasonal Filter ★" data-zh="季节性手冲 ★">Seasonal Filter ★</h4>
+            <p data-en="Single-origin beans rotated monthly. Brewed on Kalita Wave for clarity and sweetness. Tasting notes on the chalkboard." data-zh="单一产区豆每月更换。以Kalita Wave萃取，风味清晰甘甜。当月风味描述见黑板。">Single-origin beans rotated monthly. Brewed on Kalita Wave for clarity and sweetness. Tasting notes on the chalkboard.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$7</span>
+              <span class="badge" data-en="Hot / Iced" data-zh="热 / 冰">Hot / Iced</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-cold/600/400" alt="Cold brew" />
+          <div class="mc-body">
+            <h4 data-en="18-Hour Cold Brew" data-zh="18小时冷萃咖啡">18-Hour Cold Brew</h4>
+            <p data-en="Steeped for 18 hours in filtered water. Served over ice, smooth and chocolatey with almost no bitterness." data-zh="以过滤水低温浸泡18小时。加冰呈上，顺滑巧克力香，苦味极低。">Steeped for 18 hours in filtered water. Served over ice, smooth and chocolatey with almost no bitterness.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$8</span>
+              <span class="badge" data-en="Iced" data-zh="冰">Iced</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-latte/600/400" alt="Signature latte" />
+          <div class="mc-body">
+            <h4 data-en="TBB Signature Latte ★" data-zh="中峇鲁招牌拿铁 ★">TBB Signature Latte ★</h4>
+            <p data-en="House espresso with toasted oat milk, a touch of gula melaka and a pinch of fleur de sel. Silky, local and deeply satisfying." data-zh="自家浓缩搭配燕麦奶，加入少许椰糖与盐之花。丝滑顺口，充满本地风情。">House espresso with toasted oat milk, a touch of gula melaka and a pinch of fleur de sel. Silky, local and deeply satisfying.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$8</span>
+              <span class="badge" data-en="Hot / Iced" data-zh="热 / 冰">Hot / Iced</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-matcha/600/400" alt="Ceremonial matcha latte" />
+          <div class="mc-body">
+            <h4 data-en="Ceremonial Matcha Latte" data-zh="抹茶拿铁">Ceremonial Matcha Latte</h4>
+            <p data-en="Uji ceremonial-grade matcha whisked with warm oat milk. Grassy, creamy and vibrant green. Caffeine without coffee." data-zh="宇治抹茶粉以温热燕麦奶打发。清新草香、奶香浓郁、翠绿鲜艳。无咖啡因之外的另一种提神选择。">Uji ceremonial-grade matcha whisked with warm oat milk. Grassy, creamy and vibrant green. Caffeine without coffee.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$7.50</span>
+              <span class="badge" data-en="Hot / Iced" data-zh="热 / 冰">Hot / Iced</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/coffee-chai/600/400" alt="Masala chai" />
+          <div class="mc-body">
+            <h4 data-en="House Masala Chai" data-zh="自家香料奶茶">House Masala Chai</h4>
+            <p data-en="House-blended spice mix — cardamom, cinnamon, ginger, clove — brewed strong with Assam, finished with steamed whole milk." data-zh="自家调配香料——豆蔻、肉桂、姜、丁香——与阿萨姆浓泡，以蒸热全脂牛奶收尾。">House-blended spice mix — cardamom, cinnamon, ginger, clove — brewed strong with Assam, finished with steamed whole milk.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$7</span>
+              <span class="badge" data-en="Hot" data-zh="热">Hot</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SAVOURY BITES -->
+    <div class="menu-section" id="bites" role="tabpanel">
+      <div class="menu-grid reveal">
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-avocado/600/400" alt="Avocado toast" />
+          <div class="mc-body">
+            <h4 data-en="Smashed Avocado Toast ★" data-zh="牛油果厚吐司 ★">Smashed Avocado Toast ★</h4>
+            <p data-en="Country sourdough, smashed Hass avocado, poached egg, dukkah, chilli oil and micro herbs. A weekend staple." data-zh="乡村酸面包、碾压哈斯牛油果、水波蛋、埃及坚果、辣椒油与微型香草。周末必点。">Country sourdough, smashed Hass avocado, poached egg, dukkah, chilli oil and micro herbs. A weekend staple.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$18</span>
+              <span class="badge" data-en="All Day" data-zh="全天供应">All Day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-salmon/600/400" alt="Smoked salmon tartine" />
+          <div class="mc-body">
+            <h4 data-en="Smoked Salmon Tartine" data-zh="烟熏三文鱼开面三明治">Smoked Salmon Tartine</h4>
+            <p data-en="Dark rye, whipped labneh, sustainable Norwegian smoked salmon, capers, shaved red onion and dill." data-zh="黑麦面包、拉布内奶酪、可持续挪威烟熏三文鱼、刺山柑、薄切红洋葱与莳萝。">Dark rye, whipped labneh, sustainable Norwegian smoked salmon, capers, shaved red onion and dill.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$22</span>
+              <span class="badge" data-en="All Day" data-zh="全天供应">All Day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-egg/600/400" alt="Soft scrambled eggs on toast" />
+          <div class="mc-body">
+            <h4 data-en="Soft Scrambled Egg Toast" data-zh="软炒蛋厚吐司">Soft Scrambled Egg Toast</h4>
+            <p data-en="Gordon Ramsay-style low-and-slow eggs, crème fraîche, chives and black pepper on thick-cut sourdough toast." data-zh="低温慢炒鸡蛋、法式酸奶油、细香葱与黑胡椒，搭配厚切酸面包吐司。">Gordon Ramsay-style low-and-slow eggs, crème fraîche, chives and black pepper on thick-cut sourdough toast.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$15</span>
+              <span class="badge" data-en="Morning" data-zh="早间供应">Morning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-soup/600/400" alt="Soup of the day with bread" />
+          <div class="mc-body">
+            <h4 data-en="Soup of the Day + Bread" data-zh="每日例汤配面包">Soup of the Day + Bread</h4>
+            <p data-en="A hearty rotating soup — ask the counter for today's. Served with a thick slice of country sourdough." data-zh="每日更换的浓汤——请向柜台查询今日汤品。附一厚片乡村酸面包。">A hearty rotating soup — ask the counter for today's. Served with a thick slice of country sourdough.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$14</span>
+              <span class="badge" data-en="Seasonal" data-zh="当季">Seasonal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-cheese/600/400" alt="Cheese board" />
+          <div class="mc-body">
+            <h4 data-en="Artisan Cheese Board" data-zh="精选芝士拼盘">Artisan Cheese Board</h4>
+            <p data-en="Three seasonal imported cheeses, house-made fig jam, candied walnuts, grapes and sliced baguette or crackers." data-zh="三款时令进口芝士、自制无花果果酱、糖渍核桃、葡萄及棍子面包或薄脆饼。">Three seasonal imported cheeses, house-made fig jam, candied walnuts, grapes and sliced baguette or crackers.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$28</span>
+              <span class="badge" data-en="Sharing" data-zh="共享">Sharing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/bite-focaccia-sand/600/400" alt="Focaccia sandwich" />
+          <div class="mc-body">
+            <h4 data-en="Focaccia Sandwich ★" data-zh="佛卡夏三明治 ★">Focaccia Sandwich ★</h4>
+            <p data-en="Filled daily — ask at the counter. Typical fillings: mortadella &amp; pistachio; roasted peppers &amp; burrata; chicken &amp; tarragon." data-zh="每日更换馅料——请向柜台询问。常见选项：博洛尼亚香肠与开心果；烤甜椒与布拉塔芝士；鸡肉与龙蒿。">Filled daily — ask at the counter. Typical fillings: mortadella &amp; pistachio; roasted peppers &amp; burrata; chicken &amp; tarragon.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$16</span>
+              <span class="badge" data-en="Lunch" data-zh="午间供应">Lunch</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SWEETS -->
+    <div class="menu-section" id="sweets" role="tabpanel">
+      <div class="menu-grid reveal">
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-tarte/600/400" alt="Lemon curd tart" />
+          <div class="mc-body">
+            <h4 data-en="Meyer Lemon Tart ★" data-zh="迈耶柠檬挞 ★">Meyer Lemon Tart ★</h4>
+            <p data-en="Pâte sucrée shell, silky Meyer lemon curd, Italian meringue torched to order and candied lemon zest." data-zh="甜酥外壳，丝滑迈耶柠檬凝乳，即点即焰烧意式蛋白霜，佐糖渍柠檬皮。">Pâte sucrée shell, silky Meyer lemon curd, Italian meringue torched to order and candied lemon zest.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$9</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-choc/600/400" alt="Dark chocolate brownie" />
+          <div class="mc-body">
+            <h4 data-en="72 % Dark Chocolate Brownie" data-zh="72%黑巧克力布朗尼">72 % Dark Chocolate Brownie</h4>
+            <p data-en="Fudgy, not cakey. Valrhona Guanaja 72 % with Maldon sea salt and crushed hazelnuts. Served warm with crème fraîche." data-zh="软糯扎实，非海绵质感。法芙娜Guanaja 72%巧克力，Maldon海盐与压碎榛子。温热呈上，配法式酸奶油。">Fudgy, not cakey. Valrhona Guanaja 72 % with Maldon sea salt and crushed hazelnuts. Served warm with crème fraîche.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$8.50</span>
+              <span class="badge" data-en="Daily" data-zh="每日供应">Daily</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-eclair/600/400" alt="Vanilla eclairs" />
+          <div class="mc-body">
+            <h4 data-en="Madagascan Vanilla Éclair" data-zh="马达加斯加香草闪电泡芙">Madagascan Vanilla Éclair</h4>
+            <p data-en="Choux piped to order, filled with vanilla bean diplomat cream and glazed with white chocolate." data-zh="即点即挤泡芙，填入香草豆外交奶油，以白巧克力镜面装饰。">Choux piped to order, filled with vanilla bean diplomat cream and glazed with white chocolate.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$8</span>
+              <span class="badge" data-en="Tue–Sun" data-zh="周二至周日">Tue–Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-kaya/600/400" alt="Kaya toast parfait" />
+          <div class="mc-body">
+            <h4 data-en="Kaya Toast Parfait ★" data-zh="咖椰吐司芭菲 ★">Kaya Toast Parfait ★</h4>
+            <p data-en="A playful dessert: layers of house kaya, toasted sourdough croutons, coconut panna cotta and pandan gel." data-zh="创意甜品：自制咖椰、烤酸面包丁、椰奶奶冻与班兰果冻层层叠叠。">A playful dessert: layers of house kaya, toasted sourdough croutons, coconut panna cotta and pandan gel.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$12</span>
+              <span class="badge" data-en="Weekend" data-zh="周末">Weekend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-cookie/600/400" alt="Brown butter cookie" />
+          <div class="mc-body">
+            <h4 data-en="Brown Butter Chocolate Chip Cookie" data-zh="焦化黄油巧克力饼干">Brown Butter Chocolate Chip Cookie</h4>
+            <p data-en="Crisp at the edges, gooey in the centre. Valrhona caramélia chips, smoked sea salt finish. Sold individually or by the bag." data-zh="边缘酥脆，中心软糯。法芙娜焦糖巧克力豆，烟熏海盐点睛。可单片或整袋购买。">Crisp at the edges, gooey in the centre. Valrhona caramélia chips, smoked sea salt finish. Sold individually or by the bag.</p>
+            <div class="mc-foot">
+              <span class="mc-price">S$4 / S$22</span>
+              <span class="badge" data-en="Each / Box of 6" data-zh="每片 / 6片装">Each / Box of 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://picsum.photos/seed/sweet-cake/600/400" alt="Celebration cake slice" />
+          <div class="mc-body">
+            <h4 data-en="Celebration Cake (Bespoke)" data-zh="定制庆典蛋糕">Celebration Cake (Bespoke)</h4>
+            <p data-en="Custom layered cakes for birthdays, weddings and corporate events. Flavours from our seasonal repertoire. 72 hr pre-order required." data-zh="适合生日、婚礼及企业活动的定制层叠蛋糕。口味选自当季系列。须提前72小时预订。">Custom layered cakes for birthdays, weddings and corporate events. Flavours from our seasonal repertoire. 72 hr pre-order required.</p>
+            <div class="mc-foot">
+              <span class="mc-price" data-en="From S$80" data-zh="起价 S$80">From S$80</span>
+              <span class="badge" data-en="Pre-order" data-zh="预订">Pre-order</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-en="Want to place a bulk or custom order?" data-zh="需要批量或定制订购？">Want to place a bulk or custom order?</h2>
+    <p data-en="Corporate gifting, event catering and celebration cakes — we love a challenge." data-zh="企业礼品、活动餐饮与庆典蛋糕——我们乐于接受挑战。">Corporate gifting, event catering and celebration cakes — we love a challenge.</p>
+    <a href="contact.html" class="btn btn-rust" data-en="Contact Us" data-zh="联系我们">Contact Us</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse">
+          <span class="mk" aria-hidden="true">TBB</span>
+          <span><b style="color:#fff;font-family:var(--fh)">Tiong Bahru Bakehouse</b><small>中峇鲁烘焙坊</small></span>
+        </a>
+        <p class="cn">中峇鲁烘焙坊</p>
+        <p data-en="Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014." data-zh="自2014年起，于新加坡深受喜爱的中峇鲁一带，精心制作天然酵母面包、西点与精品咖啡。">Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="TikTok">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Visit" data-zh="到访">Visit</h4>
+        <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+        <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+        <a href="menu.html" data-en="Menu" data-zh="菜单">Menu</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Menu" data-zh="菜单">Menu</h4>
+        <a href="menu.html#breads" data-en="Breads" data-zh="面包">Breads</a>
+        <a href="menu.html#pastries" data-en="Pastries" data-zh="西点">Pastries</a>
+        <a href="menu.html#coffee" data-en="Coffee" data-zh="咖啡">Coffee</a>
+        <a href="menu.html#bites" data-en="Savoury Bites" data-zh="咸食小食">Savoury Bites</a>
+      </div>
+      <div>
+        <h4 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h4>
+        <p data-en="Tue – Fri: 8 am – 6 pm" data-zh="周二至周五：上午8时–下午6时">Tue – Fri: 8 am – 6 pm</p>
+        <p data-en="Sat – Sun: 8 am – 8 pm" data-zh="周六至周日：上午8时–晚上8时">Sat – Sun: 8 am – 8 pm</p>
+        <p data-en="Mon: Closed" data-zh="周一：休息">Mon: Closed</p>
+        <p style="margin-top:10px">56 Eng Hoon Street<br>Singapore 160056</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Tiong Bahru Bakehouse Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

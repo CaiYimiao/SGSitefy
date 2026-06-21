@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Store Name — Retail" data-zh="店名 — 零售">Store Name — Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0e0e; --bg:#fff200; --surface:#ffffff; --brand:#ff3b00; --accent:#0033ff;
+  --d:'Bricolage Grotesque',sans-serif; --t:'IBM Plex Sans',sans-serif;
+  --gap:clamp(1.5rem,4vw,3.5rem); --bord:3px solid var(--ink);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);line-height:1.55}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gap)}
+header{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--bg)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem var(--gap)}
+.brand{font-family:var(--d);font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:-.04em;color:var(--bg)}
+.links{display:flex;gap:1.6rem;align-items:center}
+.links a{font-weight:600;font-size:.9rem;text-transform:uppercase}
+.links a:hover{color:var(--brand)}
+.langbtn{border:2px solid var(--bg);background:none;color:var(--bg);padding:.35rem .8rem;font-family:var(--d);font-weight:700;cursor:pointer;text-transform:uppercase}
+.langbtn:hover{background:var(--brand);border-color:var(--brand)}
+.burger{display:none;border:none;background:none;color:var(--bg);font-size:1.8rem;cursor:pointer}
+/* hero — giant type, marquee feel */
+.hero{padding:clamp(2rem,6vw,5rem) 0 0}
+.hero h1{font-size:clamp(3.5rem,16vw,12rem);color:var(--ink)}
+.hero h1 span{color:var(--brand);-webkit-text-stroke:2px var(--ink)}
+.heroband{background:var(--accent);color:var(--bg);margin-top:1.5rem;border-block:var(--bord);overflow:hidden;white-space:nowrap}
+.heroband p{display:inline-block;padding:.6rem 0;font-family:var(--d);font-weight:700;font-size:1.4rem;text-transform:uppercase;animation:slide 18s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+.herorow{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:var(--bord)}
+.herorow .lede{padding:var(--gap);font-size:clamp(1.1rem,2.2vw,1.5rem);border-right:var(--bord)}
+.herorow img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.btn{display:inline-block;margin-top:1.5rem;background:var(--brand);color:#fff;padding:1rem 2.2rem;font-family:var(--d);font-weight:800;font-size:1.05rem;text-transform:uppercase;border:var(--bord);box-shadow:6px 6px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+.sec{padding:clamp(3rem,7vw,5rem) 0}
+.h2big{font-size:clamp(2.2rem,8vw,5rem);margin-bottom:var(--gap);color:var(--ink)}
+.h2big em{font-style:normal;background:var(--brand);color:#fff;padding:0 .2em}
+/* categories — chunky uneven blocks */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.cat{border:var(--bord);background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;justify-content:space-between;min-height:160px;transition:background .2s,color .2s}
+.cat:nth-child(1){grid-column:span 4}
+.cat:nth-child(2){grid-column:span 2;background:var(--accent);color:var(--bg)}
+.cat:nth-child(3){grid-column:span 2}
+.cat:nth-child(4){grid-column:span 4;background:var(--ink);color:var(--bg)}
+.cat:hover{background:var(--brand);color:#fff}
+.cat .n{font-family:var(--d);font-weight:800;font-size:2rem}
+.cat h3{font-size:1.6rem;margin-top:1rem}
+/* featured */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.prod{border:var(--bord);background:var(--surface)}
+.prod img{aspect-ratio:1;object-fit:cover;width:100%;border-bottom:var(--bord)}
+.prod div{padding:1rem;display:flex;justify-content:space-between;align-items:baseline}
+.prod h3{font-size:1.3rem}
+.prod .price{font-family:var(--d);font-weight:800;background:var(--bg);padding:.1rem .5rem;border:2px solid var(--ink)}
+/* about */
+.about{border:var(--bord);background:var(--surface);display:grid;grid-template-columns:1.2fr 1fr}
+.about .txt{padding:var(--gap)}
+.about h2{font-size:clamp(2rem,5vw,3.5rem)}
+.about p{margin-top:1rem;font-size:1.15rem}
+.about img{width:100%;height:100%;object-fit:cover;border-left:var(--bord)}
+/* proof */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.quote{border:var(--bord);background:var(--accent);color:var(--bg);padding:var(--gap)}
+.quote:nth-child(even){background:var(--brand)}
+.quote p{font-family:var(--d);font-weight:700;font-size:clamp(1.4rem,3vw,2rem);line-height:1.05;text-transform:uppercase}
+.quote cite{display:block;margin-top:1rem;font-style:normal;font-weight:600}
+.ctaband{background:var(--ink);color:var(--bg);text-align:center;border-block:var(--bord);padding:clamp(3rem,8vw,6rem) var(--gap)}
+.ctaband h2{font-size:clamp(2.5rem,10vw,7rem);color:var(--bg)}
+.ctaband h2 em{font-style:normal;color:var(--brand)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact .box{border:var(--bord);background:var(--surface);padding:var(--gap)}
+.contact dt{font-family:var(--d);font-weight:800;text-transform:uppercase;color:var(--brand);margin-top:1rem}
+.contact dd{font-size:1.2rem}
+.contact dl div:first-child dt{margin-top:0}
+footer{background:var(--ink);color:var(--bg);padding:2rem var(--gap);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:600}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+@media(max-width:760px){
+  .burger{display:block}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ink);padding:1.5rem var(--gap)}
+  .links.open{display:flex}
+  .herorow,.cats,.prods,.about,.quotes,.contact{grid-template-columns:1fr}
+  .cat{grid-column:auto!important}
+  .about img{border-left:none;border-top:var(--bord);aspect-ratio:16/10}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" data-slot="brand" data-en="STORE!" data-zh="店名!">STORE!</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="#categories" data-slot="nav.cat" data-en="Shop" data-zh="选购">Shop</a>
+      <a href="#featured" data-slot="nav.feat" data-en="Drops" data-zh="新品">Drops</a>
+      <a href="#about" data-slot="nav.about" data-en="Story" data-zh="故事">Story</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Find Us" data-zh="到店">Find Us</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap"><h1 data-slot="hero.headline" data-rich data-en="Big <span>Loud</span> Goods" data-zh="大声<span>好物</span>">Big <span>Loud</span> Goods</h1></div>
+  <div class="heroband"><p data-slot="hero.ticker" data-en="NEW IN · BEST SELLERS · LOCAL MADE · NEW IN · BEST SELLERS · LOCAL MADE · " data-zh="新品上架 · 热销爆款 · 本地制造 · 新品上架 · 热销爆款 · 本地制造 · ">NEW IN · BEST SELLERS · LOCAL MADE · NEW IN · BEST SELLERS · LOCAL MADE · </p></div>
+  <div class="wrap"><div class="herorow">
+    <div class="lede"><p data-slot="hero.lede" data-en="A loud one-sentence pitch for the store and the energy it brings." data-zh="一句话喊出本店的态度与能量。">A loud one-sentence pitch for the store and the energy it brings.</p><a class="btn" href="#categories" data-slot="hero.cta" data-en="Shop now →" data-zh="立即选购 →">Shop now →</a></div>
+    <img src="https://picsum.photos/seed/maxhero/900/560" data-slot="hero.image" data-en-alt="Storefront" data-zh-alt="店面" alt="Storefront">
+  </div></div>
+</section>
+
+<section class="wrap sec" id="categories">
+  <h2 class="h2big" data-slot="cats.title" data-rich data-en="Shop by <em>vibe</em>" data-zh="按<em>风格</em>选购">Shop by <em>vibe</em></h2>
+  <div class="cats" data-slot="categories" data-min="3" data-max="4">
+    <a class="cat" href="#featured"><span class="n">01</span><h3 data-en="Category One" data-zh="分类一">Category One</h3></a>
+    <a class="cat" href="#featured"><span class="n">02</span><h3 data-en="Category Two" data-zh="分类二">Category Two</h3></a>
+    <a class="cat" href="#featured"><span class="n">03</span><h3 data-en="Category Three" data-zh="分类三">Category Three</h3></a>
+    <a class="cat" href="#featured"><span class="n">04</span><h3 data-en="Category Four" data-zh="分类四">Category Four</h3></a>
+  </div>
+</section>
+
+<section class="wrap sec" id="featured">
+  <h2 class="h2big" data-slot="feat.title" data-rich data-en="Hot <em>right now</em>" data-zh="正在<em>热卖</em>">Hot <em>right now</em></h2>
+  <div class="prods" data-slot="products" data-min="3" data-max="3">
+    <article class="prod"><img src="https://picsum.photos/seed/maxp1/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div><h3 data-en="Product" data-zh="商品">Product</h3><span class="price" data-en="$00" data-zh="¥00">$00</span></div></article>
+    <article class="prod"><img src="https://picsum.photos/seed/maxp2/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div><h3 data-en="Product" data-zh="商品">Product</h3><span class="price" data-en="$00" data-zh="¥00">$00</span></div></article>
+    <article class="prod"><img src="https://picsum.photos/seed/maxp3/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div><h3 data-en="Product" data-zh="商品">Product</h3><span class="price" data-en="$00" data-zh="¥00">$00</span></div></article>
+  </div>
+</section>
+
+<section class="wrap sec" id="about">
+  <div class="about">
+    <div class="txt"><h2 data-slot="about.title" data-en="Who we are" data-zh="我们是谁">Who we are</h2><p data-slot="about.body" data-en="Two or three punchy sentences about the people behind the shop and what fires them up." data-zh="两三句有冲劲的话，介绍店主与他们的热情所在。">Two or three punchy sentences about the people behind the shop and what fires them up.</p></div>
+    <img src="https://picsum.photos/seed/maxabout/700/700" data-slot="about.image" data-en-alt="Team" data-zh-alt="团队" alt="Team">
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="quotes" data-slot="testimonials" data-min="2" data-max="2">
+    <blockquote class="quote"><p data-en="“A loud, glowing customer line.”" data-zh="“一句响亮的好评。”">“A loud, glowing customer line.”</p><cite data-en="Customer" data-zh="顾客">Customer</cite></blockquote>
+    <blockquote class="quote"><p data-en="“A loud, glowing customer line.”" data-zh="“一句响亮的好评。”">“A loud, glowing customer line.”</p><cite data-en="Customer" data-zh="顾客">Customer</cite></blockquote>
+  </div>
+</section>
+
+<section class="ctaband"><h2 data-slot="cta.title" data-rich data-en="Get <em>in</em> here" data-zh="快<em>来</em>逛逛">Get <em>in</em> here</h2><a class="btn" href="#contact" data-slot="cta.btn" data-en="Find the store" data-zh="找到我们">Find the store</a></section>
+
+<section class="wrap sec" id="contact">
+  <div class="contact">
+    <div class="box"><dl>
+      <div><dt data-en="Where" data-zh="地址">Where</dt><dd data-slot="contact.address" data-en="Street address, Singapore" data-zh="新加坡街道地址">Street address, Singapore</dd></div>
+      <div><dt data-en="Hours" data-zh="营业">Hours</dt><dd data-slot="contact.hours" data-en="Mon–Sun, 00:00–00:00" data-zh="周一至周日 00:00–00:00">Mon–Sun, 00:00–00:00</dd></div>
+      <div><dt data-en="Call" data-zh="电话">Call</dt><dd data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</dd></div>
+      <div><dt data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="hi@store.sg" data-zh="hi@store.sg">hi@store.sg</dd></div>
+    </dl></div>
+    <figure class="box" style="padding:0"><img src="https://picsum.photos/seed/maxmap/700/600" style="width:100%;height:100%;object-fit:cover" data-slot="contact.map" data-en-alt="Map" data-zh-alt="地图" alt="Map"></figure>
+  </div>
+</section>
+</main>
+<footer>
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</footer>
+<script>
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const v=zh?el.dataset.zh:el.dataset.en;if(el.hasAttribute('data-rich'))el.innerHTML=v;else el.textContent=v;});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt);
+}
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

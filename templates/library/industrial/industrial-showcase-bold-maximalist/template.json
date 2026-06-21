@@ -1,0 +1,11 @@
+{
+  "id": "industrial-showcase-bold-maximalist",
+  "industry": "industrial",
+  "kind": "showcase",
+  "aesthetic": "bold-maximalist",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Spline Sans Mono" },
+  "tokens": { "ink": "#0d0d0e", "bg": "#ece9e2", "surface": "#1a1a1c", "brand": "#ff4d1c", "accent": "#e8ff3a" },
+  "sections": ["hero", "marquee", "intro", "work", "capabilities", "cta", "contact"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

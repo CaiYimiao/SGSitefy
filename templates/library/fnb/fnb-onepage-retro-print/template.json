@@ -1,0 +1,11 @@
+{
+  "id": "fnb-onepage-retro-print",
+  "industry": "fnb",
+  "kind": "onepage",
+  "aesthetic": "retro-print",
+  "fonts": { "display": "Yeseva One", "text": "Work Sans" },
+  "tokens": { "ink": "#22201c", "bg": "#efe7d3", "surface": "#e1d3b0", "brand": "#bc3b2e", "accent": "#2e6b62" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

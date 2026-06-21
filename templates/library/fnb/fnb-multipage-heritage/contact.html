@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Heng Kee Kopitiam — Visit" data-zh="兴记茶室 — 到访">Heng Kee Kopitiam — Visit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-rich data-en="Heng Kee <small>Est. 1968</small>" data-zh="兴记 <small>始于1968</small>">Heng Kee <small>Est. 1968</small></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="Our story" data-zh="本店故事">Our story</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="contact.kick" data-en="Visit us" data-zh="到访我们">Visit us</p>
+    <h1 data-slot="contact.title" data-en="Find the marble tables." data-zh="来寻那几张大理石桌。">Find the marble tables.</h1>
+    <p data-slot="contact.lead" data-en="Placeholder lead — corner shophouse, easy to find, no bookings needed." data-zh="占位引言——转角店屋，容易找到，无需预订。">Placeholder lead — corner shophouse, easy to find, no bookings needed.</p>
+  </section>
+
+  <section class="wrap contact">
+    <div>
+      <h2 data-slot="contact.h2" data-en="Where to find us" data-zh="如何找到我们">Where to find us</h2>
+      <dl>
+        <dt data-slot="contact.addr.l" data-en="Address" data-zh="地址">Address</dt><dd data-slot="contact.addr" data-en="78 Seng Poh Road, Singapore 160078" data-zh="新加坡成保路78号 160078">78 Seng Poh Road, Singapore 160078</dd>
+        <dt data-slot="contact.phone.l" data-en="Phone" data-zh="电话">Phone</dt><dd data-slot="contact.phone" data-en="+65 6222 1968" data-zh="+65 6222 1968">+65 6222 1968</dd>
+        <dt data-slot="contact.email.l" data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="hello@example.sg" data-zh="hello@example.sg">hello@example.sg</dd>
+        <dt data-slot="contact.hours.l" data-en="Hours" data-zh="营业时间">Hours</dt><dd data-slot="contact.hours" data-en="Daily 6:30–14:30, closed Mondays" data-zh="每日 6:30–14:30，周一休息">Daily 6:30–14:30, closed Mondays</dd>
+        <dt data-slot="contact.transit.l" data-en="Getting here" data-zh="交通">Getting here</dt><dd data-slot="contact.transit" data-en="5 min walk from Tiong Bahru MRT; street parking on Seng Poh Road." data-zh="距中峇鲁地铁站步行5分钟；成保路设有路边停车位。">5 min walk from Tiong Bahru MRT; street parking on Seng Poh Road.</dd>
+      </dl>
+    </div>
+    <div class="map" role="img" aria-label="Map placeholder" data-slot="contact.map"></div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="See you at breakfast." data-zh="早餐时见。">See you at breakfast.</h2>
+    <p data-slot="cta.sub" data-en="Walk in any morning — no reservations, just good kopi." data-zh="任何清晨直接进来——无需预订，只有好咖啡。">Walk in any morning — no reservations, just good kopi.</p>
+    <a class="btn" href="menu.html" data-slot="cta.button" data-en="See the menu" data-zh="查看菜单">See the menu</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Heng Kee Kopitiam" data-zh="兴记茶室">Heng Kee Kopitiam</span>
+    <span data-slot="footer.addr" data-en="Tiong Bahru, Singapore" data-zh="新加坡中峇鲁">Tiong Bahru, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "industrial-multipage-dark",
+  "industry": "industrial",
+  "kind": "multipage",
+  "aesthetic": "premium-dark",
+  "fonts": { "display": "Fraunces", "text": "Albert Sans" },
+  "tokens": { "ink": "#f0ece4", "bg": "#0f1110", "surface": "#181b1a", "brand": "#c9a25e", "accent": "#5fa8a0" },
+  "sections": ["hero", "trust", "about", "services", "work", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

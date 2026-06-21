@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bento Co. — Premium Japanese Bento Catering, Singapore</title>
+<meta name="description" content="Bento Co. — refined Japanese bento catering for offices, events and premium occasions in Singapore. Crafted by hand, delivered with care." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   Bento Co. — F&B editorial showcase · SGSitefy
+   Theme: raspberry #be123c, soft pink #fda4af, bg #fff1f2
+   ============================================================ */
+:root{
+  --rose:#be123c; --rose-2:#9f1239; --rose-d:#7a0d2c;
+  --pink:#fda4af; --pink-2:#fecdd3; --pink-soft:#ffe4e6;
+  --ink:#2b0a12; --muted:#7c5560; --line:#f3d6db; --bg:#fff1f2; --paper:#fffafa;
+  --maxw:1200px; --shadow:0 24px 60px rgba(190,18,60,.13);
+  --fh:'Archivo',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:78px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.7}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.08;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;gap:9px;border:none;border-radius:2px;padding:15px 32px;font-family:var(--fb);font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.25s}
+.btn-rose{background:var(--rose);color:#fff}.btn-rose:hover{background:var(--rose-2)}
+.btn-outline{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--rose);border:1.5px solid #fff}.btn-light:hover{background:transparent;color:#fff}
+.eyebrow{font-family:var(--fb);text-transform:uppercase;letter-spacing:5px;color:var(--rose);font-weight:700;font-size:.72rem;margin-bottom:18px;display:block}
+.sec{padding:110px 0}
+.lead{color:var(--muted);font-size:1.08rem;line-height:1.85;max-width:640px}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s,transform .85s}.reveal.in{opacity:1;transform:none}
+
+/* ── Header / Nav ── */
+.header{position:sticky;top:0;z-index:80;background:rgba(255,250,250,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--fh);color:var(--ink);font-size:1.45rem;letter-spacing:-.02em;font-weight:900}
+.brand small{font-size:.58rem;color:var(--rose);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-top:3px}
+.nav{display:flex;align-items:center;gap:6px}
+.nav>a{font-family:var(--fb);font-weight:500;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--ink);padding:10px 12px;position:relative;transition:.2s}
+.nav>a:hover{color:var(--rose)}
+.nav>a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1.5px;background:var(--rose);transform:scaleX(0);transition:.22s}
+.nav>a:hover::after{transform:scaleX(1)}
+.lang{border:1.5px solid var(--rose);background:transparent;color:var(--rose);font-family:var(--fb);font-weight:700;font-size:.72rem;letter-spacing:1px;padding:7px 13px;border-radius:2px;cursor:pointer;margin-left:10px;transition:.2s}
+.lang:hover{background:var(--rose);color:#fff}
+.nav-cta{background:var(--rose);color:#fff!important;font-weight:600;margin-left:8px;padding:11px 22px;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;border-radius:2px}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--rose-2)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--rose);cursor:pointer}
+
+/* ── Hero ── */
+.hero{position:relative;height:92vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;background:var(--rose-d)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(40,5,15,.78) 0%,rgba(40,5,15,.18) 50%,rgba(40,5,15,.32) 100%)}
+.hero .wrap{position:relative;z-index:3;padding-bottom:80px}
+.hero-card{max-width:760px;color:#fff}
+.hero .eyebrow{color:var(--pink)}
+.hero h1{font-size:4.6rem;color:#fff;line-height:.98;font-weight:900;letter-spacing:-.03em}
+.hero h1 .it{font-family:var(--fb);font-weight:300;font-style:italic;text-transform:none;letter-spacing:-.01em}
+.hero p{margin:26px 0 34px;font-size:1.18rem;color:#fde4e7;max-width:540px;font-weight:300}
+.hero-meta{position:absolute;top:40px;right:32px;z-index:3;color:#fff;text-align:right;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;opacity:.85}
+.hero-meta span{display:block}
+
+/* ── Brand statement ── */
+.statement{background:var(--paper)}
+.statement .wrap{max-width:920px;text-align:center}
+.statement .big{font-family:var(--fh);font-size:2.6rem;font-weight:800;line-height:1.25;letter-spacing:-.02em;color:var(--ink)}
+.statement .big em{font-family:var(--fb);font-style:italic;font-weight:300;color:var(--rose)}
+.statement .rule{width:60px;height:2px;background:var(--rose);margin:0 auto 36px}
+
+/* ── About (editorial split) ── */
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about figure{margin:0;position:relative}
+.about figure img{width:100%;height:560px;object-fit:cover}
+.about figure .cap{position:absolute;bottom:20px;left:20px;background:var(--paper);padding:14px 20px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--rose);font-weight:600}
+.about h2{font-size:2.7rem;margin-bottom:22px;color:var(--ink)}
+.about .lead+.lead{margin-top:18px}
+.about .sig{margin-top:30px;font-family:var(--fh);font-size:1.1rem;color:var(--rose);font-style:italic;font-weight:700}
+.about .sig small{display:block;font-family:var(--fb);font-style:normal;font-weight:400;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-size:.68rem;margin-top:4px}
+
+/* ── Packages ── */
+.pkg{background:var(--pink-soft)}
+.pkg-head{text-align:center;max-width:660px;margin:0 auto 60px}
+.pkg-head h2{font-size:2.7rem;color:var(--ink)}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+.tier{background:var(--paper);border:1px solid var(--line);padding:40px 34px;display:flex;flex-direction:column;transition:.3s}
+.tier:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.tier.feat{background:var(--rose);color:#fff;border-color:var(--rose)}
+.tier .badge{font-size:.66rem;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:10px}
+.tier.feat .badge{color:var(--pink)}
+.tier h3{font-size:1.7rem;margin-bottom:6px;color:var(--ink)}
+.tier.feat h3{color:#fff}
+.tier .from{font-size:.84rem;color:var(--muted);margin-bottom:6px}
+.tier.feat .from{color:var(--pink-2)}
+.tier .price{font-family:var(--fh);font-size:2.4rem;font-weight:900;color:var(--rose);margin-bottom:24px;letter-spacing:-.03em}
+.tier.feat .price{color:#fff}
+.tier ul{list-style:none;margin-bottom:30px;flex:1}
+.tier li{padding:9px 0 9px 26px;position:relative;font-size:.92rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.tier.feat li{color:#fde4e7;border-color:rgba(255,255,255,.18)}
+.tier li:last-child{border:none}
+.tier li::before{content:"—";position:absolute;left:0;color:var(--rose)}
+.tier.feat li::before{color:var(--pink)}
+
+/* ── Showcase (asymmetric grid) ── */
+.show-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:46px;flex-wrap:wrap;gap:20px}
+.show-head h2{font-size:2.7rem;color:var(--ink)}
+.show-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:16px}
+.show-grid figure{margin:0;overflow:hidden;position:relative}
+.show-grid img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.show-grid figure:hover img{transform:scale(1.06)}
+.show-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 18px 14px;background:linear-gradient(transparent,rgba(40,5,15,.82));color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.5px;opacity:0;transition:.35s}
+.show-grid figure:hover figcaption{opacity:1}
+.show-grid .w2{grid-column:span 2}
+.show-grid .h2{grid-row:span 2}
+
+/* ── Testimonials ── */
+.testi{background:var(--rose-d);color:#fff}
+.testi .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.quote{padding:6px 0}
+.quote .mark{font-family:var(--fh);font-size:3rem;color:var(--pink);line-height:.5;display:block;margin-bottom:14px}
+.quote p{font-size:1.04rem;line-height:1.7;color:#ffe4e6;font-weight:300;font-style:italic;margin-bottom:20px}
+.quote .who{display:flex;align-items:center;gap:12px}
+.quote .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.quote .who b{display:block;font-family:var(--fh);font-size:.96rem}
+.quote .who span{font-size:.78rem;color:var(--pink-2);letter-spacing:.5px}
+
+/* ── How to order ── */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:56px}
+.step{text-align:center;position:relative}
+.step .num{font-family:var(--fh);font-size:3rem;font-weight:900;color:var(--pink);line-height:1;margin-bottom:14px}
+.step h4{font-size:1.18rem;margin-bottom:8px;color:var(--ink)}
+.step p{font-size:.92rem;color:var(--muted)}
+
+/* ── Contact ── */
+.contact{background:var(--paper)}
+.contact .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+.contact h2{font-size:2.5rem;margin-bottom:18px;color:var(--ink)}
+.clist{list-style:none;margin-top:30px}
+.clist li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.clist li:last-child{border:none}
+.clist .cic{width:42px;height:42px;border:1.5px solid var(--rose);color:var(--rose);display:grid;place-items:center;flex-shrink:0;font-size:1.1rem}
+.clist b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--rose);margin-bottom:3px}
+.clist span.tx{color:var(--muted);font-size:.96rem}
+.cform{background:var(--bg);border:1px solid var(--line);padding:40px}
+.f-group{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column;margin-bottom:18px}.f.full{grid-column:1/-1}
+.f label{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);margin-bottom:7px}
+.f input,.f textarea,.f select{border:none;border-bottom:1.5px solid var(--line);padding:11px 2px;font-family:inherit;font-size:.96rem;color:var(--ink);background:transparent;transition:.2s}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--rose)}
+
+/* ── Footer ── */
+.foot{background:var(--ink);color:#c79aa3}
+.foot .grid{display:grid;grid-template-columns:1.8fr 1fr 1.2fr;gap:48px;padding:72px 0 44px}
+.foot .brand b{color:#fff;font-family:var(--fh)}
+.foot h4{color:#fff;font-family:var(--fh);font-size:.96rem;margin-bottom:18px;letter-spacing:.5px}
+.foot a{display:block;color:#c79aa3;padding:5px 0;font-size:.9rem}.foot a:hover{color:var(--pink)}
+.foot p{font-size:.88rem;margin-bottom:8px;color:#c79aa3}
+.foot .cn{color:var(--pink);letter-spacing:1px;margin:10px 0 8px;font-family:var(--fh);font-size:.92rem}
+.foot .soc{display:flex;gap:10px;margin:16px 0}
+.foot .soc a{width:36px;height:36px;border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;padding:0;color:var(--pink);font-size:.9rem}
+.foot .soc a:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 32px;font-size:.8rem;color:#8a5e68;flex-wrap:wrap;gap:6px}
+
+/* ── FABs ── */
+.fab{position:fixed;right:24px;z-index:70;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22);cursor:pointer;border:none;color:#fff;transition:.25s}
+.fab-wa{bottom:90px;background:#25d366;font-size:1.5rem}.fab-wa:hover{transform:scale(1.08)}
+.fab-top{bottom:24px;background:var(--rose);font-size:1.4rem;opacity:0;pointer-events:none}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* ── Responsive ── */
+@media(max-width:1000px){
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);padding:14px;box-shadow:var(--shadow);z-index:79}
+  .nav.open{display:flex}.burger{display:block}
+  .nav>a::after{display:none}
+  .about .grid,.contact .grid{grid-template-columns:1fr;gap:44px}
+  .about figure img{height:420px}
+  .pkg-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .testi .grid,.steps-grid{grid-template-columns:1fr 1fr}
+  .show-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px}
+  .show-grid .w2,.show-grid .h2{grid-column:auto;grid-row:auto}
+  .hero h1{font-size:3rem}
+  .statement .big{font-size:1.9rem}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .f-group{grid-template-columns:1fr}
+  .hero-meta{display:none}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .testi .grid,.steps-grid,.show-grid,.foot .grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Bento Co. home">
+      <b>BENTO CO.</b><small data-en="Japanese Catering" data-zh="日式外烩">Japanese Catering</small>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about" data-en="About" data-zh="关于">About</a>
+      <a href="#packages" data-en="Packages" data-zh="套餐">Packages</a>
+      <a href="#showcase" data-en="Showcase" data-zh="作品集">Showcase</a>
+      <a href="#testimonials" data-en="Reviews" data-zh="客户评价">Reviews</a>
+      <a href="#order" data-en="How to Order" data-zh="订购方式">How to Order</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="#contact" class="nav-cta" data-en="Enquire" data-zh="询问">Enquire</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top" aria-label="Hero">
+  <img src="https://picsum.photos/seed/bentoco-hero/1600/1000" alt="Elegant Japanese bento box arrangement" />
+  <div class="hero-meta">
+    <span data-en="Est. 2020" data-zh="创立2020">Est. 2020</span>
+    <span data-en="Jalan Klapa · Singapore" data-zh="惹兰加巴 · 新加坡">Jalan Klapa · Singapore</span>
+  </div>
+  <div class="wrap">
+    <div class="hero-card">
+      <span class="eyebrow" data-en="Premium Bento Catering" data-zh="高级便当外烩">Premium Bento Catering</span>
+      <h1>
+        <span data-rich
+          data-en="The art of the box, <span class='it'>delivered.</span>"
+          data-zh="便当之美，<span class='it'>送达每一刻。</span>">The art of the box, <span class="it">delivered.</span></span>
+      </h1>
+      <p data-en="Handcrafted Japanese bento for offices, events and refined occasions across Singapore — composed like a still life, packed with intention." data-zh="为新加坡各地的办公室、活动与精致场合手工制作的日式便当——如静物画般构图，每一格皆用心。">Handcrafted Japanese bento for offices, events and refined occasions across Singapore — composed like a still life, packed with intention.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#packages" class="btn btn-light" data-en="View Packages" data-zh="查看套餐">View Packages</a>
+        <a href="#contact" class="btn btn-light" style="background:transparent;color:#fff" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand statement -->
+<section class="sec statement">
+  <div class="wrap reveal">
+    <div class="rule"></div>
+    <p class="big" data-rich
+      data-en="We believe a meal can be an occasion. Every Bento Co. box is a <em>quiet act of hospitality</em> — balanced, seasonal, and beautiful before the first bite."
+      data-zh="我们相信，一顿饭也能成为一场盛会。每一个便当公司的餐盒都是一份<em>无声的款待</em>——均衡、应季，在第一口之前就已赏心悦目。">We believe a meal can be an occasion. Every Bento Co. box is a <em>quiet act of hospitality</em> — balanced, seasonal, and beautiful before the first bite.</p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <figure class="reveal">
+        <img src="https://picsum.photos/seed/bentoco-chef/800/900" alt="Chef plating a bento box" />
+        <span class="cap" data-en="Our atelier, Jalan Klapa" data-zh="我们的工作坊，惹兰加巴">Our atelier, Jalan Klapa</span>
+      </figure>
+      <div class="reveal">
+        <span class="eyebrow" data-en="Our Philosophy" data-zh="我们的理念">Our Philosophy</span>
+        <h2 data-en="Considered cooking, composed by hand" data-zh="用心烹调，匠手成器">Considered cooking, composed by hand</h2>
+        <p class="lead" data-en="Founded in 2020, Bento Co. grew from a small Jalan Klapa kitchen into Singapore's go-to for elegant Japanese catering. We treat each compartment as a canvas — colour, texture and seasonality in careful proportion." data-zh="便当公司创立于2020年，从惹兰加巴的一间小厨房，成长为新加坡精致日式外烩的首选。我们将每一格视为画布——色彩、口感与时令，皆精心调配。">Founded in 2020, Bento Co. grew from a small Jalan Klapa kitchen into Singapore's go-to for elegant Japanese catering. We treat each compartment as a canvas — colour, texture and seasonality in careful proportion.</p>
+        <p class="lead" data-en="From boardroom lunches to wedding banquets, every order is made to order, plated by hand, and delivered at its peak." data-zh="从会议室午餐到婚宴盛典，每份订单皆现点现做、手工摆盘，于最佳状态送达。">From boardroom lunches to wedding banquets, every order is made to order, plated by hand, and delivered at its peak.</p>
+        <p class="sig" data-en="Aiko &amp; Marcus Lim" data-zh="林爱子与林明轩">Aiko &amp; Marcus Lim<small data-en="Founders &amp; Head Chefs" data-zh="创办人兼主厨">Founders &amp; Head Chefs</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section class="sec pkg" id="packages">
+  <div class="wrap">
+    <div class="pkg-head reveal">
+      <span class="eyebrow" data-en="Catering Packages" data-zh="外烩套餐">Catering Packages</span>
+      <h2 data-en="Three ways to be hosted" data-zh="三种款待之选">Three ways to be hosted</h2>
+      <p class="lead center" data-en="Tailored to the occasion. Minimum 10 sets, 48 hours' notice. Prices per set, GST inclusive." data-zh="因场合量身定制。最低10份，需提前48小时预订。每份价格已含消费税。">Tailored to the occasion. Minimum 10 sets, 48 hours' notice. Prices per set, GST inclusive.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="tier reveal">
+        <span class="badge" data-en="Everyday" data-zh="日常">Everyday</span>
+        <h3 data-en="Office Bento" data-zh="办公室便当">Office Bento</h3>
+        <span class="from" data-en="From / per set" data-zh="起 / 每份">From / per set</span>
+        <div class="price">S$16</div>
+        <ul>
+          <li data-en="Choice of 3 mains (fish, chicken or vegetarian)" data-zh="3款主食选择（鱼、鸡或素食）">Choice of 3 mains (fish, chicken or vegetarian)</li>
+          <li data-en="Seasonal rice &amp; two side dishes" data-zh="时令米饭与两道小菜">Seasonal rice &amp; two side dishes</li>
+          <li data-en="Compostable single-tier box" data-zh="可堆肥单层餐盒">Compostable single-tier box</li>
+          <li data-en="Free delivery within CBD" data-zh="商业区免费配送">Free delivery within CBD</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" data-en="Enquire" data-zh="询问">Enquire</a>
+      </div>
+
+      <div class="tier feat reveal">
+        <span class="badge" data-en="Most Popular" data-zh="最受欢迎">Most Popular</span>
+        <h3 data-en="Event Bento" data-zh="活动便当">Event Bento</h3>
+        <span class="from" data-en="From / per set" data-zh="起 / 每份">From / per set</span>
+        <div class="price">S$28</div>
+        <ul>
+          <li data-en="Premium 4-compartment lacquer-style box" data-zh="高级四格漆器风格餐盒">Premium 4-compartment lacquer-style box</li>
+          <li data-en="Sashimi-grade fish &amp; wagyu option" data-zh="刺身级鱼类与和牛选项">Sashimi-grade fish &amp; wagyu option</li>
+          <li data-en="Seasonal appetiser, main, sides &amp; dessert" data-zh="时令前菜、主食、小菜与甜点">Seasonal appetiser, main, sides &amp; dessert</li>
+          <li data-en="Custom paper sleeve branding" data-zh="定制纸套品牌设计">Custom paper sleeve branding</li>
+          <li data-en="On-site setup &amp; collection" data-zh="现场布置与回收">On-site setup &amp; collection</li>
+        </ul>
+        <a href="#contact" class="btn btn-light" data-en="Enquire" data-zh="询问">Enquire</a>
+      </div>
+
+      <div class="tier reveal">
+        <span class="badge" data-en="Signature" data-zh="尊享">Signature</span>
+        <h3 data-en="Premium Kaiseki" data-zh="尊享怀石">Premium Kaiseki</h3>
+        <span class="from" data-en="From / per set" data-zh="起 / 每份">From / per set</span>
+        <div class="price">S$58</div>
+        <ul>
+          <li data-en="Multi-tier kaiseki-inspired presentation" data-zh="多层怀石风格摆盘">Multi-tier kaiseki-inspired presentation</li>
+          <li data-en="Chef-selected seasonal premium produce" data-zh="主厨严选时令高级食材">Chef-selected seasonal premium produce</li>
+          <li data-en="Dedicated event coordinator" data-zh="专属活动统筹">Dedicated event coordinator</li>
+          <li data-en="Bespoke menu consultation" data-zh="定制菜单咨询">Bespoke menu consultation</li>
+          <li data-en="White-glove plating &amp; service" data-zh="尊贵摆盘与服务">White-glove plating &amp; service</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" data-en="Enquire" data-zh="询问">Enquire</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Showcase -->
+<section class="sec" id="showcase">
+  <div class="wrap">
+    <div class="show-head reveal">
+      <div>
+        <span class="eyebrow" data-en="The Showcase" data-zh="作品集">The Showcase</span>
+        <h2 data-en="Signature compositions" data-zh="招牌之作">Signature compositions</h2>
+      </div>
+      <p class="lead" style="max-width:360px" data-en="A selection from recent commissions — each box composed fresh, never repeated the same way twice." data-zh="近期作品精选——每一盒皆现场构图，绝不重复。">A selection from recent commissions — each box composed fresh, never repeated the same way twice.</p>
+    </div>
+    <div class="show-grid reveal" role="list">
+      <figure class="w2 h2" role="listitem"><img src="https://picsum.photos/seed/bc-show1/800/800" alt="Premium kaiseki bento"><figcaption data-en="Premium Kaiseki Selection" data-zh="尊享怀石精选">Premium Kaiseki Selection</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show2/500/500" alt="Salmon teriyaki bento"><figcaption data-en="Salmon Teriyaki" data-zh="照烧三文鱼">Salmon Teriyaki</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show3/500/500" alt="Vegetarian bento"><figcaption data-en="Garden Vegetarian" data-zh="田园素食">Garden Vegetarian</figcaption></figure>
+      <figure class="w2" role="listitem"><img src="https://picsum.photos/seed/bc-show4/800/400" alt="Event bento spread"><figcaption data-en="Event Spread, 120 guests" data-zh="活动餐宴，120位宾客">Event Spread, 120 guests</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show5/500/500" alt="Wagyu bento"><figcaption data-en="Wagyu &amp; Egg" data-zh="和牛温泉蛋">Wagyu &amp; Egg</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show6/500/500" alt="Dessert box"><figcaption data-en="Matcha Dessert Box" data-zh="抹茶甜点盒">Matcha Dessert Box</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show7/500/500" alt="Office lunch bento"><figcaption data-en="Office Everyday" data-zh="办公室日常">Office Everyday</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/bc-show8/500/500" alt="Wedding bento"><figcaption data-en="Wedding Banquet" data-zh="婚宴盛典">Wedding Banquet</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="sec testi" id="testimonials">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:54px">
+      <span class="eyebrow" style="color:var(--pink)" data-en="Kind Words" data-zh="客户评价">Kind Words</span>
+      <h2 style="color:#fff;font-size:2.7rem" data-en="Trusted by Singapore's finest" data-zh="深受新加坡名流信赖">Trusted by Singapore's finest</h2>
+    </div>
+    <div class="grid">
+      <div class="quote reveal">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <p data-en="The most beautiful catering we've ever ordered. Our clients photographed every box before touching it." data-zh="我们订过最美的外烩。客户们在动筷之前，都把每一盒都拍了照。">The most beautiful catering we've ever ordered. Our clients photographed every box before touching it.</p>
+        <div class="who"><img src="https://picsum.photos/seed/bc-t1/100/100" alt=""><div><b data-en="Rachel Ng" data-zh="黄丽珊">Rachel Ng</b><span data-en="Marketing Director, Marina Bay" data-zh="市场总监，滨海湾">Marketing Director, Marina Bay</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <p data-en="Flawless for our 200-guest wedding. Punctual, elegant, and every dietary note was honoured perfectly." data-zh="为我们200位宾客的婚宴提供了完美服务。准时、优雅，每一项饮食需求都妥善照顾。">Flawless for our 200-guest wedding. Punctual, elegant, and every dietary note was honoured perfectly.</p>
+        <div class="who"><img src="https://picsum.photos/seed/bc-t2/100/100" alt=""><div><b data-en="Daniel &amp; Mei" data-zh="陈伟杰与美琪">Daniel &amp; Mei</b><span data-en="Newlyweds, Sentosa" data-zh="新婚夫妇，圣淘沙">Newlyweds, Sentosa</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <p data-en="Our weekly office order. The team genuinely looks forward to Bento Co. Tuesdays now." data-zh="我们每周的办公室订餐。团队现在都满心期待便当公司的星期二。">Our weekly office order. The team genuinely looks forward to Bento Co. Tuesdays now.</p>
+        <div class="who"><img src="https://picsum.photos/seed/bc-t3/100/100" alt=""><div><b data-en="Priya Sharma" data-zh="普里亚·夏尔马">Priya Sharma</b><span data-en="Office Manager, CBD" data-zh="办公室经理，商业区">Office Manager, CBD</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to order -->
+<section class="sec" id="order">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="How to Order" data-zh="订购方式">How to Order</span>
+      <h2 class="reveal" style="font-size:2.7rem" data-en="Four simple steps" data-zh="简单四步">Four simple steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal"><div class="num">01</div><h4 data-en="Enquire" data-zh="询问">Enquire</h4><p data-en="Tell us your date, headcount and occasion via the form or a quick call." data-zh="通过表格或致电，告诉我们日期、人数与场合。">Tell us your date, headcount and occasion via the form or a quick call.</p></div>
+      <div class="step reveal"><div class="num">02</div><h4 data-en="Curate" data-zh="策划">Curate</h4><p data-en="We propose a seasonal menu and package tailored to your event." data-zh="我们为您的活动量身提议时令菜单与套餐。">We propose a seasonal menu and package tailored to your event.</p></div>
+      <div class="step reveal"><div class="num">03</div><h4 data-en="Confirm" data-zh="确认">Confirm</h4><p data-en="Approve the menu and lock in your order with a simple deposit." data-zh="确认菜单，支付订金即完成预订。">Approve the menu and lock in your order with a simple deposit.</p></div>
+      <div class="step reveal"><div class="num">04</div><h4 data-en="Delivered" data-zh="送达">Delivered</h4><p data-en="Boxes arrive plated, on time, and ready to impress." data-zh="餐盒准时送达，摆盘精美，惊艳全场。">Boxes arrive plated, on time, and ready to impress.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow" data-en="Enquire" data-zh="询问">Enquire</span>
+        <h2 data-en="Let's plan something memorable" data-zh="一起策划难忘时刻">Let's plan something memorable</h2>
+        <p class="lead" data-en="Tell us about your occasion and we'll respond within one business day with a tailored proposal." data-zh="告诉我们您的场合，我们将在一个工作日内回复专属方案。">Tell us about your occasion and we'll respond within one business day with a tailored proposal.</p>
+        <ul class="clist">
+          <li><span class="cic" aria-hidden="true">⌂</span><span><b data-en="Atelier" data-zh="工作坊">Atelier</b><span class="tx">8 Jalan Klapa, #01-01, Singapore 199320</span></span></li>
+          <li><span class="cic" aria-hidden="true">☎</span><span><b data-en="Phone" data-zh="电话">Phone</b><span class="tx"><a href="tel:+6562934747">+65 6293 4747</a></span></span></li>
+          <li><span class="cic" aria-hidden="true">✉</span><span><b data-en="Email" data-zh="电邮">Email</b><span class="tx"><a href="mailto:order@bentoco.sg">order@bentoco.sg</a></span></span></li>
+          <li><span class="cic" aria-hidden="true">◷</span><span><b data-en="Lead Time" data-zh="预订时间">Lead Time</b><span class="tx" data-en="48 hours · min. 10 sets" data-zh="48小时 · 最低10份">48 hours · min. 10 sets</span></span></li>
+        </ul>
+      </div>
+      <form class="cform reveal" onsubmit="return handleSubmit(event)">
+        <div class="f-group">
+          <div class="f"><label for="n" data-en="Name" data-zh="姓名">Name</label><input id="n" name="name" type="text" required></div>
+          <div class="f"><label for="c" data-en="Company" data-zh="公司">Company</label><input id="c" name="company" type="text"></div>
+        </div>
+        <div class="f-group">
+          <div class="f"><label for="e" data-en="Email" data-zh="电邮">Email</label><input id="e" name="email" type="email" required></div>
+          <div class="f"><label for="ph" data-en="Phone" data-zh="电话">Phone</label><input id="ph" name="phone" type="tel" required></div>
+        </div>
+        <div class="f-group">
+          <div class="f"><label for="pk" data-en="Package" data-zh="套餐">Package</label>
+            <select id="pk" name="package">
+              <option data-en="Office Bento" data-zh="办公室便当">Office Bento</option>
+              <option data-en="Event Bento" data-zh="活动便当">Event Bento</option>
+              <option data-en="Premium Kaiseki" data-zh="尊享怀石">Premium Kaiseki</option>
+            </select>
+          </div>
+          <div class="f"><label for="g" data-en="Guests" data-zh="人数">Guests</label><input id="g" name="guests" type="number" min="10" placeholder="10+"></div>
+        </div>
+        <div class="f full"><label for="m" data-en="Tell us about your event" data-zh="介绍您的活动">Tell us about your event</label><textarea id="m" name="message" rows="3" required></textarea></div>
+        <button type="submit" class="btn btn-rose" style="width:100%" data-en="Request Proposal" data-zh="索取方案">Request Proposal</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="#top" class="brand" aria-label="Bento Co.">
+          <b style="font-size:1.45rem">BENTO CO.</b><small style="color:var(--pink);letter-spacing:4px;text-transform:uppercase;font-size:.58rem;display:block;margin-top:4px">Japanese Catering</small>
+        </a>
+        <p class="cn">便当公司私人有限公司</p>
+        <p data-en="Premium handcrafted Japanese bento catering for Singapore's offices, events and special occasions since 2020." data-zh="自2020年起，为新加坡的办公室、活动与特别场合提供高级手工日式便当外烩。">Premium handcrafted Japanese bento catering for Singapore's offices, events and special occasions since 2020.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Navigate" data-zh="导航">Navigate</h4>
+        <a href="#about" data-en="About" data-zh="关于">About</a>
+        <a href="#packages" data-en="Packages" data-zh="套餐">Packages</a>
+        <a href="#showcase" data-en="Showcase" data-zh="作品集">Showcase</a>
+        <a href="#order" data-en="How to Order" data-zh="订购方式">How to Order</a>
+        <a href="#contact" data-en="Enquire" data-zh="询问">Enquire</a>
+      </div>
+      <div>
+        <h4 data-en="Visit &amp; Contact" data-zh="到访与联系">Visit &amp; Contact</h4>
+        <p>8 Jalan Klapa, #01-01<br>Singapore 199320</p>
+        <p><a href="tel:+6562934747">+65 6293 4747</a></p>
+        <p><a href="mailto:order@bentoco.sg">order@bentoco.sg</a></p>
+        <p data-en="Mon – Sat · 9am – 6pm" data-zh="周一至周六 · 上午9时 – 下午6时">Mon – Sat · 9am – 6pm</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Bento Co. Pte Ltd · UEN 202044556L</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FABs -->
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ── Language toggle ── */
+var ZH=false;
+function toggleLang(){
+  ZH=!ZH;
+  document.documentElement.lang=ZH?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=ZH?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    if(v==null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=ZH?'EN':'中文';});
+}
+
+/* ── Hamburger ── */
+var burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){nav.classList.toggle('open');});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');});});
+
+/* ── Reveal on scroll ── */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* ── Back to top ── */
+var toTop=document.getElementById('toTop');
+window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>500);});
+
+/* ── Form ── */
+function handleSubmit(e){e.preventDefault();alert(ZH?'谢谢！我们将在一个工作日内回复您。':'Thank you! We will respond within one business day.');e.target.reset();return false;}
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

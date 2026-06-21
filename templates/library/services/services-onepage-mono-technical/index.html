@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Firm — Technical Consultancy" data-zh="事务所 — 技术咨询">Firm — Technical Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1413; --bg:#f4f6f3; --surface:#e4e8e2; --brand:#0a6b5a; --accent:#d2552a;
+  --line:#c8cfc7;
+  --display:'Space Mono',monospace; --text:'IBM Plex Sans',system-ui,sans-serif;
+  --s0:1rem; --s1:1.2rem; --s2:1.44rem; --s3:1.728rem; --s4:2.074rem; --s5:2.488rem; --s6:2.986rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 2.4rem;background-attachment:fixed;background-blend-mode:overlay}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.03em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+.mono{font-family:var(--display);font-size:.74rem;letter-spacing:.04em;color:var(--brand)}
+.mono b{color:var(--accent)}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--bg)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.04em}
+.brand::before{content:"> ";color:var(--accent)}
+.menu{display:flex;gap:2rem;font-family:var(--display);font-size:.78rem}
+.menu a{opacity:.8;transition:opacity .2s}
+.menu a::before{content:"/";color:var(--accent);margin-right:.2rem}
+.menu a:hover{opacity:1}
+.navbtns{display:flex;gap:.8rem;align-items:center}
+.lang{background:none;border:1px solid var(--bg);color:var(--bg);font-family:var(--display);font-size:.72rem;padding:.35rem .6rem;cursor:pointer;transition:.2s}
+.lang:hover{background:var(--accent);border-color:var(--accent)}
+.burger{display:none;background:none;border:none;color:var(--bg);font-size:1.4rem;cursor:pointer}
+/* HERO */
+.hero{padding:clamp(3rem,8vw,6rem) 0;border-bottom:1px solid var(--line)}
+.hero .row{font-family:var(--display);font-size:.74rem;color:var(--brand);display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2.4rem,7.5vw,5rem);font-weight:700;max-width:18ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:var(--s1);max-width:52ch;margin:1.4rem 0 2rem}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{font-family:var(--display);font-size:.8rem;padding:.85rem 1.4rem;background:var(--ink);color:var(--bg);cursor:pointer;border:1px solid var(--ink);transition:.2s}
+.btn::before{content:"[ "}.btn::after{content:" ]"}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:none;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+/* CREDENTIALS — data table feel */
+.creds{background:var(--ink);color:var(--bg)}
+.creds .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0}
+.creds div{padding:1.4rem 0;border-left:1px solid rgba(255,255,255,.14);padding-left:1.2rem}
+.creds div:first-child{border:none;padding-left:0}
+.creds .n{font-family:var(--display);font-size:var(--s3);color:var(--accent)}
+.creds .l{font-size:.78rem;opacity:.8}
+/* SECTION */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{margin-bottom:2.6rem}
+.sec-head h2{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:700;margin-top:.5rem}
+/* ABOUT */
+.about{display:grid;grid-template-columns:6fr 6fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.about p{font-size:var(--s1);margin-bottom:1.1rem}
+.specs{border:1px solid var(--line);background:var(--surface)}
+.specs div{display:flex;justify-content:space-between;padding:.9rem 1.2rem;border-bottom:1px solid var(--line);font-family:var(--display);font-size:.82rem}
+.specs div:last-child{border:none}
+.specs b{color:var(--brand)}
+/* SERVICES — numbered terminal rows */
+.svc-grid{border:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:.6fr 3.5fr 7fr;gap:1.2rem;padding:1.5rem 1.2rem;border-bottom:1px solid var(--line);align-items:baseline;background:var(--bg);transition:background .2s}
+.svc:last-child{border:none}
+.svc:hover{background:var(--surface)}
+.svc .num{font-family:var(--display);color:var(--accent);font-weight:700}
+.svc h3{font-family:var(--display);font-size:var(--s1);font-weight:700}
+.svc p{font-size:.92rem;opacity:.82}
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.4rem}
+.person{border:1px solid var(--line);background:var(--surface);padding:1.2rem}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1) contrast(1.05);margin-bottom:.9rem}
+.person h3{font-family:var(--display);font-size:.98rem;font-weight:700}
+.person .role{font-size:.82rem;color:var(--brand);font-family:var(--display)}
+/* PROOF */
+.proof{background:var(--surface)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,4vw,2.5rem)}
+.quote{background:var(--bg);border-left:3px solid var(--accent);padding:1.6rem}
+.quote p{font-size:var(--s1);line-height:1.5}
+.quote footer{font-family:var(--display);font-size:.78rem;margin-top:1rem;color:var(--brand)}
+/* CTA */
+.cta{background:var(--brand);color:var(--bg)}
+.cta h2{font-size:clamp(2rem,6vw,3.6rem);font-weight:700}
+.cta h2 em{font-style:normal;color:var(--ink)}
+.cta p{margin:1.2rem 0 1.8rem;max-width:50ch;font-size:var(--s1)}
+.cta .btn{background:var(--ink);border-color:var(--ink)}
+.cta .btn:hover{background:var(--accent);border-color:var(--accent)}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem)}
+.cinfo div{padding:1rem 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:.85rem}
+.cinfo .k{color:var(--accent);font-size:.74rem}
+.field{display:block;margin-bottom:1rem}
+.field span{font-family:var(--display);display:block;font-size:.74rem;margin-bottom:.4rem;color:var(--brand)}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.85rem;border:1px solid var(--ink);background:var(--bg);font-size:.92rem}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:2.2rem 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-family:var(--display);font-size:.78rem}
+.credit{opacity:.55}
+@media(max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--ink);padding:1rem 1.5rem;gap:.6rem}
+  .menu.open{display:flex}
+  .about,.contact-grid,.quotes{grid-template-columns:1fr}
+  .svc{grid-template-columns:.5fr 1fr;gap:.4rem 1rem}
+  .svc p{grid-column:2}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="VECTOR_LABS" data-zh="矢量实验室">VECTOR_LABS</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#about" data-slot="nav.about" data-en="about" data-zh="关于">about</a>
+      <a href="#services" data-slot="nav.services" data-en="services" data-zh="服务">services</a>
+      <a href="#team" data-slot="nav.team" data-en="team" data-zh="团队">team</a>
+      <a href="#contact" data-slot="nav.contact" data-en="contact" data-zh="联系">contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="row">
+      <span data-slot="hero.tag0" data-en="// engineering consultancy" data-zh="// 工程咨询">// engineering consultancy</span>
+      <span data-slot="hero.tag1" data-en="est. 2011" data-zh="创立于2011">est. 2011</span>
+    </div>
+    <h1 data-slot="hero.headline" data-en="Systems that hold under load." data-zh="经得起负载的系统。" data-rich>Systems that hold <em data-en="under load." data-zh="负载之下。">under load.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the technical problem you solve and for whom." data-zh="主标题副文 — 你解决的技术难题与对象。">Hero supporting line — the technical problem you solve and for whom.</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Start a Brief" data-zh="提交需求">Start a Brief</a>
+      <a class="btn ghost" href="#services" data-slot="hero.cta2" data-en="Capabilities" data-zh="能力范围">Capabilities</a>
+    </div>
+  </div>
+</section>
+
+<section class="creds" aria-label="Credentials">
+  <div class="wrap">
+    <div><div class="n" data-slot="creds.0.n" data-en="14yr" data-zh="14年">14yr</div><div class="l" data-slot="creds.0.l" data-en="In operation" data-zh="运营时长">In operation</div></div>
+    <div><div class="n" data-slot="creds.1.n" data-en="240+" data-zh="240+">240+</div><div class="l" data-slot="creds.1.l" data-en="Projects shipped" data-zh="交付项目">Projects shipped</div></div>
+    <div><div class="n" data-slot="creds.2.n" data-en="99.9%" data-zh="99.9%">99.9%</div><div class="l" data-slot="creds.2.l" data-en="Uptime delivered" data-zh="可用性">Uptime delivered</div></div>
+    <div><div class="n" data-slot="creds.3.n" data-en="ISO" data-zh="ISO">ISO</div><div class="l" data-slot="creds.3.l" data-en="27001 certified" data-zh="27001 认证">27001 certified</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono" data-en="// 01_about" data-zh="// 01_关于">// 01_about</p><h2 data-slot="about.title" data-en="We measure twice." data-zh="我们三思而行。">We measure twice.</h2></div>
+    <div class="about">
+      <div>
+        <p data-slot="about.p1" data-en="About paragraph one — your method, your discipline, your stack." data-zh="关于段落一 — 方法、纪律与技术栈。">About paragraph one — your method, your discipline, your stack.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — how you de-risk delivery for clients." data-zh="关于段落二 — 如何降低交付风险。">About paragraph two — how you de-risk delivery for clients.</p>
+      </div>
+      <div class="specs">
+        <div><span data-slot="about.spec0.k" data-en="Founded" data-zh="成立">Founded</span><b data-slot="about.spec0.v" data-en="2011" data-zh="2011">2011</b></div>
+        <div><span data-slot="about.spec1.k" data-en="Engineers" data-zh="工程师">Engineers</span><b data-slot="about.spec1.v" data-en="22" data-zh="22">22</b></div>
+        <div><span data-slot="about.spec2.k" data-en="Sectors" data-zh="行业">Sectors</span><b data-slot="about.spec2.v" data-en="Fintech · Logistics" data-zh="金融科技 · 物流">Fintech · Logistics</b></div>
+        <div><span data-slot="about.spec3.k" data-en="Base" data-zh="基地">Base</span><b data-slot="about.spec3.v" data-en="Singapore" data-zh="新加坡">Singapore</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono" data-en="// 02_services" data-zh="// 02_服务">// 02_services</p><h2 data-slot="services.title" data-en="What we build" data-zh="我们的服务">What we build</h2></div>
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="6">
+      <div class="svc"><div class="num">01</div><h3 data-slot="services.0.title" data-en="Systems Architecture" data-zh="系统架构">Systems Architecture</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">02</div><h3 data-slot="services.1.title" data-en="Data Engineering" data-zh="数据工程">Data Engineering</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">03</div><h3 data-slot="services.2.title" data-en="Security Audit" data-zh="安全审计">Security Audit</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">04</div><h3 data-slot="services.3.title" data-en="Cloud Migration" data-zh="云迁移">Cloud Migration</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">05</div><h3 data-slot="services.4.title" data-en="Performance Tuning" data-zh="性能调优">Performance Tuning</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">06</div><h3 data-slot="services.5.title" data-en="Support & SLA" data-zh="支持与SLA">Support &amp; SLA</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono" data-en="// 03_team" data-zh="// 03_团队">// 03_team</p><h2 data-slot="team.title" data-en="The engineers" data-zh="工程师团队">The engineers</h2></div>
+    <div class="team-grid" data-slot="team" data-min="3" data-max="6">
+      <article class="person"><img src="https://picsum.photos/seed/svc-mono-t0/360/360" alt="" data-slot="team.0.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.0.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.0.role" data-en="Principal Engineer" data-zh="首席工程师">Principal Engineer</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-mono-t1/360/360" alt="" data-slot="team.1.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.1.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.1.role" data-en="Lead Architect" data-zh="首席架构师">Lead Architect</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-mono-t2/360/360" alt="" data-slot="team.2.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.2.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.2.role" data-en="Security Lead" data-zh="安全负责人">Security Lead</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-mono-t3/360/360" alt="" data-slot="team.3.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.3.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.3.role" data-en="DevOps" data-zh="运维">DevOps</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono" data-en="// 04_proof" data-zh="// 04_口碑">// 04_proof</p><h2 data-slot="proof.title" data-en="Signal, not noise" data-zh="只看结果">Signal, not noise</h2></div>
+    <div class="quotes" data-slot="proof" data-min="2" data-max="4">
+      <blockquote class="quote"><p data-slot="proof.0.text" data-en="“Testimonial placeholder — the measurable result delivered.”" data-zh="“客户评价占位 — 可量化的交付成果。”">“Testimonial placeholder — the measurable result delivered.”</p><footer data-slot="proof.0.cite" data-en="— Client, Title" data-zh="— 客户，职位">— Client, Title</footer></blockquote>
+      <blockquote class="quote"><p data-slot="proof.1.text" data-en="“Testimonial placeholder — reliability and responsiveness.”" data-zh="“客户评价占位 — 可靠与响应速度。”">“Testimonial placeholder — reliability and responsiveness.”</p><footer data-slot="proof.1.cite" data-en="— Client, Title" data-zh="— 客户，职位">— Client, Title</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Got a hard problem? Ship it with us." data-zh="有难题？与我们一起解决。" data-rich>Got a hard problem? <em data-en="Ship it with us." data-zh="与我们一起解决。">Ship it with us.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — scoping, timelines, how to begin." data-zh="行动号召副文 — 范围、周期、如何开始。">CTA supporting line — scoping, timelines, how to begin.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Book a Scoping Call" data-zh="预约评估通话">Book a Scoping Call</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono" data-en="// 05_contact" data-zh="// 05_联系">// 05_contact</p><h2 data-slot="contact.title" data-en="Open a channel" data-zh="建立联系">Open a channel</h2></div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Office" data-zh="办公室">Office</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 9am–6pm" data-zh="周一至周五 9:00–18:00">Mon–Fri, 9am–6pm</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="Project brief" data-zh="项目简述">Project brief</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send" data-zh="发送">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="VECTOR_LABS — Engineering Consultancy" data-zh="矢量实验室 — 工程咨询">VECTOR_LABS — Engineering Consultancy</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

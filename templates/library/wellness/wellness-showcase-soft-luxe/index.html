@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Spa Name — soft, luxurious wellness rituals" data-zh="水疗名称 — 柔美奢华的疗愈仪式">Spa Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#3a322c; --bg:#f6efe7; --surface:#fffdf9; --brand:#9a7b5a; --accent:#d8c3ad;
+  --display:"Cormorant Garamond",Georgia,serif; --text:"Jost",system-ui,sans-serif;
+  --s0:1rem; --s1:1.266rem; --s2:1.602rem; --s3:2.027rem; --s4:2.566rem; --s5:3.247rem; --s6:5rem;
+  --maxw:1280px; --pad:clamp(1.3rem,5vw,4.5rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.05;letter-spacing:.005em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brand);font-weight:400}
+:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+header.nav{position:absolute;top:0;left:0;right:0;z-index:50}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:88px}
+.brand{font-family:var(--display);font-size:1.7rem;font-weight:500;letter-spacing:.02em;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+.menu{display:flex;gap:2.2rem;align-items:center;list-style:none}
+.menu a{text-decoration:none;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.35);transition:opacity .3s}
+.menu a:hover{opacity:.65}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.85rem 1.8rem;border-radius:999px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s}
+.btn:hover{transform:translateY(-2px);background:#806446}
+.langbtn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.6);color:#fff;padding:.4rem .8rem;border-radius:999px;font:inherit;font-size:.72rem;letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(4px)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2px;background:#fff}
+
+/* hero — full bleed serene */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,50,44,.25) 0%,rgba(58,50,44,.05) 35%,rgba(58,50,44,.55) 100%);z-index:1}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .wrap{position:relative;z-index:2;padding-bottom:clamp(3rem,7vw,6rem);width:100%}
+.hero h1{font-size:var(--s6);max-width:14ch;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+.hero .lede{font-size:var(--s1);font-weight:300;max-width:42ch;margin:1.4rem 0 2rem;text-shadow:0 1px 16px rgba(0,0,0,.35)}
+
+/* intro — asymmetric */
+.intro{padding:clamp(4rem,9vw,7rem) 0}
+.intro .wrap{display:grid;grid-template-columns:4fr 7fr;gap:clamp(2rem,7vw,6rem);align-items:center}
+.intro h2{font-size:var(--s4)}
+.intro .col p{font-size:var(--s1);font-weight:300;margin-bottom:1.1rem;color:#564b42}
+.intro .figure{font-family:var(--display);font-size:var(--s5);color:var(--brand);line-height:1;font-style:italic}
+
+/* gallery — asymmetric ambience grid */
+.gallery{padding:0 0 clamp(3rem,7vw,5rem)}
+.gallery .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.8rem,2vw,1.4rem);grid-auto-rows:1fr}
+.gallery figure{margin:0;overflow:hidden;border-radius:4px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.gallery figure:hover img{transform:scale(1.05)}
+.g1{grid-column:1/4;grid-row:span 2;aspect-ratio:3/4}
+.g2{grid-column:4/7;aspect-ratio:16/10}
+.g3{grid-column:4/6;aspect-ratio:1}
+.g4{grid-column:6/7;aspect-ratio:1}
+
+/* ritual list */
+.ritual{padding:clamp(4rem,9vw,7rem) 0;background:var(--surface)}
+.ritual .head{text-align:center;margin-bottom:3.5rem}
+.ritual h2{font-size:var(--s5);margin-top:.6rem}
+.ritual-list{max-width:760px;margin-inline:auto}
+.rl{display:grid;grid-template-columns:auto 1fr auto;gap:1.6rem;align-items:baseline;padding:1.8rem 0;border-top:1px solid var(--accent)}
+.rl:last-child{border-bottom:1px solid var(--accent)}
+.rl .idx{font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--brand)}
+.rl h3{font-size:var(--s2)}
+.rl p{font-size:.92rem;color:#6a5f54;margin-top:.3rem}
+.rl .dur{font-family:var(--display);font-size:1.15rem;color:var(--brand);white-space:nowrap}
+
+/* quote */
+.quote{padding:clamp(4rem,9vw,7rem) 0;text-align:center}
+.quote blockquote{max-width:24ch;margin-inline:auto}
+.quote p{font-family:var(--display);font-style:italic;font-size:var(--s4);line-height:1.25}
+.quote cite{display:block;margin-top:1.6rem;font-family:var(--text);font-style:normal;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brand)}
+
+/* cta */
+.cta{position:relative;color:#fff;text-align:center;overflow:hidden}
+.cta img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta::before{content:"";position:absolute;inset:0;background:rgba(58,50,44,.5);z-index:1}
+.cta .wrap{position:relative;z-index:2;padding:clamp(4rem,9vw,7rem) 0}
+.cta h2{font-size:var(--s5);text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.cta p{max-width:46ch;margin:1.1rem auto 2rem;font-weight:300}
+
+footer.site{background:var(--ink);color:#d8c3ad;padding:3rem 0;font-size:.82rem;letter-spacing:.03em}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media(max-width:760px){
+  .menu{position:fixed;inset:88px 0 auto 0;background:var(--ink);flex-direction:column;padding:2rem;gap:1.5rem;display:none}
+  .menu.open{display:flex}.menu.open a{color:#fff}.burger{display:flex}
+  .intro .wrap{grid-template-columns:1fr;gap:1.5rem}
+  .gallery .grid{grid-template-columns:repeat(2,1fr)}
+  .g1{grid-column:1/3;grid-row:auto;aspect-ratio:3/2}.g2{grid-column:1/3}.g3,.g4{grid-column:auto}
+  .rl{grid-template-columns:auto 1fr}.rl .dur{grid-column:2;justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Spa Name" data-zh="水疗名称">Spa Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="#intro" data-slot="nav.about" data-en="The Spa" data-zh="关于水疗">The Spa</a></li>
+        <li><a href="#ritual" data-slot="nav.ritual" data-en="Rituals" data-zh="疗愈仪式">Rituals</a></li>
+        <li><a href="#gallery" data-slot="nav.gallery" data-en="Spaces" data-zh="空间">Spaces</a></li>
+        <li><a href="#cta" class="btn" data-slot="nav.cta" data-en="Reserve" data-zh="预约">Reserve</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="bg" src="https://picsum.photos/seed/softluxe-hero/1800/1200" data-slot="hero.image" data-en-alt="Serene spa treatment room in warm light" data-zh-alt="温暖光线下宁静的水疗室" alt="Serene spa treatment room in warm light">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Wellness sanctuary · Singapore" data-zh="疗愈静所 · 新加坡">Wellness sanctuary · Singapore</span>
+      <h1 data-slot="hero.headline" data-en="Where stillness becomes a ritual" data-zh="让静谧成为一种仪式">Where stillness becomes a ritual</h1>
+      <p class="lede" data-slot="hero.sub" data-en="Slow, intentional treatments in a space designed to quiet the mind and restore the body." data-zh="在为宁神舒体而设的空间里，享受缓慢而用心的疗程。">Placeholder sub.</p>
+      <a href="#cta" class="btn" data-slot="hero.cta" data-en="Reserve a session" data-zh="预约疗程">Reserve a session</a>
+    </div>
+  </section>
+
+  <section class="intro" id="intro">
+    <div class="wrap">
+      <div class="col">
+        <span class="eyebrow" data-slot="intro.eyebrow" data-en="The philosophy" data-zh="理念">The philosophy</span>
+        <h2 data-slot="intro.headline" data-en="Luxury is unhurried time" data-zh="奢华，是从容的时光">Luxury is unhurried time</h2>
+      </div>
+      <div class="col">
+        <p data-slot="intro.body1" data-en="Placeholder paragraph describing the spa's ethos — the warmth, the materials, the calm. Two soft, evocative sentences." data-zh="描述水疗理念的占位段落——温暖、材质与宁静。两句柔美而富感染力的描述。">Placeholder.</p>
+        <p data-slot="intro.body2" data-en="Second placeholder paragraph — the therapists, the products, and the feeling guests leave with." data-zh="第二段占位文字——理疗师、产品，以及宾客离开时的感受。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="grid">
+        <figure class="g1"><img src="https://picsum.photos/seed/softluxe-g1/700/930" data-slot="gallery.0" data-en-alt="Spa interior detail" data-zh-alt="水疗内景细节" alt="Spa interior detail"></figure>
+        <figure class="g2"><img src="https://picsum.photos/seed/softluxe-g2/900/560" data-slot="gallery.1" data-en-alt="Treatment in progress" data-zh-alt="疗程进行中" alt="Treatment in progress"></figure>
+        <figure class="g3"><img src="https://picsum.photos/seed/softluxe-g3/600/600" data-slot="gallery.2" data-en-alt="Botanical and oils" data-zh-alt="植物与精油" alt="Botanical and oils"></figure>
+        <figure class="g4"><img src="https://picsum.photos/seed/softluxe-g4/400/400" data-slot="gallery.3" data-en-alt="Candle and texture" data-zh-alt="烛光与质感" alt="Candle and texture"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ritual" id="ritual">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow" data-slot="ritual.eyebrow" data-en="Signature rituals" data-zh="招牌仪式">Signature rituals</span>
+        <h2 data-slot="ritual.headline" data-en="Chosen with care" data-zh="用心臻选">Chosen with care</h2>
+      </div>
+      <div class="ritual-list" data-slot="rituals" data-min="3" data-max="4">
+        <article class="rl"><span class="idx">i</span><div><h3 data-slot="ritual.0.name" data-en="Aromatherapy massage" data-zh="芳香疗愈按摩">Aromatherapy massage</h3><p data-slot="ritual.0.desc" data-en="Soft placeholder line describing this ritual." data-zh="柔美描述此仪式的占位文字。">Placeholder.</p></div><span class="dur" data-slot="ritual.0.dur" data-en="90 min" data-zh="90分钟">90 min</span></article>
+        <article class="rl"><span class="idx">ii</span><div><h3 data-slot="ritual.1.name" data-en="Hot stone therapy" data-zh="热石疗法">Hot stone therapy</h3><p data-slot="ritual.1.desc" data-en="Soft placeholder line describing this ritual." data-zh="柔美描述此仪式的占位文字。">Placeholder.</p></div><span class="dur" data-slot="ritual.1.dur" data-en="75 min" data-zh="75分钟">75 min</span></article>
+        <article class="rl"><span class="idx">iii</span><div><h3 data-slot="ritual.2.name" data-en="Facial renewal" data-zh="焕颜护理">Facial renewal</h3><p data-slot="ritual.2.desc" data-en="Soft placeholder line describing this ritual." data-zh="柔美描述此仪式的占位文字。">Placeholder.</p></div><span class="dur" data-slot="ritual.2.dur" data-en="60 min" data-zh="60分钟">60 min</span></article>
+        <article class="rl"><span class="idx">iv</span><div><h3 data-slot="ritual.3.name" data-en="Full body retreat" data-zh="全身静养">Full body retreat</h3><p data-slot="ritual.3.desc" data-en="Soft placeholder line describing this ritual." data-zh="柔美描述此仪式的占位文字。">Placeholder.</p></div><span class="dur" data-slot="ritual.3.dur" data-en="120 min" data-zh="120分钟">120 min</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>
+        <p data-slot="quote.text" data-en="“I left lighter than I arrived — every detail considered.”" data-zh="“离开时比来时更轻盈——每个细节都被悉心考量。”">Placeholder quote.</p>
+        <cite data-slot="quote.author" data-en="Guest review" data-zh="宾客评价">Guest review</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <img class="bg" src="https://picsum.photos/seed/softluxe-cta/1800/900" data-slot="cta.image" data-en-alt="Calm spa entrance" data-zh-alt="宁静的水疗入口" alt="Calm spa entrance">
+    <div class="wrap">
+      <h2 data-slot="cta.headline" data-en="Reserve your retreat" data-zh="预约您的静养">Reserve your retreat</h2>
+      <p data-slot="cta.sub" data-en="Limited daily appointments. Call or message to find your time." data-zh="每日名额有限。来电或讯息为您安排时间。">Placeholder sub.</p>
+      <a href="#" class="btn" data-slot="cta.button" data-en="Reserve now" data-zh="立即预约">Reserve now</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Spa Name. All rights reserved." data-zh="© 水疗名称。版权所有。">© Spa Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const t=zh?el.dataset.zh:el.dataset.en;if(t!=null)el.textContent=t});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>{el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

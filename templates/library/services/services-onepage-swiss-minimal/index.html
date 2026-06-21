@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Firm — Professional Services" data-zh="事务所 — 专业服务">Firm — Professional Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15171a; --bg:#fbfaf8; --surface:#eeece6; --brand:#c8341f; --accent:#1b3a5c;
+  --display:'Archivo',sans-serif; --text:'Source Serif 4',Georgia,serif;
+  --s0:1rem; --s1:1.25rem; --s2:1.563rem; --s3:1.953rem; --s4:2.441rem; --s5:3.052rem; --s6:3.815rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+.eyebrow{font-family:var(--display);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--brand)}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--surface)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.03em}
+.menu{display:flex;gap:2.2rem;font-family:var(--display);font-size:.82rem;letter-spacing:.04em}
+.menu a{padding:.4rem 0;border-bottom:1px solid transparent;transition:border-color .25s ease}
+.menu a:hover{border-color:var(--ink)}
+.navbtns{display:flex;gap:.8rem;align-items:center}
+.lang{background:none;border:1px solid var(--ink);color:var(--ink);font-family:var(--display);font-size:.72rem;padding:.4rem .7rem;cursor:pointer;transition:.2s}
+.lang:hover{background:var(--ink);color:var(--bg)}
+.burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer}
+/* HERO — swiss asymmetric grid, big baseline rule */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.hero-grid{display:grid;grid-template-columns:8fr 4fr;gap:clamp(1.5rem,5vw,4rem);align-items:end;border-bottom:2px solid var(--ink);padding-bottom:clamp(2rem,5vw,3.5rem)}
+.hero h1{font-size:clamp(2.6rem,8vw,5.6rem);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero .lead{font-size:var(--s1);max-width:34ch;margin-top:.6rem}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem}
+.btn{font-family:var(--display);font-weight:600;font-size:.85rem;padding:.85rem 1.5rem;background:var(--ink);color:var(--bg);cursor:pointer;border:1px solid var(--ink);transition:.2s ease}
+.btn:hover{background:var(--brand);border-color:var(--brand)}
+.btn.ghost{background:none;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.hero-meta{font-family:var(--display);font-size:.8rem;letter-spacing:.02em}
+.hero-meta div{padding:.7rem 0;border-top:1px solid var(--surface);display:flex;justify-content:space-between}
+.hero-meta div:first-child{border:none}
+/* CREDENTIALS strip */
+.creds{background:var(--ink);color:var(--bg);padding:1.4rem 0}
+.creds .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem 2rem}
+.creds span{font-family:var(--display);font-size:.82rem;letter-spacing:.03em;opacity:.9}
+.creds b{color:var(--brand);font-weight:700}
+/* SECTION */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{display:grid;grid-template-columns:3fr 9fr;gap:1.5rem;margin-bottom:2.8rem;align-items:baseline}
+.sec-head h2{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:700}
+/* ABOUT 7/5 split */
+.about{display:grid;grid-template-columns:7fr 5fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.about p{font-size:var(--s1);margin-bottom:1.1rem}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15)}
+/* SERVICES — list rows, not card grid */
+.svc-list{border-top:1px solid var(--ink)}
+.svc{display:grid;grid-template-columns:.7fr 4fr 6fr;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid var(--surface);align-items:baseline;transition:padding-left .25s ease}
+.svc:hover{padding-left:.8rem}
+.svc .num{font-family:var(--display);color:var(--brand);font-weight:700}
+.svc h3{font-size:var(--s2);font-weight:600}
+.svc p{font-size:.95rem;opacity:.8}
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.6rem}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1);transition:filter .35s ease}
+.person:hover img{filter:grayscale(0)}
+.person h3{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-top:.8rem}
+.person .role{font-size:.85rem;color:var(--accent)}
+/* PROOF */
+.proof{background:var(--surface)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
+.quote{font-size:var(--s2);line-height:1.4}
+.quote footer{font-family:var(--display);font-size:.82rem;margin-top:1rem;color:var(--accent);letter-spacing:.04em}
+/* CTA */
+.cta{background:var(--accent);color:var(--bg);text-align:center}
+.cta h2{font-size:clamp(2rem,6vw,4rem);font-weight:700}
+.cta p{margin:1.2rem auto 1.8rem;max-width:46ch;font-size:var(--s1)}
+.cta .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.cta .btn:hover{background:var(--brand);color:var(--bg);border-color:var(--brand)}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem)}
+.cinfo div{padding:1.1rem 0;border-top:1px solid var(--surface)}
+.cinfo div:first-child{border:none}
+.cinfo .k{font-family:var(--display);font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--brand);margin-bottom:.3rem}
+.field{display:block;margin-bottom:1rem}
+.field span{font-family:var(--display);display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.85rem;border:1px solid var(--ink);background:var(--bg);font-size:.95rem}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:2.4rem 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-family:var(--display);font-size:.8rem}
+.credit{opacity:.55}
+@media(max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.5rem;gap:.6rem;border-bottom:1px solid var(--surface)}
+  .menu.open{display:flex}
+  .hero-grid,.about,.contact-grid,.quotes,.sec-head{grid-template-columns:1fr}
+  .svc{grid-template-columns:.5fr 1fr;gap:.5rem 1rem}
+  .svc p{grid-column:2}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="MERIDIAN & CO." data-zh="子午线事务所">MERIDIAN &amp; CO.</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="#services" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="#team" data-slot="nav.team" data-en="Team" data-zh="团队">Team</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Advisory · Est. 2004" data-zh="咨询顾问 · 创立于2004">Advisory · Est. 2004</p>
+    <div class="hero-grid">
+      <div>
+        <h1 data-slot="hero.headline" data-en="Counsel built on clarity." data-zh="以清晰为本的专业建议。" data-rich>Counsel built on <em data-en="clarity." data-zh="清晰。">clarity.</em></h1>
+        <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the discipline you practise and who you serve." data-zh="主标题副文 — 你的专业领域与服务对象。">Hero supporting line — the discipline you practise and who you serve.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Book a Consultation" data-zh="预约咨询">Book a Consultation</a>
+          <a class="btn ghost" href="#services" data-slot="hero.cta2" data-en="Our Practice" data-zh="业务领域">Our Practice</a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div><span data-en="Founded" data-zh="成立">Founded</span><b data-slot="hero.meta0" data-en="2004" data-zh="2004">2004</b></div>
+        <div><span data-en="Engagements" data-zh="项目">Engagements</span><b data-slot="hero.meta1" data-en="900+" data-zh="900+">900+</b></div>
+        <div><span data-en="Specialists" data-zh="专家">Specialists</span><b data-slot="hero.meta2" data-en="18" data-zh="18">18</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="creds" aria-label="Credentials">
+  <div class="wrap">
+    <span data-slot="creds.0" data-en="Licensed Practitioners" data-zh="持牌从业者" data-rich><b>✓</b> Licensed Practitioners</span>
+    <span data-slot="creds.1" data-en="ISO 27001 Aligned" data-zh="符合 ISO 27001" data-rich><b>✓</b> ISO 27001 Aligned</span>
+    <span data-slot="creds.2" data-en="Confidential by Default" data-zh="默认保密" data-rich><b>✓</b> Confidential by Default</span>
+    <span data-slot="creds.3" data-en="Fixed-Fee Options" data-zh="固定费用方案" data-rich><b>✓</b> Fixed-Fee Options</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="About" data-zh="关于">About</p><h2 data-slot="about.title" data-en="A practice measured in outcomes." data-zh="以成果衡量的事务所。">A practice measured in outcomes.</h2></div>
+    <div class="about">
+      <div>
+        <p data-slot="about.p1" data-en="About paragraph one — your history, philosophy, and the standard you hold." data-zh="关于段落一 — 历史、理念与坚守的标准。">About paragraph one — your history, philosophy, and the standard you hold.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — your approach and what clients can expect." data-zh="关于段落二 — 工作方式与客户的预期。">About paragraph two — your approach and what clients can expect.</p>
+      </div>
+      <img src="https://picsum.photos/seed/svc-swiss-about/720/900" alt="" data-slot="about.image" data-en-alt="Office interior" data-zh-alt="办公室内景">
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Services" data-zh="服务">Services</p><h2 data-slot="services.title" data-en="Practice areas" data-zh="业务领域">Practice areas</h2></div>
+    <div class="svc-list" data-slot="services" data-min="3" data-max="6">
+      <div class="svc"><div class="num">01</div><h3 data-slot="services.0.title" data-en="Strategy Advisory" data-zh="战略咨询">Strategy Advisory</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">02</div><h3 data-slot="services.1.title" data-en="Compliance & Risk" data-zh="合规与风险">Compliance &amp; Risk</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">03</div><h3 data-slot="services.2.title" data-en="Corporate Structuring" data-zh="企业架构">Corporate Structuring</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">04</div><h3 data-slot="services.3.title" data-en="Tax Planning" data-zh="税务规划">Tax Planning</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">05</div><h3 data-slot="services.4.title" data-en="Dispute Resolution" data-zh="争议解决">Dispute Resolution</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+      <div class="svc"><div class="num">06</div><h3 data-slot="services.5.title" data-en="Due Diligence" data-zh="尽职调查">Due Diligence</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Team" data-zh="团队">Team</p><h2 data-slot="team.title" data-en="The people behind the work." data-zh="工作背后的团队。">The people behind the work.</h2></div>
+    <div class="team-grid" data-slot="team" data-min="3" data-max="6">
+      <article class="person"><img src="https://picsum.photos/seed/svc-swiss-t0/400/400" alt="" data-slot="team.0.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.0.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.0.role" data-en="Managing Partner" data-zh="管理合伙人">Managing Partner</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-swiss-t1/400/400" alt="" data-slot="team.1.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.1.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.1.role" data-en="Senior Advisor" data-zh="高级顾问">Senior Advisor</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-swiss-t2/400/400" alt="" data-slot="team.2.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.2.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.2.role" data-en="Associate" data-zh="助理顾问">Associate</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-swiss-t3/400/400" alt="" data-slot="team.3.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.3.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.3.role" data-en="Consultant" data-zh="顾问">Consultant</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Testimonials" data-zh="客户评价">Testimonials</p><h2 data-slot="proof.title" data-en="In their words." data-zh="客户之声。">In their words.</h2></div>
+    <div class="quotes" data-slot="proof" data-min="2" data-max="4">
+      <blockquote class="quote"><p data-slot="proof.0.text" data-en="“Testimonial placeholder — what the engagement delivered.”" data-zh="“客户评价占位 — 项目带来的成果。”">“Testimonial placeholder — what the engagement delivered.”</p><footer data-slot="proof.0.cite" data-en="— Client, Title" data-zh="— 客户，职位">— Client, Title</footer></blockquote>
+      <blockquote class="quote"><p data-slot="proof.1.text" data-en="“Testimonial placeholder — the experience of working with you.”" data-zh="“客户评价占位 — 合作体验。”">“Testimonial placeholder — the experience of working with you.”</p><footer data-slot="proof.1.cite" data-en="— Client, Title" data-zh="— 客户，职位">— Client, Title</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Let's talk specifics." data-zh="让我们谈谈细节。">Let's talk specifics.</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how to start and what to expect first." data-zh="行动号召副文 — 如何开始与初次预期。">CTA supporting line — how to start and what to expect first.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Request a Consultation" data-zh="预约咨询">Request a Consultation</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p><h2 data-slot="contact.title" data-en="Get in touch." data-zh="联系我们。">Get in touch.</h2></div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Office" data-zh="办公室">Office</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 9am–6pm" data-zh="周一至周五 9:00–18:00">Mon–Fri, 9am–6pm</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="How can we help?" data-zh="我们能如何帮助？">How can we help?</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send Enquiry" data-zh="发送咨询">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="MERIDIAN & CO. — Advisory" data-zh="子午线事务所 — 咨询顾问">MERIDIAN &amp; CO. — Advisory</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Studio — Brand Agency" data-zh="工作室 — 品牌代理">Studio — Brand Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sometype+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16140f; --bg:#f6f1e7; --surface:#ffe14d; --brand:#e8431f; --accent:#1d4ed8;
+  --line:rgba(22,20,15,.16);
+  --display:'Anton',Impact,sans-serif; --text:'Sometype Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.6rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:3px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--display);font-size:1.9rem;letter-spacing:.02em}
+.brand span{color:var(--brand)}
+.menu{display:flex;gap:1.8rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.menu a{position:relative}
+.menu a:hover{color:var(--brand)}
+.navbtns{display:flex;gap:.7rem;align-items:center}
+.lang{background:var(--ink);border:2px solid var(--ink);color:var(--bg);font-family:var(--text);font-weight:600;font-size:.72rem;padding:.4rem .7rem;cursor:pointer;transition:.2s}
+.lang:hover{background:var(--brand);border-color:var(--brand)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.6rem;cursor:pointer}
+/* HERO */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(2rem,5vw,4rem);border-bottom:3px solid var(--ink)}
+.hero h1{font-size:clamp(3.4rem,15vw,12rem);color:var(--ink)}
+.hero h1 em{font-style:normal;color:var(--brand);-webkit-text-stroke:2px var(--ink)}
+.hero .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.4rem;margin-top:1.6rem}
+.hero .lead{max-width:42ch;font-size:1.05rem}
+.hero .cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{font-family:var(--text);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:1rem 1.7rem;background:var(--brand);color:var(--bg);cursor:pointer;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+/* MARQUEE */
+.marquee{background:var(--accent);color:var(--bg);border-bottom:3px solid var(--ink);overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-block;padding:.9rem 0;font-family:var(--display);font-size:1.6rem;letter-spacing:.04em;animation:scroll 22s linear infinite}
+.marquee .track span{padding:0 1.4rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* SECTIONS */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.sec-head h2{font-size:clamp(2.4rem,8vw,5rem)}
+/* ABOUT split */
+.about{display:grid;grid-template-columns:7fr 5fr;gap:clamp(1.5rem,5vw,3.5rem);align-items:center;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.about-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--brand)}
+.about h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:1.2rem}
+.about p{font-size:1.05rem;margin-bottom:1rem;max-width:48ch}
+/* WORK gallery — asymmetric spans */
+.work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem}
+.tile{border:3px solid var(--ink);background:var(--bg);position:relative;overflow:hidden;transition:transform .2s ease}
+.tile:hover{transform:translateY(-6px)}
+.tile img{width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+.tile figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--bg);padding:.5rem .9rem;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.tile.big{grid-column:span 4}.tile.med{grid-column:span 2}.tile.sm{grid-column:span 2}
+.tile.big img{aspect-ratio:16/9}
+.tile.tall{grid-column:span 3}.tile.tall img{aspect-ratio:4/3}
+.tile.wide{grid-column:span 3}.tile.wide img{aspect-ratio:4/3}
+/* STATS */
+.stats{background:var(--surface);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0}
+.stat{padding:2.4rem 1.8rem;border-left:3px solid var(--ink)}
+.stat:first-child{border-left:none}
+.stat .n{font-family:var(--display);font-size:clamp(3rem,8vw,5.5rem);line-height:.9;color:var(--brand)}
+.stat .l{font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;margin-top:.5rem}
+/* CTA */
+.cta{background:var(--ink);color:var(--bg);text-align:center}
+.cta h2{font-size:clamp(2.6rem,9vw,6.5rem);color:var(--surface)}
+.cta p{max-width:46ch;margin:1.2rem auto 1.8rem;font-size:1.05rem}
+.cta .btn{background:var(--brand);box-shadow:5px 5px 0 var(--surface)}
+.cta .btn:hover{box-shadow:2px 2px 0 var(--surface)}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,3.5rem)}
+.cinfo div{padding:1.1rem 0;border-top:2px solid var(--line)}
+.cinfo div:first-child{border:none}
+.cinfo .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--brand);font-weight:600;margin-bottom:.3rem}
+.field{display:block;margin-bottom:1rem}
+.field span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;font-weight:600}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.85rem;border:2px solid var(--ink);background:var(--bg);color:var(--ink);font-size:.95rem}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:2.4rem 0;border-top:3px solid var(--brand)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem}
+.credit{opacity:.6}
+@media(max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.5rem;gap:.9rem;border-bottom:3px solid var(--ink)}
+  .menu.open{display:flex}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .tile.big,.tile.med,.tile.sm,.tile.tall,.tile.wide{grid-column:span 1}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="VOLT<span>.</span>" data-zh="伏特<span>.</span>" data-rich>VOLT<span>.</span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#work" data-slot="nav.work" data-en="Work" data-zh="作品">Work</a>
+      <a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="#stats" data-slot="nav.results" data-en="Results" data-zh="成果">Results</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Branding · Campaigns · Motion" data-zh="品牌 · 活动 · 动态">Branding · Campaigns · Motion</p>
+    <h1 data-slot="hero.headline" data-en="We make brands impossible to ignore." data-zh="我们让品牌无法被忽视。" data-rich>We make brands <em data-en="impossible" data-zh="无法">impossible</em> to ignore.</h1>
+    <div class="row">
+      <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the bold studio you run and the work you ship." data-zh="主标题副文 — 你的大胆工作室与作品。">Hero supporting line — the bold studio you run and the work you ship.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Start a Project" data-zh="开始项目">Start a Project</a>
+        <a class="btn ghost" href="#work" data-slot="hero.cta2" data-en="See the Work" data-zh="查看作品">See the Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span data-slot="marquee.0" data-en="★ Identity" data-zh="★ 品牌形象">★ Identity</span><span data-slot="marquee.1" data-en="★ Packaging" data-zh="★ 包装">★ Packaging</span><span data-slot="marquee.2" data-en="★ Campaigns" data-zh="★ 广告活动">★ Campaigns</span><span data-slot="marquee.3" data-en="★ Motion" data-zh="★ 动态设计">★ Motion</span>
+    <span data-en="★ Identity" data-zh="★ 品牌形象">★ Identity</span><span data-en="★ Packaging" data-zh="★ 包装">★ Packaging</span><span data-en="★ Campaigns" data-zh="★ 广告活动">★ Campaigns</span><span data-en="★ Motion" data-zh="★ 动态设计">★ Motion</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <p class="eyebrow" data-en="About" data-zh="关于">About</p>
+      <h2 data-slot="about.title" data-en="A studio that swings big." data-zh="敢于大胆出手的工作室。">A studio that swings big.</h2>
+      <p data-slot="about.p1" data-en="About paragraph one — what you believe and how loud you're willing to be." data-zh="关于段落一 — 你的信念与表达的力度。">About paragraph one — what you believe and how loud you're willing to be.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — who you work with and what they walk away with." data-zh="关于段落二 — 你的合作对象与成果。">About paragraph two — who you work with and what they walk away with.</p>
+    </div>
+    <figure class="about-fig"><img src="https://picsum.photos/seed/maxi-about/720/900" alt="" data-slot="about.image" data-en-alt="Studio space" data-zh-alt="工作室空间"></figure>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Selected Work" data-zh="精选作品">Selected Work</p><h2 data-slot="work.title" data-en="The Loud Stuff" data-zh="高光之作">The Loud Stuff</h2></div>
+    <div class="work-grid" data-slot="work" data-min="4" data-max="6" style="margin-top:2rem">
+      <figure class="tile big"><img src="https://picsum.photos/seed/maxi-w0/900/500" alt="" data-slot="work.0.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.0.cap" data-en="Rebrand · Retail" data-zh="品牌重塑 · 零售">Rebrand · Retail</figcaption></figure>
+      <figure class="tile med"><img src="https://picsum.photos/seed/maxi-w1/500/500" alt="" data-slot="work.1.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.1.cap" data-en="Packaging" data-zh="包装">Packaging</figcaption></figure>
+      <figure class="tile tall"><img src="https://picsum.photos/seed/maxi-w2/600/450" alt="" data-slot="work.2.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.2.cap" data-en="Campaign" data-zh="广告活动">Campaign</figcaption></figure>
+      <figure class="tile wide"><img src="https://picsum.photos/seed/maxi-w3/600/450" alt="" data-slot="work.3.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.3.cap" data-en="Identity" data-zh="品牌形象">Identity</figcaption></figure>
+      <figure class="tile sm"><img src="https://picsum.photos/seed/maxi-w4/500/500" alt="" data-slot="work.4.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.4.cap" data-en="Motion" data-zh="动态">Motion</figcaption></figure>
+      <figure class="tile big"><img src="https://picsum.photos/seed/maxi-w5/900/500" alt="" data-slot="work.5.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.5.cap" data-en="Launch Film" data-zh="发布影片">Launch Film</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="stats" class="stats">
+  <div class="wrap stat-grid" data-slot="stats" data-min="3" data-max="4">
+    <div class="stat"><div class="n" data-slot="stats.0.n" data-en="240+" data-zh="240+">240+</div><div class="l" data-slot="stats.0.l" data-en="Projects shipped" data-zh="完成项目">Projects shipped</div></div>
+    <div class="stat"><div class="n" data-slot="stats.1.n" data-en="18" data-zh="18">18</div><div class="l" data-slot="stats.1.l" data-en="Industry awards" data-zh="行业奖项">Industry awards</div></div>
+    <div class="stat"><div class="n" data-slot="stats.2.n" data-en="12yr" data-zh="12年">12yr</div><div class="l" data-slot="stats.2.l" data-en="In the game" data-zh="深耕行业">In the game</div></div>
+    <div class="stat"><div class="n" data-slot="stats.3.n" data-en="97%" data-zh="97%">97%</div><div class="l" data-slot="stats.3.l" data-en="Clients return" data-zh="客户回头率">Clients return</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Let's make some noise." data-zh="让我们一起发声。">Let's make some noise.</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — what happens after they reach out." data-zh="行动号召副文 — 联系后的下一步。">CTA supporting line — what happens after they reach out.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Brief Us" data-zh="提交需求">Brief Us</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p><h2 data-slot="contact.title" data-en="Say hello" data-zh="打个招呼">Say hello</h2></div>
+    <div class="contact-grid" style="margin-top:2rem">
+      <div class="cinfo">
+        <div><div class="k" data-en="Studio" data-zh="工作室">Studio</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 9–6" data-zh="周一至周五 9–6">Mon–Fri, 9–6</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="Tell us about it" data-zh="项目简述">Tell us about it</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send It" data-zh="发送">Send It</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="VOLT — Brand Agency" data-zh="伏特 — 品牌代理">VOLT — Brand Agency</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

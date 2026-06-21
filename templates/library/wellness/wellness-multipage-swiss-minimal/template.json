@@ -1,0 +1,11 @@
+{
+  "id": "wellness-multipage-swiss-minimal",
+  "industry": "wellness",
+  "kind": "multipage",
+  "aesthetic": "swiss-minimal",
+  "fonts": { "display": "Archivo", "text": "IBM Plex Sans" },
+  "tokens": { "ink": "#111312", "bg": "#fbfbf9", "surface": "#ffffff", "brand": "#11635a", "accent": "#e4e9e1" },
+  "sections": ["hero","trust","about","treatments","contact","footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

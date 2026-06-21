@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Firm — Private Advisory" data-zh="事务所 — 私人顾问">Firm — Private Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#f3efe9; --bg:#121311; --surface:#1c1e1b; --brand:#c8a14a; --accent:#5b7a6b;
+  --line:rgba(243,239,233,.12);
+  --display:'Fraunces',Georgia,serif; --text:'Public Sans',system-ui,sans-serif;
+  --s0:1rem; --s1:1.25rem; --s2:1.563rem; --s3:1.953rem; --s4:2.441rem; --s5:3.052rem; --s6:3.815rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.01em;font-weight:500}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(18,19,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{font-family:var(--display);font-weight:500;font-size:1.4rem;letter-spacing:.01em}
+.brand span{color:var(--brand)}
+.menu{display:flex;gap:2.4rem;font-size:.85rem;letter-spacing:.02em}
+.menu a{opacity:.78;transition:opacity .25s ease}
+.menu a:hover{opacity:1;color:var(--brand)}
+.navbtns{display:flex;gap:.9rem;align-items:center}
+.lang{background:none;border:1px solid var(--brand);color:var(--brand);font-family:var(--text);font-size:.74rem;padding:.4rem .7rem;cursor:pointer;transition:.2s}
+.lang:hover{background:var(--brand);color:var(--bg)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.5rem;cursor:pointer}
+/* HERO — centred serif display over faint texture */
+.hero{position:relative;padding:clamp(4.5rem,12vw,9rem) 0 clamp(3rem,8vw,6rem);text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,rgba(200,161,74,.10),transparent 60%);pointer-events:none}
+.hero h1{font-size:clamp(2.8rem,8vw,6rem);max-width:16ch;margin:1rem auto;position:relative}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero .lead{font-size:var(--s1);max-width:50ch;margin:0 auto 2rem;opacity:.82;position:relative}
+.hero .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+.btn{font-family:var(--text);font-weight:600;font-size:.85rem;letter-spacing:.04em;padding:.95rem 1.8rem;background:var(--brand);color:var(--bg);cursor:pointer;border:1px solid var(--brand);border-radius:2px;transition:.25s ease}
+.btn:hover{background:transparent;color:var(--brand)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand);color:var(--brand)}
+/* CREDENTIALS */
+.creds{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.creds .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem 3.5rem;padding:1.6rem 0}
+.creds span{font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--brand)}
+/* SECTION */
+section{padding:clamp(4rem,9vw,7rem) 0}
+.sec-head{text-align:center;max-width:46ch;margin:0 auto 3.2rem}
+.sec-head h2{font-size:clamp(2rem,5vw,3.4rem);margin-top:.8rem}
+/* ABOUT 5/7 offset */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem);align-items:center;text-align:left}
+.about-fig{position:relative}
+.about-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.about-fig .badge{position:absolute;bottom:-1.2rem;right:-1.2rem;background:var(--brand);color:var(--bg);padding:1.2rem 1.5rem;border-radius:2px}
+.about-fig .badge .n{font-family:var(--display);font-size:var(--s4);line-height:1}
+.about-fig .badge .l{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.about p{font-size:var(--s1);margin-bottom:1.1rem;opacity:.88}
+/* SERVICES — bordered cells with gold rule */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem}
+.svc{background:var(--surface);border:1px solid var(--line);border-top:2px solid var(--brand);padding:2.2rem 2rem;border-radius:2px;transition:transform .3s ease,border-color .3s ease}
+.svc:hover{transform:translateY(-5px);border-color:var(--brand)}
+.svc .num{font-family:var(--display);font-style:italic;font-size:var(--s2);color:var(--brand)}
+.svc h3{font-size:var(--s2);margin:.6rem 0 .7rem;font-weight:500}
+.svc p{font-size:.95rem;opacity:.78}
+/* TEAM */
+.team{background:var(--surface)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.8rem}
+.person img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;filter:saturate(.85)}
+.person h3{font-size:1.2rem;margin-top:.9rem;font-weight:500}
+.person .role{font-size:.85rem;color:var(--accent)}
+/* PROOF */
+.quote-big{max-width:34ch;margin:0 auto;text-align:center}
+.quote-big p{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.3}
+.quote-big footer{font-size:.85rem;letter-spacing:.04em;margin-top:1.4rem;color:var(--brand);font-style:normal;font-family:var(--text)}
+/* CTA */
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 120%,rgba(91,122,107,.16),transparent 60%)}
+.cta h2{font-size:clamp(2.2rem,6vw,4.2rem);position:relative}
+.cta h2 em{font-style:italic;color:var(--brand)}
+.cta p{margin:1.2rem auto 1.8rem;max-width:48ch;font-size:var(--s1);opacity:.85;position:relative}
+.cta .btn{position:relative}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem)}
+.cinfo div{padding:1.2rem 0;border-top:1px solid var(--line)}
+.cinfo div:first-child{border:none}
+.cinfo .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--brand);margin-bottom:.3rem}
+.field{display:block;margin-bottom:1rem}
+.field span{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem;opacity:.8}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.9rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.95rem;border-radius:2px}
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:2.6rem 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem}
+.credit{opacity:.5}
+@media(max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.5rem;gap:.8rem;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .about-fig .badge{position:static;display:inline-block;margin-top:1rem}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Halloway<span>.</span>" data-zh="霍洛威<span>.</span>" data-rich>Halloway<span>.</span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="#services" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="#team" data-slot="nav.team" data-en="People" data-zh="团队">People</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Private Wealth Advisory" data-zh="私人财富顾问">Private Wealth Advisory</p>
+    <h1 data-slot="hero.headline" data-en="Discretion, refined into strategy." data-zh="审慎，淬炼为策略。" data-rich>Discretion, refined into <em data-en="strategy." data-zh="策略。">strategy.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the calibre of service and who you serve." data-zh="主标题副文 — 服务水准与服务对象。">Hero supporting line — the calibre of service and who you serve.</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Arrange a Meeting" data-zh="安排会面">Arrange a Meeting</a>
+      <a class="btn ghost" href="#services" data-slot="hero.cta2" data-en="Our Services" data-zh="服务范围">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="creds" aria-label="Credentials">
+  <div class="wrap">
+    <span data-slot="creds.0" data-en="Est. 1996" data-zh="创立于1996">Est. 1996</span>
+    <span data-slot="creds.1" data-en="By Referral" data-zh="推荐制">By Referral</span>
+    <span data-slot="creds.2" data-en="Fiduciary Standard" data-zh="受托标准">Fiduciary Standard</span>
+    <span data-slot="creds.3" data-en="Absolute Confidence" data-zh="绝对信任">Absolute Confidence</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-fig">
+        <img src="https://picsum.photos/seed/svc-dark-about/720/900" alt="" data-slot="about.image" data-en-alt="Boardroom" data-zh-alt="会议室">
+        <div class="badge"><div class="n" data-slot="about.badge.n" data-en="28" data-zh="28">28</div><div class="l" data-slot="about.badge.l" data-en="Years advising" data-zh="顾问年数">Years advising</div></div>
+      </div>
+      <div>
+        <p class="eyebrow" data-en="About" data-zh="关于">About</p>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin:.6rem 0 1.2rem" data-slot="about.title" data-en="A standard set quietly, kept rigorously." data-zh="低调设定，严格坚守的标准。">A standard set quietly, kept rigorously.</h2>
+        <p data-slot="about.p1" data-en="About paragraph one — your heritage and the principles you work by." data-zh="关于段落一 — 传承与工作原则。">About paragraph one — your heritage and the principles you work by.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — the relationship clients can expect." data-zh="关于段落二 — 客户可期待的关系。">About paragraph two — the relationship clients can expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Services" data-zh="服务">Services</p><h2 data-slot="services.title" data-en="What we attend to" data-zh="我们的服务">What we attend to</h2></div>
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="num">I</div><h3 data-slot="services.0.title" data-en="Estate Planning" data-zh="遗产规划">Estate Planning</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">II</div><h3 data-slot="services.1.title" data-en="Investment Counsel" data-zh="投资顾问">Investment Counsel</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">III</div><h3 data-slot="services.2.title" data-en="Tax Optimisation" data-zh="税务优化">Tax Optimisation</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">IV</div><h3 data-slot="services.3.title" data-en="Succession" data-zh="家族传承">Succession</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">V</div><h3 data-slot="services.4.title" data-en="Philanthropy" data-zh="慈善规划">Philanthropy</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">VI</div><h3 data-slot="services.5.title" data-en="Family Governance" data-zh="家族治理">Family Governance</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="People" data-zh="团队">People</p><h2 data-slot="team.title" data-en="Counsel you know by name." data-zh="您熟识的顾问。">Counsel you know by name.</h2></div>
+    <div class="team-grid" data-slot="team" data-min="3" data-max="6">
+      <article class="person"><img src="https://picsum.photos/seed/svc-dark-t0/400/520" alt="" data-slot="team.0.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.0.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.0.role" data-en="Principal" data-zh="主理人">Principal</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-dark-t1/400/520" alt="" data-slot="team.1.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.1.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.1.role" data-en="Senior Partner" data-zh="高级合伙人">Senior Partner</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-dark-t2/400/520" alt="" data-slot="team.2.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.2.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.2.role" data-en="Advisor" data-zh="顾问">Advisor</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-dark-t3/400/520" alt="" data-slot="team.3.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.3.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.3.role" data-en="Associate" data-zh="助理">Associate</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <blockquote class="quote-big" data-slot="proof" data-min="1" data-max="3">
+      <p data-slot="proof.0.text" data-en="“Testimonial placeholder — the trust earned over a long relationship.”" data-zh="“客户评价占位 — 长期关系中赢得的信任。”">“Testimonial placeholder — the trust earned over a long relationship.”</p>
+      <footer data-slot="proof.0.cite" data-en="— Client, Title" data-zh="— 客户，职位">— Client, Title</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="A conversation, in confidence." data-zh="一次保密的对话。" data-rich>A conversation, <em data-en="in confidence." data-zh="保密进行。">in confidence.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how the first meeting is arranged." data-zh="行动号召副文 — 初次会面如何安排。">CTA supporting line — how the first meeting is arranged.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Request an Introduction" data-zh="预约会面">Request an Introduction</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p><h2 data-slot="contact.title" data-en="Begin the conversation." data-zh="开启对话。">Begin the conversation.</h2></div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Office" data-zh="办公室">Office</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="By appointment" data-zh="预约制">By appointment</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="Your enquiry" data-zh="您的咨询">Your enquiry</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send" data-zh="发送">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="Halloway — Private Advisory" data-zh="霍洛威 — 私人顾问">Halloway — Private Advisory</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Industrial Systems" data-zh="公司 — 工业系统">Company — Industrial Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a1622; --bg:#eef2f5; --surface:#ffffff; --brand:#1763ff; --accent:#13c4c0;
+  --display:'Syne',sans-serif; --text:'Hanken Grotesk',sans-serif; --line:#d4dde4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1300px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brand);font-weight:600}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(238,242,245,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.04em;display:flex;align-items:center;gap:.5rem}
+.brand i{width:12px;height:12px;background:var(--brand);border-radius:50%;display:inline-block;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.6}}
+.menu{display:flex;gap:2rem;font-size:.9rem;font-weight:500}
+.menu a{position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--brand);transition:width .3s cubic-bezier(.2,.9,.2,1)}
+.menu a:hover::after{width:100%}
+.navbtns{display:flex;gap:.7rem;align-items:center}
+.lang{background:var(--ink);border:none;color:#fff;font-family:var(--text);font-size:.74rem;font-weight:600;padding:.45rem .8rem;cursor:pointer;border-radius:30px}
+.lang:hover{background:var(--brand)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.5rem;cursor:pointer}
+.btn{display:inline-block;font-family:var(--text);font-weight:600;font-size:.9rem;padding:.9rem 1.7rem;background:var(--brand);color:#fff;border:1px solid var(--brand);border-radius:40px;cursor:pointer;transition:transform .2s cubic-bezier(.2,.9,.2,1),box-shadow .2s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(23,99,255,.3)}
+.btn.ghost{background:none;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand);color:var(--brand);box-shadow:none}
+/* HERO */
+.hero{position:relative;padding:clamp(3rem,8vw,6rem) 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-10%;right:-15%;width:55vw;height:55vw;max-width:760px;max-height:760px;background:conic-gradient(from 180deg,var(--brand),var(--accent),var(--brand));filter:blur(90px);opacity:.16;border-radius:50%;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(3rem,11vw,9rem);margin:1rem 0 1.4rem;text-transform:uppercase}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-row{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.hero .lead{font-size:1.2rem;max-width:46ch;color:#46566a}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-fig{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.hero-fig img{width:100%;height:clamp(280px,42vw,560px);object-fit:cover}
+.hero-fig .tag{position:absolute;top:1.2rem;left:1.2rem;background:rgba(10,22,34,.85);color:#fff;font-family:var(--display);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;padding:.45rem .9rem;border-radius:30px;backdrop-filter:blur(6px)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+/* STATS */
+.stats{background:var(--ink);color:#fff;border-radius:24px;margin:clamp(2.5rem,6vw,4rem) clamp(1.2rem,4vw,3rem) 0}
+.stats .inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:clamp(2rem,5vw,3.2rem)}
+.stats .n{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5vw,3.6rem);background:linear-gradient(100deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stats .l{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#8a9aac;margin-top:.3rem}
+/* SECTION */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.sec-head{max-width:56ch;margin-bottom:3rem}
+.sec-head h2{font-size:clamp(2.2rem,6vw,4.4rem);margin-top:.6rem;text-transform:uppercase}
+.sec-head h2 em{font-style:normal;color:var(--brand)}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem}
+.gallery figure{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--ink)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.gallery figure:hover img{transform:scale(1.07)}
+.gallery figcaption{position:absolute;left:1rem;bottom:1rem;background:var(--surface);color:var(--ink);font-family:var(--display);font-weight:700;font-size:.78rem;text-transform:uppercase;padding:.3rem .8rem;border-radius:20px}
+.k0{grid-column:span 8;aspect-ratio:16/9}
+.k1{grid-column:span 4;aspect-ratio:3/4}
+.k2{grid-column:span 4;aspect-ratio:3/4}
+.k3{grid-column:span 4;aspect-ratio:3/4}
+.k4{grid-column:span 4;aspect-ratio:3/4}
+/* SYSTEMS */
+.sys-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.sys{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.sys:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(10,22,34,.1)}
+.sys::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--brand),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.9,.2,1)}
+.sys:hover::before{transform:scaleX(1)}
+.sys .n{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--brand)}
+.sys h3{font-size:1.3rem;margin:.6rem 0 .5rem;text-transform:none}
+.sys p{color:#46566a;font-size:.95rem}
+/* CTA */
+.cta{text-align:center;background:linear-gradient(120deg,var(--brand),var(--accent));color:#fff;border-radius:24px;margin:0 clamp(1.2rem,4vw,3rem)}
+.cta .wrap{padding:clamp(3rem,7vw,5.5rem) 0}
+.cta h2{font-size:clamp(2.4rem,7vw,5.2rem);text-transform:uppercase;color:#fff}
+.cta p{max-width:46ch;margin:1.2rem auto 2rem;opacity:.95;font-size:1.1rem}
+.cta .btn{background:#fff;color:var(--brand);border-color:#fff}
+.cta .btn:hover{box-shadow:0 12px 28px rgba(0,0,0,.2)}
+/* FOOTER */
+footer{padding:3rem 0 2rem;margin-top:clamp(3rem,7vw,5rem);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;align-items:center}
+footer .fb{font-family:var(--display);font-weight:800;font-size:1.4rem;display:flex;align-items:center;gap:.5rem}
+footer .fb i{width:10px;height:10px;background:var(--brand);border-radius:50%;display:inline-block}
+footer .cols{display:flex;gap:2.5rem;flex-wrap:wrap;font-size:.9rem;color:#46566a}
+footer a:hover{color:var(--brand)}
+.credit{width:100%;border-top:1px solid var(--line);margin-top:1rem;padding-top:1.2rem;font-size:.8rem;color:#7a8aa0}
+@media(max-width:760px){
+  .menu{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem clamp(1.2rem,4vw,3rem);gap:.7rem}
+  .menu.open{display:flex}.burger{display:block}
+  .hero-row{grid-template-columns:1fr}
+  .stats .inner{grid-template-columns:1fr 1fr}
+  .gallery>*{grid-column:1/-1!important;aspect-ratio:16/10!important}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="AXIS<i></i>" data-zh="轴<i></i>" data-rich>AXIS<i></i></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#stats" data-en="Numbers" data-zh="数据">Numbers</a>
+      <a href="#work" data-en="Work" data-zh="案例">Work</a>
+      <a href="#systems" data-en="Systems" data-zh="系统">Systems</a>
+      <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Industrial Automation · Singapore" data-zh="工业自动化 · 新加坡">Industrial Automation · Singapore</p>
+    <h1 data-slot="hero.headline" data-en="Engineered" data-zh="精工" data-rich>Engineered <em>in motion.</em></h1>
+    <div class="hero-row">
+      <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the systems you design and the precision you deliver." data-zh="主标题副文 — 你设计的系统与交付的精度。">Hero supporting line — the systems you design and the precision you deliver.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Book a Demo" data-zh="预约演示">Book a Demo</a>
+        <a class="btn ghost" href="#work" data-slot="hero.cta2" data-en="See Systems" data-zh="查看系统">See Systems</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <figure class="hero-fig">
+      <img src="https://picsum.photos/seed/kinetic-hero/1700/680" alt="" data-slot="hero.image" data-en-alt="Automated production line" data-zh-alt="自动化生产线">
+      <span class="tag" data-slot="hero.tag" data-en="Live Facility" data-zh="运行中工厂">Live Facility</span>
+    </figure>
+  </div>
+</section>
+
+<section class="stats reveal" id="stats">
+  <div class="inner" data-slot="stats" data-min="3" data-max="4">
+    <div><div class="n" data-slot="stats.0.n" data-en="99.4%" data-zh="99.4%">99.4%</div><div class="l" data-slot="stats.0.l" data-en="Uptime delivered" data-zh="运行时间">Uptime delivered</div></div>
+    <div><div class="n" data-slot="stats.1.n" data-en="320+" data-zh="320+">320+</div><div class="l" data-slot="stats.1.l" data-en="Lines deployed" data-zh="部署产线">Lines deployed</div></div>
+    <div><div class="n" data-slot="stats.2.n" data-en="±2µm" data-zh="±2µm">±2µm</div><div class="l" data-slot="stats.2.l" data-en="Repeatability" data-zh="重复精度">Repeatability</div></div>
+    <div><div class="n" data-slot="stats.3.n" data-en="24/7" data-zh="24/7">24/7</div><div class="l" data-slot="stats.3.l" data-en="Support window" data-zh="支持时段">Support window</div></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow" data-en="Portfolio" data-zh="作品集">Portfolio</p><h2 data-slot="work.title" data-en="Systems in" data-zh="运行中的" data-rich>Systems in <em>the field.</em></h2></div>
+    <div class="gallery reveal" data-slot="gallery" data-min="3" data-max="5">
+      <figure class="k0"><img src="https://picsum.photos/seed/kinetic-g0/1200/680" alt="" data-slot="gallery.0" data-en-alt="System one" data-zh-alt="系统一"><figcaption data-slot="gallery.0.cap" data-en="Featured" data-zh="精选">Featured</figcaption></figure>
+      <figure class="k1"><img src="https://picsum.photos/seed/kinetic-g1/600/800" alt="" data-slot="gallery.1" data-en-alt="System two" data-zh-alt="系统二"></figure>
+      <figure class="k2"><img src="https://picsum.photos/seed/kinetic-g2/600/800" alt="" data-slot="gallery.2" data-en-alt="System three" data-zh-alt="系统三"></figure>
+      <figure class="k3"><img src="https://picsum.photos/seed/kinetic-g3/600/800" alt="" data-slot="gallery.3" data-en-alt="System four" data-zh-alt="系统四"></figure>
+      <figure class="k4"><img src="https://picsum.photos/seed/kinetic-g4/600/800" alt="" data-slot="gallery.4" data-en-alt="System five" data-zh-alt="系统五"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="systems" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow" data-en="Capabilities" data-zh="能力">Capabilities</p><h2 data-slot="sys.title" data-en="What we" data-zh="我们" data-rich>What we <em>engineer.</em></h2></div>
+    <div class="sys-grid reveal" data-slot="systems" data-min="3" data-max="6">
+      <article class="sys"><div class="n">01</div><h3 data-slot="systems.0.title" data-en="Process Automation" data-zh="流程自动化">Process Automation</h3><p data-slot="systems.0.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+      <article class="sys"><div class="n">02</div><h3 data-slot="systems.1.title" data-en="Robotics Integration" data-zh="机器人集成">Robotics Integration</h3><p data-slot="systems.1.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+      <article class="sys"><div class="n">03</div><h3 data-slot="systems.2.title" data-en="Control Systems" data-zh="控制系统">Control Systems</h3><p data-slot="systems.2.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+      <article class="sys"><div class="n">04</div><h3 data-slot="systems.3.title" data-en="Predictive Maintenance" data-zh="预测性维护">Predictive Maintenance</h3><p data-slot="systems.3.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+      <article class="sys"><div class="n">05</div><h3 data-slot="systems.4.title" data-en="Vision &amp; QC" data-zh="视觉与质检">Vision &amp; QC</h3><p data-slot="systems.4.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+      <article class="sys"><div class="n">06</div><h3 data-slot="systems.5.title" data-en="Commissioning" data-zh="调试投产">Commissioning</h3><p data-slot="systems.5.desc" data-en="System description placeholder." data-zh="系统描述占位。">System description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta reveal" id="contact">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Ready to" data-zh="准备好" data-rich>Ready to <em>scale?</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how to begin, scoping, where to reach the team." data-zh="行动号召副文 — 如何开始、需求评估、联系方式。">CTA supporting line — how to begin, scoping, where to reach the team.</p>
+    <a class="btn" href="mailto:hello@example.com" data-slot="cta.button" data-en="Talk to Engineering" data-zh="联系工程团队">Talk to Engineering</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fb" data-slot="footer.name" data-en="AXIS<i></i>" data-zh="轴<i></i>" data-rich>AXIS<i></i></div>
+    <div class="cols">
+      <span data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</span>
+      <a href="mailto:hello@example.com" data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</a>
+      <span data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</span>
+    </div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to); if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

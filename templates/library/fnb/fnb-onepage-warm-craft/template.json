@@ -1,0 +1,11 @@
+{
+  "id": "fnb-onepage-warm-craft",
+  "industry": "fnb",
+  "kind": "onepage",
+  "aesthetic": "warm-craft",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#2b1d14", "bg": "#f7efe2", "surface": "#efe2cd", "brand": "#b5481f", "accent": "#5a6e4a" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

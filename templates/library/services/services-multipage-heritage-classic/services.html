@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title.services" data-en="Services — Firm" data-zh="服务 — 事务所">Services — Firm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Heritage<i>&amp;</i>Partners" data-zh="传承<i>&amp;</i>合伙" data-rich>Heritage<i>&amp;</i>Partners</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" aria-current="page" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="masthead">
+  <div class="wrap">
+    <div class="rule">
+      <span data-en="Services" data-zh="服务">Services</span>
+      <span data-slot="services.mast.right" data-en="What we do" data-zh="业务范围">What we do</span>
+    </div>
+    <h1 data-slot="services.headline" data-en="Disciplines we<br><em>practise with care.</em>" data-zh="我们悉心<br><em>钻研的领域。</em>" data-rich>Disciplines we<br><em>practise with care.</em></h1>
+    <p class="lead" data-slot="services.lead" data-en="Services lead — one sentence framing the breadth of what the firm offers.">Services lead — one sentence framing the breadth of what the firm offers.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <ol class="svc" data-slot="services.full" data-min="4" data-max="6">
+      <li><span class="no">01</span><div><h3 data-slot="services.0.title" data-en="Service one" data-zh="服务一">Service one</h3><p data-slot="services.0.long" data-en="Fuller description of the first service — scope, who it's for, and the outcome.">Fuller description of the first service — scope, who it's for, and the outcome.</p></div></li>
+      <li><span class="no">02</span><div><h3 data-slot="services.1.title" data-en="Service two" data-zh="服务二">Service two</h3><p data-slot="services.1.long" data-en="Fuller description of the second service — scope, who it's for, and the outcome.">Fuller description of the second service — scope, who it's for, and the outcome.</p></div></li>
+      <li><span class="no">03</span><div><h3 data-slot="services.2.title" data-en="Service three" data-zh="服务三">Service three</h3><p data-slot="services.2.long" data-en="Fuller description of the third service — scope, who it's for, and the outcome.">Fuller description of the third service — scope, who it's for, and the outcome.</p></div></li>
+      <li><span class="no">04</span><div><h3 data-slot="services.3.title" data-en="Service four" data-zh="服务四">Service four</h3><p data-slot="services.3.long" data-en="Fuller description of the fourth service — scope, who it's for, and the outcome.">Fuller description of the fourth service — scope, who it's for, and the outcome.</p></div></li>
+      <li><span class="no">05</span><div><h3 data-slot="services.4.title" data-en="Service five" data-zh="服务五">Service five</h3><p data-slot="services.4.long" data-en="Fuller description of the fifth service — scope, who it's for, and the outcome.">Fuller description of the fifth service — scope, who it's for, and the outcome.</p></div></li>
+      <li><span class="no">06</span><div><h3 data-slot="services.5.title" data-en="Service six" data-zh="服务六">Service six</h3><p data-slot="services.5.long" data-en="Fuller description of the sixth service — scope, who it's for, and the outcome.">Fuller description of the sixth service — scope, who it's for, and the outcome.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--ink);color:var(--bg);border:none;text-align:center">
+  <div class="wrap">
+    <h2 data-slot="services.cta.heading" data-en="Not sure which applies?" data-zh="不确定适用哪项？" style="color:var(--bg)">Not sure which applies?</h2>
+    <p data-slot="services.cta.sub" data-en="Describe your situation and we will point you to the right discipline." style="color:#cdbfa6;margin:14px 0 26px">Describe your situation and we will point you to the right discipline.</p>
+    <a href="contact.html" class="btn btn-brand" data-en="Get in touch" data-zh="联系我们">Get in touch</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h4 data-slot="brand.name" data-en="Heritage &amp; Partners" data-zh="传承 & 合伙">Heritage &amp; Partners</h4>
+        <p data-slot="foot.blurb" data-en="One-line firm description for the footer — what you do and who you serve." style="max-width:42ch">One-line firm description for the footer — what you do and who you serve.</p>
+      </div>
+      <div>
+        <h4 data-en="Navigate" data-zh="导航">Navigate</h4>
+        <a href="about.html" data-en="About" data-zh="关于">About</a>
+        <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Contact" data-zh="联系">Contact</h4>
+        <a href="#" data-slot="foot.address" data-en="Address line, Singapore" data-zh="地址，新加坡">Address line, Singapore</a>
+        <a href="#" data-slot="foot.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</a>
+        <a href="#" data-slot="foot.email" data-en="hello@firm.sg" data-zh="hello@firm.sg">hello@firm.sg</a>
+      </div>
+    </div>
+    <div class="bar">
+      <span data-slot="foot.copyright" data-en="© Firm Pte Ltd" data-zh="© 事务所私人有限公司">© Firm Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

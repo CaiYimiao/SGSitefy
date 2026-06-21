@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serene Aesthetics &amp; Wellness | 宁静美容养生</title>
+  <meta name="description" content="Premium facials, skin treatments and holistic wellness at Ngee Ann City, Orchard Road, Singapore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Design Tokens ───────────────────────────────────────────────── */
+    :root {
+      --clr-primary:       #0f766e;
+      --clr-primary-dark:  #0d5f58;
+      --clr-accent:        #14b8a6;
+      --clr-accent-light:  #ccfbf1;
+      --clr-gold:          #c9a96e;
+      --clr-bg:            #fafaf9;
+      --clr-surface:       #ffffff;
+      --clr-surface-2:     #f0fdf9;
+      --clr-text:          #1c2b29;
+      --clr-text-muted:    #52726e;
+      --clr-border:        #d1e8e4;
+
+      --font-serif:   'Cormorant Garamond', Georgia, serif;
+      --font-sans:    'Inter', system-ui, sans-serif;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-24: 6rem;
+
+      --radius-sm:  0.375rem;
+      --radius-md:  0.75rem;
+      --radius-lg:  1.25rem;
+      --radius-xl:  2rem;
+
+      --shadow-sm:  0 1px 3px rgba(15,118,110,.08), 0 1px 2px rgba(15,118,110,.06);
+      --shadow-md:  0 4px 16px rgba(15,118,110,.10), 0 2px 6px rgba(15,118,110,.06);
+      --shadow-lg:  0 12px 40px rgba(15,118,110,.14), 0 4px 12px rgba(15,118,110,.08);
+
+      --transition: 220ms cubic-bezier(.4,0,.2,1);
+      --header-h:   72px;
+    }
+
+    /* ── Reset ───────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ── Focus visible ───────────────────────────────────────────────── */
+    :focus-visible {
+      outline: 3px solid var(--clr-accent);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ── Skip link ───────────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-4);
+      background: var(--clr-primary);
+      color: #fff;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-size: .875rem;
+      font-weight: 600;
+      z-index: 9999;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── Header ──────────────────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-8);
+      gap: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .logo-en {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--clr-primary);
+      letter-spacing: .04em;
+    }
+    .logo-zh {
+      font-size: .7rem;
+      color: var(--clr-text-muted);
+      letter-spacing: .12em;
+      font-weight: 300;
+    }
+    .logo-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--clr-gold);
+      margin-right: var(--space-2);
+      vertical-align: middle;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav-links {
+      display: flex;
+      gap: var(--space-6);
+    }
+    .nav-links a {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--clr-text-muted);
+      transition: color var(--transition);
+      letter-spacing: .03em;
+    }
+    .nav-links a:hover { color: var(--clr-primary); }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: 999px;
+      padding: var(--space-1) var(--space-2);
+      font-size: .78rem;
+      font-weight: 500;
+    }
+    .lang-btn {
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+      color: var(--clr-text-muted);
+      font-size: .78rem;
+      font-weight: 500;
+      transition: background var(--transition), color var(--transition);
+    }
+    .lang-btn.active {
+      background: var(--clr-primary);
+      color: #fff;
+    }
+    .btn-book-header {
+      background: var(--clr-primary);
+      color: #fff;
+      padding: var(--space-2) var(--space-6);
+      border-radius: 999px;
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+    }
+    .btn-book-header:hover {
+      background: var(--clr-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-book-header:active { transform: translateY(0); }
+
+    /* ── Hero ────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--header-h));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-24) var(--space-16) var(--space-24) var(--space-16);
+      gap: var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--clr-gold);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--clr-text);
+      letter-spacing: .01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--clr-primary);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--clr-text-muted);
+      line-height: 1.7;
+      max-width: 44ch;
+    }
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--clr-primary);
+      color: #fff;
+      padding: var(--space-4) var(--space-8);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .btn-primary:hover {
+      background: var(--clr-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-ghost {
+      color: var(--clr-primary);
+      font-size: .9rem;
+      font-weight: 500;
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      transition: opacity var(--transition);
+    }
+    .btn-ghost:hover { opacity: .7; }
+    .hero-trust {
+      display: flex;
+      gap: var(--space-6);
+      padding-top: var(--space-4);
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .trust-num {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--clr-primary);
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: .72rem;
+      color: var(--clr-text-muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .hero-image-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-panel img {
+      transition: transform 8s ease;
+    }
+    .hero-image-panel:hover img {
+      transform: scale(1.04);
+    }
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,118,110,.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Section shell ───────────────────────────────────────────────── */
+    .section {
+      padding: var(--space-24) var(--space-8);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: var(--space-24) 0;
+    }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    .section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--clr-gold);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--clr-text);
+    }
+    .section-title em { font-style: italic; color: var(--clr-primary); }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--clr-text-muted);
+      line-height: 1.75;
+      max-width: 56ch;
+      margin-top: var(--space-4);
+    }
+
+    /* ── About ───────────────────────────────────────────────────────── */
+    .about-bg { background: var(--clr-surface-2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .about-image {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      height: 520px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-image-badge {
+      position: absolute;
+      bottom: var(--space-6);
+      left: var(--space-6);
+      background: rgba(255,255,255,.95);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      box-shadow: var(--shadow-md);
+    }
+    .badge-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--clr-primary);
+      line-height: 1;
+    }
+    .badge-text {
+      font-size: .78rem;
+      color: var(--clr-text-muted);
+      font-weight: 500;
+    }
+    .about-content { display: flex; flex-direction: column; gap: var(--space-6); }
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: .9rem;
+      color: var(--clr-text-muted);
+    }
+    .cert-icon {
+      width: 32px; height: 32px;
+      background: var(--clr-accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    /* ── Treatments ──────────────────────────────────────────────────── */
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    .treatment-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .treatment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .treatment-card-img {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .treatment-card-img img {
+      transition: transform .5s ease;
+    }
+    .treatment-card:hover .treatment-card-img img {
+      transform: scale(1.06);
+    }
+    .treatment-tag {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      background: var(--clr-primary);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+    }
+    .treatment-card-body {
+      padding: var(--space-6);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .treatment-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--clr-text);
+    }
+    .treatment-name-zh {
+      font-size: .82rem;
+      color: var(--clr-text-muted);
+      letter-spacing: .06em;
+    }
+    .treatment-desc {
+      font-size: .88rem;
+      color: var(--clr-text-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .treatment-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--clr-border);
+      margin-top: var(--space-2);
+    }
+    .treatment-price {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--clr-primary);
+      font-weight: 400;
+    }
+    .treatment-duration {
+      font-size: .78rem;
+      color: var(--clr-text-muted);
+      font-weight: 500;
+    }
+    .link-more {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      color: var(--clr-primary);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      transition: gap var(--transition);
+    }
+    .link-more:hover { gap: var(--space-3); }
+
+    /* ── Gallery ─────────────────────────────────────────────────────── */
+    .gallery-bg { background: var(--clr-text); }
+    .gallery-header { color: #fff; }
+    .gallery-header .section-title { color: #fff; }
+    .gallery-header .section-desc { color: rgba(255,255,255,.65); }
+    .gallery-header .section-label { color: var(--clr-gold); }
+    .gallery-header .section-label::before { background: var(--clr-gold); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: var(--space-3);
+      margin-top: var(--space-12);
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+    .gallery-item img {
+      transition: transform .6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 3; }
+    .gallery-item:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .gallery-item:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
+    .gallery-item:nth-child(4) { grid-column: 4 / 5; grid-row: 1 / 3; }
+    .gallery-item:nth-child(5) { grid-column: 2 / 4; grid-row: 2 / 3; }
+
+    /* ── Testimonials ────────────────────────────────────────────────── */
+    .testimonials-bg { background: var(--clr-surface-2); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    .testimonial-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition);
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-md); }
+    .stars { color: var(--clr-gold); font-size: 1rem; letter-spacing: .1em; }
+    .testimonial-text {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--clr-text);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid var(--clr-accent-light);
+    }
+    .author-name { font-weight: 600; font-size: .875rem; color: var(--clr-text); }
+    .author-meta { font-size: .75rem; color: var(--clr-text-muted); }
+
+    /* ── Location + Contact ──────────────────────────────────────────── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      align-items: start;
+    }
+    .map-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 400px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--clr-border);
+    }
+    .map-frame iframe {
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .contact-block { display: flex; flex-direction: column; gap: var(--space-8); }
+    .contact-group { display: flex; flex-direction: column; gap: var(--space-4); }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: var(--clr-accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label { font-weight: 600; font-size: .875rem; color: var(--clr-text); margin-bottom: 2px; }
+    .contact-val { font-size: .9rem; color: var(--clr-text-muted); line-height: 1.5; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid var(--clr-border); }
+    .hours-table td {
+      padding: var(--space-2) 0;
+      font-size: .875rem;
+      color: var(--clr-text-muted);
+    }
+    .hours-table td:last-child { text-align: right; font-weight: 500; color: var(--clr-text); }
+    .hours-table .today td { color: var(--clr-primary); font-weight: 600; }
+    .contact-cta {
+      background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-accent) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .contact-cta-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.3;
+    }
+    .contact-cta-sub { font-size: .875rem; opacity: .85; line-height: 1.6; }
+    .btn-white {
+      background: #fff;
+      color: var(--clr-primary);
+      padding: var(--space-3) var(--space-6);
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 700;
+      align-self: flex-start;
+      transition: background var(--transition), transform var(--transition);
+      letter-spacing: .04em;
+    }
+    .btn-white:hover {
+      background: var(--clr-accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--clr-text);
+      color: rgba(255,255,255,.6);
+      padding: var(--space-12) var(--space-8);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .footer-logo-en {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: #fff;
+      font-weight: 300;
+      letter-spacing: .06em;
+    }
+    .footer-logo-zh {
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: rgba(255,255,255,.45);
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: .8rem;
+      color: rgba(255,255,255,.5);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,.15);
+    }
+    .footer-copy {
+      font-size: .75rem;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .04em;
+    }
+    .footer-built {
+      font-size: .72rem;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .08em;
+    }
+    .footer-built a { color: rgba(255,255,255,.4); transition: color var(--transition); }
+    .footer-built a:hover { color: rgba(255,255,255,.7); }
+
+    /* ── Divider ornament ────────────────────────────────────────────── */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      color: var(--clr-border);
+      padding: var(--space-8) 0;
+    }
+    .ornament-divider::before, .ornament-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--clr-border);
+    }
+    .ornament-symbol { font-size: 1.2rem; color: var(--clr-gold); }
+
+    /* ── Section BG alternates ───────────────────────────────────────── */
+    .bg-white { background: var(--clr-surface); }
+    .bg-tinted { background: var(--clr-surface-2); }
+
+    /* ── Motion ──────────────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-delay-1 { transition-delay: .1s; }
+      .reveal-delay-2 { transition-delay: .2s; }
+      .reveal-delay-3 { transition-delay: .3s; }
+      .reveal-delay-4 { transition-delay: .4s; }
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: var(--space-16) var(--space-8); }
+      .hero-image-panel { height: 380px; }
+      .about-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .about-image { height: 340px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+      }
+      .gallery-item:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 2; }
+      .gallery-item:nth-child(4) { grid-column: 2 / 3; grid-row: 2 / 3; }
+      .gallery-item:nth-child(5) { grid-column: 1 / 3; grid-row: 4 / 5; }
+      .location-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      :root { --header-h: 60px; }
+      .nav-links { display: none; }
+      .hero-trust { flex-wrap: wrap; gap: var(--space-4); }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
+      .gallery-item { grid-column: 1 / 2 !important; grid-row: auto !important; }
+      .treatments-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content" data-en="Skip to main content" data-zh="跳转至主内容">Skip to main content</a>
+
+  <!-- ── HEADER ───────────────────────────────────────────────────── -->
+  <header class="site-header" role="banner">
+    <a href="#" class="header-logo" aria-label="Serene Aesthetics & Wellness — Home">
+      <span class="logo-en"><span class="logo-dot" aria-hidden="true"></span>Serene Aesthetics &amp; Wellness</span>
+      <span class="logo-zh">宁静美容养生</span>
+    </a>
+
+    <nav class="header-nav" aria-label="Main navigation">
+      <ul class="nav-links" role="list">
+        <li><a href="#about" data-en="About" data-zh="关于我们">About</a></li>
+        <li><a href="#treatments" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="#gallery" data-en="Gallery" data-zh="图库">Gallery</a></li>
+        <li><a href="#contact" data-en="Contact" data-zh="联系">Contact</a></li>
+      </ul>
+
+      <div class="lang-toggle" role="group" aria-label="Language selection">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true" aria-label="English">EN</button>
+        <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" aria-pressed="false" aria-label="中文">中文</button>
+      </div>
+
+      <a href="#contact" class="btn-book-header" data-en="Book Now" data-zh="立即预约">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal" data-en="Singapore's Premier Wellness Studio" data-zh="新加坡顶级美容养生中心">Singapore's Premier Wellness Studio</p>
+        <h1 class="hero-headline reveal reveal-delay-1" id="hero-heading">
+          <span data-en="Reveal Your <em>Radiance</em>" data-zh="焕发您的<em>光彩</em>">Reveal Your <em>Radiance</em></span>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2" data-en="Expert facials, skin treatments and holistic wellness rituals crafted to restore balance, luminosity and deep-seated calm." data-zh="专业美容护肤与整体养生疗程，为您恢复肌肤光泽、身心平衡与深度宁静。">Expert facials, skin treatments and holistic wellness rituals crafted to restore balance, luminosity and deep-seated calm.</p>
+        <div class="hero-cta-row reveal reveal-delay-3">
+          <a href="#contact" class="btn-primary" data-en="Book an Appointment" data-zh="立即预约">Book an Appointment</a>
+          <a href="#treatments" class="btn-ghost" data-en="Explore Treatments" data-zh="了解疗程">Explore Treatments</a>
+        </div>
+        <div class="hero-trust reveal reveal-delay-4" aria-label="Trust signals">
+          <div class="trust-item">
+            <span class="trust-num">12+</span>
+            <span class="trust-label" data-en="Years of Excellence" data-zh="年卓越经验">Years of Excellence</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">8</span>
+            <span class="trust-label" data-en="Certified Therapists" data-zh="认证美容师">Certified Therapists</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">3k+</span>
+            <span class="trust-label" data-en="Happy Clients" data-zh="满意顾客">Happy Clients</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-panel">
+        <img
+          src="https://picsum.photos/seed/serene-hero/900/1100"
+          alt="A serene spa treatment room with soft lighting and natural elements"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="hero-image-overlay" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────────────── -->
+    <section id="about" class="section-full bg-tinted" aria-labelledby="about-heading">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-image reveal">
+            <img
+              src="https://picsum.photos/seed/serene-about/720/1040"
+              alt="Interior of Serene Aesthetics — warm, minimal treatment suite with botanicals"
+              loading="lazy"
+            />
+            <div class="about-image-badge" aria-label="12 years in Singapore">
+              <span class="badge-num">12</span>
+              <span class="badge-text" data-en="Years in Singapore" data-zh="年新加坡服务">Years in Singapore</span>
+            </div>
+          </div>
+
+          <div class="about-content reveal reveal-delay-1">
+            <p class="section-label" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+            <h2 class="section-title" id="about-heading">
+              <span data-en="Where Science Meets <em>Serenity</em>" data-zh="科技与<em>宁静</em>的交汇">Where Science Meets <em>Serenity</em></span>
+            </h2>
+            <p class="section-desc" data-en="Founded in 2013 at the heart of Orchard Road, Serene Aesthetics & Wellness fuses advanced skin-science with time-honoured Asian wellness philosophy. Every client receives a personalised ritual — never a one-size-fits-all menu." data-zh="2013年创立于乌节路中心，宁静美容养生将先进皮肤科学与亚洲传统养生哲学融为一体。每位顾客都将获得量身定制的个性化疗程，绝非千篇一律的服务菜单。">
+              Founded in 2013 at the heart of Orchard Road, Serene Aesthetics &amp; Wellness fuses advanced skin-science with time-honoured Asian wellness philosophy. Every client receives a personalised ritual — never a one-size-fits-all menu.
+            </p>
+            <ul class="cert-list" aria-label="Certifications and trust signals">
+              <li class="cert-item">
+                <span class="cert-icon" aria-hidden="true">🏅</span>
+                <span data-en="MOH-registered aesthetics clinic, Singapore" data-zh="新加坡卫生部注册美容诊所">MOH-registered aesthetics clinic, Singapore</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-icon" aria-hidden="true">✔️</span>
+                <span data-en="All therapists CIDESCO & ITEC internationally certified" data-zh="全体美容师持有CIDESCO及ITEC国际认证">All therapists CIDESCO &amp; ITEC internationally certified</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-icon" aria-hidden="true">🌿</span>
+                <span data-en="Exclusively clean, cruelty-free product formulations" data-zh="独家使用纯净、无动物测试产品配方">Exclusively clean, cruelty-free product formulations</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-icon" aria-hidden="true">🛡️</span>
+                <span data-en="Stringent hygiene protocol — sterilised equipment for every session" data-zh="严格卫生规程 — 每次疗程全套器械灭菌消毒">Stringent hygiene protocol — sterilised equipment for every session</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TREATMENTS ─────────────────────────────────────────────── -->
+    <section id="treatments" class="section bg-white" aria-labelledby="treatments-heading">
+      <p class="section-label reveal" data-en="Our Treatments" data-zh="我们的疗程">Our Treatments</p>
+      <h2 class="section-title reveal reveal-delay-1" id="treatments-heading">
+        <span data-en="Curated for <em>Your Skin</em>" data-zh="专为<em>您的肌肤</em>定制">Curated for <em>Your Skin</em></span>
+      </h2>
+      <p class="section-desc reveal reveal-delay-2" data-en="Each treatment begins with a complimentary skin-analysis consultation. Our therapists recommend your ideal protocol across facials, body and holistic therapies." data-zh="每项疗程均从免费肌肤分析咨询开始。我们的美容师将为您推荐最适合的护肤、身体及整体养生方案。">Each treatment begins with a complimentary skin-analysis consultation. Our therapists recommend your ideal protocol across facials, body and holistic therapies.</p>
+
+      <div class="treatments-grid">
+
+        <!-- Card 1 -->
+        <article class="treatment-card reveal" aria-labelledby="t1-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-signature/640/440" alt="Client receiving signature luminescence facial treatment" loading="lazy" />
+            <span class="treatment-tag" aria-label="Signature treatment" data-en="Signature" data-zh="招牌">Signature</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t1-name" data-en="Luminescence Facial" data-zh="光感焕颜护理">Luminescence Facial</h3>
+            <p class="treatment-name-zh" data-en="光感焕颜护理" data-zh="Luminescence Facial">光感焕颜护理</p>
+            <p class="treatment-desc" data-en="Our best-loved ritual. Deep-cleanse, enzyme exfoliation, brightening vitamin-C infusion and a sculpting lymphatic massage to reveal lit-from-within luminosity." data-zh="最受欢迎的疗程。深层清洁、酵素去角质、亮白维他命C导入与塑形淋巴排毒按摩，令肌肤由内而外焕发光彩。">Our best-loved ritual. Deep-cleanse, enzyme exfoliation, brightening vitamin-C infusion and a sculpting lymphatic massage to reveal lit-from-within luminosity.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$168</div>
+                <div class="treatment-duration" data-en="90 min" data-zh="90 分钟">90 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book Luminescence Facial">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="treatment-card reveal reveal-delay-1" aria-labelledby="t2-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-hydra/640/440" alt="Hydraboost skin plumping treatment being applied" loading="lazy" />
+            <span class="treatment-tag" data-en="Hydration" data-zh="补水">Hydration</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t2-name" data-en="HydraBoost Infusion" data-zh="水光注养导入">HydraBoost Infusion</h3>
+            <p class="treatment-name-zh" data-en="水光注养导入" data-zh="HydraBoost Infusion">水光注养导入</p>
+            <p class="treatment-desc" data-en="Hyaluronic acid micro-needling combined with a cold-plasma calming step for intensely plumped, dewy skin with zero downtime." data-zh="透明质酸微针结合冷等离子舒缓步骤，无需恢复期即可令肌肤深层饱满、水润有光。">Hyaluronic acid micro-needling combined with a cold-plasma calming step for intensely plumped, dewy skin with zero downtime.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$248</div>
+                <div class="treatment-duration" data-en="75 min" data-zh="75 分钟">75 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book HydraBoost Infusion">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="treatment-card reveal reveal-delay-2" aria-labelledby="t3-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-bespoke/640/440" alt="Therapist performing bespoke anti-ageing treatment" loading="lazy" />
+            <span class="treatment-tag" data-en="Anti-Ageing" data-zh="抗衰老">Anti-Ageing</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t3-name" data-en="Timeless Renewal" data-zh="岁月新生疗程">Timeless Renewal</h3>
+            <p class="treatment-name-zh" data-en="岁月新生疗程" data-zh="Timeless Renewal">岁月新生疗程</p>
+            <p class="treatment-desc" data-en="Peptide-rich bio-cellulose mask, RF lifting, and pressure-point facial massage to firm, lift and restore youthful contour with visible results from the first session." data-zh="富含多肽的生物纤维素面膜、射频提拉与穴位面部按摩，紧致提升、恢复年轻轮廓，首次疗程即见明显效果。">Peptide-rich bio-cellulose mask, RF lifting, and pressure-point facial massage to firm, lift and restore youthful contour with visible results from the first session.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$298</div>
+                <div class="treatment-duration" data-en="100 min" data-zh="100 分钟">100 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book Timeless Renewal">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="treatment-card reveal" aria-labelledby="t4-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-acne/640/440" alt="Acne-clearing skin treatment in progress" loading="lazy" />
+            <span class="treatment-tag" data-en="Corrective" data-zh="修复">Corrective</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t4-name" data-en="ClearSkin Rescue" data-zh="净肤修复疗程">ClearSkin Rescue</h3>
+            <p class="treatment-name-zh" data-en="净肤修复疗程" data-zh="ClearSkin Rescue">净肤修复疗程</p>
+            <p class="treatment-desc" data-en="Salicylic acid resurfacing, LED blue-light therapy and a soothing niacinamide masque for acne-prone and congested skin. Clinically formulated to clear, calm and prevent." data-zh="水杨酸焕肤、LED蓝光疗法与烟酰胺舒缓面膜，专为痘肌与堵塞肌肤设计，临床配方助您净化、舒缓与预防。">Salicylic acid resurfacing, LED blue-light therapy and a soothing niacinamide masque for acne-prone and congested skin. Clinically formulated to clear, calm and prevent.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$138</div>
+                <div class="treatment-duration" data-en="60 min" data-zh="60 分钟">60 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book ClearSkin Rescue">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="treatment-card reveal reveal-delay-1" aria-labelledby="t5-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-body/640/440" alt="Full body aromatherapy massage session" loading="lazy" />
+            <span class="treatment-tag" data-en="Body &amp; Holistic" data-zh="身体养生">Body &amp; Holistic</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t5-name" data-en="Balinese Harmony Massage" data-zh="巴厘岛和谐全身按摩">Balinese Harmony Massage</h3>
+            <p class="treatment-name-zh" data-en="巴厘岛和谐全身按摩" data-zh="Balinese Harmony Massage">巴厘岛和谐全身按摩</p>
+            <p class="treatment-desc" data-en="Traditional Balinese long-stroke, palm-press and reflexology techniques with warm botanical oils to melt away tension and restore energetic flow." data-zh="传统巴厘岛长推、掌压与反射疗法，配合温热植物精油，消融压力、恢复能量流动。">Traditional Balinese long-stroke, palm-press and reflexology techniques with warm botanical oils to melt away tension and restore energetic flow.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$188</div>
+                <div class="treatment-duration" data-en="90 min" data-zh="90 分钟">90 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book Balinese Harmony Massage">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="treatment-card reveal reveal-delay-2" aria-labelledby="t6-name">
+          <div class="treatment-card-img">
+            <img src="https://picsum.photos/seed/treat-scalp/640/440" alt="Scalp and hair wellness treatment" loading="lazy" />
+            <span class="treatment-tag" data-en="Hair &amp; Scalp" data-zh="头皮护理">Hair &amp; Scalp</span>
+          </div>
+          <div class="treatment-card-body">
+            <h3 class="treatment-name" id="t6-name" data-en="Scalp Revival Ritual" data-zh="头皮复苏疗程">Scalp Revival Ritual</h3>
+            <p class="treatment-name-zh" data-en="头皮复苏疗程" data-zh="Scalp Revival Ritual">头皮复苏疗程</p>
+            <p class="treatment-desc" data-en="Micro-exfoliation, scalp analysis, biotin and keratin serum infusion with a deep nourishing botanical mask for visibly thicker, healthier hair from the root up." data-zh="微细去角质、头皮分析、生物素与角蛋白精华导入，配合深层植物滋养面膜，令发根更强健、头发更丰盈亮泽。">Micro-exfoliation, scalp analysis, biotin and keratin serum infusion with a deep nourishing botanical mask for visibly thicker, healthier hair from the root up.</p>
+            <div class="treatment-footer">
+              <div>
+                <div class="treatment-price">From S$148</div>
+                <div class="treatment-duration" data-en="75 min" data-zh="75 分钟">75 min</div>
+              </div>
+              <a href="#contact" class="link-more" aria-label="Book Scalp Revival Ritual">
+                <span data-en="Book" data-zh="预约">Book</span> →
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── GALLERY ────────────────────────────────────────────────── -->
+    <section id="gallery" class="section-full gallery-bg" aria-labelledby="gallery-heading">
+      <div class="section-inner">
+        <div class="gallery-header reveal">
+          <p class="section-label" data-en="Our Space" data-zh="我们的空间">Our Space</p>
+          <h2 class="section-title" id="gallery-heading">
+            <span data-en="A Sanctuary of <em>Calm</em>" data-zh="宁静的<em>庇护所</em>">A Sanctuary of <em>Calm</em></span>
+          </h2>
+          <p class="section-desc" data-en="Designed with intention — every element chosen to ease the senses before a single treatment begins." data-zh="每一处设计皆有深意 — 所有细节均旨在疗程开始前先抚慰您的感官。">Designed with intention — every element chosen to ease the senses before a single treatment begins.</p>
+        </div>
+        <div class="gallery-grid reveal reveal-delay-1" role="list" aria-label="Gallery of treatment spaces">
+          <div class="gallery-item" role="listitem">
+            <img src="https://picsum.photos/seed/gallery-tall/480/960" alt="Main reception and lounge area — botanical centrepiece and warm ambient lighting" loading="lazy" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="https://picsum.photos/seed/gallery-2/480/480" alt="Private facial suite with adjustable LED lighting" loading="lazy" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="https://picsum.photos/seed/gallery-3/480/480" alt="Relaxation lounge with herbal teas and plush seating" loading="lazy" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="https://picsum.photos/seed/gallery-tall2/480/960" alt="Body treatment room with heated therapy bed" loading="lazy" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="https://picsum.photos/seed/gallery-wide/960/480" alt="Consultation desk with skin-analysis equipment" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+    <section class="section-full bg-tinted" aria-labelledby="testimonials-heading">
+      <div class="section-inner">
+        <p class="section-label reveal" data-en="Client Stories" data-zh="顾客心声">Client Stories</p>
+        <h2 class="section-title reveal reveal-delay-1" id="testimonials-heading">
+          <span data-en="Heard from Our <em>Community</em>" data-zh="来自我们<em>社群</em>的声音">Heard from Our <em>Community</em></span>
+        </h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="stars" aria-label="5 out of 5 stars" role="img">★★★★★</div>
+            <p class="testimonial-text" data-en="&ldquo;After just three Luminescence Facials my hyperpigmentation has faded noticeably. The therapists genuinely listen — I feel seen, not sold to.&rdquo;" data-zh="「仅仅三次光感焕颜护理后，我的色斑明显淡化。美容师真正用心聆听——我感受到的是被关怀，而非被推销。」">"After just three Luminescence Facials my hyperpigmentation has faded noticeably. The therapists genuinely listen — I feel seen, not sold to."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="https://picsum.photos/seed/author1/80/80" alt="Portrait of Mei Lin" loading="lazy" />
+              </div>
+              <div>
+                <p class="author-name">Mei Lin T.</p>
+                <p class="author-meta" data-en="Verified Client · Toa Payoh" data-zh="认证顾客 · 大巴窑">Verified Client · Toa Payoh</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-1">
+            <div class="stars" aria-label="5 out of 5 stars" role="img">★★★★★</div>
+            <p class="testimonial-text" data-en="&ldquo;Serene is the only place where I truly switch off. The Balinese massage is extraordinary — an hour feels like a full reset for body and mind.&rdquo;" data-zh="「宁静是唯一让我真正放松的地方。巴厘岛按摩非同凡响——一小时仿佛身心全然重启。」">"Serene is the only place where I truly switch off. The Balinese massage is extraordinary — an hour feels like a full reset for body and mind."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="https://picsum.photos/seed/author2/80/80" alt="Portrait of Rachel K." loading="lazy" />
+              </div>
+              <div>
+                <p class="author-name">Rachel K.</p>
+                <p class="author-meta" data-en="Verified Client · Buona Vista" data-zh="认证顾客 · 武吉知马">Verified Client · Buona Vista</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-2">
+            <div class="stars" aria-label="5 out of 5 stars" role="img">★★★★★</div>
+            <p class="testimonial-text" data-en="&ldquo;我的皮肤在做了三次HydraBoost导入后焕然一新。团队专业、细心、贴心。这里是我的秘密美容基地！&rdquo;" data-zh="&ldquo;My skin was completely transformed after three HydraBoost sessions. The team is professional, attentive and genuinely caring. This is my secret beauty sanctuary!&rdquo;">"我的皮肤在做了三次HydraBoost导入后焕然一新。团队专业、细心、贴心。这里是我的秘密美容基地！"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="https://picsum.photos/seed/author3/80/80" alt="Portrait of Jia Hui" loading="lazy" />
+              </div>
+              <div>
+                <p class="author-name">Jia Hui L.</p>
+                <p class="author-meta" data-en="Verified Client · Ang Mo Kio" data-zh="认证顾客 · 宏茂桥">Verified Client · Ang Mo Kio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOCATION + CONTACT ─────────────────────────────────────── -->
+    <section id="contact" class="section bg-white" aria-labelledby="contact-heading">
+      <p class="section-label reveal" data-en="Find Us" data-zh="找到我们">Find Us</p>
+      <h2 class="section-title reveal reveal-delay-1" id="contact-heading">
+        <span data-en="Visit Our <em>Sanctuary</em>" data-zh="探访我们的<em>庇护所</em>">Visit Our <em>Sanctuary</em></span>
+      </h2>
+
+      <div class="location-grid" style="margin-top: var(--space-12);">
+        <div class="map-frame reveal" role="region" aria-label="Google Maps showing location of Serene Aesthetics & Wellness at Ngee Ann City, Orchard Road">
+          <iframe
+            src="https://maps.google.com/maps?q=391+Orchard+Road,+Ngee+Ann+City,+Singapore+238872&z=16&output=embed"
+            title="Map showing Serene Aesthetics &amp; Wellness at 391 Orchard Road, Ngee Ann City"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="contact-block reveal reveal-delay-1">
+          <div class="contact-group">
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <div>
+                <p class="contact-label" data-en="Address" data-zh="地址">Address</p>
+                <p class="contact-val">391 Orchard Road<br />Ngee Ann City, #04-18<br />Singapore 238872</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <div>
+                <p class="contact-label" data-en="Phone" data-zh="电话">Phone</p>
+                <p class="contact-val"><a href="tel:+6567332200" style="color:var(--clr-primary)">+65 6733 2200</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <div>
+                <p class="contact-label" data-en="Email" data-zh="电邮">Email</p>
+                <p class="contact-val"><a href="mailto:hello@sereneaesthetics.sg" style="color:var(--clr-primary)">hello@sereneaesthetics.sg</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">🚇</div>
+              <div>
+                <p class="contact-label" data-en="Nearest MRT" data-zh="最近地铁站">Nearest MRT</p>
+                <p class="contact-val" data-en="Orchard MRT (NS22 / TE14) — 3 min walk" data-zh="乌节地铁站（NS22 / TE14）— 步行3分钟">Orchard MRT (NS22 / TE14) — 3 min walk</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="contact-label" style="margin-bottom:var(--space-3);" data-en="Opening Hours" data-zh="营业时间">Opening Hours</p>
+            <table class="hours-table" aria-label="Opening hours">
+              <tbody>
+                <tr>
+                  <td data-en="Monday – Friday" data-zh="星期一 至 五">Monday – Friday</td>
+                  <td>10:00 – 20:00</td>
+                </tr>
+                <tr>
+                  <td data-en="Saturday" data-zh="星期六">Saturday</td>
+                  <td>09:30 – 19:00</td>
+                </tr>
+                <tr>
+                  <td data-en="Sunday" data-zh="星期日">Sunday</td>
+                  <td>10:00 – 17:00</td>
+                </tr>
+                <tr>
+                  <td data-en="Public Holidays" data-zh="公共假日">Public Holidays</td>
+                  <td data-en="Closed" data-zh="休息">Closed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="contact-cta">
+            <h3 class="contact-cta-title" data-en="Ready to begin your wellness journey?" data-zh="准备好开启您的养生之旅了吗？">Ready to begin your wellness journey?</h3>
+            <p class="contact-cta-sub" data-en="Call us or WhatsApp to book your complimentary skin consultation. Same-day appointments available." data-zh="致电或WhatsApp预约您的免费肌肤咨询。当天预约名额有限，欢迎查询。">Call us or WhatsApp to book your complimentary skin consultation. Same-day appointments available.</p>
+            <a href="tel:+6567332200" class="btn-white" data-en="Call +65 6733 2200" data-zh="致电 +65 6733 2200">Call +65 6733 2200</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-logo-en">Serene Aesthetics &amp; Wellness</div>
+    <div class="footer-logo-zh">宁静美容养生</div>
+    <nav aria-label="Footer navigation">
+      <ul class="footer-links" role="list">
+        <li><a href="#about" data-en="About" data-zh="关于我们">About</a></li>
+        <li><a href="#treatments" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="#gallery" data-en="Gallery" data-zh="图库">Gallery</a></li>
+        <li><a href="#contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="#" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <div class="footer-divider" aria-hidden="true"></div>
+    <p class="footer-copy" data-en="© 2025 Serene Aesthetics &amp; Wellness Pte Ltd. All rights reserved." data-zh="© 2025 宁静美容养生私人有限公司。保留所有权利。">© 2025 Serene Aesthetics &amp; Wellness Pte Ltd. All rights reserved.</p>
+    <p class="footer-built">Built with <a href="#">SGSitefy</a> · powered by Antigravity</p>
+  </footer>
+
+  <!-- ── JS ────────────────────────────────────────────────────────── -->
+  <script>
+    /* ── Language toggle ──────────────────────────────────────────── */
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+
+      // Update all data-en / data-zh text nodes
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        const val = el.getAttribute('data-' + lang);
+        if (!val) return;
+        // Use innerHTML to support <em> in data-* values
+        el.innerHTML = val;
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+
+      // Update lang toggle button states
+      var btnEn = document.getElementById('btn-en');
+      var btnZh = document.getElementById('btn-zh');
+      btnEn.classList.toggle('active', lang === 'en');
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+      btnZh.setAttribute('aria-pressed', lang === 'zh' ? 'true' : 'false');
+    }
+
+    /* ── Scroll reveal ────────────────────────────────────────────── */
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReduced) {
+      var revealEls = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function(el) { observer.observe(el); });
+    } else {
+      // If reduced motion, show all reveal elements immediately
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+
+    /* ── Smooth header hide/show on scroll ───────────────────────── */
+    var lastScrollY = 0;
+    var header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
+      if (y > 80 && y > lastScrollY) {
+        header.style.transform = 'translateY(-100%)';
+        header.style.transition = 'transform .3s ease';
+      } else {
+        header.style.transform = '';
+      }
+      lastScrollY = y;
+    }, { passive: true });
+  </script>
+</body>
+</html>

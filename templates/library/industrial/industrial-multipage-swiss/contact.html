@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Meridian" data-zh="联系 — 子午线">Contact — Meridian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="MERIDIAN<b>.</b>" data-zh="子午线<b>.</b>" data-rich>MERIDIAN<b>.</b></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" aria-current="page" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="phead">
+  <div class="wrap">
+    <p class="lbl b" data-en="Contact" data-zh="联系">Contact</p>
+    <h1 data-slot="contact.hero" data-en="Let's" data-zh="开始合作" data-rich>Let's <span data-en="Talk." data-zh="联系。">Talk.</span></h1>
+    <p data-slot="contact.intro" data-en="Page intro — how to reach the team." data-zh="页面引言 — 如何联系团队。">Page intro — how to reach the team.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid12">
+    <div class="cinfo">
+      <div><div class="k" data-en="Address" data-zh="地址">Address</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+      <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+      <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+      <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 8am–6pm" data-zh="周一至周五 8:00–18:00">Mon–Fri, 8am–6pm</p></div>
+    </div>
+    <form class="cform" onsubmit="return false">
+      <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+      <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+      <label class="field"><span data-en="Company" data-zh="公司">Company</span><input type="text"></label>
+      <label class="field"><span data-en="Message" data-zh="留言">Message</span><textarea rows="5"></textarea></label>
+      <button class="btn" type="submit" data-slot="contact.submit" data-en="Send Enquiry" data-zh="发送咨询">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid12">
+    <div class="fbrand" data-slot="footer.name" data-en="MERIDIAN." data-zh="子午线.">MERIDIAN.</div>
+    <div class="fcol"><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a> · <a href="services.html" data-en="Services" data-zh="服务">Services</a> · <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div class="fcol"><b data-en="Contact" data-zh="联系">Contact</b><span data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</span></div>
+    <div class="fcol"><b data-en="Address" data-zh="地址">Address</b><span data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</span></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

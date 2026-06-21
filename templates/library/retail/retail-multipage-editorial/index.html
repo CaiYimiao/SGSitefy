@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Store Name — Retail" data-zh="店名 — 零售">Store Name — Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-rich data-en="Store<i>.</i>" data-zh="店名<i>.</i>">Store<i>.</i></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Products" data-zh="商品">Products</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phero">
+  <div class="homehero">
+    <div>
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Independent Retail · Singapore" data-zh="独立零售 · 新加坡">Independent Retail · Singapore</span>
+      <h1 data-slot="hero.headline" data-en="A considered shop for considered things" data-zh="为有心之物而设的精选小店">A considered shop for considered things</h1>
+      <p class="lede" data-slot="hero.lede" data-en="One italic sentence describing the shop's point of view and what it stocks." data-zh="一句斜体小语，道出本店的态度与所售之物。">One italic sentence describing the shop's point of view and what it stocks.</p>
+      <a class="btn" href="products.html" data-slot="hero.cta" data-en="View products" data-zh="浏览商品">View products</a>
+    </div>
+    <figure><img src="https://picsum.photos/seed/edithero/800/1000" data-slot="hero.image" data-en-alt="Shop interior" data-zh-alt="店内陈设" alt="Shop interior"></figure>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="sechead"><span class="eyebrow" data-slot="cats.eyebrow" data-en="Departments" data-zh="商品部类">Departments</span><h2 data-slot="cats.title" data-en="What you'll find inside" data-zh="店内所藏">What you'll find inside</h2></div>
+  <div class="cats" data-slot="categories" data-min="3" data-max="4">
+    <a class="cat" href="products.html"><span class="n">01</span><h3 data-en="Category One" data-zh="分类一">Category One</h3><p data-en="One line on this category." data-zh="一句关于此分类的说明。">One line on this category.</p></a>
+    <a class="cat" href="products.html"><span class="n">02</span><h3 data-en="Category Two" data-zh="分类二">Category Two</h3><p data-en="One line on this category." data-zh="一句关于此分类的说明。">One line on this category.</p></a>
+    <a class="cat" href="products.html"><span class="n">03</span><h3 data-en="Category Three" data-zh="分类三">Category Three</h3><p data-en="One line on this category." data-zh="一句关于此分类的说明。">One line on this category.</p></a>
+    <a class="cat" href="products.html"><span class="n">04</span><h3 data-en="Category Four" data-zh="分类四">Category Four</h3><p data-en="One line on this category." data-zh="一句关于此分类的说明。">One line on this category.</p></a>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="feature">
+    <img src="https://picsum.photos/seed/editfeat/700/700" data-slot="feature.image" data-en-alt="Featured detail" data-zh-alt="精选细节" alt="Featured detail">
+    <div><span class="eyebrow" data-slot="feature.eyebrow" data-en="The story this season" data-zh="本季故事">The story this season</span>
+    <blockquote data-slot="feature.quote" data-en="“A pull-quote about the shop's most loved piece or collection.”" data-zh="“一句关于本店最受欢迎单品或系列的引言。”">“A pull-quote about the shop's most loved piece or collection.”</blockquote></div>
+  </div>
+</section>
+
+<section class="proof sec"><div class="wrap">
+  <div class="sechead"><span class="eyebrow" style="color:var(--accent)" data-slot="proof.eyebrow" data-en="Praise" data-zh="顾客好评">Praise</span></div>
+  <div class="quotes" data-slot="testimonials" data-min="2" data-max="2">
+    <blockquote class="quote"><p data-en="“A refined customer quote about the experience.”" data-zh="“一句关于购物体验的好评。”">“A refined customer quote about the experience.”</p><cite data-en="Customer" data-zh="顾客">Customer</cite></blockquote>
+    <blockquote class="quote"><p data-en="“A refined customer quote about the experience.”" data-zh="“一句关于购物体验的好评。”">“A refined customer quote about the experience.”</p><cite data-en="Customer" data-zh="顾客">Customer</cite></blockquote>
+  </div>
+</div></section>
+
+<section class="ctaband"><span class="eyebrow" data-slot="cta.eyebrow" data-en="Visit" data-zh="到店">Visit</span><h2 data-slot="cta.title" data-en="We'd love to show you around" data-zh="欢迎到店细看">We'd love to show you around</h2><a class="btn" href="contact.html" data-slot="cta.btn" data-en="Get in touch" data-zh="联系我们">Get in touch</a></section>
+</main>
+<footer><div class="row">
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</div></footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

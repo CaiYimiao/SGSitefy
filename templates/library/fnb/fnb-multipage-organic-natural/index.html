@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Field & Spoon — Home" data-zh="田与勺 — 首页">Field &amp; Spoon — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Field &amp; Spoon" data-zh="田与勺"><span class="leaf"></span>Field &amp; Spoon</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <p class="kick" data-slot="hero.kick" data-en="Plant-forward kitchen" data-zh="以植物为本的厨房">Plant-forward kitchen</p>
+      <h1 data-slot="hero.headline" data-en="Food that grew nearby." data-zh="来自近处土地的食物。">Food that grew nearby.</h1>
+      <p data-slot="hero.sub" data-en="Placeholder intro — wholesome, seasonal cooking from local farms. Set a calm, natural tone." data-zh="占位引言——选用本地农场时令食材的健康料理。营造平和自然的语气。">Placeholder intro — wholesome, seasonal cooking from local farms. Set a calm, natural tone.</p>
+      <a class="btn" href="contact.html" data-slot="hero.cta" data-en="Find a table" data-zh="预订座位">Find a table</a>
+      <a class="btn alt" href="menu.html" data-slot="hero.cta2" data-en="See the menu" data-zh="查看菜单">See the menu</a>
+    </div>
+    <div class="hero-art">
+      <img src="https://picsum.photos/seed/organic-hero/760/760" data-slot="hero.image" data-en-alt="Fresh seasonal bowl" data-zh-alt="时令鲜食碗" alt="Fresh seasonal bowl" />
+      <span class="badge" data-slot="hero.badge" data-en="100% local produce" data-zh="100% 本地食材">100% local produce</span>
+    </div>
+  </section>
+
+  <section class="quickinfo"><div class="wrap"><div class="qi">
+    <div><div class="l" data-slot="quickinfo.hours.l" data-en="Open" data-zh="营业">Open</div><strong data-slot="quickinfo.hours" data-en="Daily 9–18" data-zh="每日 9–18">Daily 9–18</strong></div>
+    <div><div class="l" data-slot="quickinfo.loc.l" data-en="Where" data-zh="地址">Where</div><strong data-slot="quickinfo.loc" data-en="Dempsey Hill" data-zh="登布西山">Dempsey Hill</strong></div>
+    <div><div class="l" data-slot="quickinfo.diet.l" data-en="Kitchen" data-zh="厨房">Kitchen</div><strong data-slot="quickinfo.diet" data-en="Veg · Vegan · GF" data-zh="素 · 纯素 · 无麸质">Veg · Vegan · GF</strong></div>
+    <div><div class="l" data-slot="quickinfo.call.l" data-en="Call" data-zh="电话">Call</div><strong data-slot="quickinfo.call" data-en="+65 6567 8901" data-zh="+65 6567 8901">+65 6567 8901</strong></div>
+  </div></div></section>
+
+  <section class="wrap cols">
+    <div class="pic"><img src="https://picsum.photos/seed/organic-feat/700/560" data-slot="about.image" data-en-alt="Garden produce" data-zh-alt="园圃食材" alt="Garden produce" /></div>
+    <div>
+      <p class="kick" data-slot="about.kick" data-en="Our way" data-zh="我们的方式">Our way</p>
+      <h2 data-slot="about.headline" data-en="Grown well, cooked simply." data-zh="用心栽种，简单烹调。">Grown well, cooked simply.</h2>
+      <p data-slot="about.body" data-en="Placeholder — sourcing relationships, sustainability, and why simple cooking lets the produce speak." data-zh="占位文字——采购合作、可持续理念，以及为何简单料理能让食材自己说话。">Placeholder — sourcing relationships, sustainability, and why simple cooking lets the produce speak.</p>
+    </div>
+  </section>
+
+  <section class="wrap"><div class="social">
+    <h2 data-slot="social.headline" data-en="Loved by our regulars" data-zh="熟客喜爱">Loved by our regulars</h2>
+    <div class="quotes">
+      <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.0.name" data-en="— Guest" data-zh="— 食客">— Guest</span></figure>
+      <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.1.name" data-en="— Guest" data-zh="— 食客">— Guest</span></figure>
+      <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.2.name" data-en="— Guest" data-zh="— 食客">— Guest</span></figure>
+    </div>
+  </div></section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Pull up a chair." data-zh="来坐坐吧。">Pull up a chair.</h2>
+    <p data-slot="cta.sub" data-en="Walk-ins welcome; larger groups please call ahead." data-zh="欢迎散客；多人聚餐请提前致电。">Walk-ins welcome; larger groups please call ahead.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Plan your visit" data-zh="规划到访">Plan your visit</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Field &amp; Spoon" data-zh="田与勺">Field &amp; Spoon</span>
+    <span data-slot="footer.addr" data-en="Dempsey Hill, Singapore" data-zh="新加坡登布西山">Dempsey Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

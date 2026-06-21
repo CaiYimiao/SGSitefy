@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Industrial" data-zh="公司 — 工业">Company — Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="MERIDIAN<b>.</b>" data-zh="子午线<b>.</b>" data-rich>MERIDIAN<b>.</b></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" aria-current="page" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap grid12">
+    <p class="lbl b" style="grid-column:1/13" data-slot="hero.eyebrow" data-en="Industrial Contractors" data-zh="工业承包商">Industrial Contractors</p>
+    <h1 data-slot="hero.headline" data-en="Precision at" data-zh="规模化精密" data-rich>Precision at <span data-en="Scale." data-zh="精密。">Scale.</span></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — what you deliver and the standard you set." data-zh="主标题副文 — 你交付什么、设定什么标准。">Hero supporting line — what you deliver and the standard you set.</p>
+    <div class="meta">
+      <p data-slot="hero.meta" data-en="Serving heavy industry since 2009 across the region." data-zh="自2009年起为区域重工业提供服务。">Serving heavy industry since 2009 across the region.</p>
+      <div class="cta-row">
+        <a class="btn" href="contact.html" data-slot="hero.cta1" data-en="Get a Quote" data-zh="索取报价">Get a Quote</a>
+        <a class="btn ghost" href="services.html" data-slot="hero.cta2" data-en="Services" data-zh="服务">Services</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap hero-img">
+    <img src="https://picsum.photos/seed/swiss-hero/1600/600" alt="" data-slot="hero.image" data-en-alt="Industrial site" data-zh-alt="工业现场">
+  </div>
+</section>
+
+<section class="trust" aria-label="Trust">
+  <div class="wrap grid12">
+    <div data-slot="trust.0" data-en="<b>15+</b>Years operating" data-zh="<b>15+</b>年运营" data-rich><b>15+</b>Years operating</div>
+    <div data-slot="trust.1" data-en="<b>600</b>Projects done" data-zh="<b>600</b>完成项目" data-rich><b>600</b>Projects done</div>
+    <div data-slot="trust.2" data-en="<b>ISO</b>9001 certified" data-zh="<b>ISO</b>9001 认证" data-rich><b>ISO</b>9001 certified</div>
+    <div data-slot="trust.3" data-en="<b>24/7</b>Site support" data-zh="<b>24/7</b>现场支持" data-rich><b>24/7</b>Site support</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="num">01</div><h2 data-slot="about.title" data-en="Who We Are" data-zh="我们是谁">Who We Are</h2><p data-slot="about.kicker" data-en="A short positioning line." data-zh="简短定位语。">A short positioning line.</p></div>
+    <div class="grid12">
+      <div class="about-txt">
+        <p data-slot="about.p1" data-en="About paragraph one — the company, the focus, the discipline." data-zh="关于段落一 — 公司、专注、纪律。">About paragraph one — the company, the focus, the discipline.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — capabilities and how you work." data-zh="关于段落二 — 能力与工作方式。">About paragraph two — capabilities and how you work.</p>
+        <a class="btn ghost" href="about.html" data-en="More about us →" data-zh="了解更多 →">More about us →</a>
+      </div>
+      <figure class="about-fig"><img src="https://picsum.photos/seed/swiss-about/700/900" alt="" data-slot="about.image" data-en-alt="Team on site" data-zh-alt="现场团队"></figure>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><div class="num">02</div><h2 data-slot="services.title" data-en="What We Do" data-zh="我们的服务">What We Do</h2><p data-slot="services.kicker" data-en="Core capabilities." data-zh="核心能力。">Core capabilities.</p></div>
+    <div class="grid12" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="n">01</div><h3 data-slot="services.0.title" data-en="Fabrication" data-zh="制造">Fabrication</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="services.1.title" data-en="Installation" data-zh="安装">Installation</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="services.2.title" data-en="Maintenance" data-zh="维护">Maintenance</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="services.3.title" data-en="Logistics" data-zh="物流">Logistics</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">05</div><h3 data-slot="services.4.title" data-en="Consulting" data-zh="咨询">Consulting</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="n">06</div><h3 data-slot="services.5.title" data-en="Commissioning" data-zh="调试">Commissioning</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="num">03</div><h2 data-slot="work.title" data-en="Selected Work" data-zh="精选案例">Selected Work</h2><p data-slot="work.kicker" data-en="Recent projects." data-zh="近期项目。">Recent projects.</p></div>
+    <div class="grid12 work" data-slot="gallery" data-min="3" data-max="5">
+      <figure><img src="https://picsum.photos/seed/swiss-w0/1400/500" alt="" data-slot="gallery.0" data-en-alt="Project one" data-zh-alt="项目一"><figcaption data-en="01" data-zh="01">01</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/swiss-w1/700/500" alt="" data-slot="gallery.1" data-en-alt="Project two" data-zh-alt="项目二"><figcaption data-en="02" data-zh="02">02</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/swiss-w2/700/500" alt="" data-slot="gallery.2" data-en-alt="Project three" data-zh-alt="项目三"><figcaption data-en="03" data-zh="03">03</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap grid12">
+    <h2 data-slot="cta.headline" data-en="Let's scope your project." data-zh="让我们规划您的项目。">Let's scope your project.</h2>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Contact Us" data-zh="联系我们">Contact Us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid12">
+    <div class="fbrand" data-slot="footer.name" data-en="MERIDIAN." data-zh="子午线.">MERIDIAN.</div>
+    <div class="fcol"><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a> · <a href="services.html" data-en="Services" data-zh="服务">Services</a> · <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div class="fcol"><b data-en="Contact" data-zh="联系">Contact</b><span data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</span></div>
+    <div class="fcol"><b data-en="Address" data-zh="地址">Address</b><span data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</span></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

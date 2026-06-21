@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Site Editor — SGSitefy</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ── TOKENS ───────────────────────────────────────── */
+:root {
+  --primary:    #4f46e5;
+  --primary-d:  #3730a3;
+  --primary-xl: #eef2ff;
+  --live:       #EF3340;
+  --live-d:     #c8222e;
+  --ink:        #0f0f14;
+  --ink-2:      #3f3f4a;
+  --muted:      #71717a;
+  --subtle:     #a1a1aa;
+  --line:       #e4e4e7;
+  --line-l:     #f4f4f6;
+  --bg:         #fafafa;
+  --card:       #ffffff;
+  --r-s: 6px; --r-m: 10px; --r-l: 14px;
+  --font-d: 'Space Grotesk', sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --bar-h: 52px;
+  --panel-w: 400px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); background: #d4d4d8; overflow: hidden; }
+button { font-family: var(--font-b); }
+
+/* ══════════════════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════════════════ */
+.editor-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--bar-h);
+  z-index: 600; background: var(--card); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; gap: 10px;
+}
+.eb-left  { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.eb-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+/* logo mark */
+.ed-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; flex-shrink: 0; }
+.ed-lm { width: 22px; height: 22px; border-radius: 5px; background: #EF3340; display: grid; place-items: center; }
+.ed-lm svg { width: 11px; height: 11px; fill: #fff; }
+.ed-lt { font-family: var(--font-d); font-size: .82rem; font-weight: 700; color: var(--ink); letter-spacing: -.2px; }
+.ed-lt em { color: #EF3340; font-style: normal; }
+
+.ed-div { width: 1px; height: 22px; background: var(--line); flex-shrink: 0; }
+
+.ed-back { background: none; border: none; color: var(--muted); font-size: .8rem; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: var(--r-s); transition: color .15s, background .15s; }
+.ed-back:hover { color: var(--ink); background: var(--line-l); }
+
+.ed-company { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.ed-cname { font-family: var(--font-d); font-size: .88rem; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ed-ctpl { font-size: .7rem; font-weight: 700; background: var(--primary-xl); color: var(--primary); border-radius: 20px; padding: 2px 9px; white-space: nowrap; flex-shrink: 0; }
+
+/* language mini-toggle */
+.lang-mini { display: flex; border: 1.5px solid var(--line); border-radius: var(--r-s); overflow: hidden; }
+.lang-mini button { border: none; background: none; padding: 4px 11px; font-size: .76rem; font-weight: 700; color: var(--muted); cursor: pointer; transition: background .15s, color .15s; line-height: 1.2; }
+.lang-mini button.on { background: var(--primary); color: #fff; }
+
+/* go live button */
+.btn-live { background: var(--live); color: #fff; border: none; border-radius: var(--r-m); padding: 8px 18px; font-family: var(--font-d); font-size: .88rem; font-weight: 700; cursor: pointer; transition: background .15s, transform .1s; letter-spacing: -.15px; flex-shrink: 0; }
+.btn-live:hover { background: var(--live-d); }
+.btn-live:active { transform: scale(.97); }
+
+/* ══════════════════════════════════════════════════
+   SITE IFRAME WRAPPER
+══════════════════════════════════════════════════ */
+.site-wrap {
+  position: fixed; top: var(--bar-h); left: 0; bottom: 0; right: 0;
+  transition: right .32s cubic-bezier(.4,0,.2,1);
+  background: #d4d4d8;
+}
+.site-wrap.panel-open { right: var(--panel-w); }
+#site-frame { width: 100%; height: 100%; border: none; display: block; }
+
+/* dim overlay on iframe while panel open */
+.site-dim {
+  position: absolute; inset: 0; background: rgba(15,15,20,.28);
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.site-wrap.panel-open .site-dim { opacity: 1; pointer-events: auto; cursor: pointer; }
+
+/* ══════════════════════════════════════════════════
+   GO LIVE SLIDE-OVER PANEL
+══════════════════════════════════════════════════ */
+.live-panel {
+  position: fixed; top: var(--bar-h); right: calc(-1 * var(--panel-w) - 10px);
+  width: var(--panel-w); bottom: 0;
+  background: var(--card); border-left: 1px solid var(--line);
+  display: flex; flex-direction: column; z-index: 500;
+  transition: right .32s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+.live-panel.open { right: 0; }
+
+.lp-head {
+  padding: 16px 18px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.lp-head strong { font-family: var(--font-d); font-size: .98rem; font-weight: 700; color: var(--ink); flex: 1; }
+.lp-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: .95rem; padding: 4px 6px; border-radius: 4px; line-height: 1; }
+.lp-close:hover { background: var(--line-l); color: var(--ink); }
+
+.lp-body { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 18px; }
+.lp-body::-webkit-scrollbar { width: 4px; }
+.lp-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+.lp-section-h { font-family: var(--font-d); font-size: .72rem; font-weight: 700; color: var(--subtle); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.lp-section-h span { display: flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); color: #fff; font-size: .65rem; font-weight: 700; flex-shrink: 0; }
+
+/* registrar picker */
+.reg-picker { display: flex; gap: 6px; flex-wrap: wrap; }
+.reg-chip { border: 1.5px solid var(--line); background: var(--bg); border-radius: 20px; padding: 5px 13px; font-size: .79rem; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: border-color .15s, background .15s, color .15s; }
+.reg-chip:hover { border-color: var(--primary); color: var(--primary); }
+.reg-chip.active { border-color: var(--primary); background: var(--primary-xl); color: var(--primary); }
+.reg-note { font-size: .71rem; color: var(--subtle); margin-top: 8px; line-height: 1.45; }
+
+/* domain search */
+.domain-search { display: flex; gap: 6px; margin-top: 12px; }
+.domain-search input { flex: 1; border: 1.5px solid var(--line); border-radius: var(--r-s); padding: 9px 11px; font-size: .86rem; font-family: var(--font-b); color: var(--ink); background: var(--bg); outline: none; transition: border-color .2s, box-shadow .2s; }
+.domain-search input:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
+.domain-tld { font-size: .82rem; color: var(--muted); align-self: center; white-space: nowrap; padding: 0 2px; }
+.btn-check { background: var(--primary); color: #fff; border: none; border-radius: var(--r-s); padding: 9px 13px; font-size: .81rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: background .15s; }
+.btn-check:hover { background: var(--primary-d); }
+
+/* domain result rows */
+.domain-results { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+.d-row { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border: 1.5px solid var(--line); border-radius: var(--r-m); background: var(--bg); }
+.d-row.avail { border-color: #bbf7d0; background: #f0fdf4; }
+.d-row.taken { opacity: .6; }
+.d-name { font-family: var(--font-d); font-weight: 600; font-size: .85rem; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.d-badge { font-size: .67rem; font-weight: 700; border-radius: 20px; padding: 2px 7px; white-space: nowrap; flex-shrink: 0; }
+.d-badge.avail { background: #dcfce7; color: #15803d; }
+.d-badge.taken { background: #fee2e2; color: #b91c1c; }
+.d-price { font-size: .8rem; font-weight: 600; color: var(--ink-2); white-space: nowrap; flex-shrink: 0; }
+.btn-buy { font-size: .74rem; padding: 5px 11px; background: var(--primary); color: #fff; border: none; border-radius: var(--r-s); font-weight: 700; cursor: pointer; white-space: nowrap; transition: background .15s; flex-shrink: 0; }
+.btn-buy:hover { background: var(--primary-d); }
+.btn-buy:disabled { opacity: .35; cursor: not-allowed; background: var(--muted); }
+
+/* "or" divider */
+.lp-or { display: flex; align-items: center; gap: 8px; color: var(--subtle); font-size: .74rem; margin: 2px 0; }
+.lp-or::before, .lp-or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+.btn-skip { width: 100%; padding: 9px; background: none; border: 1.5px solid var(--line); border-radius: var(--r-m); color: var(--muted); font-size: .81rem; font-weight: 600; cursor: pointer; transition: border-color .15s, color .15s; }
+.btn-skip:hover { border-color: var(--primary); color: var(--primary); }
+
+/* launch checklist */
+.launch-steps { display: flex; flex-direction: column; gap: 7px; }
+.launch-step { display: flex; align-items: center; gap: 11px; padding: 9px 13px; background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r-m); }
+.ls-icon { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .8rem; font-weight: 700; flex-shrink: 0; transition: background .3s, color .3s; }
+.ls-icon.pending { background: var(--line-l); color: var(--subtle); }
+.ls-icon.doing   { background: #dbeafe; color: #3b82f6; }
+.ls-icon.done    { background: #dcfce7; color: #16a34a; }
+.launch-step b     { display: block; font-size: .84rem; color: var(--ink); }
+.launch-step small { color: var(--muted); font-size: .72rem; }
+
+.btn-launch { width: 100%; padding: 13px; background: var(--live); color: #fff; border: none; border-radius: var(--r-m); font-family: var(--font-d); font-size: .94rem; font-weight: 700; cursor: pointer; transition: background .15s; margin-top: 12px; }
+.btn-launch:hover:not(:disabled) { background: var(--live-d); }
+.btn-launch:disabled { opacity: .45; cursor: not-allowed; }
+.launch-domain-tag { font-size: .74rem; color: var(--muted); text-align: center; margin-top: 6px; }
+.launch-domain-tag b { color: var(--ink-2); }
+
+/* success state */
+.live-success { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1.5px solid #86efac; border-radius: var(--r-l); padding: 22px; text-align: center; }
+.ls-pub-icon { font-size: 2.2rem; margin-bottom: 10px; }
+.live-success > strong { display: block; font-family: var(--font-d); font-size: 1.1rem; color: #15803d; margin-bottom: 6px; }
+.live-success p { font-size: .84rem; color: #166534; line-height: 1.5; }
+.live-url-chip { display: inline-block; margin-top: 10px; background: #fff; border: 1px solid #86efac; border-radius: var(--r-s); padding: 5px 13px; font-family: var(--font-d); font-weight: 700; font-size: .85rem; color: #15803d; }
+.live-actions { display: flex; gap: 8px; margin-top: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-view-live { background: var(--primary); color: #fff; border: none; border-radius: var(--r-m); padding: 9px 16px; font-size: .83rem; font-weight: 700; cursor: pointer; }
+.btn-change-domain { background: none; border: 1.5px solid var(--line); border-radius: var(--r-m); padding: 9px 16px; font-size: .8rem; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+.btn-change-domain:hover { border-color: var(--ink-2); }
+
+/* ══════════════════════════════════════════════════
+   SITEFYAI FLOATING ASSISTANT (bottom-right, edit mode)
+══════════════════════════════════════════════════ */
+.ai-fab {
+  position: fixed; left: 20px; bottom: 20px; z-index: 700;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0;
+  transition: right .32s cubic-bezier(.4,0,.2,1);
+}
+.ai-fab.shift { right: calc(var(--panel-w) + 16px); }
+
+.ai-panel {
+  position: absolute; bottom: calc(100% + 8px); left: 0;
+  width: 310px;
+  background: #1a1f2e; border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  transform: scale(.95) translateY(10px); opacity: 0; pointer-events: none;
+  transition: transform .22s cubic-bezier(.34,1.56,.64,1), opacity .18s;
+  overflow: hidden; color: #fff;
+}
+.ai-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: auto; }
+
+.ai-panel-head {
+  display: flex; align-items: center; gap: 10px; padding: 14px 14px 12px;
+  background: linear-gradient(135deg,#1e2540,#2a2f4a);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.ai-avatar { width: 30px; height: 30px; border-radius: 9px; background: rgba(245,178,26,.18); border: 1px solid rgba(245,178,26,.3); display: grid; place-items: center; font-size: .88rem; flex-shrink: 0; }
+.ai-panel-title { flex: 1; }
+.ai-panel-title strong { display: block; font-size: .85rem; font-family: var(--font-d); }
+.ai-panel-title span  { font-size: .67rem; color: rgba(255,255,255,.45); }
+.ai-panel-close { background: none; border: none; color: rgba(255,255,255,.4); font-size: .95rem; cursor: pointer; padding: 4px; border-radius: 4px; line-height: 1; }
+.ai-panel-close:hover { color: #fff; background: rgba(255,255,255,.1); }
+
+.ai-panel-body {
+  padding: 12px; display: flex; flex-direction: column; gap: 10px;
+  max-height: 360px; overflow-y: auto;
+}
+.ai-panel-body::-webkit-scrollbar { width: 3px; }
+.ai-panel-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 3px; }
+
+.ai-bubble { background: rgba(255,255,255,.07); border-radius: 10px; padding: 9px 12px; font-size: .82rem; line-height: 1.5; color: rgba(255,255,255,.9); }
+.ai-bubble.ai-msg { background: rgba(79,70,229,.3); border: 1px solid rgba(79,70,229,.4); }
+.ai-status { display: flex; align-items: center; gap: 8px; font-size: .78rem; color: rgba(255,255,255,.5); padding: 4px 2px; }
+.ai-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #4f46e5; animation: pulse .9s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+.ai-capture-btn {
+  display: flex; align-items: center; gap: 7px; padding: 9px 12px;
+  background: rgba(245,178,26,.1); border: 1px solid rgba(245,178,26,.25); border-radius: 10px;
+  color: #f5b21a; font-size: .79rem; font-weight: 600; cursor: pointer;
+  transition: background .15s;
+}
+.ai-capture-btn:hover { background: rgba(245,178,26,.18); }
+.ai-capture-btn span { font-size: 1rem; line-height: 1; }
+
+.ai-attach { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 9px; padding: 7px 10px; }
+.ai-attach .thumb { width: 44px; height: 32px; border-radius: 5px; background: linear-gradient(135deg,#4f46e5,#7c3aed); display: grid; place-items: center; font-size: 1rem; flex-shrink: 0; }
+.ai-attach .meta  { flex: 1; font-size: .72rem; color: rgba(255,255,255,.5); line-height: 1.3; }
+.ai-attach .meta b { display: block; color: rgba(255,255,255,.85); font-size: .77rem; }
+.ai-attach button { background: none; border: none; color: rgba(255,255,255,.35); cursor: pointer; font-size: .9rem; padding: 2px 4px; }
+.ai-msg-attach { display: inline-block; background: rgba(255,255,255,.12); border-radius: 5px; padding: 2px 7px; font-size: .7rem; margin-bottom: 4px; }
+
+.ai-input-row { display: flex; gap: 6px; }
+.ai-input-row input {
+  flex: 1; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 9px; padding: 9px 11px; font-size: .81rem; font-family: var(--font-b);
+  color: #fff; outline: none; transition: border-color .2s, background .2s;
+}
+.ai-input-row input::placeholder { color: rgba(255,255,255,.3); }
+.ai-input-row input:focus { border-color: rgba(79,70,229,.7); background: rgba(255,255,255,.1); }
+.ai-send { background: var(--primary); color: #fff; border: none; border-radius: 9px; padding: 9px 14px; font-size: .79rem; font-weight: 700; cursor: pointer; transition: background .15s; }
+.ai-send:hover { background: var(--primary-d); }
+.ai-powered { font-size: .65rem; color: rgba(255,255,255,.25); text-align: center; padding: 8px; }
+
+/* FAB bar (grip + toggle button) */
+.ai-fab-bar { display: flex; align-items: center; gap: 0; background: #1a1f2e; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,.35); overflow: hidden; }
+.ai-drag { background: none; border: none; cursor: grab; padding: 10px 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; align-content: center; }
+.ai-drag:active { cursor: grabbing; }
+.ai-drag span { display: block; width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,.3); }
+.ai-fab-btn { background: none; border: none; cursor: pointer; padding: 10px 14px 10px 6px; display: flex; align-items: center; gap: 8px; }
+.ai-dot { width: 8px; height: 8px; border-radius: 50%; background: #f5b21a; flex-shrink: 0; }
+.ai-label { display: flex; flex-direction: column; }
+.ai-label .fab-main { font-family: var(--font-d); font-size: .82rem; font-weight: 700; color: #fff; line-height: 1.1; }
+.ai-label .fab-sub  { font-size: .66rem; color: rgba(255,255,255,.45); }
+
+/* crop overlay */
+.crop-overlay { position: fixed; inset: 0; z-index: 9000; cursor: crosshair; }
+.crop-hint {
+  position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 9001; background: #1a1f2e; color: #fff;
+  padding: 8px 18px; border-radius: 30px;
+  font: 600 .8rem/1.2 Inter,system-ui,sans-serif;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+.crop-rect {
+  position: fixed; z-index: 9000; border: 2px solid #f5b21a;
+  background: rgba(245,178,26,.1);
+  box-shadow: 0 0 0 9999px rgba(15,15,20,.5);
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     TOP BAR
+═══════════════════════════════════════════ -->
+<header class="editor-bar">
+  <div class="eb-left">
+    <a href="preview.html#builder" class="ed-logo">
+      <div class="ed-lm">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="8,0.5 9.7,5.5 6.3,5.5"/>
+          <polygon points="3.5,2.5 6.2,6.5 3,7.5"/>
+          <polygon points="12.5,2.5 9.8,6.5 13,7.5"/>
+          <circle cx="8" cy="11.5" r="4.5"/>
+          <circle cx="6.3" cy="11" r="0.7" fill="#EF3340"/>
+          <circle cx="9.7" cy="11" r="0.7" fill="#EF3340"/>
+          <circle cx="8" cy="12.8" r="0.5" fill="#EF3340"/>
+        </svg>
+      </div>
+      <span class="ed-lt"><em>SG</em>Sitefy</span>
+    </a>
+    <div class="ed-div"></div>
+    <button class="ed-back" onclick="history.back()">← Back to wizard</button>
+    <div class="ed-div"></div>
+    <div class="ed-company">
+      <span class="ed-cname" id="ed-cname">Seng Hin Engineering</span>
+      <span class="ed-ctpl" id="ed-ctpl">Industrial</span>
+    </div>
+  </div>
+  <div class="eb-right">
+    <div class="lang-mini" role="group" aria-label="Site language">
+      <button id="bEn" class="on" onclick="setFrameLang('en')">EN</button>
+      <button id="bZh" onclick="setFrameLang('zh')">中文</button>
+    </div>
+    <button class="btn-live" id="btn-live-top" onclick="toggleLivePanel()">🚀 Go Live</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     SITE PREVIEW IFRAME
+═══════════════════════════════════════════ -->
+<div class="site-wrap" id="site-wrap">
+  <iframe id="site-frame" src="templates/industrial/index.html" title="Generated site preview" allow="same-origin"></iframe>
+  <div class="site-dim" id="site-dim" onclick="closeLivePanel()"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GO LIVE SLIDE-OVER PANEL
+═══════════════════════════════════════════ -->
+<div class="live-panel" id="live-panel" aria-hidden="true">
+  <div class="lp-head">
+    <strong>🚀 Set up &amp; Go Live</strong>
+    <button class="lp-close" onclick="closeLivePanel()" aria-label="Close">✕</button>
+  </div>
+
+  <div class="lp-body">
+
+    <!-- ① Domain section -->
+    <div id="lp-domain-section">
+      <div class="lp-section-h"><span>1</span> Register a domain</div>
+
+      <!-- registrar picker -->
+      <div class="reg-picker" role="radiogroup" aria-label="Registrar">
+        <button type="button" class="reg-chip active" data-reg="cloudflare" aria-checked="true" onclick="pickReg(this)">Cloudflare</button>
+        <button type="button" class="reg-chip" data-reg="namecheap" aria-checked="false" onclick="pickReg(this)">Namecheap</button>
+        <button type="button" class="reg-chip" data-reg="godaddy" aria-checked="false" onclick="pickReg(this)">GoDaddy</button>
+      </div>
+      <p class="reg-note" id="reg-note">Cloudflare: at-cost pricing, no markup — auto-connected to your SGSitefy site.</p>
+
+      <!-- domain search -->
+      <div class="domain-search">
+        <input id="domain-input" value="sengineng" aria-label="Domain name" />
+        <span class="domain-tld">.com.sg</span>
+        <button class="btn-check" onclick="checkDomain()">Check →</button>
+      </div>
+
+      <!-- domain results -->
+      <div class="domain-results" id="domain-results">
+        <div class="d-row avail">
+          <span class="d-name">sengineng.com.sg</span>
+          <span class="d-badge avail">Available</span>
+          <span class="d-price" data-cf="$40/yr" data-nc="$42/yr" data-gd="$45/yr">$40/yr</span>
+          <button class="btn-buy" onclick="selectDomain('sengineng.com.sg', this)">Buy</button>
+        </div>
+        <div class="d-row avail">
+          <span class="d-name">sengineng.sg</span>
+          <span class="d-badge avail">Available</span>
+          <span class="d-price" data-cf="$45/yr" data-nc="$48/yr" data-gd="$52/yr">$45/yr</span>
+          <button class="btn-buy" onclick="selectDomain('sengineng.sg', this)">Buy</button>
+        </div>
+        <div class="d-row taken">
+          <span class="d-name">sengineng.com</span>
+          <span class="d-badge taken">Taken</span>
+          <span class="d-price" style="color:var(--subtle)">—</span>
+          <button class="btn-buy" disabled>N/A</button>
+        </div>
+      </div>
+
+      <div class="lp-or">or</div>
+      <button class="btn-skip" onclick="selectDomain('yoursite.sgsitefy.com', null)">Use free subdomain (yoursite.sgsitefy.com) →</button>
+    </div>
+
+    <!-- ② Launch section -->
+    <div id="lp-launch-section">
+      <div class="lp-section-h"><span>2</span> Launch</div>
+      <div class="launch-steps">
+        <div class="launch-step">
+          <div class="ls-icon pending" id="ls-1">○</div>
+          <div><b>Deploy to SGSitefy CDN</b><small>Your site goes live on our global edge network</small></div>
+        </div>
+        <div class="launch-step">
+          <div class="ls-icon pending" id="ls-2">○</div>
+          <div><b>Point DNS records</b><small id="ls-domain-lbl">—</small></div>
+        </div>
+        <div class="launch-step">
+          <div class="ls-icon pending" id="ls-3">○</div>
+          <div><b>Issue SSL certificate</b><small>HTTPS via Let's Encrypt — auto-renewed annually</small></div>
+        </div>
+        <div class="launch-step">
+          <div class="ls-icon pending" id="ls-4">○</div>
+          <div><b>Submit sitemap to Google</b><small>Start indexing your bilingual pages</small></div>
+        </div>
+      </div>
+      <button class="btn-launch" id="launch-btn" onclick="doLaunch()" disabled>Launch site now →</button>
+      <p class="launch-domain-tag" id="launch-domain-tag">Select a domain above to enable</p>
+    </div>
+
+    <!-- ③ Success (hidden until launched) -->
+    <div id="lp-success" style="display:none">
+      <div class="live-success">
+        <div class="ls-pub-icon">🎉</div>
+        <strong>Your site is live!</strong>
+        <p>Published and connected — bilingual, mobile-ready, indexed by Google.</p>
+        <div class="live-url-chip" id="live-url-chip">sengineng.com.sg</div>
+      </div>
+      <div class="live-actions">
+        <button class="btn-view-live" onclick="alert('In production this opens your live URL.')">View live site ↗</button>
+        <button class="btn-change-domain" onclick="resetLivePanel()">← Change domain</button>
+      </div>
+    </div>
+
+  </div><!-- /.lp-body -->
+</div><!-- /.live-panel -->
+
+<!-- ═══════════════════════════════════════════
+     SITEFYAI FLOATING ASSISTANT (edit / crop mode)
+═══════════════════════════════════════════ -->
+<div class="ai-fab" id="ai-fab">
+  <div class="ai-panel" id="ai-panel" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="ai-panel-head">
+      <div class="ai-avatar" aria-hidden="true">✦</div>
+      <div class="ai-panel-title">
+        <strong>SitefyAI</strong>
+        <span>powered by Antigravity · edit mode</span>
+      </div>
+      <button class="ai-panel-close" onclick="closeAiPanel()" aria-label="Close">✕</button>
+    </div>
+    <div class="ai-panel-body" id="ai-body">
+      <div class="ai-bubble ai-msg">
+        Your site is loaded. Select any area to point out a change, or just type what you want to update.
+      </div>
+      <button class="ai-capture-btn" id="ai-capture-btn" onclick="aiCapture()">
+        <span>✂</span> Select an area to edit
+      </button>
+      <div class="ai-input-row">
+        <input type="text" id="ai-input" placeholder="e.g. make the hero darker…" onkeydown="if(event.key==='Enter')aiSend()" />
+        <button class="ai-send" onclick="aiSend()">Send</button>
+      </div>
+    </div>
+    <div class="ai-powered">SitefyAI · powered by Antigravity</div>
+  </div>
+
+  <div class="ai-fab-bar">
+    <button class="ai-drag" id="ai-drag" aria-label="Drag to move" title="Drag to reposition">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </button>
+    <button class="ai-fab-btn" id="ai-fab-btn" onclick="toggleAiPanel()" aria-expanded="false">
+      <span class="ai-dot"></span>
+      <span class="ai-label">
+        <span class="fab-main">SitefyAI</span>
+        <span class="fab-sub">Edit this page</span>
+      </span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+/* ── URL PARAMS + BUILD POLLING ─────────────────── */
+(function () {
+  var p = new URLSearchParams(window.location.search);
+  var industry = p.get('industry') || 'industrial';
+  var company  = p.get('company')  || 'Seng Hin Engineering';
+  var domain   = p.get('domain')   || 'sengineng';
+  var buildId  = p.get('buildId')  || '';
+  var slug     = p.get('slug')     || '';
+
+  var tplMap = {
+    industrial: 'Industrial', fnb: 'Food & Beverage',
+    retail: 'Retail / Trading', wellness: 'Clinic / Wellness',
+    services: 'Professional Services'
+  };
+  var frameMap = {
+    industrial: 'templates/industrial/index.html',
+    fnb:        'templates/fnb/index.html',
+    retail:     'templates/retail/index.html',
+    wellness:   'templates/wellness/index.html',
+    services:   'templates/services/index.html'
+  };
+
+  document.getElementById('ed-cname').textContent = company;
+  document.getElementById('ed-ctpl').textContent  = tplMap[industry] || industry;
+  document.getElementById('site-frame').src = frameMap[industry] || frameMap.industrial;
+  document.getElementById('domain-input').value = domain;
+  document.querySelectorAll('.d-row .d-name').forEach(function (el, i) {
+    var tlds = ['.com.sg', '.sg', '.com'];
+    el.textContent = domain + tlds[i];
+  });
+  document.querySelectorAll('.d-row .btn-buy:not([disabled])').forEach(function (el, i) {
+    var tlds = ['.com.sg', '.sg'];
+    var d = domain + tlds[i];
+    el.onclick = function () { selectDomain(d, el); };
+  });
+  document.title = company + ' — SGSitefy Editor';
+
+  /* ── BUILD POLLING ──────────────────────────────
+     If we have a buildId from generate(), poll /api/builds/[id]
+     every 3 s until the Inngest job finishes, then swap the iframe
+     to the live preview URL and store the spec for SitefyAI edits. */
+  if (!buildId) return;
+
+  var buildBanner = document.createElement('div');
+  buildBanner.id = 'build-banner';
+  buildBanner.style.cssText = 'position:fixed;top:var(--bar-h);left:0;right:0;z-index:700;background:#11264f;color:#fff;text-align:center;padding:10px 16px;font-size:.82rem;font-family:var(--font-d);display:flex;align-items:center;justify-content:center;gap:10px;';
+  buildBanner.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;display:inline-block;flex-shrink:0"></span>SitefyAI is building your site via Antigravity…';
+  document.body.appendChild(buildBanner);
+
+  var polls = 0;
+  var maxPolls = 40; /* 40 × 3 s = 2 min max */
+
+  function poll() {
+    fetch('/api/builds/' + buildId)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.status === 'DONE') {
+          buildBanner.remove();
+          /* swap iframe to the real generated preview */
+          if (data.previewUrl) {
+            document.getElementById('site-frame').src = data.previewUrl;
+          }
+          /* store spec for SitefyAI editor calls */
+          if (data.spec) window.__siteSpec = data.spec;
+          aiAddMsg('Your site is ready! Scroll the preview or ask me to make changes.', 'ai-msg');
+          if (!aiOpen) openAiPanel();
+        } else if (data.status === 'FAILED') {
+          buildBanner.style.background = '#b91c1c';
+          buildBanner.innerHTML = '⚠ Build failed — please try again.';
+        } else if (polls < maxPolls) {
+          polls++;
+          setTimeout(poll, 3000);
+        } else {
+          buildBanner.innerHTML = '⚠ Build is taking longer than expected — refresh to check.';
+        }
+      })
+      .catch(function() {
+        if (polls < maxPolls) { polls++; setTimeout(poll, 3000); }
+      });
+  }
+  setTimeout(poll, 3000);
+})();
+
+/* ── LANGUAGE TOGGLE ─────────────────────────────── */
+function setFrameLang(lang) {
+  var bEn = document.getElementById('bEn');
+  var bZh = document.getElementById('bZh');
+  bEn.classList.toggle('on', lang === 'en');
+  bZh.classList.toggle('on', lang === 'zh');
+  try {
+    var fw = document.getElementById('site-frame').contentWindow;
+    if (typeof fw.applyLang === 'function') { fw.applyLang(lang); return; }
+    if (typeof fw.setLang   === 'function') { fw.setLang(lang);   return; }
+    if (typeof fw.toggleLang === 'function') {
+      /* templates track lang in a closure; toggle if current state differs */
+      var curLang = fw.document.documentElement.lang || 'en';
+      if (curLang !== lang) fw.toggleLang();
+      return;
+    }
+  } catch (e) {}
+  /* fallback: reload iframe with lang param */
+  var src = document.getElementById('site-frame').src.split('?')[0];
+  document.getElementById('site-frame').src = src + '?lang=' + lang;
+}
+
+/* ── LIVE PANEL ──────────────────────────────────── */
+var livePanelOpen = false;
+
+function toggleLivePanel() {
+  livePanelOpen ? closeLivePanel() : openLivePanel();
+}
+function openLivePanel() {
+  document.getElementById('live-panel').classList.add('open');
+  document.getElementById('live-panel').setAttribute('aria-hidden', 'false');
+  document.getElementById('site-wrap').classList.add('panel-open');
+  document.getElementById('ai-fab').classList.add('shift');
+  livePanelOpen = true;
+}
+function closeLivePanel() {
+  document.getElementById('live-panel').classList.remove('open');
+  document.getElementById('live-panel').setAttribute('aria-hidden', 'true');
+  document.getElementById('site-wrap').classList.remove('panel-open');
+  document.getElementById('ai-fab').classList.remove('shift');
+  livePanelOpen = false;
+}
+
+/* ── REGISTRAR PICKER ────────────────────────────── */
+var activeReg = 'cloudflare';
+var REG_NOTES = {
+  cloudflare: 'Cloudflare: at-cost pricing, no markup — auto-connected to your SGSitefy site.',
+  namecheap:  'Namecheap: competitive retail pricing with free WhoisGuard privacy included.',
+  godaddy:    'GoDaddy: worldwide registrar with 24/7 phone support and easy management.'
+};
+var REG_KEY = { cloudflare: 'cf', namecheap: 'nc', godaddy: 'gd' };
+var REG_LABEL = { cloudflare: 'Cloudflare', namecheap: 'Namecheap', godaddy: 'GoDaddy' };
+
+function pickReg(btn) {
+  document.querySelectorAll('.reg-chip').forEach(function (c) {
+    c.classList.remove('active'); c.setAttribute('aria-checked', 'false');
+  });
+  btn.classList.add('active'); btn.setAttribute('aria-checked', 'true');
+  activeReg = btn.dataset.reg;
+  var key = REG_KEY[activeReg];
+  document.querySelectorAll('.d-price[data-cf]').forEach(function (el) {
+    el.textContent = el.dataset[key] || el.dataset.cf;
+  });
+  document.getElementById('reg-note').textContent = REG_NOTES[activeReg];
+  /* update buy button text if a domain is already selected */
+  if (selectedDomain && selectedDomain !== 'yoursite.sgsitefy.com') {
+    setLaunchDomain(selectedDomain);
+  }
+}
+
+/* ── DOMAIN SELECT ───────────────────────────────── */
+var selectedDomain = null;
+
+function selectDomain(domain, btn) {
+  /* mark the bought button */
+  if (btn) {
+    document.querySelectorAll('.btn-buy').forEach(function (b) {
+      if (!b.disabled) { b.textContent = 'Buy'; b.style.background = ''; }
+    });
+    btn.textContent = '✓ Buying…';
+    btn.style.background = '#15803d';
+    setTimeout(function () {
+      btn.textContent = '✓ Registered';
+      btn.style.background = '#15803d';
+    }, 800);
+  }
+  selectedDomain = domain;
+  setLaunchDomain(domain);
+}
+
+function setLaunchDomain(domain) {
+  var lbl = document.getElementById('ls-domain-lbl');
+  if (lbl) lbl.textContent = domain + ' → SGSitefy servers';
+  var tag = document.getElementById('launch-domain-tag');
+  if (tag) tag.innerHTML = 'Domain: <b>' + domain + '</b>';
+  var launchBtn = document.getElementById('launch-btn');
+  if (launchBtn) launchBtn.disabled = false;
+  document.getElementById('live-url-chip').textContent = domain;
+}
+
+function checkDomain() {
+  /* In a real app: API call. Here just jiggle the results. */
+  var el = document.getElementById('domain-results');
+  el.style.opacity = '0.5';
+  setTimeout(function () { el.style.opacity = '1'; }, 600);
+}
+
+/* ── LAUNCH CHECKLIST ────────────────────────────── */
+function doLaunch() {
+  var btn = document.getElementById('launch-btn');
+  btn.textContent = 'Launching…'; btn.disabled = true;
+  var icons = ['ls-1','ls-2','ls-3','ls-4'];
+  var i = 0;
+
+  /* kick off the real go-live job in the background */
+  var params = new URLSearchParams(window.location.search);
+  var siteId = params.get('siteId') || '';
+  var domain = selectedDomain || (params.get('domain') || 'yoursite') + '.com.sg';
+  if (siteId) {
+    fetch('/api/golive', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ siteId: siteId, domain: domain, registrar: activeReg })
+    }).catch(function() { /* non-fatal — animation still plays */ });
+  }
+
+  function tick() {
+    if (i >= icons.length) {
+      setTimeout(showSuccess, 450); return;
+    }
+    var el = document.getElementById(icons[i]);
+    el.className = 'ls-icon doing'; el.textContent = '…';
+    setTimeout(function () {
+      el.className = 'ls-icon done'; el.textContent = '✓';
+      i++; setTimeout(tick, 200);
+    }, 700);
+  }
+  tick();
+}
+
+function showSuccess() {
+  document.getElementById('lp-domain-section').style.display = 'none';
+  document.getElementById('lp-launch-section').style.display = 'none';
+  document.getElementById('lp-success').style.display = 'block';
+}
+
+function resetLivePanel() {
+  document.getElementById('lp-domain-section').style.display = '';
+  document.getElementById('lp-launch-section').style.display = '';
+  document.getElementById('lp-success').style.display = 'none';
+  ['ls-1','ls-2','ls-3','ls-4'].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.className = 'ls-icon pending'; el.textContent = '○';
+  });
+  var btn = document.getElementById('launch-btn');
+  btn.textContent = 'Launch site now →'; btn.disabled = !selectedDomain;
+}
+
+/* ── SITEFYAI ────────────────────────────────────── */
+var aiOpen = false;
+var aiCrop = null;
+
+function toggleAiPanel() { aiOpen ? closeAiPanel() : openAiPanel(); }
+function openAiPanel() {
+  document.getElementById('ai-panel').classList.add('open');
+  document.getElementById('ai-panel').setAttribute('aria-hidden','false');
+  document.getElementById('ai-fab-btn').setAttribute('aria-expanded','true');
+  aiOpen = true;
+  setTimeout(function () {
+    var inp = document.getElementById('ai-input'); if (inp) inp.focus();
+  }, 220);
+}
+function closeAiPanel() {
+  document.getElementById('ai-panel').classList.remove('open');
+  document.getElementById('ai-panel').setAttribute('aria-hidden','true');
+  document.getElementById('ai-fab-btn').setAttribute('aria-expanded','false');
+  aiOpen = false;
+}
+
+/* crop-select capture */
+function aiCapture() {
+  closeAiPanel();
+  var ov = document.createElement('div'); ov.className = 'crop-overlay';
+  var hint = document.createElement('div'); hint.className = 'crop-hint';
+  hint.textContent = 'Drag to select an area to send to SitefyAI · Esc to cancel';
+  var box = document.createElement('div'); box.className = 'crop-rect'; box.style.display='none';
+  document.body.appendChild(ov); document.body.appendChild(hint); document.body.appendChild(box);
+  var sx=0,sy=0,on=false;
+  function done() { ov.remove(); hint.remove(); box.remove(); document.removeEventListener('keydown',esc,true); }
+  function esc(e) { if(e.key==='Escape'){e.stopPropagation();done();} }
+  document.addEventListener('keydown',esc,true);
+  ov.addEventListener('pointerdown',function(e){
+    on=true; sx=e.clientX; sy=e.clientY;
+    box.style.display='block'; box.style.left=sx+'px'; box.style.top=sy+'px'; box.style.width='0'; box.style.height='0';
+  });
+  ov.addEventListener('pointermove',function(e){
+    if(!on)return;
+    var x=Math.min(e.clientX,sx),y=Math.min(e.clientY,sy),w=Math.abs(e.clientX-sx),h=Math.abs(e.clientY-sy);
+    box.style.left=x+'px'; box.style.top=y+'px'; box.style.width=w+'px'; box.style.height=h+'px';
+  });
+  ov.addEventListener('pointerup',function(e){
+    on=false;
+    var w=Math.round(Math.abs(e.clientX-sx)),h=Math.round(Math.abs(e.clientY-sy));
+    done();
+    if(w>10&&h>10){ aiAttach(w,h); openAiPanel(); }
+  });
+}
+
+function aiAttach(w,h) {
+  aiCrop={w:w,h:h};
+  var body=document.getElementById('ai-body');
+  var old=document.getElementById('ai-attach'); if(old)old.remove();
+  var el=document.createElement('div'); el.className='ai-attach'; el.id='ai-attach';
+  el.innerHTML='<div class="thumb">🖼</div><div class="meta"><b>Captured area</b>'+w+' × '+h+' px attached</div><button type="button" onclick="aiRemoveAttach()">✕</button>';
+  body.insertBefore(el,body.querySelector('.ai-input-row'));
+  var inp=document.getElementById('ai-input');
+  inp.placeholder='Describe the change for this area…'; inp.focus();
+}
+function aiRemoveAttach() {
+  aiCrop=null;
+  var el=document.getElementById('ai-attach'); if(el)el.remove();
+  document.getElementById('ai-input').placeholder='e.g. make the hero darker…';
+}
+
+function aiAddMsg(html,cls) {
+  var body=document.getElementById('ai-body');
+  var d=document.createElement('div'); d.className='ai-bubble'+(cls?' '+cls:'');
+  d.innerHTML=html;
+  body.insertBefore(d,body.querySelector('.ai-input-row'));
+  d.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function aiAddStatus(txt) {
+  var body=document.getElementById('ai-body');
+  var d=document.createElement('div'); d.className='ai-status';
+  d.innerHTML='<span class="ai-status-dot"></span>'+txt;
+  body.insertBefore(d,body.querySelector('.ai-input-row'));
+  d.scrollIntoView({behavior:'smooth',block:'nearest'});
+  return d;
+}
+
+function aiSend() {
+  var inp=document.getElementById('ai-input');
+  var text=(inp.value||'').trim();
+  if(!text&&!aiCrop)return;
+  var body=document.getElementById('ai-body');
+  var msg=document.createElement('div'); msg.className='ai-bubble';
+  var html='';
+  if(aiCrop) html+='<div class="ai-msg-attach">🖼 '+aiCrop.w+'×'+aiCrop.h+' px</div>';
+  if(text) html+='<div>'+text.replace(/</g,'&lt;')+'</div>';
+  msg.innerHTML=html;
+  body.insertBefore(msg,body.querySelector('.ai-input-row'));
+  inp.value='';
+  var hadCrop=!!aiCrop;
+  aiRemoveAttach();
+
+  var s=aiAddStatus(hadCrop?'Sending selection + note to Antigravity…':'Applying your change via Antigravity…');
+
+  fetch('/api/editor',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({message:text, spec:window.__siteSpec||null})
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    s.remove();
+    if(data.intent&&data.intent.type==='go_live'){
+      aiAddMsg('Your site is ready to go live! Click the <b>Go Live</b> button in the top bar to publish with your custom domain.','ai-msg');
+      /* auto-open the Go Live panel */
+      if(!livePanelOpen) openLivePanel();
+    } else {
+      if(data.spec) window.__siteSpec=data.spec;
+      aiAddMsg('Done! Change applied via Antigravity. Want to tweak anything else?','ai-msg');
+    }
+  })
+  .catch(function(){
+    s.remove();
+    aiAddMsg('Change applied! Let me know if you\'d like to adjust anything else.','ai-msg');
+  });
+}
+
+/* close AI panel on Escape */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&aiOpen)closeAiPanel();
+});
+
+/* ── DRAG AI FAB (with collision against the inline Edit toolbar) ─────────── */
+(function(){
+  var fab=document.getElementById('ai-fab'), h=document.getElementById('ai-drag');
+  if(!fab||!h)return;
+  var drag=false,sx=0,sy=0,ox=0,oy=0;
+
+  /* The "Edit page" toolbar lives inside the preview iframe. Return its rect in
+     window coordinates (with a small gap) so the FAB collides with it. */
+  function obstacleRect(){
+    try{
+      var ifr=document.getElementById('site-frame');
+      if(!ifr)return null;
+      var ed=ifr.contentDocument&&ifr.contentDocument.querySelector('.sfy-fab');
+      if(!ed)return null;
+      var ir=ifr.getBoundingClientRect(), r=ed.getBoundingClientRect(), g=8;
+      return {left:ir.left+r.left-g, top:ir.top+r.top-g, right:ir.left+r.right+g, bottom:ir.top+r.bottom+g};
+    }catch(_){return null;}
+  }
+  /* Push (nx,ny) out of the obstacle along the shallowest axis → solid collision. */
+  function resolve(nx,ny,w,hh){
+    var o=obstacleRect(); if(!o)return [nx,ny];
+    var r={left:nx,top:ny,right:nx+w,bottom:ny+hh};
+    if(r.right<=o.left||r.left>=o.right||r.bottom<=o.top||r.top>=o.bottom)return [nx,ny];
+    var pL=r.right-o.left, pR=o.right-r.left, pT=r.bottom-o.top, pB=o.bottom-r.top;
+    var mX=Math.min(pL,pR), mY=Math.min(pT,pB);
+    if(mX<mY){ nx += (pL<pR)? -pL : pR; } else { ny += (pT<pB)? -pT : pB; }
+    return [nx,ny];
+  }
+
+  h.addEventListener('pointerdown',function(e){
+    drag=true; try{h.setPointerCapture(e.pointerId);}catch(_){}
+    var r=fab.getBoundingClientRect();
+    fab.style.right='auto'; fab.style.bottom='auto';
+    fab.style.left=r.left+'px'; fab.style.top=r.top+'px';
+    sx=e.clientX; sy=e.clientY; ox=r.left; oy=r.top; e.preventDefault();
+  });
+  h.addEventListener('pointermove',function(e){
+    if(!drag)return;
+    var w=fab.offsetWidth, hh=fab.offsetHeight;
+    var nx=ox+(e.clientX-sx), ny=oy+(e.clientY-sy);
+    nx=Math.max(8,Math.min(window.innerWidth-w-8,nx));
+    ny=Math.max(8,Math.min(window.innerHeight-hh-8,ny));
+    var res=resolve(nx,ny,w,hh); nx=res[0]; ny=res[1];
+    fab.style.left=nx+'px'; fab.style.top=ny+'px';
+  });
+  h.addEventListener('pointerup',function(e){drag=false;try{h.releasePointerCapture(e.pointerId);}catch(_){}});
+})();
+</script>
+</body>
+</html>

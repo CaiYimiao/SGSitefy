@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Firm" data-zh="联系 — 事务所">Contact — Firm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Atelier" data-zh="工作室">The Atelier</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="masthead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p>
+    <h1 data-slot="contact.headline" data-en="Let's begin." data-zh="让我们开始。">Let's begin.</h1>
+    <p class="lead" data-slot="contact.sub" data-en="Page lead — tell them what to send and the response time." data-zh="页面引文 — 请提供的信息与回复时间。">Page lead — tell them what to send and the response time.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Studio" data-zh="工作室">Studio</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 9am–6pm" data-zh="周一至周五 9:00–18:00">Mon–Fri, 9am–6pm</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="About the project" data-zh="关于项目">About the project</span><textarea rows="5"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send Brief" data-zh="发送需求">Send Brief</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="The Atelier — Brand & Strategy" data-zh="工作室 — 品牌与策略">The Atelier — Brand &amp; Strategy</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

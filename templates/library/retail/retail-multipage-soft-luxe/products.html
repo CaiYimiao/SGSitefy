@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Maison — Collection" data-zh="名店 — 系列">Maison — Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-en="MAISON" data-zh="名店">MAISON</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" aria-current="page" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phead">
+  <span class="kick" data-slot="phead.kick" data-en="The collection" data-zh="本季系列">The collection</span>
+  <h1 data-slot="phead.title" data-rich data-en="Pieces, <em>chosen with care</em>" data-zh="精心<em>甄选之作</em>">Pieces, <em>chosen with care</em></h1>
+  <p data-slot="phead.lede" data-en="One refined sentence on the range and what ties the collection together." data-zh="一句优雅的话，介绍系列所涵，以及贯穿其间的那条线索。">One refined sentence on the range and what ties the collection together.</p>
+</section>
+
+<section class="wrap sec">
+  <div class="pgrid" data-slot="products" data-min="4" data-max="6">
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp1/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="New" data-zh="新品">New</span><h3 data-en="Piece One" data-zh="作品一">Piece One</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp2/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="Signature" data-zh="招牌">Signature</span><h3 data-en="Piece Two" data-zh="作品二">Piece Two</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp3/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="Limited" data-zh="限量">Limited</span><h3 data-en="Piece Three" data-zh="作品三">Piece Three</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp4/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="Atelier" data-zh="工坊">Atelier</span><h3 data-en="Piece Four" data-zh="作品四">Piece Four</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp5/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="New" data-zh="新品">New</span><h3 data-en="Piece Five" data-zh="作品五">Piece Five</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+    <article class="pcard"><figure><img src="https://picsum.photos/seed/luxp6/600/740" data-en-alt="Piece" data-zh-alt="作品" alt="Piece"></figure><div class="meta"><div><span class="tag" data-en="Signature" data-zh="招牌">Signature</span><h3 data-en="Piece Six" data-zh="作品六">Piece Six</h3></div><span class="pr" data-en="$000" data-zh="¥000">$000</span></div></article>
+  </div>
+</section>
+
+<section class="band">
+  <blockquote data-slot="products.note" data-en="“Made to order on request — speak with us about bespoke pieces.”" data-zh="“可应需定制 — 欢迎与我们洽谈专属之作。”">“Made to order on request — speak with us about bespoke pieces.”</blockquote>
+  <cite><a href="contact.html" data-slot="products.cta" data-en="Enquire →" data-zh="洽询 →">Enquire →</a></cite>
+</section>
+</main>
+<footer>
+  <div class="fcols">
+    <span class="fbrand" data-slot="footer.brand" data-en="MAISON" data-zh="名店">MAISON</span>
+    <nav aria-label="Footer">
+      <a href="index.html" data-slot="footer.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="footer.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="footer.about" data-en="Maison" data-zh="关于">Maison</a>
+      <a href="contact.html" data-slot="footer.contact" data-en="Visit" data-zh="到店">Visit</a>
+    </nav>
+  </div>
+  <div class="fbot">
+    <span data-slot="footer.copy" data-en="© Maison Name, Singapore" data-zh="© 名店，新加坡">© Maison Name, Singapore</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

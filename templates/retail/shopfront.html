@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShopFront Boutique — Fashion & Lifestyle, ION Orchard Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#4c1d95; --primary-d:#3b1273; --primary-l:#6d28d9;
+  --accent:#f9a8d4; --accent-d:#ec4899;
+  --bg:#faf5ff; --ink:#2e1065; --muted:#7c6ba0; --line:#ede0fb; --white:#fff;
+  --maxw:1180px; --shadow:0 18px 50px rgba(76,29,149,.14);
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.1;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:999px;padding:13px 26px;font-family:var(--fh);font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:.22s}
+.btn-pri{background:var(--primary);color:#fff}.btn-pri:hover{background:var(--primary-d);transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--primary-d)}.btn-accent:hover{background:#f7c9e3;transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff}.btn-ghost:hover{background:#fff;color:var(--primary)}
+.eyebrow{font-family:var(--fh);text-transform:uppercase;letter-spacing:3px;color:var(--accent-d);font-weight:700;font-size:.8rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent-d)}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.sec{padding:78px 0}
+.lead{color:var(--muted);margin-top:10px;max-width:660px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+/* NAV */
+.header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 2px 18px rgba(76,29,149,.08)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mk{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-l));color:var(--accent);display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.05rem}
+.brand b{font-family:var(--fh);color:var(--primary);font-size:1.1rem;letter-spacing:1px;display:block;line-height:1}
+.brand small{font-size:.6rem;color:var(--muted);letter-spacing:3px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fh);font-weight:600;text-transform:uppercase;font-size:.78rem;letter-spacing:.5px;color:var(--ink);padding:10px 13px;border-radius:999px}
+.nav>a:hover{background:var(--bg);color:var(--primary)}
+.lang{border:1.5px solid var(--primary);background:#fff;color:var(--primary);font-family:var(--fh);font-weight:700;font-size:.72rem;padding:7px 12px;border-radius:999px;cursor:pointer;margin-left:6px}
+.lang:hover{background:var(--primary);color:#fff}
+.nav-cta{background:var(--primary);color:#fff!important;border-radius:999px;padding:10px 18px!important;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;margin-left:6px;transition:.2s}
+.nav-cta:hover{background:var(--primary-d)!important}
+.burger{display:none;background:none;border:none;font-size:1.5rem;color:var(--primary);cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;background:var(--primary-d)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.46}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(46,16,101,.86),rgba(76,29,149,.42) 60%,rgba(249,168,212,.18) 100%)}
+.hero-in{position:relative;z-index:3;width:100%}
+.hero-card{max-width:660px;color:#fff}
+.hero-card .eyebrow{color:var(--accent)}
+.hero-card h1{font-size:3.4rem;color:#fff}.hero-card h1 .r{color:var(--accent)}
+.hero-card p{margin:18px 0 28px;font-size:1.15rem;color:#ede0fb;max-width:520px}
+
+/* CATEGORY PILLS */
+.pills-sec{background:#fff;border-bottom:1px solid var(--line)}
+.pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:30px 0}
+.pill{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:11px 22px;font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--primary);letter-spacing:.5px;cursor:pointer;transition:.2s}
+.pill:hover,.pill.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* PRODUCTS */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+.prod-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.3s}
+.prod-card:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.prod-card .img{position:relative;height:240px;overflow:hidden;background:var(--bg)}
+.prod-card .img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.prod-card:hover .img img{transform:scale(1.07)}
+.prod-card .badge{position:absolute;top:12px;left:12px;background:var(--accent);color:var(--primary-d);font-family:var(--fh);font-weight:800;font-size:.66rem;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.prod-card .body{padding:18px 18px 20px}
+.prod-card .cat{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-d);font-weight:700}
+.prod-card h4{color:var(--primary);font-size:1.04rem;margin:5px 0 8px}
+.prod-card .row{display:flex;align-items:center;justify-content:space-between}
+.prod-card .price{font-family:var(--fh);font-weight:800;font-size:1.12rem;color:var(--ink)}
+.prod-card .cart{width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;border:none;display:grid;place-items:center;cursor:pointer;font-size:1rem;transition:.2s}
+.prod-card .cart:hover{background:var(--accent-d)}
+
+/* ABOUT */
+.about{background:#fff}
+.about .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.about img{width:100%;height:440px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
+.about h2{font-size:2.3rem;color:var(--primary)}
+.about ul{list-style:none;margin:18px 0 0}
+.about li{padding-left:30px;position:relative;margin-bottom:11px;color:var(--ink)}
+.about li::before{content:"✦";position:absolute;left:0;color:var(--accent-d)}
+
+/* WHY */
+.why{background:linear-gradient(135deg,var(--primary-d),var(--primary-l));color:#fff}
+.why .eyebrow{color:var(--accent)}
+.why .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+.why .w{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:28px}
+.why .no{font-family:var(--fh);font-size:1.7rem;font-weight:900;color:var(--accent)}
+.why h4{margin:10px 0 7px;font-size:1.1rem}.why p{color:#e2d6f5;font-size:.92rem}
+
+/* LOOKBOOK */
+.look{background:var(--bg)}
+.look-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.look-grid a{position:relative;border-radius:16px;overflow:hidden;display:block;height:300px}
+.look-grid a:nth-child(1),.look-grid a:nth-child(6){grid-row:span 1}
+.look-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.look-grid a:hover img{transform:scale(1.08)}
+.look-grid a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(76,29,149,.45),transparent 55%)}
+
+/* STORE / LOCATION */
+.store{background:#fff}
+.store .grid{display:grid;grid-template-columns:1fr 1.2fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.store .info{background:linear-gradient(160deg,var(--primary),var(--primary-d));color:#fff;padding:42px}
+.store .info h3{color:var(--accent);font-size:1.5rem;margin-bottom:16px}
+.clist{list-style:none;margin-top:14px}
+.clist li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#ede0fb;font-size:.95rem}
+.clist .ic{width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--primary-d);display:grid;place-items:center;flex-shrink:0;font-size:.9rem}
+.hours-table{width:100%;margin-top:18px;border-collapse:collapse}
+.hours-table td{padding:9px 0;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.1);color:#ede0fb}
+.hours-table td:first-child{color:#fff;font-weight:600}
+.hours-table tr:last-child td{border:none}
+.store iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+
+/* NEWSLETTER */
+.news{background:linear-gradient(135deg,var(--accent),#fbcfe8);text-align:center;padding:64px 0}
+.news h2{color:var(--primary-d);font-size:2.1rem}
+.news p{color:var(--primary);margin:10px auto 24px;max-width:520px}
+.news form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.news input{flex:1;min-width:220px;border:none;border-radius:999px;padding:14px 22px;font-family:inherit;font-size:.95rem;outline:none}
+.news .note{font-size:.78rem;color:var(--primary);margin-top:14px;opacity:.8}
+
+/* CONTACT FORM */
+.contact{background:var(--bg)}
+.contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:start}
+.enq-form{background:#fff;border-radius:20px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;box-shadow:var(--shadow)}
+.enq-form .f{display:flex;flex-direction:column}.enq-form .full{grid-column:1/-1}
+.enq-form label{font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.enq-form input,.enq-form textarea{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:.92rem;color:var(--ink);outline:none;transition:.2s}
+.enq-form input:focus,.enq-form textarea:focus{border-color:var(--primary-l);box-shadow:0 0 0 3px rgba(109,40,217,.12)}
+.contact h2{color:var(--primary);font-size:2.1rem}
+
+/* FOOTER */
+.foot{background:var(--primary-d);color:#cbb8ec}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1.3fr;gap:34px;padding:56px 0 36px}
+.foot h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.foot .cn{color:var(--accent);letter-spacing:1px;margin:10px 0 6px;font-size:1rem;font-family:var(--fh)}
+.foot a{display:block;color:#cbb8ec;padding:4px 0;font-size:.9rem}.foot a:hover{color:var(--accent)}
+.foot p{font-size:.9rem;margin-bottom:8px;color:#b9a3e0}
+.foot .soc{display:flex;gap:8px;margin:14px 0}
+.foot .soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;padding:0;color:#ede0fb}
+.foot .soc a:hover{background:var(--accent);color:var(--primary-d)}
+.foot .bar{border-top:1px solid rgba(255,255,255,.12)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 24px;font-size:.8rem;color:#9d85c7;flex-wrap:wrap;gap:8px}
+
+/* FAB */
+.fab{position:fixed;right:20px;z-index:70;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;border:none;color:#fff;font-size:1.4rem}
+.fab-wa{bottom:84px;background:#25d366}
+.fab-top{bottom:20px;background:var(--primary);opacity:0;pointer-events:none;transition:.3s}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .nav{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:10px;box-shadow:var(--shadow);z-index:79}
+  .nav.open{display:flex}.burger{display:block}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .about .grid{grid-template-columns:1fr}.why .wgrid{grid-template-columns:1fr}
+  .look-grid{grid-template-columns:repeat(2,1fr)}.store .grid{grid-template-columns:1fr}
+  .contact .grid{grid-template-columns:1fr}.enq-form{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .hero-card h1{font-size:2.3rem}
+}
+@media(max-width:600px){
+  .prod-grid{grid-template-columns:1fr}.look-grid{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="mk">SF</span>
+    <span><b data-en="SHOPFRONT" data-zh="时尚精品">SHOPFRONT</b><small data-en="BOUTIQUE" data-zh="精品店">BOUTIQUE</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#shop" data-en="Shop" data-zh="选购">Shop</a>
+    <a href="#about" data-en="About" data-zh="关于">About</a>
+    <a href="#lookbook" data-en="Lookbook" data-zh="造型图集">Lookbook</a>
+    <a href="#visit" data-en="Visit" data-zh="到店">Visit</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#shop" class="nav-cta" data-en="Shop Now" data-zh="立即选购">Shop Now</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img src="https://picsum.photos/seed/shopfront-hero/1600/1000" alt="Fashion boutique lifestyle">
+  <div class="hero-in"><div class="wrap"><div class="hero-card">
+    <p class="eyebrow" data-en="Fashion · Lifestyle · ION Orchard · Since 2016" data-zh="时尚 · 生活方式 · ION Orchard · 创立于 2016 年">Fashion · Lifestyle · ION Orchard · Since 2016</p>
+    <h1 data-rich
+      data-en="Curated style for <span class='r'>everyday icons</span>"
+      data-zh="为<span class='r'>日常焦点</span>而生的精选时尚">Curated style for <span class="r">everyday icons</span></h1>
+    <p data-en="Hand-picked fashion, accessories and lifestyle pieces — discover the season's edit at ION Orchard." data-zh="精选时装、配饰与生活好物——在 ION Orchard 探索本季精选系列。">Hand-picked fashion, accessories and lifestyle pieces — discover the season's edit at ION Orchard.</p>
+    <a href="#shop" class="btn btn-accent" data-en="Shop the Edit" data-zh="选购精选">Shop the Edit</a>
+    <a href="#lookbook" class="btn btn-ghost" data-en="View Lookbook" data-zh="查看造型">View Lookbook</a>
+  </div></div></div>
+</section>
+
+<!-- CATEGORY PILLS -->
+<section class="pills-sec"><div class="wrap">
+  <div class="pills">
+    <button class="pill active" data-en="All" data-zh="全部">All</button>
+    <button class="pill" data-en="New Arrivals" data-zh="新品上架">New Arrivals</button>
+    <button class="pill" data-en="Dresses" data-zh="连衣裙">Dresses</button>
+    <button class="pill" data-en="Tops" data-zh="上衣">Tops</button>
+    <button class="pill" data-en="Bags" data-zh="包袋">Bags</button>
+    <button class="pill" data-en="Accessories" data-zh="配饰">Accessories</button>
+    <button class="pill" data-en="Footwear" data-zh="鞋履">Footwear</button>
+  </div>
+</div></section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="sec center" id="shop"><div class="wrap">
+  <p class="eyebrow" data-en="Featured Products" data-zh="精选产品">Featured Products</p>
+  <h2 style="color:var(--primary)" data-en="The season's must-haves" data-zh="本季必入单品">The season's must-haves</h2>
+  <p class="lead" style="margin:10px auto 0;text-align:center" data-en="Fresh pieces selected by our stylists — updated every week." data-zh="由我们的造型师每周精选上新。">Fresh pieces selected by our stylists — updated every week.</p>
+  <div class="prod-grid reveal">
+    <div class="prod-card">
+      <div class="img"><span class="badge" data-en="New" data-zh="新品">New</span><img src="https://picsum.photos/seed/sf-prod1/600/700" alt="Linen wrap dress"></div>
+      <div class="body">
+        <span class="cat" data-en="Dresses" data-zh="连衣裙">Dresses</span>
+        <h4 data-en="Lille Linen Wrap Dress" data-zh="莉尔亚麻裹身连衣裙">Lille Linen Wrap Dress</h4>
+        <div class="row"><span class="price">S$129</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><span class="badge" data-en="New" data-zh="新品">New</span><img src="https://picsum.photos/seed/sf-prod2/600/700" alt="Silk blouse"></div>
+      <div class="body">
+        <span class="cat" data-en="Tops" data-zh="上衣">Tops</span>
+        <h4 data-en="Aria Silk-Blend Blouse" data-zh="艾莉亚真丝混纺衬衫">Aria Silk-Blend Blouse</h4>
+        <div class="row"><span class="price">S$89</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><span class="badge" data-en="Bestseller" data-zh="畅销">Bestseller</span><img src="https://picsum.photos/seed/sf-prod3/600/700" alt="Leather tote"></div>
+      <div class="body">
+        <span class="cat" data-en="Bags" data-zh="包袋">Bags</span>
+        <h4 data-en="Meri Structured Leather Tote" data-zh="梅里结构皮革托特包">Meri Structured Leather Tote</h4>
+        <div class="row"><span class="price">S$245</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><img src="https://picsum.photos/seed/sf-prod4/600/700" alt="Gold hoop earrings"></div>
+      <div class="body">
+        <span class="cat" data-en="Accessories" data-zh="配饰">Accessories</span>
+        <h4 data-en="Lumi Gold Hoop Earrings" data-zh="露米金色圈形耳环">Lumi Gold Hoop Earrings</h4>
+        <div class="row"><span class="price">S$59</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><span class="badge" data-en="New" data-zh="新品">New</span><img src="https://picsum.photos/seed/sf-prod5/600/700" alt="Pleated midi skirt"></div>
+      <div class="body">
+        <span class="cat" data-en="New Arrivals" data-zh="新品上架">New Arrivals</span>
+        <h4 data-en="Noa Pleated Midi Skirt" data-zh="诺亚百褶中长裙">Noa Pleated Midi Skirt</h4>
+        <div class="row"><span class="price">S$98</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><img src="https://picsum.photos/seed/sf-prod6/600/700" alt="Strappy heeled sandals"></div>
+      <div class="body">
+        <span class="cat" data-en="Footwear" data-zh="鞋履">Footwear</span>
+        <h4 data-en="Cleo Strappy Heeled Sandals" data-zh="克莉奥系带高跟凉鞋">Cleo Strappy Heeled Sandals</h4>
+        <div class="row"><span class="price">S$139</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><span class="badge" data-en="Bestseller" data-zh="畅销">Bestseller</span><img src="https://picsum.photos/seed/sf-prod7/600/700" alt="Oversized blazer"></div>
+      <div class="body">
+        <span class="cat" data-en="Tops" data-zh="上衣">Tops</span>
+        <h4 data-en="Vera Oversized Tailored Blazer" data-zh="薇拉宽肩剪裁西装外套">Vera Oversized Tailored Blazer</h4>
+        <div class="row"><span class="price">S$185</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="img"><img src="https://picsum.photos/seed/sf-prod8/600/700" alt="Silk scarf"></div>
+      <div class="body">
+        <span class="cat" data-en="Accessories" data-zh="配饰">Accessories</span>
+        <h4 data-en="Isla Printed Silk Scarf" data-zh="伊斯拉印花真丝丝巾">Isla Printed Silk Scarf</h4>
+        <div class="row"><span class="price">S$69</span><button class="cart" aria-label="Add to cart">+</button></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ABOUT -->
+<section class="sec about" id="about"><div class="wrap"><div class="grid">
+  <div class="reveal"><img src="https://picsum.photos/seed/sf-about/900/700" alt="Inside the boutique"></div>
+  <div>
+    <p class="eyebrow" data-en="Our Boutique" data-zh="关于我们">Our Boutique</p>
+    <h2 data-en="A little corner of Orchard, styled just for you" data-zh="乌节路的一隅，为你而设计">A little corner of Orchard, styled just for you</h2>
+    <p class="lead" data-en="Since 2016, ShopFront Boutique has brought a thoughtfully curated mix of fashion and lifestyle pieces to the heart of ION Orchard. We believe great style is personal — so every rack is hand-edited by our team." data-zh="自 2016 年以来，时尚精品店在 ION Orchard 的核心地带为顾客带来精心挑选的时装与生活方式单品。我们相信好的风格是私人的——因此每一个货架都由我们的团队亲手编选。">Since 2016, ShopFront Boutique has brought a thoughtfully curated mix of fashion and lifestyle pieces to the heart of ION Orchard. We believe great style is personal — so every rack is hand-edited by our team.</p>
+    <ul>
+      <li data-en="Independent labels &amp; emerging designers" data-zh="独立品牌与新锐设计师">Independent labels &amp; emerging designers</li>
+      <li data-en="Complimentary in-store personal styling" data-zh="店内免费个人造型服务">Complimentary in-store personal styling</li>
+      <li data-en="New arrivals dropped every week" data-zh="每周上新">New arrivals dropped every week</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<!-- WHY SHOP WITH US -->
+<section class="sec why"><div class="wrap">
+  <p class="eyebrow" data-en="Why Shop With Us" data-zh="为何选择我们">Why Shop With Us</p>
+  <h2 style="color:#fff" data-en="More than a shop — a styling experience" data-zh="不只是购物——更是一场造型体验">More than a shop — a styling experience</h2>
+  <div class="wgrid">
+    <div class="w reveal"><div class="no">01</div><h4 data-en="Curated, not crowded" data-zh="精选而非堆砌">Curated, not crowded</h4><p data-en="Every piece earns its place — no filler, only the season's best." data-zh="每一件单品都物有所值——只有本季精品，绝无凑数。">Every piece earns its place — no filler, only the season's best.</p></div>
+    <div class="w reveal"><div class="no">02</div><h4 data-en="Free personal styling" data-zh="免费个人造型">Free personal styling</h4><p data-en="Book a session and let our stylists build a look that's all you." data-zh="预约造型师，为你打造专属于你的造型。">Book a session and let our stylists build a look that's all you.</p></div>
+    <div class="w reveal"><div class="no">03</div><h4 data-en="Easy 30-day returns" data-zh="30天轻松退换">Easy 30-day returns</h4><p data-en="Changed your mind? Return in-store within 30 days, no fuss." data-zh="改变主意？30 天内到店退换，毫无烦恼。">Changed your mind? Return in-store within 30 days, no fuss.</p></div>
+    <div class="w reveal"><div class="no">04</div><h4 data-en="Members earn rewards" data-zh="会员积分回馈">Members earn rewards</h4><p data-en="Join free and earn points on every purchase, online or in-store." data-zh="免费加入，线上线下消费皆可累积积分。">Join free and earn points on every purchase, online or in-store.</p></div>
+    <div class="w reveal"><div class="no">05</div><h4 data-en="Island-wide delivery" data-zh="全岛配送">Island-wide delivery</h4><p data-en="Free delivery on orders over S$120 — anywhere in Singapore." data-zh="订单满 S$120 即可享全岛免费配送。">Free delivery on orders over S$120 — anywhere in Singapore.</p></div>
+    <div class="w reveal"><div class="no">06</div><h4 data-en="Gift-ready packaging" data-zh="礼品包装">Gift-ready packaging</h4><p data-en="Beautiful boxes and ribbon on request — gifting made effortless." data-zh="可应要求提供精美礼盒与丝带——送礼轻松无忧。">Beautiful boxes and ribbon on request — gifting made effortless.</p></div>
+  </div>
+</div></section>
+
+<!-- LOOKBOOK -->
+<section class="sec look center" id="lookbook"><div class="wrap">
+  <p class="eyebrow" data-en="Lookbook" data-zh="造型图集">Lookbook</p>
+  <h2 style="color:var(--primary)" data-en="This season, styled" data-zh="本季造型一览">This season, styled</h2>
+  <p class="lead" style="margin:10px auto 0;text-align:center" data-en="Outfit inspiration straight from the boutique floor." data-zh="来自精品店的穿搭灵感。">Outfit inspiration straight from the boutique floor.</p>
+  <div class="look-grid reveal">
+    <a href="#"><img src="https://picsum.photos/seed/sf-look1/700/700" alt="Lookbook 1"></a>
+    <a href="#"><img src="https://picsum.photos/seed/sf-look2/700/700" alt="Lookbook 2"></a>
+    <a href="#"><img src="https://picsum.photos/seed/sf-look3/700/700" alt="Lookbook 3"></a>
+    <a href="#"><img src="https://picsum.photos/seed/sf-look4/700/700" alt="Lookbook 4"></a>
+    <a href="#"><img src="https://picsum.photos/seed/sf-look5/700/700" alt="Lookbook 5"></a>
+    <a href="#"><img src="https://picsum.photos/seed/sf-look6/700/700" alt="Lookbook 6"></a>
+  </div>
+</div></section>
+
+<!-- VISIT / STORE -->
+<section class="sec store" id="visit"><div class="wrap center" style="margin-bottom:34px">
+  <p class="eyebrow" data-en="Visit Us" data-zh="到店参观">Visit Us</p>
+  <h2 style="color:var(--primary)" data-en="Find us at ION Orchard" data-zh="在 ION Orchard 找到我们">Find us at ION Orchard</h2>
+</div><div class="wrap"><div class="grid">
+  <div class="info">
+    <h3 data-en="Store Details" data-zh="门店信息">Store Details</h3>
+    <ul class="clist">
+      <li><span class="ic">📍</span><span>2 Orchard Turn, #B2-40 ION Orchard, Singapore 238801</span></li>
+      <li><span class="ic">☎</span><span>+65 6509 8800</span></li>
+      <li><span class="ic">✉</span><span>hello@shopfront.sg</span></li>
+    </ul>
+    <table class="hours-table">
+      <tr><td data-en="Mon – Thu" data-zh="周一至周四">Mon – Thu</td><td>10:30am – 9:30pm</td></tr>
+      <tr><td data-en="Fri – Sat" data-zh="周五至周六">Fri – Sat</td><td>10:30am – 10:00pm</td></tr>
+      <tr><td data-en="Sunday" data-zh="周日">Sunday</td><td>10:30am – 9:30pm</td></tr>
+      <tr><td data-en="Public Holidays" data-zh="公共假期">Public Holidays</td><td data-en="10:30am – 9:30pm" data-zh="10:30 – 21:30">10:30am – 9:30pm</td></tr>
+    </table>
+  </div>
+  <iframe title="Map to ShopFront Boutique" loading="lazy" allowfullscreen
+    src="https://www.google.com/maps?q=ION+Orchard+Singapore&output=embed"></iframe>
+</div></div></section>
+
+<!-- NEWSLETTER -->
+<section class="news">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center;color:var(--primary-d)" data-en="Stay in the Loop" data-zh="订阅资讯">Stay in the Loop</p>
+    <h2 data-en="Get first dibs on new arrivals" data-zh="抢先获取新品资讯">Get first dibs on new arrivals</h2>
+    <p data-en="Subscribe for early access to drops, styling tips and members-only offers." data-zh="订阅以抢先获取上新、穿搭技巧与会员专属优惠。">Subscribe for early access to drops, styling tips and members-only offers.</p>
+    <form onsubmit="return subscribed(event)">
+      <input type="email" required placeholder="you@email.com" data-en-ph="you@email.com" data-zh-ph="你的邮箱" />
+      <button type="submit" class="btn btn-pri" data-en="Subscribe" data-zh="订阅">Subscribe</button>
+    </form>
+    <p class="note" data-en="No spam — just the good stuff. Unsubscribe anytime." data-zh="拒绝垃圾邮件——只发好内容，随时可退订。">No spam — just the good stuff. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact"><div class="wrap"><div class="grid">
+  <div>
+    <p class="eyebrow" data-en="Get in Touch" data-zh="联系我们">Get in Touch</p>
+    <h2 data-en="Questions? We'd love to help" data-zh="有疑问？我们乐意帮忙">Questions? We'd love to help</h2>
+    <p class="lead" data-en="Ask about a product, book a styling session, or just say hello. We reply within one business day." data-zh="咨询产品、预约造型服务，或只是打个招呼。我们将在一个工作日内回复。">Ask about a product, book a styling session, or just say hello. We reply within one business day.</p>
+    <ul class="clist" style="margin-top:20px">
+      <li style="border-color:var(--line);color:var(--ink)"><span class="ic" style="background:var(--primary);color:#fff">📍</span><span>2 Orchard Turn, #B2-40 ION Orchard, Singapore 238801</span></li>
+      <li style="border-color:var(--line);color:var(--ink)"><span class="ic" style="background:var(--primary);color:#fff">☎</span><span>+65 6509 8800</span></li>
+      <li style="border-color:var(--line);color:var(--ink)"><span class="ic" style="background:var(--primary);color:#fff">✉</span><span>hello@shopfront.sg</span></li>
+    </ul>
+  </div>
+  <form class="enq-form" onsubmit="return sent(event)">
+    <div class="f"><label data-en="First Name" data-zh="名字">First Name</label><input type="text" required></div>
+    <div class="f"><label data-en="Last Name" data-zh="姓氏">Last Name</label><input type="text" required></div>
+    <div class="f"><label data-en="Email" data-zh="电子邮箱">Email</label><input type="email" required></div>
+    <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel"></div>
+    <div class="f full"><label data-en="Message" data-zh="留言">Message</label><textarea rows="4" required></textarea></div>
+    <div class="f full"><button type="submit" class="btn btn-pri" data-en="Send Message" data-zh="发送讯息">Send Message</button></div>
+  </form>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">SF</span><span><b style="color:#fff">SHOPFRONT</b><small>BOUTIQUE</small></span></a>
+      <p class="cn">时尚精品店私人有限公司</p>
+      <p data-en="Curated fashion &amp; lifestyle in the heart of ION Orchard, Singapore — since 2016." data-zh="自 2016 年起，坐落于新加坡 ION Orchard 核心地带的精选时尚与生活方式精品店。">Curated fashion &amp; lifestyle in the heart of ION Orchard, Singapore — since 2016.</p>
+      <div class="soc">
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="WhatsApp">✆</a>
+      </div>
+    </div>
+    <div>
+      <h4 data-en="Explore" data-zh="探索">Explore</h4>
+      <a href="#shop" data-en="Shop" data-zh="选购">Shop</a>
+      <a href="#about" data-en="About" data-zh="关于我们">About</a>
+      <a href="#lookbook" data-en="Lookbook" data-zh="造型图集">Lookbook</a>
+      <a href="#visit" data-en="Visit Us" data-zh="到店参观">Visit Us</a>
+      <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    </div>
+    <div>
+      <h4 data-en="Visit the Boutique" data-zh="到店参观">Visit the Boutique</h4>
+      <p>2 Orchard Turn, #B2-40<br>ION Orchard, Singapore 238801</p>
+      <p>Tel: +65 6509 8800<br>hello@shopfront.sg</p>
+      <p data-en="Daily: 10:30am – 9:30pm" data-zh="每日：10:30 – 21:30">Daily: 10:30am – 9:30pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span data-en="© 2026 ShopFront Boutique Pte Ltd · UEN 201622110H" data-zh="© 2026 时尚精品店私人有限公司 · UEN 201622110H">© 2026 ShopFront Boutique Pte Ltd · UEN 201622110H</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang !== 'zh';
+  document.documentElement.lang = zh ? 'zh' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    if(v!==null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-rich]').forEach(function(el){
+    var v = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    if(v!==null) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-en-ph]').forEach(function(el){
+    el.placeholder = zh ? el.getAttribute('data-zh-ph') : el.getAttribute('data-en-ph');
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? 'EN' : '中文'; });
+}
+// category pills active state
+document.querySelectorAll('.pill').forEach(function(p){
+  p.addEventListener('click',function(){
+    document.querySelectorAll('.pill').forEach(function(x){x.classList.remove('active');});
+    p.classList.add('active');
+  });
+});
+// reveal on scroll
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+// back to top
+window.addEventListener('scroll',function(){
+  document.getElementById('toTop').classList.toggle('show', window.scrollY>500);
+});
+// close mobile nav on link click
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open');});
+});
+function sent(e){e.preventDefault();alert(document.documentElement.lang==='zh'?'谢谢！我们会尽快回复您。':'Thank you! We’ll be in touch shortly.');e.target.reset();return false;}
+function subscribed(e){e.preventDefault();alert(document.documentElement.lang==='zh'?'订阅成功！欢迎加入。':'You’re subscribed! Welcome to the edit.');e.target.reset();return false;}
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

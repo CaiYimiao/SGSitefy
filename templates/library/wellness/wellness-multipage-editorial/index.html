@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Clinic Name — editorial wellness clinic" data-zh="诊所名称 — 编辑风格健康诊所">Clinic Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Clinic Name" data-zh="诊所名称">Clinic Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Treatments" data-zh="诊疗">Treatments</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="masthead">
+    <div class="wrap">
+      <div class="kicker"><span data-slot="hero.kicker.l" data-en="Wellness Clinic" data-zh="健康诊所">Wellness Clinic</span><span data-slot="hero.kicker.r" data-en="Est. 2014 · Singapore" data-zh="成立于2014 · 新加坡">Est. 2014 · Singapore</span></div>
+      <h1 data-slot="hero.headline" data-en="Care worth reading about" data-zh="值得细读的健康照护">Care worth reading about</h1>
+      <div class="lead">
+        <p data-slot="hero.lead1" data-en="Placeholder lead paragraph — set the tone of the clinic in an editorial, considered voice over two sentences." data-zh="导言占位文字——以编辑式、讲究的语气，用两句话定下诊所基调。">Placeholder lead.</p>
+        <p data-slot="hero.lead2" data-en="Second lead column placeholder — what makes the practice distinct and human." data-zh="第二列导言占位文字——诊所与众不同且人性化之处。">Second lead.</p>
+      </div>
+    </div>
+    <div class="wrap feature-img"><img src="https://picsum.photos/seed/welled-hero/1500/660" data-slot="hero.image" data-en-alt="Clinic reception" data-zh-alt="诊所前台" alt="Clinic reception"></div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <span data-slot="trust.0" data-en="MOH licensed" data-zh="卫生部认证">MOH licensed</span>
+      <span><b data-slot="trust.1.stat" data-en="12k+" data-zh="1.2万+">12k+</b><span data-slot="trust.1.label" data-en="patients" data-zh="患者">patients</span></span>
+      <span><b data-slot="trust.2.stat" data-en="4.9" data-zh="4.9">4.9</b><span data-slot="trust.2.label" data-en="avg rating" data-zh="平均评分">avg rating</span></span>
+      <span data-slot="trust.3" data-en="CHAS &amp; insurance" data-zh="CHAS 与保险">CHAS &amp; insurance</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow" data-slot="home.about.eyebrow" data-en="The practice" data-zh="关于诊所">The practice</span>
+        <h2 data-slot="home.about.headline" data-en="A clinic that reads the whole person" data-zh="读懂整个人的诊所">A clinic that reads the whole person</h2>
+        <p data-slot="home.about.body" data-en="Placeholder body paragraph introducing the clinic's approach and inviting the reader to learn more on the About page." data-zh="介绍诊所理念的正文占位文字，并邀请读者前往“关于”页面了解更多。">Placeholder body.</p>
+        <a href="about.html" class="btn" data-slot="home.about.cta" data-en="Read our story" data-zh="阅读我们的故事">Read our story</a>
+      </div>
+      <img src="https://picsum.photos/seed/welled-home-about/640/760" data-slot="home.about.image" data-en-alt="Practitioner at work" data-zh-alt="医师工作中" alt="Practitioner at work">
+    </div>
+  </section>
+
+  <section class="bigquote alt">
+    <div class="wrap">
+      <p data-slot="home.quote" data-en="“Placeholder pull-quote — a single resonant sentence that captures the clinic's ethos.”" data-zh="“引文占位——一句能体现诊所精神的有力句子。”">Placeholder quote.</p>
+      <footer data-slot="home.quote.author" data-en="— Founder name, title" data-zh="— 创办人姓名，职衔">— Founder name</footer>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 data-slot="home.cta.headline" data-en="Book your first visit" data-zh="预约首次就诊">Book your first visit</h2>
+      <p data-slot="home.cta.sub" data-en="New patients welcome. Same-day appointments often available." data-zh="欢迎新患者。通常可当天预约。">New patients welcome.</p>
+      <a href="contact.html" class="btn" data-slot="home.cta.button" data-en="Get in touch" data-zh="联系我们">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Clinic Name. All rights reserved." data-zh="© 诊所名称。版权所有。">© Clinic Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

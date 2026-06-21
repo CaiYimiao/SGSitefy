@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title.contact" data-en="Contact — Firm" data-zh="联系 — 事务所">Contact — Firm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Heritage<i>&amp;</i>Partners" data-zh="传承<i>&amp;</i>合伙" data-rich>Heritage<i>&amp;</i>Partners</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" aria-current="page" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="masthead">
+  <div class="wrap">
+    <div class="rule">
+      <span data-en="Contact" data-zh="联系">Contact</span>
+      <span data-slot="contact.mast.right" data-en="By appointment" data-zh="预约洽谈">By appointment</span>
+    </div>
+    <h1 data-slot="contact.headline" data-en="Begin a<br><em>conversation.</em>" data-zh="开启<br><em>一次交谈。</em>" data-rich>Begin a<br><em>conversation.</em></h1>
+    <p class="lead" data-slot="contact.lead" data-en="Contact lead — how to reach the firm and what happens after you write.">Contact lead — how to reach the firm and what happens after you write.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-en="Visit / Write" data-zh="到访 / 来信">Visit / Write</p>
+      <h2 data-slot="contact.heading" data-en="Our chambers." data-zh="事务所地址。">Our chambers.</h2>
+      <p style="margin-top:18px" data-slot="contact.address" data-en="Address line one, Singapore 000000" data-zh="地址第一行，新加坡 000000">Address line one, Singapore 000000</p>
+      <p data-slot="contact.phone" data-en="Tel · +65 0000 0000" data-zh="电话 · +65 0000 0000">Tel · +65 0000 0000</p>
+      <p data-slot="contact.email" data-en="Email · hello@firm.sg" data-zh="邮箱 · hello@firm.sg">Email · hello@firm.sg</p>
+      <p data-slot="contact.hours" data-en="Mon–Fri · 9am–6pm" data-zh="周一至周五 · 上午9点–下午6点" style="color:var(--muted)">Mon–Fri · 9am–6pm</p>
+    </div>
+    <form onsubmit="return false" aria-label="Enquiry form">
+      <div class="field"><label data-en="Name" data-zh="姓名">Name</label><input type="text" data-en-ph="Your name" data-zh-ph="您的姓名" placeholder="Your name"></div>
+      <div class="field"><label data-en="Email" data-zh="邮箱">Email</label><input type="email" data-en-ph="you@email.com" data-zh-ph="you@email.com" placeholder="you@email.com"></div>
+      <div class="field"><label data-en="Matter" data-zh="事项">Matter</label>
+        <select><option data-en="General enquiry" data-zh="一般咨询">General enquiry</option><option data-en="New engagement" data-zh="新委托">New engagement</option><option data-en="Existing client" data-zh="现有客户">Existing client</option></select>
+      </div>
+      <div class="field"><label data-en="Message" data-zh="留言">Message</label><textarea rows="4" data-en-ph="How can we help?" data-zh-ph="我们能帮到您什么？" placeholder="How can we help?"></textarea></div>
+      <button type="submit" class="btn btn-brand" data-en="Send enquiry" data-zh="提交咨询">Send enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h4 data-slot="brand.name" data-en="Heritage &amp; Partners" data-zh="传承 & 合伙">Heritage &amp; Partners</h4>
+        <p data-slot="foot.blurb" data-en="One-line firm description for the footer — what you do and who you serve." style="max-width:42ch">One-line firm description for the footer — what you do and who you serve.</p>
+      </div>
+      <div>
+        <h4 data-en="Navigate" data-zh="导航">Navigate</h4>
+        <a href="about.html" data-en="About" data-zh="关于">About</a>
+        <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Contact" data-zh="联系">Contact</h4>
+        <a href="#" data-slot="foot.address" data-en="Address line, Singapore" data-zh="地址，新加坡">Address line, Singapore</a>
+        <a href="#" data-slot="foot.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</a>
+        <a href="#" data-slot="foot.email" data-en="hello@firm.sg" data-zh="hello@firm.sg">hello@firm.sg</a>
+      </div>
+    </div>
+    <div class="bar">
+      <span data-slot="foot.copyright" data-en="© Firm Pte Ltd" data-zh="© 事务所私人有限公司">© Firm Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

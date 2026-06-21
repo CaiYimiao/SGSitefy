@@ -1,0 +1,11 @@
+{
+  "id": "services-multipage-clinical-calm",
+  "industry": "services",
+  "kind": "multipage",
+  "aesthetic": "clinical-calm",
+  "fonts": { "display": "Outfit", "text": "Source Serif 4" },
+  "tokens": { "ink": "#1b2a2e", "bg": "#f5f8f7", "surface": "#ffffff", "brand": "#2f8f83", "accent": "#c98a4b" },
+  "sections": ["index", "about", "services", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

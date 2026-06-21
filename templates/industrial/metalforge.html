@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MetalForge Industries Pte Ltd — Heavy Fabrication & Structural Steel, Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --charcoal:#111827; --charcoal-2:#1c2533; --black:#0f0f0f; --black-2:#161616;
+  --gold:#eab308; --gold-d:#ca9a04;
+  --text:#e7e5e4; --muted:#9ca3af; --line:#2a2a2a; --card:#171717;
+  --maxw:1240px;
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:70px}
+body{font-family:var(--fb);color:var(--text);background:var(--black);line-height:1.65}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:900;line-height:1.02;letter-spacing:-.02em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;gap:9px;border:none;border-radius:2px;padding:15px 30px;font-family:var(--fh);font-weight:800;font-size:.84rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn-gold{background:var(--gold);color:var(--black)}.btn-gold:hover{background:var(--gold-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(231,229,228,.4);color:var(--text)}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.eyebrow{font-family:var(--fh);text-transform:uppercase;letter-spacing:4px;color:var(--gold);font-weight:700;font-size:.78rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--gold)}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.sec{padding:100px 0}
+.sec h2{font-size:3rem;color:#fff;letter-spacing:-.02em}
+.lead{color:var(--muted);margin-top:16px;max-width:680px;font-size:1.08rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+
+/* header */
+.header{position:sticky;top:0;z-index:90;background:rgba(15,15,15,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mk{width:44px;height:44px;border-radius:3px;background:var(--gold);color:var(--black);display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.15rem}
+.brand b{font-family:var(--fh);color:#fff;font-size:1.12rem;letter-spacing:1px;display:block;line-height:1}
+.brand small{font-size:.58rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:4px}
+.nav>a{font-family:var(--fh);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:1px;color:var(--text);padding:9px 14px}
+.nav>a:hover{color:var(--gold)}
+.lang{border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-family:var(--fh);font-weight:800;font-size:.72rem;padding:7px 12px;border-radius:2px;cursor:pointer;margin-left:8px;letter-spacing:1px}
+.lang:hover{background:var(--gold);color:var(--black)}
+.navphone{background:var(--gold);color:var(--black)!important;margin-left:6px;padding:9px 16px;border-radius:2px;font-family:var(--fh);font-weight:800;font-size:.78rem;letter-spacing:1px;text-transform:uppercase}
+.navphone:hover{background:var(--gold-d)}
+.burger{display:none;background:none;border:none;font-size:1.7rem;color:#fff;cursor:pointer}
+
+/* hero full-bleed */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url('https://picsum.photos/seed/mf-forge-hero/1900/1200') center/cover;}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,15,15,.95) 0%,rgba(15,15,15,.78) 45%,rgba(15,15,15,.45) 100%)}
+.hero .wrap{position:relative;z-index:3}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:5rem;color:#fff;max-width:880px}
+.hero h1 .g{color:var(--gold)}
+.hero p{margin:26px 0 36px;font-size:1.25rem;color:#d6d3d1;max-width:600px}
+.hero .acts{display:flex;gap:16px;flex-wrap:wrap}
+.scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:4;color:var(--muted);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-family:var(--fh)}
+
+/* marquee */
+.ticker{background:var(--gold);color:var(--black);overflow:hidden;white-space:nowrap;border-top:1px solid var(--gold-d);border-bottom:1px solid var(--gold-d)}
+.ticker .run{display:inline-flex;align-items:center;gap:0;padding:16px 0;animation:scroll 28s linear infinite;font-family:var(--fh);font-weight:800;font-size:1.05rem;text-transform:uppercase;letter-spacing:1px}
+.ticker .run span{padding:0 26px;border-right:2px solid rgba(15,15,15,.25)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* about */
+.about{background:var(--black-2)}
+.about .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.about img{width:100%;height:480px;object-fit:cover;border-radius:4px;filter:grayscale(.2) contrast(1.05)}
+.about .num{display:flex;gap:40px;margin-top:30px}
+.about .num b{font-family:var(--fh);font-size:2.6rem;color:var(--gold);display:block;line-height:1}
+.about .num span{font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+
+/* services */
+.services{background:var(--black)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:46px;background:var(--line);border:1px solid var(--line)}
+.svc .s{background:var(--card);padding:42px 34px;transition:.3s;position:relative}
+.svc .s:hover{background:var(--charcoal)}
+.svc .s .no{font-family:var(--fh);font-weight:900;font-size:.9rem;color:var(--gold);letter-spacing:2px}
+.svc .s .ic{width:56px;height:56px;margin:18px 0 18px;color:var(--gold)}
+.svc .s .ic svg{width:56px;height:56px;fill:none;stroke:currentColor;stroke-width:1.5}
+.svc .s h4{font-size:1.3rem;color:#fff;margin-bottom:10px}
+.svc .s p{font-size:.93rem;color:var(--muted)}
+
+/* showcase masonry */
+.showcase{background:var(--black-2)}
+.masonry{columns:4;column-gap:14px;margin-top:46px}
+.masonry figure{position:relative;break-inside:avoid;margin:0 0 14px;border-radius:4px;overflow:hidden}
+.masonry img{width:100%;display:block;transition:.5s;filter:grayscale(.15)}
+.masonry figure:hover img{transform:scale(1.06);filter:grayscale(0)}
+.masonry figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 14px;background:linear-gradient(transparent,rgba(15,15,15,.92));color:#fff;font-family:var(--fh);font-weight:700;font-size:.86rem;text-transform:uppercase;letter-spacing:1px;opacity:0;transition:.3s}
+.masonry figure:hover figcaption{opacity:1}
+
+/* stats */
+.stats{background:var(--gold);color:var(--black)}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats .it{padding:48px 18px;text-align:center;border-right:1px solid rgba(15,15,15,.2)}.stats .it:last-child{border:none}
+.stats .n{font-family:var(--fh);font-size:3rem;font-weight:900;line-height:1}
+.stats .l{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-top:8px;font-weight:600}
+
+/* contact */
+.contact{background:var(--black)}
+.contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.clist{list-style:none;margin-top:24px}
+.clist li{display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);color:var(--text);font-size:.98rem;align-items:center}
+.clist .ic{width:42px;height:42px;border-radius:3px;background:var(--charcoal);border:1px solid var(--line);color:var(--gold);display:grid;place-items:center;flex-shrink:0;font-size:1.1rem}
+.form{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form .f{display:flex;flex-direction:column}.form .full{grid-column:1/-1}
+.form label{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-family:var(--fh)}
+.form input,.form textarea{border:1px solid var(--line);border-radius:3px;padding:13px 15px;font-family:inherit;font-size:.94rem;background:var(--black-2);color:var(--text)}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
+.form .note{grid-column:1/-1;font-size:.8rem;color:var(--muted)}
+
+/* footer */
+.foot{background:var(--black-2);color:var(--muted);border-top:1px solid var(--line)}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1.3fr;gap:44px;padding:64px 0 40px}
+.foot h4{color:#fff;font-size:1rem;margin-bottom:16px;letter-spacing:1px}
+.foot .cn{color:#e2c98a;letter-spacing:1px;margin:14px 0 10px;font-size:.95rem;font-family:var(--fh)}
+.foot a{display:block;color:var(--muted);padding:5px 0;font-size:.9rem;text-transform:none;letter-spacing:0}
+.foot a:hover{color:var(--gold)}
+.foot p{font-size:.9rem;margin-bottom:8px}
+.foot .badges{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.foot .badges span{border:1px solid var(--line);border-radius:3px;padding:7px 12px;font-size:.7rem;color:#d6d3d1;letter-spacing:1px;text-transform:uppercase;font-family:var(--fh)}
+.foot .bar{border-top:1px solid var(--line)}
+.foot .bar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:20px 28px;font-size:.8rem;color:#6b7280}
+
+.fab{position:fixed;right:22px;bottom:22px;z-index:80;width:52px;height:52px;border-radius:3px;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.5);cursor:pointer;border:none;color:var(--black);background:var(--gold);font-size:1.3rem;opacity:0;pointer-events:none;transition:.3s}
+.fab.show{opacity:1;pointer-events:auto}
+
+@media(max-width:1000px){.masonry{columns:3}}
+@media(max-width:920px){
+  .nav{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--black-2);padding:14px;border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}.burger{display:block}
+  .nav>a{padding:13px 14px}
+  .hero h1{font-size:3rem}.hero p{font-size:1.08rem}
+  .sec h2{font-size:2.2rem}
+  .about .grid,.contact .grid{grid-template-columns:1fr;gap:40px}
+  .svc{grid-template-columns:1fr}
+  .stats .grid{grid-template-columns:repeat(2,1fr)}
+  .stats .it{border-right:none;border-bottom:1px solid rgba(15,15,15,.2)}
+  .masonry{columns:2}
+  .form{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.hero h1{font-size:2.3rem}.masonry{columns:1}.foot .grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.ticker .run{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="header"><div class="wrap">
+  <a href="#top" class="brand"><span class="mk">MF</span><span><b>METALFORGE</b><small data-en="Industries" data-zh="工业">Industries</small></span></a>
+  <nav class="nav" id="nav">
+    <a href="#about" data-en="About" data-zh="关于我们">About</a>
+    <a href="#services" data-en="Capabilities" data-zh="设备能力">Capabilities</a>
+    <a href="#showcase" data-en="Projects" data-zh="项目展示">Projects</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#contact" class="navphone" data-en="Get a Quote" data-zh="索取报价">Get a Quote</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <div class="bg"></div>
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Heavy Fabrication · Since 2008" data-zh="重型加工 · 始于 2008 年">Heavy Fabrication · Since 2008</p>
+    <h1 class="reveal"><span data-rich data-en="We forge the <span class='g'>backbone</span> of industry" data-zh="我们锻造工业的<span class='g'>脊梁</span>">We forge the <span class="g">backbone</span> of industry</span></h1>
+    <p class="reveal" data-en="Structural steel, plate rolling and certified welding at industrial scale — fabricated and installed from our Tuas South yard." data-zh="工业规模的结构钢、卷板与认证焊接——从大士南厂区完成加工与安装。">Structural steel, plate rolling and certified welding at industrial scale — fabricated and installed from our Tuas South yard.</p>
+    <div class="acts reveal">
+      <a href="#contact" class="btn btn-gold" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+      <a href="#showcase" class="btn btn-ghost" data-en="View Projects" data-zh="查看项目">View Projects</a>
+    </div>
+  </div>
+  <div class="scrollcue" data-en="Scroll ↓" data-zh="向下滚动 ↓">Scroll ↓</div>
+</section>
+
+<!-- ticker -->
+<div class="ticker"><div class="run" id="ticker">
+  <span>Heavy Fabrication</span><span>Structural Steel</span><span>Plate Rolling</span><span>MIG / TIG Welding</span><span>Powder Coating</span><span>On-Site Installation</span>
+  <span>Heavy Fabrication</span><span>Structural Steel</span><span>Plate Rolling</span><span>MIG / TIG Welding</span><span>Powder Coating</span><span>On-Site Installation</span>
+</div></div>
+
+<!-- about -->
+<section class="sec about" id="about"><div class="wrap"><div class="grid">
+  <div class="reveal"><img src="https://picsum.photos/seed/mf-yard/900/900" alt="Fabrication yard"></div>
+  <div class="reveal">
+    <p class="eyebrow" data-en="Who We Are" data-zh="我们是谁">Who We Are</p>
+    <h2 data-en="Built heavy. Built to last." data-zh="重型铸造，经久耐用。">Built heavy. Built to last.</h2>
+    <p class="lead" data-en="Since 2008, MetalForge Industries has fabricated structural steel, pressure-grade plate work and bespoke heavy assemblies for the marine, oil-and-gas and construction sectors. From our Tuas South yard we cut, roll, weld, coat and install — start to finish." data-zh="自2008年起，锻铁工业为船舶、油气与建筑行业加工结构钢、压力级板材及定制重型组件。从大士南厂区出发，我们完成切割、卷制、焊接、涂装与安装——一气呵成。">Since 2008, MetalForge Industries has fabricated structural steel, pressure-grade plate work and bespoke heavy assemblies for the marine, oil-and-gas and construction sectors. From our Tuas South yard we cut, roll, weld, coat and install — start to finish.</p>
+    <div class="num">
+      <div><b>2008</b><span data-en="Established" data-zh="成立年份">Established</span></div>
+      <div><b>40T</b><span data-en="Lift Capacity" data-zh="起重能力">Lift Capacity</span></div>
+      <div><b>500+</b><span data-en="Projects Delivered" data-zh="已交付项目">Projects Delivered</span></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- services -->
+<section class="sec services" id="services"><div class="wrap">
+  <p class="eyebrow" data-en="What We Do" data-zh="我们做什么">What We Do</p>
+  <h2 data-en="Capabilities" data-zh="设备能力">Capabilities</h2>
+  <div class="svc">
+    <div class="s reveal"><div class="no">01</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><path d="M10 44h36"/><path d="M16 44V22l12-8 12 8v22"/><path d="M22 44V32h12v12"/></svg></div><h4 data-en="Heavy Fabrication" data-zh="重型加工">Heavy Fabrication</h4><p data-en="Large-scale steel assemblies fabricated to drawing and code." data-zh="按图与规范加工大型钢结构组件。">Large-scale steel assemblies fabricated to drawing and code.</p></div>
+    <div class="s reveal"><div class="no">02</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12v32M28 12v32M42 12v32"/><path d="M10 20h36M10 36h36"/></svg></div><h4 data-en="Structural Steel" data-zh="结构钢">Structural Steel</h4><p data-en="Beams, columns and frames for buildings and plant." data-zh="梁、柱与框架，用于建筑与厂房。">Beams, columns and frames for buildings and plant.</p></div>
+    <div class="s reveal"><div class="no">03</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="28" r="12"/><path d="M32 16h12v24H32"/><path d="M20 18v20"/></svg></div><h4 data-en="Plate Rolling" data-zh="卷板">Plate Rolling</h4><p data-en="Cylinders, cones and curved sections from heavy plate." data-zh="由厚板卷制圆筒、锥体与弧形件。">Cylinders, cones and curved sections from heavy plate.</p></div>
+    <div class="s reveal"><div class="no">04</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><path d="M12 44h22"/><path d="M18 44l16-24"/><path d="M34 20l6-5 5 6-6 5z"/><path d="M30 30l4 4"/></svg></div><h4 data-en="MIG / TIG Welding" data-zh="MIG / TIG 焊接">MIG / TIG Welding</h4><p data-en="Certified welders for structural and pressure-grade joints." data-zh="持证焊工，承接结构与压力级焊缝。">Certified welders for structural and pressure-grade joints.</p></div>
+    <div class="s reveal"><div class="no">05</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="20" width="28" height="20" rx="2"/><path d="M22 20v-6h12v6"/><path d="M20 28h0M28 28h0M36 28h0"/></svg></div><h4 data-en="Powder Coating" data-zh="粉末喷涂">Powder Coating</h4><p data-en="Durable, corrosion-resistant finishes for harsh environments." data-zh="耐用防腐涂层，适应恶劣环境。">Durable, corrosion-resistant finishes for harsh environments.</p></div>
+    <div class="s reveal"><div class="no">06</div><div class="ic"><svg viewBox="0 0 56 56" stroke-linecap="round" stroke-linejoin="round"><path d="M10 44h36"/><path d="M28 44V18"/><path d="M28 18l-9 9M28 18l9 9"/><path d="M16 44l6-8M40 44l-6-8"/></svg></div><h4 data-en="On-Site Installation" data-zh="现场安装">On-Site Installation</h4><p data-en="Rigging, erection and fitting at your site by our crew." data-zh="由我方团队在现场吊装、安装与就位。">Rigging, erection and fitting at your site by our crew.</p></div>
+  </div>
+</div></section>
+
+<!-- showcase masonry -->
+<section class="sec showcase" id="showcase"><div class="wrap">
+  <p class="eyebrow" data-en="Our Work" data-zh="工程实例">Our Work</p>
+  <h2 data-en="Project showcase" data-zh="项目展示">Project showcase</h2>
+  <div class="masonry">
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p1/600/800" alt=""><figcaption data-en="Structural steel frame" data-zh="结构钢框架">Structural steel frame</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p2/600/450" alt=""><figcaption data-en="Rolled pressure vessel" data-zh="卷制压力容器">Rolled pressure vessel</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p3/600/600" alt=""><figcaption data-en="Welded platform" data-zh="焊接平台">Welded platform</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p4/600/750" alt=""><figcaption data-en="Pipe spool fabrication" data-zh="管段制作">Pipe spool fabrication</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p5/600/520" alt=""><figcaption data-en="Coated steel skid" data-zh="涂装钢撬装">Coated steel skid</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p6/600/680" alt=""><figcaption data-en="Marine deck module" data-zh="船用甲板模块">Marine deck module</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p7/600/470" alt=""><figcaption data-en="On-site erection" data-zh="现场吊装">On-site erection</figcaption></figure>
+    <figure class="reveal"><img src="https://picsum.photos/seed/mf-p8/600/620" alt=""><figcaption data-en="Heavy support frame" data-zh="重型支撑架">Heavy support frame</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- stats -->
+<section class="stats"><div class="wrap"><div class="grid">
+  <div class="it"><div class="n">2008</div><div class="l" data-en="Established" data-zh="成立年份">Established</div></div>
+  <div class="it"><div class="n">500+</div><div class="l" data-en="Projects Delivered" data-zh="已交付项目">Projects Delivered</div></div>
+  <div class="it"><div class="n">40T</div><div class="l" data-en="Crane Capacity" data-zh="吊车能力">Crane Capacity</div></div>
+  <div class="it"><div class="n">3</div><div class="l" data-en="Welding Codes" data-zh="焊接规范">Welding Codes</div></div>
+</div></div></section>
+
+<!-- contact -->
+<section class="sec contact" id="contact"><div class="wrap"><div class="grid">
+  <div class="reveal">
+    <p class="eyebrow" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+    <h2 data-en="Send us your spec" data-zh="发送您的规格">Send us your spec</h2>
+    <p class="lead" data-en="Drawings, tonnage or a scope of work — send it over and our estimators will return a firm quote fast." data-zh="图纸、吨位或工作范围——发给我们，估价团队将快速给出明确报价。">Drawings, tonnage or a scope of work — send it over and our estimators will return a firm quote fast.</p>
+    <ul class="clist">
+      <li><span class="ic">📍</span><span>31 Tuas South Avenue 8, Singapore 637648</span></li>
+      <li><span class="ic">☎</span><a href="tel:+6568639900">+65 6863 9900</a></li>
+      <li><span class="ic">✉</span><a href="mailto:enquiry@metalforge.sg">enquiry@metalforge.sg</a></li>
+      <li><span class="ic">🕐</span><span data-en="Mon–Fri 8am–6pm · Sat 8am–12pm" data-zh="周一至周五 8:00–18:00 · 周六 8:00–12:00">Mon–Fri 8am–6pm · Sat 8am–12pm</span></li>
+    </ul>
+  </div>
+  <form class="form reveal" onsubmit="event.preventDefault();this.reset();alert('Thank you — our team will be in touch shortly.')">
+    <div class="f"><label data-en="Name" data-zh="姓名">Name</label><input type="text" required></div>
+    <div class="f"><label data-en="Company" data-zh="公司">Company</label><input type="text"></div>
+    <div class="f"><label data-en="Email" data-zh="电邮">Email</label><input type="email" required></div>
+    <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel"></div>
+    <div class="f full"><label data-en="Scope / Project Details" data-zh="工作范围 / 项目详情">Scope / Project Details</label><textarea rows="4" required></textarea></div>
+    <div class="note" data-en="We typically reply within one business day." data-zh="我们通常在一个工作日内回复。">We typically reply within one business day.</div>
+    <div class="full"><button type="submit" class="btn btn-gold" style="width:100%;justify-content:center" data-en="Request a Quote" data-zh="索取报价">Request a Quote</button></div>
+  </form>
+</div></div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">MF</span><span><b style="color:#fff">METALFORGE</b><small>INDUSTRIES</small></span></a>
+      <p class="cn">锻铁工业私人有限公司</p>
+      <p style="color:#d6d3d1" data-en="Heavy steel fabrication in Singapore since 2008 — structural steel, plate rolling, certified welding, powder coating and on-site installation." data-zh="自2008年起立足新加坡的重型钢结构加工——结构钢、卷板、认证焊接、粉末喷涂与现场安装。">Heavy steel fabrication in Singapore since 2008 — structural steel, plate rolling, certified welding, powder coating and on-site installation.</p>
+      <div class="badges"><span>ISO 9001</span><span data-en="bizSafe Star" data-zh="bizSafe 星级">bizSafe Star</span><span data-en="Certified Welders" data-zh="持证焊工">Certified Welders</span></div>
+    </div>
+    <div><h4 data-en="Capabilities" data-zh="设备能力">Capabilities</h4>
+      <a href="#services" data-en="Heavy Fabrication" data-zh="重型加工">Heavy Fabrication</a>
+      <a href="#services" data-en="Structural Steel" data-zh="结构钢">Structural Steel</a>
+      <a href="#services" data-en="Plate Rolling" data-zh="卷板">Plate Rolling</a>
+      <a href="#services" data-en="MIG / TIG Welding" data-zh="MIG / TIG 焊接">MIG / TIG Welding</a>
+      <a href="#services" data-en="On-Site Installation" data-zh="现场安装">On-Site Installation</a>
+    </div>
+    <div><h4 data-en="Contact" data-zh="联系方式">Contact</h4>
+      <p style="color:#d6d3d1">31 Tuas South Avenue 8<br>Singapore 637648</p>
+      <p style="color:#d6d3d1">Tel: +65 6863 9900<br>enquiry@metalforge.sg</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap"><span>© 2026 MetalForge Industries Pte Ltd · UEN 200823344K</span><span>Built with SGSitefy · powered by Antigravity</span></div></div>
+</footer>
+
+<button class="fab" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang !== 'zh';
+  document.documentElement.lang = zh ? 'zh' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    if(el.hasAttribute('data-rich')){
+      el.innerHTML = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    } else {
+      el.textContent = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    }
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? 'EN' : '中文'; });
+}
+// scroll reveal
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+// back-to-top
+window.addEventListener('scroll', function(){
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 600);
+});
+// close mobile nav on link click
+document.querySelectorAll('.nav>a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); });
+});
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Wellness Practice" data-zh="联系 — 健康中心">Contact — Wellness Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Verdant<span class='dot'></span>" data-zh="青苑<span class='dot'></span>" data-rich>Verdant<span class="dot"></span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p>
+    <h1 data-slot="contact.headline" data-en="Let's get you booked in." data-zh="为您安排就诊。">Let's get you booked in.</h1>
+    <p data-slot="contact.sub" data-en="Page intro — reassure them how easy it is to reach you." data-zh="页面引言 — 让他们安心，联系很简单。">Page intro — reassure them how easy it is to reach you.</p>
+  </div>
+</section>
+
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Clinic" data-zh="诊所">Clinic</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="care@example.com" data-zh="care@example.com">care@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Sat, 9am–6pm" data-zh="周一至周六 9–18">Mon–Sat, 9am–6pm</p></div>
+      </div>
+      <div class="form-card">
+        <form onsubmit="return false">
+          <label class="field"><span data-en="Full name" data-zh="姓名">Full name</span><input type="text"></label>
+          <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+          <label class="field"><span data-en="Phone" data-zh="电话">Phone</span><input type="tel"></label>
+          <label class="field"><span data-en="How can we help?" data-zh="我们能为您做什么？">How can we help?</span><textarea rows="4"></textarea></label>
+          <button class="btn" type="submit" data-slot="contact.submit" data-en="Request Appointment" data-zh="预约就诊">Request Appointment</button>
+        </form>
+      </div>
+    </div>
+    <div class="map"><img src="https://picsum.photos/seed/clin-map/1200/400" alt="" data-slot="contact.map" data-en-alt="Map to the clinic" data-zh-alt="诊所地图"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-brand" data-slot="footer.name" data-en="Verdant — Wellness Practice" data-zh="青苑 — 健康中心">Verdant — Wellness Practice</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

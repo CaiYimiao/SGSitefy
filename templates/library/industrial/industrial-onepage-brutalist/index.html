@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Industrial" data-zh="公司 — 工业">Company — Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16130f; --bg:#f2efe7; --surface:#e3ddcd; --brand:#d6431a; --accent:#1c2b2a;
+  --display:'Archivo Black',sans-serif; --text:'IBM Plex Mono',monospace;
+  --step:1.333; --s0:1rem; --s1:1.333rem; --s2:1.777rem; --s3:2.369rem; --s4:3.157rem; --s5:4.209rem; --s6:5.61rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:.95;letter-spacing:-.02em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+.tag{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:600;color:var(--brand)}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--bg);border-bottom:4px solid var(--brand)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--display);font-size:1.2rem;text-transform:uppercase;letter-spacing:-.03em}
+.menu{display:flex;gap:1.8rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.menu a{padding:.3rem 0;border-bottom:2px solid transparent}
+.menu a:hover{border-color:var(--brand)}
+.navbtns{display:flex;gap:.8rem;align-items:center}
+.lang{background:none;border:2px solid var(--bg);color:var(--bg);font-family:var(--text);font-size:.72rem;padding:.35rem .6rem;cursor:pointer;text-transform:uppercase}
+.lang:hover{background:var(--brand);border-color:var(--brand)}
+.burger{display:none;background:none;border:none;color:var(--bg);font-size:1.6rem;cursor:pointer}
+/* HERO */
+.hero{background:var(--ink);color:var(--bg);padding:clamp(3rem,9vw,7rem) 0 0;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.8rem,11vw,7.5rem);color:var(--bg)}
+.hero h1 em{font-style:normal;color:var(--brand);display:block}
+.hero .lead{max-width:48ch;margin:1.8rem 0;font-size:var(--s1)}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn{font-family:var(--display);text-transform:uppercase;font-size:.85rem;padding:1rem 1.6rem;border:3px solid var(--brand);background:var(--brand);color:var(--bg);cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--bg)}
+.btn.ghost{background:none;color:var(--bg);border-color:var(--bg)}
+.btn.ghost:hover{box-shadow:6px 6px 0 var(--brand)}
+.hero-img{width:100%;height:clamp(220px,40vw,460px);object-fit:cover;border-top:6px solid var(--brand);filter:grayscale(.3) contrast(1.1)}
+/* TRUST */
+.trust{background:var(--brand);color:var(--bg);padding:1.2rem 0}
+.trust .wrap{display:flex;flex-wrap:wrap;gap:2rem 3rem;align-items:center;justify-content:space-between}
+.trust span{font-family:var(--display);text-transform:uppercase;font-size:.95rem;letter-spacing:.02em}
+/* SECTION */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;border-bottom:3px solid var(--ink);padding-bottom:1rem}
+.sec-head h2{font-size:clamp(2rem,6vw,4rem)}
+/* ABOUT */
+.about{display:grid;grid-template-columns:7fr 5fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.about p{font-size:var(--s1);margin-bottom:1.2rem}
+.statbox{background:var(--accent);color:var(--bg);padding:2rem}
+.statbox .n{font-family:var(--display);font-size:var(--s4);color:var(--bg);line-height:1}
+.statbox .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;margin-top:.4rem;opacity:.85}
+.statbox div+div{margin-top:1.6rem;border-top:1px solid rgba(255,255,255,.2);padding-top:1.6rem}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:3px solid var(--ink)}
+.svc{padding:2rem;border:1.5px solid var(--ink);position:relative;transition:background .2s ease}
+.svc:hover{background:var(--ink);color:var(--bg)}
+.svc .num{font-family:var(--display);font-size:var(--s2);color:var(--brand)}
+.svc h3{font-size:var(--s1);margin:.8rem 0 .6rem}
+.svc:hover h3{color:var(--bg)}
+.svc p{font-size:.88rem;opacity:.8}
+/* WORK */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.work-grid figure{overflow:hidden;border:3px solid var(--ink)}
+.work-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .4s ease;filter:grayscale(.2)}
+.work-grid figure:hover img{transform:scale(1.06)}
+.w0{grid-column:span 7}.w1{grid-column:span 5}.w2{grid-column:span 5}.w3{grid-column:span 7}
+/* CTA */
+.cta{background:var(--ink);color:var(--bg);text-align:center}
+.cta h2{font-size:clamp(2.2rem,7vw,5rem);color:var(--bg)}
+.cta h2 em{font-style:normal;color:var(--brand)}
+.cta p{margin:1.4rem auto 2rem;max-width:46ch;font-size:var(--s1)}
+/* CONTACT */
+.contact{background:var(--surface)}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem)}
+.field{display:block;margin-bottom:1.1rem}
+.field span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.4rem;font-weight:600}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.9rem;border:2px solid var(--ink);background:var(--bg);font-size:.9rem}
+.cinfo div{margin-bottom:1.4rem;border-left:4px solid var(--brand);padding-left:1rem}
+.cinfo .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--brand);font-weight:600}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:2.5rem 0;border-top:4px solid var(--brand)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.78rem}
+.credit{opacity:.6}
+@media(max-width:760px){
+  .menu{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--ink);padding:1rem 1.5rem;gap:.4rem;border-bottom:4px solid var(--brand)}
+  .menu.open{display:flex}
+  .burger{display:block}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .work-grid>*{grid-column:span 12!important}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="IRONWORKS" data-zh="铁工坊">IRONWORKS</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="#services" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="#work" data-slot="nav.work" data-en="Work" data-zh="案例">Work</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="tag" data-slot="hero.eyebrow" data-en="Precision Fabrication · Est. 1998" data-zh="精密制造 · 创立于1998">Precision Fabrication · Est. 1998</p>
+    <h1 data-slot="hero.headline" data-en="We Build Heavy" data-zh="重型制造" data-rich>We Build Heavy<em data-en="To Last." data-zh="经久耐用。">To Last.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — what you make and who you make it for." data-zh="主标题副文 — 你制造什么、为谁制造。">Hero supporting line — what you make and who you make it for.</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+      <a class="btn ghost" href="#work" data-slot="hero.cta2" data-en="See Our Work" data-zh="查看案例">See Our Work</a>
+    </div>
+  </div>
+  <img class="hero-img" src="https://picsum.photos/seed/brutind-hero/1600/600" alt="" data-slot="hero.image" data-en-alt="Workshop floor" data-zh-alt="车间">
+</section>
+
+<section class="trust" aria-label="Trust">
+  <div class="wrap">
+    <span data-slot="trust.0" data-en="ISO 9001 Certified" data-zh="ISO 9001 认证">ISO 9001 Certified</span>
+    <span data-slot="trust.1" data-en="25+ Years" data-zh="25+ 年">25+ Years</span>
+    <span data-slot="trust.2" data-en="In-House CNC" data-zh="自有数控">In-House CNC</span>
+    <span data-slot="trust.3" data-en="Island-Wide Delivery" data-zh="全岛配送">Island-Wide Delivery</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="about.title" data-en="The Shop" data-zh="工坊">The Shop</h2><p class="tag" data-en="Who we are" data-zh="我们是谁">Who we are</p></div>
+    <div class="about">
+      <div>
+        <p data-slot="about.p1" data-en="About paragraph one — the workshop, the craft, the standards you hold." data-zh="关于段落一 — 工坊、工艺、标准。">About paragraph one — the workshop, the craft, the standards you hold.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — capabilities, materials, what makes the work durable." data-zh="关于段落二 — 能力、材料、为何耐用。">About paragraph two — capabilities, materials, what makes the work durable.</p>
+      </div>
+      <div class="statbox">
+        <div><div class="n" data-slot="about.stat0.n" data-en="500+" data-zh="500+">500+</div><div class="l" data-slot="about.stat0.l" data-en="Projects delivered" data-zh="交付项目">Projects delivered</div></div>
+        <div><div class="n" data-slot="about.stat1.n" data-en="40t" data-zh="40吨">40t</div><div class="l" data-slot="about.stat1.l" data-en="Max lift capacity" data-zh="最大起重">Max lift capacity</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="services.title" data-en="What We Do" data-zh="我们的服务">What We Do</h2><p class="tag" data-en="Capabilities" data-zh="能力">Capabilities</p></div>
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="num">01</div><h3 data-slot="services.0.title" data-en="Steel Fabrication" data-zh="钢结构制造">Steel Fabrication</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">02</div><h3 data-slot="services.1.title" data-en="CNC Machining" data-zh="数控加工">CNC Machining</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">03</div><h3 data-slot="services.2.title" data-en="Welding" data-zh="焊接">Welding</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">04</div><h3 data-slot="services.3.title" data-en="Powder Coating" data-zh="粉末喷涂">Powder Coating</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">05</div><h3 data-slot="services.4.title" data-en="Installation" data-zh="安装">Installation</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="num">06</div><h3 data-slot="services.5.title" data-en="Maintenance" data-zh="维护">Maintenance</h3><p data-slot="services.5.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="work.title" data-en="Selected Work" data-zh="精选案例">Selected Work</h2><p class="tag" data-en="Portfolio" data-zh="作品">Portfolio</p></div>
+    <div class="work-grid" data-slot="gallery" data-min="2" data-max="4">
+      <figure class="w0"><img src="https://picsum.photos/seed/brutind-w0/900/680" alt="" data-slot="gallery.0" data-en-alt="Project one" data-zh-alt="项目一"></figure>
+      <figure class="w1"><img src="https://picsum.photos/seed/brutind-w1/700/680" alt="" data-slot="gallery.1" data-en-alt="Project two" data-zh-alt="项目二"></figure>
+      <figure class="w2"><img src="https://picsum.photos/seed/brutind-w2/700/680" alt="" data-slot="gallery.2" data-en-alt="Project three" data-zh-alt="项目三"></figure>
+      <figure class="w3"><img src="https://picsum.photos/seed/brutind-w3/900/680" alt="" data-slot="gallery.3" data-en-alt="Project four" data-zh-alt="项目四"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Got a Spec?" data-zh="有需求？" data-rich>Got a Spec?<em data-en=" Send It." data-zh=" 发给我们。"> Send It.</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — turnaround, quoting, how to start." data-zh="行动号召副文 — 周期、报价、如何开始。">CTA supporting line — turnaround, quoting, how to start.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Start a Project" data-zh="开始项目">Start a Project</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="contact.title" data-en="Get In Touch" data-zh="联系我们">Get In Touch</h2><p class="tag" data-en="Quote / Visit" data-zh="报价 / 到访">Quote / Visit</p></div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Address" data-zh="地址">Address</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Sat, 8am–6pm" data-zh="周一至周六 8:00–18:00">Mon–Sat, 8am–6pm</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="Project details" data-zh="项目详情">Project details</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send Enquiry" data-zh="发送咨询">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="IRONWORKS — Precision Fabrication" data-zh="铁工坊 — 精密制造">IRONWORKS — Precision Fabrication</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

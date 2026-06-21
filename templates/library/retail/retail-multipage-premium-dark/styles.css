@@ -1,0 +1,85 @@
+:root{
+  --ink:#f3efe8; --bg:#16140f; --surface:#211e17; --brand:#c9a96a; --accent:#6f8f7d;
+  --d:'Cormorant Garamond',serif; --t:'Mulish',sans-serif;
+  --gap:clamp(1.5rem,4vw,4rem); --maxw:1200px; --line:color-mix(in srgb,var(--ink) 14%,transparent);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);line-height:1.7;font-weight:300}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:1.04;letter-spacing:.005em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--brand);outline-offset:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gap)}
+.eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.68rem;color:var(--brand);font-weight:600}
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem var(--gap);max-width:var(--maxw);margin:0 auto}
+.brand{font-family:var(--d);font-weight:500;font-size:1.7rem;letter-spacing:.06em}
+.brand span{color:var(--brand)}
+.links{display:flex;gap:2rem;align-items:center}
+.links a{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb,var(--ink) 70%,var(--bg))}
+.links a[aria-current="page"],.links a:hover{color:var(--brand)}
+.langbtn{border:1px solid var(--line);background:none;color:var(--ink);padding:.4rem .9rem;font-family:var(--t);font-size:.72rem;letter-spacing:.14em;cursor:pointer;text-transform:uppercase}
+.langbtn:hover{border-color:var(--brand);color:var(--brand)}
+.burger{display:none;border:none;background:none;color:var(--ink);font-size:1.6rem;cursor:pointer}
+.phero{padding:clamp(4rem,9vw,8rem) 0 clamp(2rem,5vw,4rem);position:relative}
+.phero h1{font-size:clamp(3rem,9vw,7rem);font-weight:500}
+.phero h1 em{font-style:italic;color:var(--brand)}
+.phero .lede{max-width:50ch;margin-top:1.5rem;font-size:1.25rem;color:color-mix(in srgb,var(--ink) 78%,var(--bg))}
+.homehero{display:grid;grid-template-columns:7fr 5fr;gap:var(--gap);align-items:center}
+.homehero img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.btn{display:inline-block;margin-top:2rem;border:1px solid var(--brand);color:var(--brand);padding:.9rem 2.4rem;font-family:var(--t);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:background .3s cubic-bezier(.2,.7,.3,1),color .3s}
+.btn:hover{background:var(--brand);color:var(--bg)}
+.btn.solid{background:var(--brand);color:var(--bg)}.btn.solid:hover{background:transparent;color:var(--brand)}
+.sec{padding:clamp(3rem,7vw,6rem) 0}
+.sechead{margin-bottom:var(--gap)}
+.sechead h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:.5rem}
+.hr{border:0;border-top:1px solid var(--line)}
+/* categories — gilt list with hairlines, no equal cards */
+.cats{display:grid;gap:0;border-top:1px solid var(--line)}
+.cat{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
+.cat .n{font-family:var(--d);font-style:italic;color:var(--brand);font-size:1.4rem}
+.cat h3{font-size:clamp(1.6rem,3vw,2.4rem)}
+.cat .arrow{color:var(--brand);font-size:1.2rem;transition:transform .3s}
+.cat:hover{padding-left:1rem}
+.cat:hover .arrow{transform:translateX(8px)}
+/* featured — offset gallery */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.prod:nth-child(2){margin-top:3rem}
+.prod img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.prod h3{font-size:1.6rem;margin:.8rem 0 .1rem}
+.prod .price{color:var(--brand);letter-spacing:.1em;font-size:.95rem}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;background:var(--surface);padding:var(--gap)}
+.feature img{aspect-ratio:1;object-fit:cover}
+.feature h2{font-size:clamp(2rem,4vw,3rem)}
+.feature p{margin-top:1rem;color:color-mix(in srgb,var(--ink) 78%,var(--bg))}
+.aboutgrid{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap);align-items:center}
+.aboutgrid img{aspect-ratio:4/5;object-fit:cover}
+.aboutgrid p+p{margin-top:1.1rem;color:color-mix(in srgb,var(--ink) 78%,var(--bg))}
+.proof{background:var(--surface)}
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
+.quote p{font-family:var(--d);font-style:italic;font-size:1.7rem;line-height:1.3}
+.quote cite{display:block;margin-top:1rem;font-style:normal;color:var(--brand);letter-spacing:.16em;text-transform:uppercase;font-size:.7rem}
+.ctaband{text-align:center;padding:clamp(4rem,9vw,7rem) var(--gap);background:linear-gradient(var(--surface),var(--bg))}
+.ctaband h2{font-size:clamp(2.4rem,7vw,5rem)}
+.ctaband h2 em{font-style:italic;color:var(--brand)}
+.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.contactgrid dl{display:grid;gap:1.3rem}
+.contactgrid dt{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.contactgrid dd{font-family:var(--d);font-size:1.5rem;border-bottom:1px solid var(--line);padding-bottom:.8rem}
+form{display:grid;gap:1rem}
+input,textarea{font-family:var(--t);font-size:1rem;padding:.9rem;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+input::placeholder,textarea::placeholder{color:color-mix(in srgb,var(--ink) 45%,var(--bg))}
+input:focus,textarea:focus{outline:1px solid var(--brand);border-color:var(--brand)}
+footer{border-top:1px solid var(--line);padding:2.5rem var(--gap)}
+footer .row{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.78rem;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 65%,var(--bg))}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+@media(max-width:760px){
+  .burger{display:block}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--surface);padding:1.5rem var(--gap);border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .homehero,.feature,.aboutgrid,.contactgrid{grid-template-columns:1fr}
+  .prods{grid-template-columns:1fr}.prod:nth-child(2){margin-top:0}
+  .quotes{grid-template-columns:1fr}
+  .cat{grid-template-columns:auto 1fr;gap:1rem}.cat .arrow{display:none}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "services-onepage-premium-dark",
+  "industry": "services",
+  "kind": "onepage",
+  "aesthetic": "premium-dark",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#f3efe9", "bg": "#121311", "surface": "#1c1e1b", "brand": "#c8a14a", "accent": "#5b7a6b" },
+  "sections": ["hero", "credentials", "about", "services", "team", "proof", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

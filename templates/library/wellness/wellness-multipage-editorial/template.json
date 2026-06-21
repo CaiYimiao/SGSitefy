@@ -1,0 +1,11 @@
+{
+  "id": "wellness-multipage-editorial",
+  "industry": "wellness",
+  "kind": "multipage",
+  "aesthetic": "editorial",
+  "fonts": { "display": "Fraunces", "text": "Source Sans 3" },
+  "tokens": { "ink": "#1c1a17", "bg": "#faf6f0", "surface": "#ffffff", "brand": "#b14a2f", "accent": "#dfae6a" },
+  "sections": ["hero","trust","about","treatments","contact","footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

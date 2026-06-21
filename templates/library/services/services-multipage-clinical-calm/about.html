@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Wellness Practice" data-zh="关于 — 健康中心">About — Wellness Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Verdant<span class='dot'></span>" data-zh="青苑<span class='dot'></span>" data-rich>Verdant<span class="dot"></span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow" data-en="About Us" data-zh="关于我们">About Us</p>
+    <h1 data-slot="about.headline" data-en="A calmer way to be cared for." data-zh="一种更从容的照护方式。">A calmer way to be cared for.</h1>
+    <p data-slot="about.sub" data-en="Page intro — a sentence on the practice's origin and values." data-zh="页面引言 — 一句关于诊所起源与价值观的话。">Page intro — a sentence on the practice's origin and values.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <figure class="split-fig"><img src="https://picsum.photos/seed/clin-about/800/640" alt="" data-slot="story.image" data-en-alt="The clinic interior" data-zh-alt="诊所内部"></figure>
+    <div class="split-text">
+      <p class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+      <h2 data-slot="story.title" data-en="Built around the patient." data-zh="以患者为本。">Built around the patient.</h2>
+      <p data-slot="story.p1" data-en="Story paragraph one — how and why the practice began." data-zh="故事段落一 — 诊所如何及为何创立。">Story paragraph one — how and why the practice began.</p>
+      <p data-slot="story.p2" data-en="Story paragraph two — the philosophy that guides daily care." data-zh="故事段落二 — 指导日常照护的理念。">Story paragraph two — the philosophy that guides daily care.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="How It Works" data-zh="就诊流程">How It Works</p><h2 data-slot="process.title" data-en="What a visit looks like" data-zh="一次就诊的流程">What a visit looks like</h2></div>
+    <div class="steps" data-slot="process" data-min="3" data-max="4">
+      <article class="step"><h3 data-slot="process.0.title" data-en="Consultation" data-zh="问诊">Consultation</h3><p data-slot="process.0.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.1.title" data-en="Assessment" data-zh="评估">Assessment</h3><p data-slot="process.1.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.2.title" data-en="Plan" data-zh="制定方案">Plan</h3><p data-slot="process.2.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.3.title" data-en="Follow-up" data-zh="复诊跟进">Follow-up</h3><p data-slot="process.3.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="The Team" data-zh="团队">The Team</p><h2 data-slot="team.title" data-en="People you'll meet" data-zh="您将见到的人">People you'll meet</h2></div>
+    <div class="team-grid" data-slot="team" data-min="3" data-max="6">
+      <article class="person"><img src="https://picsum.photos/seed/clin-t0/400/400" alt="" data-slot="team.0.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.0.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.0.role" data-en="Lead Practitioner" data-zh="首席医师">Lead Practitioner</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/clin-t1/400/400" alt="" data-slot="team.1.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.1.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.1.role" data-en="Therapist" data-zh="理疗师">Therapist</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/clin-t2/400/400" alt="" data-slot="team.2.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.2.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.2.role" data-en="Care Coordinator" data-zh="照护协调员">Care Coordinator</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/clin-t3/400/400" alt="" data-slot="team.3.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.3.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.3.role" data-en="Nutritionist" data-zh="营养师">Nutritionist</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2 data-slot="cta.headline" data-en="Ready when you are." data-zh="随时为您准备。">Ready when you are.</h2>
+      <p data-slot="cta.sub" data-en="CTA supporting line — invite them to book." data-zh="行动号召副文 — 邀请预约。">CTA supporting line — invite them to book.</p>
+      <a class="btn" href="contact.html" data-slot="cta.button" data-en="Book an Appointment" data-zh="预约就诊">Book an Appointment</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-brand" data-slot="footer.name" data-en="Verdant — Wellness Practice" data-zh="青苑 — 健康中心">Verdant — Wellness Practice</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

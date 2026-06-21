@@ -1,0 +1,11 @@
+{
+  "id": "industrial-multipage-swiss",
+  "industry": "industrial",
+  "kind": "multipage",
+  "aesthetic": "swiss-minimal",
+  "fonts": { "display": "Archivo", "text": "Public Sans" },
+  "tokens": { "ink": "#121212", "bg": "#fafafa", "surface": "#ededed", "brand": "#e23a1e", "accent": "#1a1a1a" },
+  "sections": ["hero", "trust", "about", "services", "work", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

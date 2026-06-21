@@ -1,0 +1,17 @@
+{
+  "id": "retail-onepage-swiss-minimal",
+  "industry": "retail",
+  "kind": "onepage",
+  "aesthetic": "swiss-minimal",
+  "fonts": { "display": "Archivo", "text": "Public Sans" },
+  "tokens": {
+    "ink": "#1a1a18",
+    "bg": "#f5f4f0",
+    "surface": "#ffffff",
+    "brand": "#c0392b",
+    "accent": "#2c3e50"
+  },
+  "sections": ["nav","hero","categories","featured","about","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

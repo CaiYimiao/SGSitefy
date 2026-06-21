@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service & Privacy Policy — SGSitefy</title>
+<link rel="icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg-2: #f8f9fb;
+    --card: #f4f5f7;
+    --ink: #0f0f14;
+    --ink-2: #23232e;
+    --muted: #6b7280;
+    --subtle: #9ca3af;
+    --line: rgba(0,0,0,.1);
+    --line-l: rgba(0,0,0,.06);
+    --primary: #4f46e5;
+    --primary-d: #3730a3;
+    --primary-xl: #eef2ff;
+    --r-s: 8px;
+    --r-m: 12px;
+    --r-l: 18px;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --shadow-s: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+    --shadow-m: 0 4px 16px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink-2);
+    line-height: 1.75;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 3px; /* clearance for the top accent stripe */
+  }
+
+  /* SG top stripe — confined to the 3px body padding so it never covers the nav */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #EE2536 0%, #ff6b6b 40%, #EE2536 70%, #c4001d 100%);
+    z-index: 9000;
+  }
+
+  /* ── NAV ── */
+  .pvbar {
+    position: sticky; top: 3px; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 56px;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid var(--line-l);
+  }
+  .pvbar-brand {
+    display: flex; align-items: center; gap: 9px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1rem; color: var(--ink);
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: #EF3340; display: grid; place-items: center; flex-shrink: 0;
+  }
+  .logo-mark svg { width: 14px; height: 14px; fill: #fff; }
+  .logo-text em { color: #EF3340; font-style: normal; }
+  .pvbar nav { display: flex; gap: 4px; }
+  .pvbar nav a {
+    font-size: .875rem; color: var(--muted); padding: 6px 12px;
+    border-radius: 7px; transition: color .15s, background .15s;
+    font-weight: 500; text-decoration: none;
+  }
+  .pvbar nav a:hover { color: var(--ink); background: var(--bg-2); }
+  .pvbar nav a.active { color: var(--primary); background: var(--primary-xl); }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 32px 120px;
+  }
+
+  .page-header {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line-l);
+  }
+  .page-eyebrow {
+    font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 700; color: var(--primary); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .page-eyebrow::before {
+    content: ''; width: 22px; height: 2px;
+    background: currentColor; border-radius: 2px; display: block;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-size: 3rem; font-weight: 800;
+    letter-spacing: -.05em; line-height: 1.05;
+    color: var(--ink); margin-bottom: 18px;
+  }
+  .page-meta {
+    font-size: .88rem; color: var(--muted); line-height: 1.6;
+  }
+
+  /* ── TAB SWITCHER ── */
+  .tabs {
+    display: flex; gap: 4px;
+    background: var(--card);
+    border-radius: var(--r-m);
+    padding: 4px;
+    margin-bottom: 48px;
+    width: fit-content;
+  }
+  .tab-btn {
+    padding: 8px 20px;
+    border: none; border-radius: var(--r-s);
+    font-family: var(--font-body); font-size: .875rem; font-weight: 600;
+    cursor: pointer; transition: background .18s, color .18s, box-shadow .18s;
+    color: var(--muted); background: transparent;
+  }
+  .tab-btn.active {
+    background: #fff; color: var(--ink);
+    box-shadow: var(--shadow-s);
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── DOCUMENT CONTENT ── */
+  .doc h2 {
+    font-family: var(--font-display);
+    font-size: 1.45rem; font-weight: 700;
+    letter-spacing: -.025em; line-height: 1.2;
+    color: var(--ink); margin: 52px 0 14px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line-l);
+  }
+  .doc h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .doc h3 {
+    font-family: var(--font-body);
+    font-size: 1rem; font-weight: 600;
+    color: var(--ink); margin: 28px 0 8px;
+    letter-spacing: -.01em;
+  }
+  .doc p { color: var(--ink-2); margin-bottom: 16px; font-size: .97rem; line-height: 1.75; }
+  .doc ul {
+    margin: 8px 0 16px 22px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .doc li { font-size: .97rem; color: var(--ink-2); line-height: 1.7; }
+  .doc strong { color: var(--ink); }
+  .doc a { color: var(--primary); text-decoration: none; }
+  .doc a:hover { text-decoration: underline; }
+
+  .callout {
+    background: var(--primary-xl);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 var(--r-s) var(--r-s) 0;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: .9rem;
+    color: var(--primary-d);
+  }
+  .callout strong { color: var(--primary-d); }
+
+  .cert-disclaimer {
+    background: #fff8e1;
+    border-left: 3px solid #f5b21a;
+    border-radius: 0 var(--r-s) var(--r-s) 0;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: .9rem;
+    color: #7c5c0a;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-l);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: .8rem;
+    color: var(--subtle);
+  }
+  .page-footer a { color: var(--muted); text-decoration: none; }
+  .page-footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="pvbar">
+  <a href="preview.html" class="pvbar-brand">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="8,0.5 9.7,5.5 6.3,5.5"/>
+        <polygon points="3.5,2.5 6.2,6.5 3,7.5"/>
+        <polygon points="12.5,2.5 9.8,6.5 13,7.5"/>
+        <circle cx="8" cy="11.5" r="4.5"/>
+        <circle cx="6.3" cy="11" r="0.7" fill="#EF3340"/>
+        <circle cx="9.7" cy="11" r="0.7" fill="#EF3340"/>
+        <circle cx="8" cy="12.8" r="0.5" fill="#EF3340"/>
+      </svg>
+    </div>
+    <span class="logo-text"><em>SG</em>Sitefy</span>
+  </a>
+  <nav>
+    <a href="preview.html#product">Product</a>
+    <a href="preview.html#builder">Builder</a>
+    <a href="preview.html#templates">Templates</a>
+    <a href="terms.html" class="active">Terms</a>
+  </nav>
+  <div style="min-width:210px"></div>
+</div>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Terms &amp; Privacy</h1>
+    <p class="page-meta">Last updated: 19 June 2026 &nbsp;·&nbsp; Governing law: Singapore &nbsp;·&nbsp; <a href="mailto:legal@sgsitefy.com">legal@sgsitefy.com</a></p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('tos', this)">Terms of Service</button>
+    <button class="tab-btn" onclick="switchTab('privacy', this)">Privacy Policy</button>
+  </div>
+
+  <!-- ── TERMS OF SERVICE ── -->
+  <div class="tab-panel active" id="tab-tos">
+    <div class="doc">
+
+      <h2>1. About SGSitefy</h2>
+      <p>SGSitefy ("<strong>we</strong>", "<strong>our</strong>", "<strong>the Platform</strong>") is a website-generation service that helps Singapore-registered small and medium enterprises ("<strong>SMEs</strong>") create bilingual business landing pages. The Platform is operated by its owner and is not affiliated with any government agency, accreditation body, or certification authority.</p>
+
+      <h2>2. Acceptance of Terms</h2>
+      <p>By accessing or using SGSitefy you agree to be bound by these Terms. If you are using the Platform on behalf of a business entity, you represent that you have authority to bind that entity. If you do not agree, do not use the Platform.</p>
+
+      <h2>3. Eligibility</h2>
+      <p>You must be at least 18 years old and hold a valid Singapore UEN (Unique Entity Number) issued by ACRA to create a site. SGSitefy is designed exclusively for Singapore-registered businesses.</p>
+
+      <h2>4. What SGSitefy Does</h2>
+      <p>The Platform:</p>
+      <ul>
+        <li>Retrieves publicly available business information from the ACRA register and other public data sources using the UEN you provide.</li>
+        <li>Uses AI writing tools to generate copy in English and Mandarin Chinese based on information you supply.</li>
+        <li>Applies a pre-built industry template and, where provided, your brand colours extracted from your logo.</li>
+        <li>Assists with domain registration and publishing to the web.</li>
+      </ul>
+      <p>The output is a static website. SGSitefy does not manage your hosting beyond the initial publish, and does not guarantee search-engine ranking or traffic outcomes.</p>
+
+      <h2>5. Your Responsibilities</h2>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>The accuracy of all business information, contact details, and descriptions you provide.</li>
+        <li>Ensuring any content (images, logos, text) you upload does not infringe third-party intellectual property rights.</li>
+        <li>Compliance with all applicable Singapore laws including the Consumer Protection (Fair Trading) Act, the Trade Marks Act, and any industry-specific regulations.</li>
+        <li>Keeping your domain registration and renewal current after publish.</li>
+      </ul>
+
+      <h2>6. Certification Badges</h2>
+      <div class="cert-disclaimer">
+        <strong>Important:</strong> Certification badges (BizSAFE, ISO, Halal, CaseTrust, etc.) displayed on your generated site are placed solely on the basis of your own declaration during onboarding. SGSitefy does not verify, audit, or confirm the validity of any certification you claim to hold. Displaying a certification badge for a certification you do not hold may constitute a misrepresentation under Singapore law. You bear full legal responsibility for the accuracy of any certification displayed on your site.
+      </div>
+      <p>SGSitefy provides badge artwork for illustrative purposes only. The official marks of WSH Council (BizSAFE), ISO certification bodies, MUIS (Halal), and other authorities remain the intellectual property of their respective owners. You are responsible for complying with each authority's logo-usage guidelines.</p>
+
+      <h2>7. AI-Generated Content</h2>
+      <p>Copy produced by SitefyAI is generated automatically and may contain inaccuracies. You must review and approve all AI-generated content before publishing. SGSitefy is not liable for factual errors, omissions, or misleading statements in AI-generated copy that you choose to publish.</p>
+
+      <h2>8. Intellectual Property</h2>
+      <h3>Your content</h3>
+      <p>You retain ownership of all content you upload (logos, photos, business descriptions). By uploading, you grant SGSitefy a non-exclusive, royalty-free licence to process and display that content solely for the purpose of generating and hosting your site.</p>
+      <h3>Platform IP</h3>
+      <p>The SGSitefy platform, templates, and software are proprietary. You may not copy, reverse-engineer, resell, or sub-license any part of the Platform.</p>
+
+      <h2>9. Payment &amp; Refunds</h2>
+      <p>Fees, billing cycles, and refund eligibility are set out in the pricing page at the time of purchase. All fees are in Singapore Dollars (SGD) and are inclusive of applicable GST where required. Refunds are at SGSitefy's discretion and will not be granted for domains already registered on your behalf.</p>
+
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by Singapore law, SGSitefy's aggregate liability to you for any claim arising out of or related to these Terms or the Platform shall not exceed the fees paid by you in the 3 months preceding the claim.</p>
+      <p>SGSitefy is not liable for: indirect, incidental, or consequential losses; loss of revenue, data, or business opportunity; or any loss arising from third-party services (domain registrars, payment processors, hosting providers) integrated with the Platform.</p>
+
+      <h2>11. Disclaimers</h2>
+      <div class="callout">
+        SGSitefy is provided "<strong>as is</strong>" without warranty of any kind. We do not warrant that the Platform will be uninterrupted, error-free, or that generated content will meet any particular standard of accuracy or fitness for a particular purpose.
+      </div>
+
+      <h2>12. Termination</h2>
+      <p>We may suspend or terminate your access at any time if you breach these Terms or if we reasonably believe continued access poses a legal or reputational risk. Upon termination, your right to use the Platform ceases immediately. Published sites may be taken offline with 14 days' notice except in cases of material breach.</p>
+
+      <h2>13. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. Continued use of the Platform after notice of changes constitutes acceptance. Material changes will be communicated via email to your registered address at least 14 days in advance.</p>
+
+      <h2>14. Governing Law &amp; Disputes</h2>
+      <p>These Terms are governed by the laws of Singapore. Any dispute shall first be referred to mediation under the Singapore Mediation Centre. If unresolved, disputes shall be subject to the exclusive jurisdiction of the Singapore courts.</p>
+
+      <h2>15. Contact</h2>
+      <p>For legal enquiries: <a href="mailto:legal@sgsitefy.com">legal@sgsitefy.com</a></p>
+
+    </div>
+  </div>
+
+  <!-- ── PRIVACY POLICY ── -->
+  <div class="tab-panel" id="tab-privacy">
+    <div class="doc">
+
+      <div class="callout">
+        <strong>PDPA Notice.</strong> This policy describes how SGSitefy collects, uses, and protects personal data in accordance with the Singapore Personal Data Protection Act 2012 (No. 26 of 2012) and its subsidiary legislation ("<strong>PDPA</strong>").
+      </div>
+
+      <h2>1. Data Controller</h2>
+      <p>SGSitefy is the data controller for personal data processed through the Platform. Our Data Protection Officer can be reached at <a href="mailto:dpo@sgsitefy.com">dpo@sgsitefy.com</a>.</p>
+
+      <h2>2. What Data We Collect</h2>
+      <h3>Data you provide</h3>
+      <ul>
+        <li><strong>UEN</strong> — used to retrieve your business record from ACRA's public register.</li>
+        <li><strong>Company name (English &amp; Chinese)</strong></li>
+        <li><strong>Contact details</strong> — phone number, email address, business address.</li>
+        <li><strong>Logo and photos</strong> — uploaded files used to generate your site.</li>
+        <li><strong>Certifications declared</strong> — e.g. BizSAFE level, ISO status.</li>
+        <li><strong>Domain preference</strong> — your chosen .com.sg or .sg domain.</li>
+      </ul>
+      <h3>Data collected automatically</h3>
+      <ul>
+        <li><strong>Usage data</strong> — pages visited, wizard steps completed, time spent.</li>
+        <li><strong>Device &amp; browser data</strong> — browser type, operating system, IP address.</li>
+        <li><strong>Cookies</strong> — session cookies for wizard state; analytics cookies if you consent.</li>
+      </ul>
+      <h3>Data from third parties</h3>
+      <ul>
+        <li>Publicly available business information retrieved from ACRA's Bizfile portal using your UEN.</li>
+        <li>Business information scraped from a URL you voluntarily provide (your existing website, Google Business, Facebook page).</li>
+      </ul>
+
+      <h2>3. How We Use Your Data</h2>
+      <p>We use your personal data to:</p>
+      <ul>
+        <li>Generate, preview, and publish your business website.</li>
+        <li>Register and manage your chosen domain on your behalf.</li>
+        <li>Process payments and issue invoices.</li>
+        <li>Send transactional emails (site-ready notifications, renewal reminders).</li>
+        <li>Improve the Platform through aggregated, anonymised analytics.</li>
+        <li>Comply with legal obligations under Singapore law.</li>
+      </ul>
+      <p>We do <strong>not</strong> sell, rent, or share your personal data with third parties for their own marketing purposes.</p>
+
+      <h2>4. Legal Basis for Processing</h2>
+      <ul>
+        <li><strong>Contract</strong> — processing necessary to provide the service you signed up for.</li>
+        <li><strong>Legitimate interests</strong> — fraud prevention, platform security, product analytics.</li>
+        <li><strong>Legal obligation</strong> — compliance with PDPA, IRAS requirements, MAS regulations.</li>
+        <li><strong>Consent</strong> — marketing emails (opt-in only), non-essential cookies.</li>
+      </ul>
+
+      <h2>5. Data Retention</h2>
+      <ul>
+        <li>Account data: retained for the duration of your subscription plus 2 years.</li>
+        <li>Published site content: retained until you delete your account or the site.</li>
+        <li>Uploaded images: deleted within 30 days of account closure.</li>
+        <li>Payment records: retained for 5 years to comply with IRAS requirements.</li>
+        <li>Usage logs: anonymised after 12 months.</li>
+      </ul>
+
+      <h2>6. Data Sharing</h2>
+      <p>We share data only with service providers acting as our data intermediaries under written agreements that require PDPA-equivalent protection:</p>
+      <ul>
+        <li><strong>Google (Antigravity API)</strong> — AI content generation. Data is not used to train models.</li>
+        <li><strong>Domain registrar</strong> — your business name and contact for WHOIS registration (as required by Singapore DNS regulations).</li>
+        <li><strong>Payment processor</strong> — billing data only; we do not store full card numbers.</li>
+        <li><strong>Cloud hosting provider</strong> — site files hosted in Singapore or Asia-Pacific data centres.</li>
+      </ul>
+
+      <h2>7. Cross-Border Transfers</h2>
+      <p>Some service providers (e.g. Google) may process data outside Singapore. We ensure such transfers comply with PDPA Schedule 1 obligations by contracting standard data protection clauses.</p>
+
+      <h2>8. Your Rights Under PDPA</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of the personal data we hold about you.</li>
+        <li><strong>Correction</strong> — request correction of inaccurate or incomplete data.</li>
+        <li><strong>Withdrawal of consent</strong> — withdraw consent for non-essential processing at any time (does not affect prior processing).</li>
+        <li><strong>Data portability</strong> — receive your site content in a standard format.</li>
+      </ul>
+      <p>To exercise these rights, email <a href="mailto:dpo@sgsitefy.com">dpo@sgsitefy.com</a>. We will respond within 30 calendar days as required by PDPA.</p>
+
+      <h2>9. Cookies</h2>
+      <p><strong>Essential cookies</strong> (no consent required): session state, CSRF protection, login tokens.</p>
+      <p><strong>Analytics cookies</strong> (consent required): we use privacy-respecting analytics (no cross-site tracking). You may decline these on first visit without affecting Platform functionality.</p>
+
+      <h2>10. Security</h2>
+      <p>We implement industry-standard security measures including TLS encryption in transit, AES-256 encryption at rest for sensitive fields, access controls, and regular security reviews. No method of transmission over the internet is 100% secure; we cannot guarantee absolute security.</p>
+
+      <h2>11. Children</h2>
+      <p>SGSitefy is not directed at persons under 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us data, contact <a href="mailto:dpo@sgsitefy.com">dpo@sgsitefy.com</a> and we will delete it promptly.</p>
+
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this policy to reflect changes in our practices or legal requirements. Material changes will be notified by email 14 days in advance. The date at the top of this page reflects the most recent revision.</p>
+
+      <h2>13. Contact &amp; Complaints</h2>
+      <p>Data Protection Officer: <a href="mailto:dpo@sgsitefy.com">dpo@sgsitefy.com</a></p>
+      <p>If you are not satisfied with our response, you may lodge a complaint with the <strong>Personal Data Protection Commission (PDPC)</strong> at <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener">pdpc.gov.sg</a>.</p>
+
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 SGSitefy. All rights reserved.</span>
+    <span>Governed by Singapore law &nbsp;·&nbsp; PDPA compliant</span>
+    <a href="preview.html">← Back to SGSitefy</a>
+  </div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

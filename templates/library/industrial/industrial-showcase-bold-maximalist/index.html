@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Industrial Force" data-zh="公司 — 工业力量">Company — Industrial Force</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0e; --bg:#ece9e2; --surface:#1a1a1c; --brand:#ff4d1c; --accent:#e8ff3a;
+  --display:'Bricolage Grotesque',sans-serif; --text:'Spline Sans Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:-.03em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.04em;text-transform:uppercase}
+.brand b{color:var(--brand)}
+.menu{display:flex;gap:1.8rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.menu a{position:relative;padding:.2rem 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:3px;background:var(--brand);transition:width .25s cubic-bezier(.2,.8,.2,1)}
+.menu a:hover::after{width:100%}
+.navbtns{display:flex;gap:.7rem;align-items:center}
+.lang{background:var(--ink);border:2px solid var(--ink);color:var(--bg);font-family:var(--text);font-size:.72rem;padding:.4rem .7rem;cursor:pointer;text-transform:uppercase}
+.lang:hover{background:var(--brand);border-color:var(--brand)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.6rem;cursor:pointer}
+/* HERO */
+.hero{background:var(--ink);color:var(--bg);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4.5rem) 0 0}
+.hero .eyebrow{color:var(--accent)}
+.hero h1{font-size:clamp(3.4rem,15vw,12rem);color:var(--bg);margin:.4rem 0 1rem;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--brand);-webkit-text-stroke:2px var(--brand)}
+.hero h1 .out{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--accent)}
+.hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:end;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.hero .lead{font-size:clamp(1rem,1.5vw,1.25rem);max-width:46ch;color:#cfccc4}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:.9rem;letter-spacing:-.01em;padding:1rem 1.8rem;background:var(--brand);color:var(--bg);border:2px solid var(--brand);cursor:pointer;transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s ease,color .18s ease}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--accent)}
+.btn.alt{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn.alt:hover{box-shadow:7px 7px 0 var(--brand);color:var(--bg);background:var(--brand);border-color:var(--brand)}
+.hero-img{width:100%;height:clamp(280px,46vw,640px);object-fit:cover;border-top:5px solid var(--brand)}
+/* MARQUEE */
+.marquee{background:var(--accent);color:var(--ink);overflow:hidden;border-bottom:2px solid var(--ink);white-space:nowrap;padding:.7rem 0}
+.marquee div{display:inline-block;animation:scroll 26s linear infinite;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.1rem;letter-spacing:-.01em}
+.marquee span{padding:0 1.6rem}
+.marquee span::after{content:"✦";color:var(--brand);margin-left:1.6rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* SECTION */
+section{padding:clamp(3.5rem,8vw,7rem) 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(2.4rem,8vw,6rem);text-transform:uppercase}
+.sec-head h2 em{font-style:normal;color:var(--brand)}
+/* INTRO */
+.intro{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.intro .big{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.1;letter-spacing:-.02em}
+.intro p{font-size:.95rem;margin-bottom:1rem}
+.intro .num{font-family:var(--display);font-weight:800;font-size:clamp(3rem,7vw,5.5rem);color:var(--brand);line-height:1}
+.intro .stat{border-top:2px solid var(--ink);padding-top:1rem;margin-top:1.5rem}
+.intro .stat span{font-size:.74rem;text-transform:uppercase;letter-spacing:.15em}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(120px,auto);gap:1rem}
+.gallery figure{overflow:hidden;position:relative;background:var(--ink)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1);filter:contrast(1.05)}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figcaption{position:absolute;left:1rem;bottom:1rem;background:var(--accent);color:var(--ink);font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:.8rem;padding:.3rem .7rem}
+.g0{grid-column:span 7;grid-row:span 2}
+.g1{grid-column:span 5}
+.g2{grid-column:span 5}
+.g3{grid-column:span 4;grid-row:span 2}
+.g4{grid-column:span 8}
+/* CTA */
+.cta{background:var(--brand);color:var(--ink);text-align:center}
+.cta h2{font-size:clamp(2.6rem,9vw,7rem);text-transform:uppercase;line-height:.88}
+.cta h2 em{font-style:normal;color:var(--bg)}
+.cta p{max-width:44ch;margin:1.4rem auto 2.2rem;font-size:1.05rem}
+.cta .btn{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.cta .btn:hover{box-shadow:7px 7px 0 var(--bg)}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:3rem 0 2rem;border-top:5px solid var(--accent)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+footer .fb{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.4rem}
+footer .fb b{color:var(--brand)}
+footer .cols{display:flex;gap:3rem;flex-wrap:wrap;font-size:.85rem}
+footer a:hover{color:var(--accent)}
+.credit{width:100%;border-top:1px solid #333;margin-top:1rem;padding-top:1.2rem;font-size:.78rem;color:#888}
+@media(max-width:760px){
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);padding:1rem clamp(1rem,4vw,3rem);gap:.6rem}
+  .menu.open{display:flex}.burger{display:block}
+  .hero-row,.intro{grid-template-columns:1fr}
+  .gallery>*{grid-column:1/-1!important;grid-row:auto!important;min-height:240px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="FORGE<b>/</b>WORKS" data-zh="锻<b>/</b>造" data-rich>FORGE<b>/</b>WORKS</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#intro" data-en="Studio" data-zh="工作室">Studio</a>
+      <a href="#work" data-en="Work" data-zh="案例">Work</a>
+      <a href="#capabilities" data-en="Capabilities" data-zh="能力">Capabilities</a>
+      <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Heavy Fabrication · Singapore" data-zh="重型制造 · 新加坡">Heavy Fabrication · Singapore</p>
+    <h1 data-slot="hero.headline" data-en="Built" data-zh="为压力" data-rich>Built<em> Under</em><span class="out"> Pressure.</span></h1>
+    <div class="hero-row">
+      <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — what you forge and the scale you operate at." data-zh="主标题副文 — 你锻造什么、规模有多大。">Hero supporting line — what you forge and the scale you operate at.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Start a Build" data-zh="开始项目">Start a Build</a>
+        <a class="btn alt" href="#work" data-slot="hero.cta2" data-en="See the Work" data-zh="查看案例">See the Work</a>
+      </div>
+    </div>
+  </div>
+  <img class="hero-img" src="https://picsum.photos/seed/maxi-hero/1800/720" alt="" data-slot="hero.image" data-en-alt="Fabrication floor under sparks" data-zh-alt="火花四溅的制造车间">
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div>
+    <span data-slot="marquee.0" data-en="Steel Fabrication" data-zh="钢结构制造">Steel Fabrication</span><span data-slot="marquee.1" data-en="Heavy Welding" data-zh="重型焊接">Heavy Welding</span><span data-slot="marquee.2" data-en="CNC Cutting" data-zh="数控切割">CNC Cutting</span><span data-slot="marquee.3" data-en="On-Site Install" data-zh="现场安装">On-Site Install</span><span data-en="Steel Fabrication" data-zh="钢结构制造">Steel Fabrication</span><span data-en="Heavy Welding" data-zh="重型焊接">Heavy Welding</span><span data-en="CNC Cutting" data-zh="数控切割">CNC Cutting</span><span data-en="On-Site Install" data-zh="现场安装">On-Site Install</span>
+  </div>
+</div>
+
+<section id="intro">
+  <div class="wrap intro">
+    <div>
+      <p class="eyebrow" data-en="The Studio" data-zh="工作室">The Studio</p>
+      <p class="big" data-slot="intro.big" data-en="A workshop that treats steel like a deadline — fast, exact, no excuses." data-zh="把钢铁当作截止日期对待的工坊 — 快速、精准、绝不找借口。">A workshop that treats steel like a deadline — fast, exact, no excuses.</p>
+    </div>
+    <div>
+      <p data-slot="intro.p1" data-en="Intro paragraph one — what the shop builds, for whom, and the standard held." data-zh="介绍段落一 — 工坊为谁制造、坚守何种标准。">Intro paragraph one — what the shop builds, for whom, and the standard held.</p>
+      <p data-slot="intro.p2" data-en="Intro paragraph two — capacity, materials, and what makes the output last." data-zh="介绍段落二 — 产能、材料、为何经久耐用。">Intro paragraph two — capacity, materials, and what makes the output last.</p>
+      <div class="stat"><div class="num" data-slot="intro.stat.n" data-en="600+" data-zh="600+">600+</div><span data-slot="intro.stat.l" data-en="Builds shipped" data-zh="交付项目">Builds shipped</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--ink);color:var(--bg)">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="work.title" data-en="Selected" data-zh="精选" data-rich>Selected <em>Work</em></h2><p class="eyebrow" style="color:var(--accent)" data-en="Portfolio / 2024" data-zh="作品集 / 2024">Portfolio / 2024</p></div>
+    <div class="gallery" data-slot="gallery" data-min="3" data-max="5">
+      <figure class="g0"><img src="https://picsum.photos/seed/maxi-g0/1000/900" alt="" data-slot="gallery.0" data-en-alt="Project one" data-zh-alt="项目一"><figcaption data-slot="gallery.0.cap" data-en="Featured" data-zh="精选">Featured</figcaption></figure>
+      <figure class="g1"><img src="https://picsum.photos/seed/maxi-g1/800/520" alt="" data-slot="gallery.1" data-en-alt="Project two" data-zh-alt="项目二"></figure>
+      <figure class="g2"><img src="https://picsum.photos/seed/maxi-g2/800/520" alt="" data-slot="gallery.2" data-en-alt="Project three" data-zh-alt="项目三"></figure>
+      <figure class="g3"><img src="https://picsum.photos/seed/maxi-g3/700/900" alt="" data-slot="gallery.3" data-en-alt="Project four" data-zh-alt="项目四"><figcaption data-slot="gallery.3.cap" data-en="Detail" data-zh="细节">Detail</figcaption></figure>
+      <figure class="g4"><img src="https://picsum.photos/seed/maxi-g4/1100/520" alt="" data-slot="gallery.4" data-en-alt="Project five" data-zh-alt="项目五"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="cap.title" data-en="What We" data-zh="我们能" data-rich>What We <em>Make</em></h2><p class="eyebrow" data-en="Capabilities" data-zh="能力">Capabilities</p></div>
+    <div class="intro" style="grid-template-columns:1fr 1fr">
+      <div data-slot="cap.list.a" data-min="2" data-max="3">
+        <div class="stat" style="border-top:2px solid var(--ink)"><div class="num" style="font-size:clamp(1.4rem,3vw,2.2rem)" data-slot="cap.0.title" data-en="Steel Fabrication" data-zh="钢结构制造">Steel Fabrication</div><p data-slot="cap.0.desc" data-en="Capability description placeholder." data-zh="能力描述占位。">Capability description placeholder.</p></div>
+        <div class="stat"><div class="num" style="font-size:clamp(1.4rem,3vw,2.2rem)" data-slot="cap.1.title" data-en="Heavy Welding" data-zh="重型焊接">Heavy Welding</div><p data-slot="cap.1.desc" data-en="Capability description placeholder." data-zh="能力描述占位。">Capability description placeholder.</p></div>
+      </div>
+      <div data-slot="cap.list.b" data-min="2" data-max="3">
+        <div class="stat" style="border-top:2px solid var(--ink)"><div class="num" style="font-size:clamp(1.4rem,3vw,2.2rem)" data-slot="cap.2.title" data-en="CNC Cutting" data-zh="数控切割">CNC Cutting</div><p data-slot="cap.2.desc" data-en="Capability description placeholder." data-zh="能力描述占位。">Capability description placeholder.</p></div>
+        <div class="stat"><div class="num" style="font-size:clamp(1.4rem,3vw,2.2rem)" data-slot="cap.3.title" data-en="On-Site Install" data-zh="现场安装">On-Site Install</div><p data-slot="cap.3.desc" data-en="Capability description placeholder." data-zh="能力描述占位。">Capability description placeholder.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Got a" data-zh="有图纸" data-rich>Got a <em>Spec?</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how to start, turnaround, where to send the drawing." data-zh="行动号召副文 — 如何开始、周期、图纸发往何处。">CTA supporting line — how to start, turnaround, where to send the drawing.</p>
+    <a class="btn" href="mailto:hello@example.com" data-slot="cta.button" data-en="Send the Drawing" data-zh="发送图纸">Send the Drawing</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fb" data-slot="footer.name" data-en="FORGE<b>/</b>WORKS" data-zh="锻<b>/</b>造" data-rich>FORGE<b>/</b>WORKS</div>
+    <div class="cols">
+      <div><a href="#contact" data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</a></div>
+      <div><a href="mailto:hello@example.com" data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</a></div>
+      <div><span data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</span></div>
+    </div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to); if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

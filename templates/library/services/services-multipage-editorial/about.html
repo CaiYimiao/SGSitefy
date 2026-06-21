@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Firm" data-zh="关于 — 事务所">About — Firm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Atelier" data-zh="工作室">The Atelier</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="masthead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="About" data-zh="关于">About</p>
+    <h1 data-slot="about.headline" data-en="We started with a question." data-zh="我们始于一个问题。" data-rich>We started with <em data-en="a question." data-zh="一个问题。">a question.</em></h1>
+    <p class="lead" data-slot="about.sub" data-en="Page lead — the origin and purpose of the practice." data-zh="页面引文 — 事务所的起源与宗旨。">Page lead — the origin and purpose of the practice.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="feature">
+      <div>
+        <p data-slot="about.p1" data-en="About paragraph one — your story, the why behind the work." data-zh="关于段落一 — 你的故事与初衷。">About paragraph one — your story, the why behind the work.</p>
+        <p data-slot="about.p2" data-en="About paragraph two — the approach that sets you apart." data-zh="关于段落二 — 与众不同的工作方式。">About paragraph two — the approach that sets you apart.</p>
+        <p data-slot="about.p3" data-en="About paragraph three — the standard you hold every engagement to." data-zh="关于段落三 — 每个项目坚守的标准。">About paragraph three — the standard you hold every engagement to.</p>
+      </div>
+      <img src="https://picsum.photos/seed/svc-edit-about/720/900" alt="" data-slot="about.image" data-en-alt="Studio" data-zh-alt="工作室">
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="team.title" data-en="The people" data-zh="团队成员">The people</h2><p class="eyebrow" data-en="Team" data-zh="团队">Team</p></div>
+    <div class="team-grid" data-slot="team" data-min="3" data-max="6">
+      <article class="person"><img src="https://picsum.photos/seed/svc-edit-t0/400/500" alt="" data-slot="team.0.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.0.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.0.role" data-en="Founder" data-zh="创始人">Founder</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-edit-t1/400/500" alt="" data-slot="team.1.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.1.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.1.role" data-en="Strategy Director" data-zh="策略总监">Strategy Director</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-edit-t2/400/500" alt="" data-slot="team.2.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.2.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.2.role" data-en="Design Lead" data-zh="设计主管">Design Lead</p></article>
+      <article class="person"><img src="https://picsum.photos/seed/svc-edit-t3/400/500" alt="" data-slot="team.3.photo" data-en-alt="Team member" data-zh-alt="团队成员"><h3 data-slot="team.3.name" data-en="Name Surname" data-zh="姓名">Name Surname</h3><p class="role" data-slot="team.3.role" data-en="Editor" data-zh="编辑">Editor</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Like how we think?" data-zh="认同我们的理念？">Like how we think?</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite them to reach out." data-zh="行动号召副文 — 邀请联系。">CTA supporting line — invite them to reach out.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Work With Us" data-zh="与我们合作">Work With Us</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="The Atelier — Brand & Strategy" data-zh="工作室 — 品牌与策略">The Atelier — Brand &amp; Strategy</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tiong Bahru Bakehouse — Artisan sourdough, kaya toast and specialty coffee in Singapore." />
+  <title>Tiong Bahru Bakehouse · 中峇鲁烘焙坊</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --clr-primary:      #7c2d12;
+      --clr-primary-dk:   #5a1e0b;
+      --clr-primary-lt:   #9a3412;
+      --clr-accent:       #f59e0b;
+      --clr-accent-dk:    #d97706;
+      --clr-bg:           #fdf8f3;
+      --clr-surface:      #fff9f5;
+      --clr-surface-2:    #fef3e2;
+      --clr-text:         #1c1308;
+      --clr-text-muted:   #6b4c2a;
+      --clr-border:       #e8d5b7;
+      --clr-white:        #ffffff;
+      --clr-overlay:      rgba(28, 10, 2, 0.52);
+
+      --ff-serif:         'Playfair Display', 'Noto Serif SC', Georgia, serif;
+      --ff-sans:          'Inter', system-ui, sans-serif;
+      --ff-zh:            'Noto Serif SC', serif;
+
+      --fs-xs:   0.75rem;
+      --fs-sm:   0.875rem;
+      --fs-base: 1rem;
+      --fs-lg:   1.125rem;
+      --fs-xl:   1.375rem;
+      --fs-2xl:  1.75rem;
+      --fs-3xl:  2.25rem;
+      --fs-4xl:  3rem;
+      --fs-5xl:  4rem;
+
+      --fw-normal: 400;
+      --fw-medium: 500;
+      --fw-semi:   600;
+      --fw-bold:   700;
+
+      --lh-tight:  1.15;
+      --lh-snug:   1.35;
+      --lh-normal: 1.6;
+      --lh-relaxed:1.75;
+
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(28,10,2,.08), 0 1px 2px rgba(28,10,2,.06);
+      --shadow-md: 0 4px 12px rgba(28,10,2,.10), 0 2px 6px rgba(28,10,2,.06);
+      --shadow-lg: 0 12px 32px rgba(28,10,2,.14), 0 4px 12px rgba(28,10,2,.08);
+      --shadow-card: 0 2px 8px rgba(124,45,18,.08), 0 8px 24px rgba(124,45,18,.06);
+
+      --transition-fast:   150ms ease;
+      --transition-base:   250ms ease;
+      --transition-slow:   400ms ease;
+      --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      --header-h: 72px;
+      --max-w:    1200px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--ff-sans);
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: var(--lh-normal);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* Focus visible */
+    :focus-visible {
+      outline: 3px solid var(--clr-accent);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ============================================================
+       LANGUAGE — hidden state
+    ============================================================ */
+    [data-zh] { }
+    body.lang-en [data-lang="zh"] { display: none; }
+    body.lang-zh [data-lang="en"] { display: none; }
+    body.lang-zh { font-family: var(--ff-zh), var(--ff-sans); }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--space-6);
+    }
+    .section {
+      padding-block: var(--space-24);
+    }
+    .section--alt {
+      background: var(--clr-surface-2);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .display {
+      font-family: var(--ff-serif);
+      font-size: clamp(var(--fs-3xl), 5vw, var(--fs-5xl));
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-tight);
+      letter-spacing: -0.01em;
+    }
+    .heading-2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(var(--fs-2xl), 3.5vw, var(--fs-3xl));
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-snug);
+    }
+    .heading-3 {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-snug);
+    }
+    .eyebrow {
+      font-family: var(--ff-sans);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clr-accent-dk);
+    }
+    .body-lg {
+      font-size: var(--fs-lg);
+      line-height: var(--lh-relaxed);
+      color: var(--clr-text-muted);
+    }
+    .body-sm {
+      font-size: var(--fs-sm);
+      line-height: var(--lh-normal);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      font-weight: var(--fw-semi);
+      font-size: var(--fs-base);
+      transition: background var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-base);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--clr-primary);
+      color: var(--clr-white);
+      box-shadow: 0 4px 14px rgba(124,45,18,.30);
+    }
+    .btn-primary:hover {
+      background: var(--clr-primary-lt);
+      box-shadow: 0 6px 20px rgba(124,45,18,.40);
+    }
+
+    .btn-accent {
+      background: var(--clr-accent);
+      color: var(--clr-primary-dk);
+      box-shadow: 0 4px 14px rgba(245,158,11,.30);
+    }
+    .btn-accent:hover {
+      background: var(--clr-accent-dk);
+      box-shadow: 0 6px 20px rgba(245,158,11,.40);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--clr-white);
+      border: 2px solid rgba(255,255,255,.65);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+      border-color: var(--clr-white);
+    }
+
+    /* ============================================================
+       STICKY HEADER
+    ============================================================ */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      background: rgba(253,248,243,.92);
+      backdrop-filter: blur(12px) saturate(1.5);
+      -webkit-backdrop-filter: blur(12px) saturate(1.5);
+      border-bottom: 1px solid var(--clr-border);
+      transition: box-shadow var(--transition-base);
+    }
+    #site-header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--clr-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-accent);
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-text .en {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+      letter-spacing: 0.01em;
+    }
+    .logo-text .zh {
+      font-family: var(--ff-zh);
+      font-size: var(--fs-xs);
+      color: var(--clr-text-muted);
+      margin-top: 1px;
+    }
+
+    /* Nav */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .nav-links a {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      color: var(--clr-text-muted);
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 100%;
+      height: 2px;
+      background: var(--clr-accent);
+      border-radius: 2px;
+      transition: right var(--transition-base);
+    }
+    .nav-links a:hover { color: var(--clr-primary); }
+    .nav-links a:hover::after { right: 0; }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      color: var(--clr-text-muted);
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    .lang-btn.active {
+      background: var(--clr-primary);
+      color: var(--clr-white);
+    }
+
+    /* Mobile menu toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 28px;
+      padding: 4px 0;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      background: var(--clr-primary);
+      border-radius: 2px;
+      transition: transform var(--transition-base), opacity var(--transition-base);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      max-height: 960px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    #hero:hover .hero-bg img { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(28,10,2,.30) 0%,
+        rgba(28,10,2,.55) 60%,
+        rgba(28,10,2,.72) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: var(--space-6);
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--clr-accent);
+      color: var(--clr-primary-dk);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-4);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-5);
+      animation: fadeDown 0.8s ease 0.2s both;
+    }
+    .hero-title {
+      color: var(--clr-white);
+      margin-bottom: var(--space-5);
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.85);
+      font-size: var(--fs-lg);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--space-8);
+      animation: fadeUp 0.8s ease 0.6s both;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.8s both;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      color: rgba(255,255,255,.7);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out 1.5s infinite;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.6), transparent);
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: .7; }
+      50%       { transform: translateX(-50%) translateY(8px); opacity: 1; }
+    }
+
+    /* ============================================================
+       ABOUT / STORY
+    ============================================================ */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      height: 460px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-main img { width: 100%; height: 100%; }
+    .about-img-accent {
+      position: absolute;
+      bottom: -var(--space-8);
+      right: -var(--space-6);
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 5px solid var(--clr-bg);
+      bottom: -32px;
+      right: -24px;
+    }
+    .about-img-accent img { width: 100%; height: 100%; }
+
+    .about-copy { padding-block: var(--space-4); }
+    .about-copy .eyebrow { margin-bottom: var(--space-4); }
+    .about-copy .heading-2 { margin-bottom: var(--space-5); }
+    .about-copy .body-lg { margin-bottom: var(--space-5); }
+    .about-copy p { color: var(--clr-text-muted); margin-bottom: var(--space-4); }
+
+    .about-stats {
+      display: flex;
+      gap: var(--space-8);
+      margin-top: var(--space-8);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--clr-border);
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-muted);
+      margin-top: var(--space-1);
+    }
+
+    /* ============================================================
+       SPECIALTIES / MENU CARDS
+    ============================================================ */
+    #specialties .section-header {
+      text-align: center;
+      max-width: 560px;
+      margin-inline: auto;
+      margin-bottom: var(--space-16);
+    }
+    #specialties .section-header .eyebrow { margin-bottom: var(--space-3); }
+    #specialties .section-header .heading-2 { margin-bottom: var(--space-4); }
+    #specialties .section-header p { color: var(--clr-text-muted); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .card {
+      background: var(--clr-white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--clr-border);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-img {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .card:hover .card-img img { transform: scale(1.06); }
+
+    .card-badge {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      background: var(--clr-accent);
+      color: var(--clr-primary-dk);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      padding: 2px var(--space-3);
+      border-radius: var(--radius-full);
+    }
+    .card-body {
+      padding: var(--space-5) var(--space-5) var(--space-6);
+    }
+    .card-title {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--space-2);
+      color: var(--clr-primary-dk);
+    }
+    .card-sub {
+      font-size: var(--fs-xs);
+      color: var(--clr-accent-dk);
+      font-weight: var(--fw-semi);
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-3);
+    }
+    .card-desc {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-muted);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--space-4);
+    }
+    .card-price {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+    }
+    .card-price span {
+      font-family: var(--ff-sans);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-normal);
+      color: var(--clr-text-muted);
+    }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery {
+      padding-block: var(--space-24);
+    }
+    #gallery .section-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    #gallery .section-header .eyebrow { margin-bottom: var(--space-3); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 240px);
+      gap: var(--space-3);
+    }
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-item.span-2-col { grid-column: span 2; }
+    .gallery-item.span-2-row { grid-row: span 2; }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--clr-overlay);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity var(--transition-base);
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay-icon {
+      color: var(--clr-white);
+      font-size: 1.8rem;
+    }
+
+    /* ============================================================
+       HOURS & CONTACT
+    ============================================================ */
+    #info {
+      background: var(--clr-primary-dk);
+      color: var(--clr-white);
+      padding-block: var(--space-24);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: var(--space-12);
+    }
+    .info-col-heading {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--space-6);
+      color: var(--clr-accent);
+    }
+
+    /* Hours */
+    .hours-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: rgba(255,255,255,.7); font-size: var(--fs-sm); }
+    .hours-time { font-weight: var(--fw-medium); font-size: var(--fs-sm); }
+    .hours-badge {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      padding: 1px var(--space-2);
+      border-radius: var(--radius-full);
+    }
+    .badge-open { background: rgba(34,197,94,.18); color: #86efac; }
+    .badge-closed { background: rgba(239,68,68,.15); color: #fca5a5; }
+
+    /* Contact */
+    .contact-list { display: flex; flex-direction: column; gap: var(--space-5); }
+    .contact-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: rgba(245,158,11,.15);
+      border: 1px solid rgba(245,158,11,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: var(--clr-accent);
+    }
+    .contact-detail .label {
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,.5);
+      margin-bottom: 2px;
+      letter-spacing: 0.05em;
+    }
+    .contact-detail .value {
+      font-size: var(--fs-sm);
+      color: var(--clr-white);
+      font-weight: var(--fw-medium);
+    }
+    .contact-detail a { color: var(--clr-white); transition: color var(--transition-fast); }
+    .contact-detail a:hover { color: var(--clr-accent); }
+
+    /* ============================================================
+       MAP
+    ============================================================ */
+    #location {
+      padding-block: var(--space-24);
+    }
+    #location .section-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    #location .section-header .eyebrow { margin-bottom: var(--space-3); }
+    #location .section-header .heading-2 { margin-bottom: var(--space-4); }
+    #location .section-header p { color: var(--clr-text-muted); }
+
+    .map-wrapper {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--clr-border);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 440px;
+      display: block;
+      border: none;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer {
+      background: var(--clr-text);
+      color: rgba(255,255,255,.55);
+      padding-block: var(--space-10);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .footer-logo .en {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+    }
+    .footer-logo .zh {
+      font-family: var(--ff-zh);
+      font-size: var(--fs-xs);
+      margin-top: 2px;
+    }
+    .footer-center {
+      font-size: var(--fs-xs);
+      text-align: center;
+      line-height: var(--lh-relaxed);
+    }
+    .footer-center strong { color: rgba(255,255,255,.75); }
+    .footer-links {
+      display: flex;
+      gap: var(--space-5);
+    }
+    .footer-links a {
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,.45);
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover { color: var(--clr-accent); }
+
+    /* ============================================================
+       MOBILE NAV DRAWER
+    ============================================================ */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+    }
+    .mobile-nav-panel {
+      position: relative;
+      width: min(320px, 85vw);
+      background: var(--clr-surface);
+      height: 100%;
+      padding: var(--space-8) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-nav-close {
+      align-self: flex-end;
+      font-size: 1.5rem;
+      color: var(--clr-text-muted);
+      transition: color var(--transition-fast);
+    }
+    .mobile-nav-close:hover { color: var(--clr-primary); }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .mobile-nav-links a {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-medium);
+      color: var(--clr-text);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--clr-border);
+      transition: color var(--transition-fast);
+    }
+    .mobile-nav-links a:hover { color: var(--clr-primary); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 220px); }
+      .gallery-item.span-2-col { grid-column: span 1; }
+      .gallery-item.span-2-row { grid-row: span 1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      #about .about-grid { grid-template-columns: 1fr; }
+      .about-img-main { height: 320px; }
+      .about-img-accent { display: none; }
+      .about-stats { gap: var(--space-5); }
+      .cards-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 180px); }
+      .info-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item { height: 200px; }
+      .gallery-item.span-2-col, .gallery-item.span-2-row { grid-column: span 1; grid-row: span 1; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- ============================================================
+     STICKY HEADER
+============================================================ -->
+<header id="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="#hero" class="logo" aria-label="Tiong Bahru Bakehouse – Home">
+        <div class="logo-mark" aria-hidden="true">🍞</div>
+        <div class="logo-text">
+          <span class="en" data-lang="en">Tiong Bahru Bakehouse</span>
+          <span class="zh" data-lang="zh">中峇鲁烘焙坊</span>
+          <span class="zh" data-lang="en" style="font-size:0.7rem;color:var(--clr-text-muted);">中峇鲁烘焙坊</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="#about">
+            <span data-lang="en">Our Story</span>
+            <span data-lang="zh">关于我们</span>
+          </a></li>
+          <li><a href="#specialties">
+            <span data-lang="en">Specialties</span>
+            <span data-lang="zh">精选菜单</span>
+          </a></li>
+          <li><a href="#gallery">
+            <span data-lang="en">Gallery</span>
+            <span data-lang="zh">相册</span>
+          </a></li>
+          <li><a href="#location">
+            <span data-lang="en">Visit Us</span>
+            <span data-lang="zh">来找我们</span>
+          </a></li>
+        </ul>
+
+        <!-- EN / 中文 toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+          <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" aria-pressed="false">中文</button>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button class="nav-toggle" id="nav-toggle-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+  <nav class="mobile-nav-panel">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#about" class="mobile-link">
+        <span data-lang="en">Our Story</span>
+        <span data-lang="zh">关于我们</span>
+      </a></li>
+      <li><a href="#specialties" class="mobile-link">
+        <span data-lang="en">Specialties</span>
+        <span data-lang="zh">精选菜单</span>
+      </a></li>
+      <li><a href="#gallery" class="mobile-link">
+        <span data-lang="en">Gallery</span>
+        <span data-lang="zh">相册</span>
+      </a></li>
+      <li><a href="#location" class="mobile-link">
+        <span data-lang="en">Visit Us</span>
+        <span data-lang="zh">来找我们</span>
+      </a></li>
+    </ul>
+    <div class="lang-toggle" style="width:fit-content;" role="group" aria-label="Language selection">
+      <button class="lang-btn active" onclick="setLang('en')" id="mob-btn-en" aria-pressed="true">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')" id="mob-btn-zh" aria-pressed="false">中文</button>
+    </div>
+  </nav>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<main id="main-content">
+<section id="hero" aria-label="Hero banner">
+  <div class="hero-bg">
+    <img
+      src="https://picsum.photos/seed/bakehouse-hero/1600/900"
+      alt="Freshly baked sourdough loaves cooling on a wooden rack at Tiong Bahru Bakehouse"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">
+      <span data-lang="en">Artisan Bakery &amp; Café · Tiong Bahru, Singapore</span>
+      <span data-lang="zh">手工面包坊与咖啡馆 · 新加坡中峇鲁</span>
+    </span>
+    <h1 class="display hero-title">
+      <span data-lang="en">Baked with Love,<br/>Served with Soul</span>
+      <span data-lang="zh">用心烘焙，<br/>用情呈现</span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="en">Slow-fermented sourdoughs, silky kaya toast and single-origin specialty coffee — crafted fresh each morning in the heart of Tiong Bahru.</span>
+      <span data-lang="zh">慢发酵酸面包、丝滑咖椰吐司与单品精品咖啡——每天清晨在中峇鲁的心脏地带新鲜出炉。</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#specialties" class="btn btn-accent">
+        <span data-lang="en">View Specialties</span>
+        <span data-lang="zh">查看精选</span>
+      </a>
+      <a href="#location" class="btn btn-outline">
+        <span data-lang="en">Find Us</span>
+        <span data-lang="zh">来找我们</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span data-lang="en">Scroll</span>
+    <span data-lang="zh">向下滚动</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / STORY
+============================================================ -->
+<section id="about" class="section" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="about-img-main">
+          <img
+            src="https://picsum.photos/seed/bakehouse-baker/600/460"
+            alt="Baker shaping a sourdough loaf at the workbench"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-img-accent">
+          <img
+            src="https://picsum.photos/seed/bakehouse-kaya/300/300"
+            alt="Kaya toast with soft-boiled eggs and kopi"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="about-copy reveal reveal-delay-2">
+        <p class="eyebrow">
+          <span data-lang="en">Our Story</span>
+          <span data-lang="zh">我们的故事</span>
+        </p>
+        <h2 class="heading-2" id="about-heading">
+          <span data-lang="en">Rooted in Tradition, Risen with Craft</span>
+          <span data-lang="zh">传承根基，匠心成就</span>
+        </h2>
+        <p class="body-lg">
+          <span data-lang="en">Born in 2017 in a century-old shophouse on Eng Hoon Street, Tiong Bahru Bakehouse was founded by baker-couple Mei Lin and James Tan — inspired by their grandparents' kopitiam heritage and European baking apprenticeships.</span>
+          <span data-lang="zh">2017年，烘焙夫妇林美玲与陈杰明在恩厚街一座百年老店屋里创立了中峇鲁烘焙坊，他们的灵感来自祖辈的咖啡馆传统与欧洲烘焙学徒经历。</span>
+        </p>
+        <p>
+          <span data-lang="en">Every loaf is cold-retarded for a minimum of 16 hours and baked in a stone deck oven. Our kaya is hand-stirred with fresh pandan from Lim Chu Kang. We source single-origin beans from Thailand's Doi Chang and Java's Ijen Plateau.</span>
+          <span data-lang="zh">每条面包经过至少16小时冷藏发酵，在石板烤箱中烘焙。我们的咖椰酱用来自林厝港的新鲜香兰叶手工搅拌而成，咖啡豆精选自泰国的多依张与爪哇伊真高原。</span>
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">7+</div>
+            <div class="stat-label">
+              <span data-lang="en">Years Baking</span>
+              <span data-lang="zh">烘焙年数</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12</div>
+            <div class="stat-label">
+              <span data-lang="en">Signature Loaves</span>
+              <span data-lang="zh">招牌面包</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-label">
+              <span data-lang="en">Google Rating</span>
+              <span data-lang="zh">谷歌评分</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPECIALTIES / MENU CARDS
+============================================================ -->
+<section id="specialties" class="section section--alt" aria-labelledby="specialties-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">
+        <span data-lang="en">Menu Specialties</span>
+        <span data-lang="zh">精选菜单</span>
+      </p>
+      <h2 class="heading-2" id="specialties-heading">
+        <span data-lang="en">The Ones Worth Waking Up For</span>
+        <span data-lang="zh">值得一早起床的美味</span>
+      </h2>
+      <p>
+        <span data-lang="en">Crafted daily from local ingredients. Sold till they last — arrive before 10am for the full selection.</span>
+        <span data-lang="zh">每天以本地食材精心制作，售完即止——请在上午10点前抵达以享受最完整的选择。</span>
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="card reveal reveal-delay-1">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/sourdough-loaf/600/440"
+            alt="Classic Country Sourdough — a golden, blistered round loaf"
+            loading="lazy"
+          />
+          <span class="card-badge">
+            <span data-lang="en">Bestseller</span>
+            <span data-lang="zh">人气第一</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Signature Bread</span>
+            <span data-lang="zh">招牌面包</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Classic Country Sourdough</span>
+            <span data-lang="zh">经典乡村酸面包</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">70% hydration, 16-hour cold retard. Deep golden crust with a custardy, open crumb. Pair with our house cultured butter.</span>
+            <span data-lang="zh">70%水合度，16小时低温发酵。深金色外壳，内里蜂巢般柔软。搭配自制发酵黄油享用。</span>
+          </p>
+          <div class="card-price">S$12.50 <span>/ loaf</span></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card reveal reveal-delay-2">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/kaya-toast-set/600/440"
+            alt="Kaya Toast Set with soft-boiled eggs and kopi"
+            loading="lazy"
+          />
+          <span class="card-badge" style="background:var(--clr-primary);color:#fff;">
+            <span data-lang="en">Local Favourite</span>
+            <span data-lang="zh">本地最爱</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Breakfast Set</span>
+            <span data-lang="zh">早餐套餐</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Kaya Toast Set</span>
+            <span data-lang="zh">咖椰吐司套餐</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">Thick-sliced sourdough toast with home-made pandan kaya and salted Kerrygold butter. Comes with two soft-boiled eggs and kopi or tea.</span>
+            <span data-lang="zh">厚切酸面包吐司配自制香兰咖椰酱与爱尔兰盐黄油，附两颗温泉蛋及一杯咖啡或茶。</span>
+          </p>
+          <div class="card-price">S$8.90 <span>/ set</span></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card reveal reveal-delay-3">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/specialty-coffee/600/440"
+            alt="Flat white with latte art in a ceramic cup"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Specialty Coffee</span>
+            <span data-lang="zh">精品咖啡</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Doi Chang Flat White</span>
+            <span data-lang="zh">多依张白咖啡</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">Single-origin Arabica from Thailand's Doi Chang village. Nutty, chocolatey with a bright mandarin finish. Brewed as espresso or pour-over.</span>
+            <span data-lang="zh">泰国多依张村庄单品阿拉比卡。坚果巧克力风味，尾韵带柑橘清新。可选浓缩或手冲。</span>
+          </p>
+          <div class="card-price">S$6.50 <span>/ cup</span></div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card reveal reveal-delay-1">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/pandan-croissant/600/440"
+            alt="Pandan-layered croissant on a marble slab"
+            loading="lazy"
+          />
+          <span class="card-badge">
+            <span data-lang="en">New</span>
+            <span data-lang="zh">新品</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Viennoiserie</span>
+            <span data-lang="zh">维也纳甜点</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Pandan Laminated Croissant</span>
+            <span data-lang="zh">香兰千层牛角包</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">Eighty-one butter layers laminated with Gula Melaka pandan cream. Shattering crisp outside, pillowy within — a love letter to the Peranakan palate.</span>
+            <span data-lang="zh">八十一层黄油面皮，夹入古拉马六甲香兰奶油。外酥内软，是给娘惹口味的情书。</span>
+          </p>
+          <div class="card-price">S$5.80 <span>/ piece</span></div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card reveal reveal-delay-2">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/miso-banana/600/440"
+            alt="Miso banana cake with sesame glaze"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Pastry</span>
+            <span data-lang="zh">甜点</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Miso Banana Loaf</span>
+            <span data-lang="zh">味噌香蕉蛋糕</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">Caramelised Pisang Mas bananas stirred with shiro miso and brown butter. Dense, fudgy and deeply comforting with afternoon coffee.</span>
+            <span data-lang="zh">以焦糖化香蕉、白味噌与棕黄油制成，质地浓郁，是下午茶的最佳伴侣。</span>
+          </p>
+          <div class="card-price">S$4.50 <span>/ slice</span></div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card reveal reveal-delay-3">
+        <div class="card-img">
+          <img
+            src="https://picsum.photos/seed/iced-calamansi/600/440"
+            alt="Iced calamansi drink with fresh citrus wedge"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <p class="card-sub">
+            <span data-lang="en">Cold Drinks</span>
+            <span data-lang="zh">冷饮</span>
+          </p>
+          <h3 class="card-title heading-3">
+            <span data-lang="en">Iced Calamansi Cooler</span>
+            <span data-lang="zh">冰镇小青柑饮</span>
+          </h3>
+          <p class="card-desc">
+            <span data-lang="en">Freshly squeezed Singapore calamansi, honey and a whisper of salted plum. Singapore summers in a glass.</span>
+            <span data-lang="zh">现榨本地小青柑汁，加入蜂蜜与少许咸梅，一口喝尽新加坡夏日。</span>
+          </p>
+          <div class="card-price">S$4.20 <span>/ glass</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery" class="section" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">
+        <span data-lang="en">Inside the Bakehouse</span>
+        <span data-lang="zh">烘焙坊内景</span>
+      </p>
+      <h2 class="heading-2" id="gallery-heading">
+        <span data-lang="en">A Feast for the Eyes</span>
+        <span data-lang="zh">视觉盛宴</span>
+      </h2>
+    </div>
+
+    <div class="gallery-grid" role="list">
+      <div class="gallery-item span-2-col span-2-row reveal" role="listitem">
+        <img
+          src="https://picsum.photos/seed/bakehouse-interior/900/480"
+          alt="Warm, sunlit interior of Tiong Bahru Bakehouse with exposed brick and wooden shelves"
+          loading="lazy"
+        />
+        <div class="gallery-overlay" aria-hidden="true">
+          <span class="gallery-overlay-icon">⊕</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" role="listitem">
+        <img
+          src="https://picsum.photos/seed/bakehouse-bread-shelf/440/240"
+          alt="Freshly baked loaves lined on timber shelving"
+          loading="lazy"
+        />
+        <div class="gallery-overlay" aria-hidden="true">
+          <span class="gallery-overlay-icon">⊕</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" role="listitem">
+        <img
+          src="https://picsum.photos/seed/bakehouse-pour/440/240"
+          alt="Barista pouring latte art into an espresso"
+          loading="lazy"
+        />
+        <div class="gallery-overlay" aria-hidden="true">
+          <span class="gallery-overlay-icon">⊕</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" role="listitem">
+        <img
+          src="https://picsum.photos/seed/bakehouse-pastries/440/240"
+          alt="Assortment of pastries in the display case"
+          loading="lazy"
+        />
+        <div class="gallery-overlay" aria-hidden="true">
+          <span class="gallery-overlay-icon">⊕</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" role="listitem">
+        <img
+          src="https://picsum.photos/seed/bakehouse-tiongbahru/440/240"
+          alt="Tiong Bahru neighbourhood street view at sunrise"
+          loading="lazy"
+        />
+        <div class="gallery-overlay" aria-hidden="true">
+          <span class="gallery-overlay-icon">⊕</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOURS & CONTACT
+============================================================ -->
+<section id="info" aria-labelledby="info-heading">
+  <div class="container">
+    <div class="info-grid">
+      <!-- Hours -->
+      <div class="reveal">
+        <h2 class="info-col-heading" id="info-heading">
+          <span data-lang="en">Opening Hours</span>
+          <span data-lang="zh">营业时间</span>
+        </h2>
+        <ul class="hours-list" aria-label="Opening hours">
+          <li class="hours-row">
+            <span class="hours-day">
+              <span data-lang="en">Monday</span>
+              <span data-lang="zh">星期一</span>
+            </span>
+            <span class="hours-badge badge-closed">
+              <span data-lang="en">Closed</span>
+              <span data-lang="zh">休息</span>
+            </span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">
+              <span data-lang="en">Tuesday – Friday</span>
+              <span data-lang="zh">星期二至五</span>
+            </span>
+            <span class="hours-time">07:30 – 18:00</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">
+              <span data-lang="en">Saturday</span>
+              <span data-lang="zh">星期六</span>
+            </span>
+            <span class="hours-time">07:00 – 19:00</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">
+              <span data-lang="en">Sunday</span>
+              <span data-lang="zh">星期日</span>
+            </span>
+            <span class="hours-time">07:00 – 17:00</span>
+          </li>
+        </ul>
+        <p style="margin-top:var(--space-5);font-size:var(--fs-xs);color:rgba(255,255,255,.45);">
+          <span data-lang="en">Last order 30 min before closing. Kitchen may sell out earlier on weekends.</span>
+          <span data-lang="zh">最后点单时间为打烊前30分钟，周末产品可能提前售罄。</span>
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="reveal reveal-delay-2">
+        <h3 class="info-col-heading">
+          <span data-lang="en">Contact</span>
+          <span data-lang="zh">联系方式</span>
+        </h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div class="contact-detail">
+              <div class="label">
+                <span data-lang="en">Address</span>
+                <span data-lang="zh">地址</span>
+              </div>
+              <div class="value">56 Eng Hoon Street<br/>Singapore 160056</div>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div class="contact-detail">
+              <div class="label">
+                <span data-lang="en">Phone</span>
+                <span data-lang="zh">电话</span>
+              </div>
+              <div class="value"><a href="tel:+6562210034" aria-label="Call us at +65 6221 0034">+65 6221 0034</a></div>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">✉️</div>
+            <div class="contact-detail">
+              <div class="label">
+                <span data-lang="en">Email</span>
+                <span data-lang="zh">电邮</span>
+              </div>
+              <div class="value"><a href="mailto:hello@tiongbahru-bakehouse.sg">hello@tiongbahru-bakehouse.sg</a></div>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🚇</div>
+            <div class="contact-detail">
+              <div class="label">
+                <span data-lang="en">Nearest MRT</span>
+                <span data-lang="zh">最近地铁</span>
+              </div>
+              <div class="value">
+                <span data-lang="en">Tiong Bahru (EW17) · 5 min walk</span>
+                <span data-lang="zh">中峇鲁站 (EW17) · 步行5分钟</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Order CTA -->
+      <div class="reveal reveal-delay-3" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--space-6);">
+        <div>
+          <p class="eyebrow" style="color:var(--clr-accent);margin-bottom:var(--space-3);">
+            <span data-lang="en">Order &amp; Reservations</span>
+            <span data-lang="zh">预订与外送</span>
+          </p>
+          <h3 class="heading-3" style="color:#fff;margin-bottom:var(--space-4);">
+            <span data-lang="en">Pre-order your bread to avoid disappointment</span>
+            <span data-lang="zh">提前预订，不留遗憾</span>
+          </h3>
+          <p style="color:rgba(255,255,255,.6);font-size:var(--fs-sm);line-height:var(--lh-relaxed);margin-bottom:var(--space-6);">
+            <span data-lang="en">Popular loaves often sell out by 9am on weekends. WhatsApp us to pre-order or enquire about catering.</span>
+            <span data-lang="zh">热门面包在周末早上9点前便可能售罄，欢迎通过WhatsApp预订或咨询外卖配送。</span>
+          </p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <a href="https://wa.me/6562210034" class="btn btn-accent" rel="noopener noreferrer" target="_blank">
+              <span data-lang="en">WhatsApp Order</span>
+              <span data-lang="zh">WhatsApp预订</span>
+            </a>
+            <a href="#location" class="btn" style="border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);border-radius:var(--radius-full);padding:var(--space-3) var(--space-6);">
+              <span data-lang="en">Get Directions</span>
+              <span data-lang="zh">导航前往</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAP / LOCATION
+============================================================ -->
+<section id="location" class="section" aria-labelledby="location-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">
+        <span data-lang="en">Find Us</span>
+        <span data-lang="zh">来找我们</span>
+      </p>
+      <h2 class="heading-2" id="location-heading">
+        <span data-lang="en">56 Eng Hoon Street, Singapore</span>
+        <span data-lang="zh">新加坡恩厚街56号</span>
+      </h2>
+      <p>
+        <span data-lang="en">A 5-minute stroll from Tiong Bahru MRT (EW17). Look for the red-brick shophouse with the bread-loaf sign.</span>
+        <span data-lang="zh">距中峇鲁地铁站（EW17）步行5分钟，寻找悬挂面包图标的红砖老店屋。</span>
+      </p>
+    </div>
+    <div class="map-wrapper reveal reveal-delay-1">
+      <iframe
+        src="https://maps.google.com/maps?q=56+Eng+Hoon+Street,+Singapore+160056&z=16&output=embed"
+        title="Map showing location of Tiong Bahru Bakehouse at 56 Eng Hoon Street, Singapore"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-label="Google Maps embed for Tiong Bahru Bakehouse"
+      ></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="en" data-lang="en">Tiong Bahru Bakehouse</div>
+        <div class="zh" data-lang="zh">中峇鲁烘焙坊</div>
+        <div class="zh" style="font-size:0.7rem;margin-top:2px;">中峇鲁烘焙坊</div>
+      </div>
+      <div class="footer-center">
+        <div>© 2024 Tiong Bahru Bakehouse · 56 Eng Hoon Street, Singapore 160056</div>
+        <div style="margin-top:4px;">Built with <strong>SGSitefy</strong> · powered by <strong>Antigravity</strong></div>
+      </div>
+      <ul class="footer-links" role="list">
+        <li><a href="#about">
+          <span data-lang="en">Story</span>
+          <span data-lang="zh">故事</span>
+        </a></li>
+        <li><a href="#specialties">
+          <span data-lang="en">Menu</span>
+          <span data-lang="zh">菜单</span>
+        </a></li>
+        <li><a href="#info">
+          <span data-lang="en">Hours</span>
+          <span data-lang="zh">时间</span>
+        </a></li>
+        <li><a href="#location">
+          <span data-lang="en">Map</span>
+          <span data-lang="zh">地图</span>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---- LANGUAGE TOGGLE ---- */
+  var currentLang = 'en';
+
+  function setLang(lang) {
+    if (lang !== 'en' && lang !== 'zh') return;
+    currentLang = lang;
+    document.body.classList.remove('lang-en', 'lang-zh');
+    document.body.classList.add('lang-' + lang);
+
+    // Update desktop toggle
+    var btnEn = document.getElementById('btn-en');
+    var btnZh = document.getElementById('btn-zh');
+    if (btnEn && btnZh) {
+      btnEn.classList.toggle('active', lang === 'en');
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.setAttribute('aria-pressed', String(lang === 'en'));
+      btnZh.setAttribute('aria-pressed', String(lang === 'zh'));
+    }
+
+    // Update mobile toggle
+    var mobEn = document.getElementById('mob-btn-en');
+    var mobZh = document.getElementById('mob-btn-zh');
+    if (mobEn && mobZh) {
+      mobEn.classList.toggle('active', lang === 'en');
+      mobZh.classList.toggle('active', lang === 'zh');
+      mobEn.setAttribute('aria-pressed', String(lang === 'en'));
+      mobZh.setAttribute('aria-pressed', String(lang === 'zh'));
+    }
+
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+  }
+
+  // Expose globally for onclick attributes
+  window.setLang = setLang;
+
+  // Initialise
+  setLang('en');
+
+  /* ---- STICKY HEADER SHADOW ---- */
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    if (!header) return;
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---- SCROLL REVEAL ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    // Fallback: show all
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---- MOBILE NAV ---- */
+  var mobileNav       = document.getElementById('mobile-nav');
+  var mobileNavToggle = document.getElementById('nav-toggle-btn');
+  var mobileNavClose  = document.getElementById('mobile-nav-close');
+  var mobileBackdrop  = document.getElementById('mobile-nav-backdrop');
+  var mobileLinks     = document.querySelectorAll('.mobile-link');
+
+  function openMobileNav() {
+    if (!mobileNav || !mobileNavToggle) return;
+    mobileNav.classList.add('open');
+    mobileNavToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (mobileNavClose) mobileNavClose.focus();
+  }
+
+  function closeMobileNav() {
+    if (!mobileNav || !mobileNavToggle) return;
+    mobileNav.classList.remove('open');
+    mobileNavToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    mobileNavToggle.focus();
+  }
+
+  if (mobileNavToggle) mobileNavToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose)  mobileNavClose.addEventListener('click', closeMobileNav);
+  if (mobileBackdrop)  mobileBackdrop.addEventListener('click', closeMobileNav);
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

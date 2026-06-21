@@ -1,0 +1,11 @@
+{
+  "id": "fnb-multipage-heritage",
+  "industry": "fnb",
+  "kind": "multipage",
+  "aesthetic": "warm-craft-heritage",
+  "fonts": { "display": "Zilla Slab", "text": "Spectral" },
+  "tokens": { "ink": "#241c17", "bg": "#f5ece0", "surface": "#e9dcc8", "brand": "#8c2f1f", "accent": "#1f5240" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

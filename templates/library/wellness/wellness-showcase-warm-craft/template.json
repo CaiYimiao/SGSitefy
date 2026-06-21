@@ -1,0 +1,11 @@
+{
+  "id": "wellness-showcase-warm-craft",
+  "industry": "wellness",
+  "kind": "showcase",
+  "aesthetic": "warm-craft",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Newsreader" },
+  "tokens": { "ink": "#2e221a", "bg": "#efe6d8", "surface": "#f8f2e8", "brand": "#b1542f", "accent": "#7a8b5f" },
+  "sections": ["hero","ethos","gallery","craft","quote","cta","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-en="Lian Huat Hardware – Tools & Industrial Supplies" data-zh="联发五金 – 工具与工业用品">Lian Huat Hardware – Tools & Industrial Supplies</title>
+  <meta name="description" content="Lian Huat Hardware – family-run since 1985. Hardware, tools and industrial supplies in Toa Payoh, Singapore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ─── */
+    :root {
+      --c-primary:   #1f2937;
+      --c-primary-d: #111827;
+      --c-accent:    #ef4444;
+      --c-accent-h:  #dc2626;
+      --c-surface:   #f9fafb;
+      --c-card:      #ffffff;
+      --c-border:    #e5e7eb;
+      --c-text:      #111827;
+      --c-muted:     #6b7280;
+      --c-light:     #f3f4f6;
+
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+      --shadow-lg:   0 10px 40px rgba(0,0,0,.14);
+
+      --font-body:   'Inter', 'Noto Sans SC', system-ui, sans-serif;
+      --transition:  .22s cubic-bezier(.4,0,.2,1);
+
+      --max-w:       1200px;
+      --gap:         clamp(16px, 4vw, 48px);
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--c-text);
+      background: var(--c-surface);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Focus-visible */
+    :focus-visible {
+      outline: 3px solid var(--c-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ─── Layout helpers ─── */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--gap);
+    }
+    .section-pad { padding-block: clamp(56px, 8vw, 100px); }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: var(--c-primary);
+      margin-bottom: .5rem;
+    }
+    .section-subtitle {
+      color: var(--c-muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .accent-bar {
+      display: inline-block;
+      width: 48px; height: 4px;
+      background: var(--c-accent);
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--c-accent);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary {
+      background: var(--c-accent);
+      color: #fff;
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background: var(--c-accent-h);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239,68,68,.35);
+    }
+    .btn-outline {
+      border-color: rgba(255,255,255,.7);
+      color: #fff;
+      background: transparent;
+    }
+    .btn-outline:hover, .btn-outline:focus-visible {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Header / Nav ─── */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--c-primary);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .logo-en {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.01em;
+    }
+    .logo-zh {
+      font-size: .75rem;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+    .logo-accent { color: var(--c-accent); }
+    nav { display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      color: #d1d5db;
+      font-size: .875rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-link:hover, .nav-link:focus-visible {
+      color: #fff;
+      background: rgba(255,255,255,.08);
+    }
+    .lang-toggle {
+      margin-left: 12px;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.10);
+      border-radius: 99px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 12px;
+      border-radius: 99px;
+      transition: background var(--transition), color var(--transition);
+    }
+    .lang-btn.active {
+      background: var(--c-accent);
+      color: #fff;
+    }
+    .lang-btn:hover:not(.active) { color: #fff; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--c-primary-d);
+        flex-direction: column;
+        padding: 12px 16px;
+        gap: 4px;
+      }
+      .nav-links.open { display: flex; }
+      nav { flex-wrap: wrap; justify-content: flex-end; }
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      position: relative;
+      background: var(--c-primary);
+      color: #fff;
+      overflow: hidden;
+      min-height: clamp(460px, 60vh, 680px);
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://picsum.photos/seed/hardware-tools/1400/700');
+      background-size: cover;
+      background-position: center;
+      opacity: .18;
+      transform: scale(1.03);
+      transition: transform 8s ease-out;
+    }
+    #hero:hover .hero-bg { transform: scale(1.06); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(17,24,39,.97) 40%, rgba(17,24,39,.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      padding-block: clamp(56px, 10vw, 100px);
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-line { width: 32px; height: 3px; background: var(--c-accent); border-radius: 2px; }
+    .hero-eyebrow-text { font-size: .8rem; font-weight: 700; color: #9ca3af; letter-spacing: .1em; text-transform: uppercase; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+      letter-spacing: -.02em;
+    }
+    .hero h1 span { color: var(--c-accent); }
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: #9ca3af;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-badges {
+      margin-top: 3rem;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-badge { display: flex; flex-direction: column; }
+    .hero-badge-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .hero-badge-num span { color: var(--c-accent); }
+    .hero-badge-label { font-size: .75rem; color: #6b7280; margin-top: 2px; }
+
+    /* ─── Trust Bar ─── */
+    #trust-bar {
+      background: var(--c-card);
+      border-bottom: 1px solid var(--c-border);
+      padding-block: 20px;
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--c-muted);
+      font-size: .875rem;
+      font-weight: 500;
+    }
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--c-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-icon svg { width: 18px; height: 18px; color: var(--c-accent); }
+
+    /* ─── About ─── */
+    #about {
+      background: var(--c-card);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+    .est-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--c-accent);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .est-badge-num { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .est-badge-text { font-size: .7rem; font-weight: 700; opacity: .9; margin-top: 2px; }
+    .about-text p { color: var(--c-muted); margin-bottom: 1rem; font-size: .95rem; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 2rem;
+    }
+    .about-stat {
+      background: var(--c-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+    .about-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--c-primary); }
+    .about-stat-num span { color: var(--c-accent); }
+    .about-stat-label { font-size: .72rem; color: var(--c-muted); font-weight: 500; margin-top: 2px; }
+
+    /* ─── Product Categories ─── */
+    #categories { background: var(--c-surface); }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+      gap: 24px;
+    }
+    .cat-card {
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+    .cat-card:hover, .cat-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .cat-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .cat-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .cat-card:hover .cat-img img { transform: scale(1.06); }
+    .cat-body {
+      padding: 20px 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-icon {
+      width: 40px;
+      height: 40px;
+      background: #fee2e2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .cat-icon svg { width: 20px; height: 20px; color: var(--c-accent); }
+    .cat-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 6px;
+    }
+    .cat-desc { font-size: .85rem; color: var(--c-muted); flex: 1; }
+    .cat-link {
+      margin-top: 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--c-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+    .cat-link:hover { gap: 8px; }
+
+    /* ─── Brands / Partners ─── */
+    #brands { background: var(--c-primary); }
+    .brands-label {
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #6b7280;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+    .brands-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+    }
+    .brand-chip {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: #9ca3af;
+      border-radius: var(--radius-sm);
+      padding: 8px 20px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: background var(--transition), color var(--transition);
+    }
+    .brand-chip:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+    /* ─── Gallery ─── */
+    #gallery { background: var(--c-card); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+      transition: transform .5s ease;
+    }
+    .gallery-item:first-child img { aspect-ratio: auto; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,24,39,.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-cap { color: #fff; font-size: .8rem; font-weight: 600; }
+
+    /* ─── Location ─── */
+    #location { background: var(--c-surface); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .location-grid { grid-template-columns: 1fr; } }
+    .info-card {
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .info-row {
+      display: flex;
+      gap: 14px;
+      padding-block: 16px;
+      border-bottom: 1px solid var(--c-border);
+      align-items: flex-start;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      background: #fee2e2;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .info-icon svg { width: 18px; height: 18px; color: var(--c-accent); }
+    .info-label { font-size: .72rem; font-weight: 700; color: var(--c-muted); text-transform: uppercase; letter-spacing: .06em; }
+    .info-value { font-size: .9rem; font-weight: 600; color: var(--c-text); margin-top: 2px; }
+    .info-value a { color: var(--c-accent); }
+    .info-value a:hover { text-decoration: underline; }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: .85rem; }
+    .hours-label { color: var(--c-muted); }
+    .hours-time { font-weight: 600; color: var(--c-text); }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 16/9;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+    /* ─── CTA Banner ─── */
+    #cta-banner {
+      background: linear-gradient(110deg, var(--c-accent) 0%, #b91c1c 100%);
+      color: #fff;
+      text-align: center;
+      padding-block: clamp(48px, 6vw, 72px);
+    }
+    #cta-banner h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: .75rem;
+    }
+    #cta-banner p { color: rgba(255,255,255,.8); margin-bottom: 2rem; max-width: 520px; margin-inline: auto; margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff;
+      color: var(--c-accent);
+      font-weight: 800;
+    }
+    .btn-white:hover, .btn-white:focus-visible {
+      background: #f3f4f6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--c-primary-d);
+      color: #9ca3af;
+      padding-block: 40px 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .footer-brand { }
+    .footer-logo-en { font-size: 1.1rem; font-weight: 800; color: #fff; }
+    .footer-logo-zh { font-size: .75rem; color: #6b7280; margin-bottom: 12px; }
+    .footer-tagline { font-size: .82rem; line-height: 1.7; }
+    .footer-col-title { font-size: .78rem; font-weight: 700; color: #d1d5db; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: .85rem; color: #6b7280; transition: color var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: .78rem;
+    }
+    .footer-bottom a { color: var(--c-accent); font-weight: 600; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ─── Scroll-in animation ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header id="site-header" role="banner">
+  <div class="container header-inner">
+    <!-- Logo -->
+    <a href="#hero" class="logo-wrap" aria-label="Lian Huat Hardware – Home">
+      <span class="logo-en">Lian <span class="logo-accent">Huat</span> Hardware</span>
+      <span class="logo-zh">联发五金</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="ham-btn" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a class="nav-link" href="#about"      data-en="About"     data-zh="关于我们">About</a></li>
+        <li><a class="nav-link" href="#categories" data-en="Products"  data-zh="产品类别">Products</a></li>
+        <li><a class="nav-link" href="#gallery"    data-en="Gallery"   data-zh="图库">Gallery</a></li>
+        <li><a class="nav-link" href="#location"   data-en="Contact"   data-zh="联系我们">Contact</a></li>
+      </ul>
+
+      <!-- Language toggle -->
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button class="lang-btn"        id="btn-zh" onclick="setLang('zh')" aria-pressed="false">中文</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="hero-bg" role="presentation" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text" data-en="Trusted Since 1985" data-zh="自1985年起值得信赖">Trusted Since 1985</span>
+      </div>
+      <h1 id="hero-heading">
+        <span data-en="Singapore's Most Trusted" data-zh="新加坡最值得信赖的">Singapore's Most Trusted</span><br>
+        <span data-en="Hardware &amp; <span style='color:var(--c-accent)'>Industrial</span> Supplier" data-zh="五金与<span style='color:var(--c-accent)'>工业</span>供应商">Hardware &amp; <span style="color:var(--c-accent)">Industrial</span> Supplier</span>
+      </h1>
+      <p class="hero-tagline" data-en="Serving contractors, workshops and homeowners across Singapore — quality tools, bulk pricing, and expert advice from a family that's been in the trade for 40 years." data-zh="为全岛承包商、工作坊及家庭用户服务——品质工具、批发价格，以及来自40年家族经验的专业建议。">
+        Serving contractors, workshops and homeowners across Singapore — quality tools, bulk pricing, and expert advice from a family that's been in the trade for 40 years.
+      </p>
+      <div class="hero-ctas">
+        <a href="#categories" class="btn btn-primary" data-en="Browse Products" data-zh="浏览产品">Browse Products</a>
+        <a href="tel:+6562537788" class="btn btn-outline" data-en="📞 Call Us" data-zh="📞 致电我们">📞 Call Us</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <div class="hero-badge-num">40<span>+</span></div>
+          <div class="hero-badge-label" data-en="Years in Business" data-zh="年营业经验">Years in Business</div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-num">5000<span>+</span></div>
+          <div class="hero-badge-label" data-en="SKUs in Stock" data-zh="库存产品种类">SKUs in Stock</div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-num">200<span>+</span></div>
+          <div class="hero-badge-label" data-en="Trade Customers" data-zh="工程客户">Trade Customers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TRUST BAR
+════════════════════════════════════════════ -->
+<div id="trust-bar" role="region" aria-label="Trust signals">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <span data-en="ACRA Registered since 1985" data-zh="ACRA注册企业自1985年">ACRA Registered since 1985</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span data-en="Same-Day Delivery (orders before 2pm)" data-zh="当天送货（下午2时前下单）">Same-Day Delivery (orders before 2pm)</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <span data-en="Mon – Sat: 8am – 6pm" data-zh="周一至周六：早8时至下午6时">Mon – Sat: 8am – 6pm</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <span data-en="Bulk &amp; Trade Pricing Available" data-zh="提供批量及工程优惠价">Bulk &amp; Trade Pricing Available</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section id="about" class="section-pad" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://picsum.photos/seed/hardware-shop/800/600" alt="Interior of Lian Huat Hardware store showing shelves stocked with tools and supplies" loading="lazy" />
+        <div class="est-badge" aria-label="Established 1985">
+          <div class="est-badge-num">1985</div>
+          <div class="est-badge-text" data-en="Est." data-zh="创立于">Est.</div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="accent-bar"></div>
+        <span class="tag" data-en="Our Story" data-zh="我们的故事">Our Story</span>
+        <h2 id="about-heading" class="section-title" style="margin-top:.75rem" data-en="Four Decades of Hardware Expertise" data-zh="四十年五金专业经验">Four Decades of Hardware Expertise</h2>
+        <p data-en="Founded in 1985 by Mr Tan Ah Kow, Lian Huat Hardware began as a small stall in Toa Payoh selling basic hand tools to local contractors. Today, the second generation runs a full-service hardware and industrial supplies depot — without ever losing the personal touch that made us famous." data-zh="联发五金由陈亚狗先生于1985年创立，最初在大巴窑以小摊位向本地承包商出售基本手工具。如今，第二代接班人经营着一家一站式五金与工业用品仓库，始终保持让我们闻名的个人服务精神。">
+          Founded in 1985 by Mr Tan Ah Kow, Lian Huat Hardware began as a small stall in Toa Payoh selling basic hand tools to local contractors. Today, the second generation runs a full-service hardware and industrial supplies depot — without ever losing the personal touch that made us famous.
+        </p>
+        <p data-en="We stock over 5,000 SKUs across hand tools, power tools, fasteners, safety gear, electrical fittings, plumbing, and industrial consumables — all at transparent trade pricing with no minimum order for walk-in customers." data-zh="我们备有超过5,000种产品，涵盖手工具、电动工具、紧固件、安全装备、电气配件、水喉及工业耗材——价格透明，散客无需最低消费。">
+          We stock over 5,000 SKUs across hand tools, power tools, fasteners, safety gear, electrical fittings, plumbing, and industrial consumables — all at transparent trade pricing with no minimum order for walk-in customers.
+        </p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">40<span>+</span></div>
+            <div class="about-stat-label" data-en="Years Trading" data-zh="年从业经验">Years Trading</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">5K<span>+</span></div>
+            <div class="about-stat-label" data-en="Products" data-zh="产品种类">Products</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">200<span>+</span></div>
+            <div class="about-stat-label" data-en="Trade Clients" data-zh="工程客户">Trade Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PRODUCT CATEGORIES
+════════════════════════════════════════════ -->
+<section id="categories" class="section-pad" aria-labelledby="cats-heading">
+  <div class="container">
+    <div class="accent-bar"></div>
+    <h2 id="cats-heading" class="section-title" data-en="What We Carry" data-zh="产品类别">What We Carry</h2>
+    <p class="section-subtitle" data-en="Comprehensive range for trade professionals and DIY enthusiasts alike." data-zh="为专业工匠与DIY爱好者提供全面产品系列。">Comprehensive range for trade professionals and DIY enthusiasts alike.</p>
+
+    <div class="categories-grid">
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Hand Tools">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/hand-tools/600/340" alt="Selection of hammers, screwdrivers, and pliers on a workbench" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Hand Tools" data-zh="手工具">Hand Tools</h3>
+          <p class="cat-desc" data-en="Hammers, spanners, pliers, chisels, saws, screwdrivers and full tool sets from leading brands." data-zh="锤子、扳手、钳子、凿子、锯子、螺丝刀及知名品牌整套工具。">Hammers, spanners, pliers, chisels, saws, screwdrivers and full tool sets from leading brands.</p>
+          <span class="cat-link" aria-label="Enquire about Hand Tools" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Power Tools">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/power-tools/600/340" alt="Power drills and angle grinders on display" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Power Tools" data-zh="电动工具">Power Tools</h3>
+          <p class="cat-desc" data-en="Drills, grinders, jigsaws, sanders, routers, and air compressors. Professional and DIY grades available." data-zh="钻机、打磨机、线锯、砂光机、木工铣刀及空气压缩机，提供专业及家用两种规格。">Drills, grinders, jigsaws, sanders, routers, and air compressors. Professional and DIY grades available.</p>
+          <span class="cat-link" aria-label="Enquire about Power Tools" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Fasteners & Fixings">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/fasteners/600/340" alt="Bins of screws, bolts, nuts and anchors in various sizes" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Fasteners &amp; Fixings" data-zh="紧固件与固定配件">Fasteners &amp; Fixings</h3>
+          <p class="cat-desc" data-en="Bolts, screws, nuts, anchors, rawlplugs, rivets and washers — imperial and metric, sold individually or in bulk." data-zh="螺栓、螺丝、螺母、膨胀螺栓、铆钉及垫圈——英制与公制，支持散装或整箱购买。">Bolts, screws, nuts, anchors, rawlplugs, rivets and washers — imperial and metric, sold individually or in bulk.</p>
+          <span class="cat-link" aria-label="Enquire about Fasteners" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Safety & PPE">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/safety-ppe/600/340" alt="Safety helmets, high-visibility vests, and gloves on shelves" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Safety &amp; PPE" data-zh="安全防护用品">Safety &amp; PPE</h3>
+          <p class="cat-desc" data-en="Helmets, gloves, safety boots, high-vis vests, respirators, goggles and fall-arrest harnesses for every worksite." data-zh="头盔、手套、安全靴、反光背心、呼吸器、护目镜及高空安全绳，适用于各类工地。">Helmets, gloves, safety boots, high-vis vests, respirators, goggles and fall-arrest harnesses for every worksite.</p>
+          <span class="cat-link" aria-label="Enquire about Safety PPE" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Electrical & Plumbing">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/electrical-plumbing/600/340" alt="Cable reels, conduit fittings and copper pipe fittings" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Electrical &amp; Plumbing" data-zh="电气与水喉用品">Electrical &amp; Plumbing</h3>
+          <p class="cat-desc" data-en="Cables, conduits, switchgear, circuit breakers, PVC and copper piping, valves, taps and fittings." data-zh="电缆、线管、开关设备、断路器、PVC及铜管、阀门、水龙头与管件。">Cables, conduits, switchgear, circuit breakers, PVC and copper piping, valves, taps and fittings.</p>
+          <span class="cat-link" aria-label="Enquire about Electrical Plumbing" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+      <article class="cat-card reveal" tabindex="0" aria-label="Industrial Consumables">
+        <div class="cat-img">
+          <img src="https://picsum.photos/seed/industrial-consumables/600/340" alt="Lubricant cans, grinding discs, and abrasive pads" loading="lazy" />
+        </div>
+        <div class="cat-body">
+          <div class="cat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="cat-title" data-en="Industrial Consumables" data-zh="工业耗材">Industrial Consumables</h3>
+          <p class="cat-desc" data-en="Abrasives, cutting discs, lubricants, adhesives, sealants, tapes, rags and workshop chemicals." data-zh="研磨材料、切割片、润滑剂、粘合剂、密封剂、胶带、抹布及工业化学品。">Abrasives, cutting discs, lubricants, adhesives, sealants, tapes, rags and workshop chemicals.</p>
+          <span class="cat-link" aria-label="Enquire about Industrial Consumables" data-en="Enquire →" data-zh="询问 →">Enquire →</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BRANDS
+════════════════════════════════════════════ -->
+<section id="brands" class="section-pad" aria-labelledby="brands-heading">
+  <div class="container">
+    <h2 id="brands-heading" class="section-title" style="color:#fff;text-align:center;margin-bottom:.5rem" data-en="Brands We Carry" data-zh="我们代理的品牌">Brands We Carry</h2>
+    <p class="brands-label" data-en="Authorised stockist for leading global and regional brands" data-zh="全球及区域知名品牌授权经销商">Authorised stockist for leading global and regional brands</p>
+    <div class="brands-grid" role="list">
+      <div class="brand-chip" role="listitem">Bosch</div>
+      <div class="brand-chip" role="listitem">Makita</div>
+      <div class="brand-chip" role="listitem">Stanley</div>
+      <div class="brand-chip" role="listitem">DeWalt</div>
+      <div class="brand-chip" role="listitem">3M</div>
+      <div class="brand-chip" role="listitem">Hilti</div>
+      <div class="brand-chip" role="listitem">Würth</div>
+      <div class="brand-chip" role="listitem">Honeywell</div>
+      <div class="brand-chip" role="listitem">Klingspor</div>
+      <div class="brand-chip" role="listitem">WD-40</div>
+      <div class="brand-chip" role="listitem">Schneider</div>
+      <div class="brand-chip" role="listitem">Loctite</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     GALLERY
+════════════════════════════════════════════ -->
+<section id="gallery" class="section-pad" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div class="accent-bar"></div>
+    <h2 id="gallery-heading" class="section-title" data-en="Our Store &amp; Products" data-zh="门店与产品展示">Our Store &amp; Products</h2>
+    <p class="section-subtitle" data-en="A glimpse of what you'll find at Lian Huat Hardware." data-zh="联发五金门店与产品一览。">A glimpse of what you'll find at Lian Huat Hardware.</p>
+    <div class="gallery-grid reveal">
+      <figure class="gallery-item">
+        <img src="https://picsum.photos/seed/lh-main/900/700" alt="Main shopfloor of Lian Huat Hardware with full tool display walls" loading="lazy" />
+        <div class="gallery-overlay">
+          <figcaption class="gallery-cap" data-en="Main Shopfloor" data-zh="主要营业区">Main Shopfloor</figcaption>
+        </div>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://picsum.photos/seed/lh-drills/600/400" alt="Power drill display showing Bosch and Makita models" loading="lazy" />
+        <div class="gallery-overlay">
+          <figcaption class="gallery-cap" data-en="Power Tools" data-zh="电动工具">Power Tools</figcaption>
+        </div>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://picsum.photos/seed/lh-safety/600/400" alt="Safety equipment section with helmets and PPE" loading="lazy" />
+        <div class="gallery-overlay">
+          <figcaption class="gallery-cap" data-en="Safety &amp; PPE" data-zh="安全防护">Safety &amp; PPE</figcaption>
+        </div>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://picsum.photos/seed/lh-fasteners/600/400" alt="Fasteners wall with organised bins of bolts and screws" loading="lazy" />
+        <div class="gallery-overlay">
+          <figcaption class="gallery-cap" data-en="Fasteners" data-zh="紧固件">Fasteners</figcaption>
+        </div>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://picsum.photos/seed/lh-counter/600/400" alt="Service counter with experienced staff helping a customer" loading="lazy" />
+        <div class="gallery-overlay">
+          <figcaption class="gallery-cap" data-en="Expert Advice" data-zh="专业建议">Expert Advice</figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     LOCATION + CONTACT
+════════════════════════════════════════════ -->
+<section id="location" class="section-pad" aria-labelledby="location-heading">
+  <div class="container">
+    <div class="accent-bar"></div>
+    <h2 id="location-heading" class="section-title" data-en="Find Us" data-zh="联系我们">Find Us</h2>
+    <p class="section-subtitle" data-en="Walk-ins welcome. Easy parking. Delivery available island-wide." data-zh="欢迎直接到店。停车方便。提供全岛送货服务。">Walk-ins welcome. Easy parking. Delivery available island-wide.</p>
+
+    <div class="location-grid">
+      <div>
+        <div class="info-card reveal" role="region" aria-label="Contact and opening hours">
+
+          <div class="info-row">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-label" data-en="Address" data-zh="地址">Address</div>
+              <div class="info-value">Blk 1004 Toa Payoh Industrial Park<br>Singapore 319075</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.32 2 2 0 0 1 3.6 1H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="info-label" data-en="Phone" data-zh="电话">Phone</div>
+              <div class="info-value"><a href="tel:+6562537788">+65 6253 7788</a></div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="info-label" data-en="Email" data-zh="电邮">Email</div>
+              <div class="info-value"><a href="mailto:enquiries@lianhuat.com.sg">enquiries@lianhuat.com.sg</a></div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="info-label" data-en="Opening Hours" data-zh="营业时间">Opening Hours</div>
+              <div class="info-value" style="margin-top:8px">
+                <div class="hours-grid">
+                  <div class="hours-row">
+                    <span class="hours-label" data-en="Mon – Fri" data-zh="周一至五">Mon – Fri</span>
+                    <span class="hours-time">8am – 6pm</span>
+                  </div>
+                  <div class="hours-row">
+                    <span class="hours-label" data-en="Saturday" data-zh="周六">Saturday</span>
+                    <span class="hours-time">8am – 4pm</span>
+                  </div>
+                  <div class="hours-row">
+                    <span class="hours-label" data-en="Sunday" data-zh="周日">Sunday</span>
+                    <span class="hours-time" data-en="Closed" data-zh="休息">Closed</span>
+                  </div>
+                  <div class="hours-row">
+                    <span class="hours-label" data-en="PH" data-zh="公假">PH</span>
+                    <span class="hours-time" data-en="Closed" data-zh="休息">Closed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal" role="region" aria-label="Map showing Lian Huat Hardware location in Toa Payoh Industrial Park">
+        <iframe
+          src="https://maps.google.com/maps?q=Toa+Payoh+Industrial+Park,+Singapore+319075&z=16&output=embed"
+          title="Map showing Lian Huat Hardware at Toa Payoh Industrial Park, Singapore 319075"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Google Maps embed for Lian Huat Hardware location"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════ -->
+<section id="cta-banner" aria-labelledby="cta-heading">
+  <div class="container">
+    <h2 id="cta-heading" data-en="Need a Trade Account or Bulk Quote?" data-zh="需要工程账户或批量报价？">Need a Trade Account or Bulk Quote?</h2>
+    <p data-en="Open a trade account in minutes. Enjoy priority pricing, credit terms, and a dedicated account manager." data-zh="数分钟内开设工程账户，享受优先定价、信用账期及专属客户经理服务。">Open a trade account in minutes. Enjoy priority pricing, credit terms, and a dedicated account manager.</p>
+    <div class="cta-actions">
+      <a href="tel:+6562537788" class="btn btn-white" data-en="📞 Call +65 6253 7788" data-zh="📞 致电 +65 6253 7788">📞 Call +65 6253 7788</a>
+      <a href="mailto:enquiries@lianhuat.com.sg" class="btn btn-outline" data-en="✉ Email Us" data-zh="✉ 发送邮件">✉ Email Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-en">Lian Huat Hardware</div>
+        <div class="footer-logo-zh">联发五金</div>
+        <p class="footer-tagline" data-en="Family-run hardware and industrial supplies in Singapore since 1985. Serving contractors, workshops, and homeowners with quality and trust." data-zh="自1985年起，新加坡家族经营五金与工业用品店。以品质与诚信服务承包商、工作坊及家庭用户。">
+          Family-run hardware and industrial supplies in Singapore since 1985. Serving contractors, workshops, and homeowners with quality and trust.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-en="Quick Links" data-zh="快速链接">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#about"      data-en="About Us"          data-zh="关于我们">About Us</a></li>
+          <li><a href="#categories" data-en="Products"          data-zh="产品类别">Products</a></li>
+          <li><a href="#brands"     data-en="Brands"            data-zh="品牌">Brands</a></li>
+          <li><a href="#gallery"    data-en="Gallery"           data-zh="图库">Gallery</a></li>
+          <li><a href="#location"   data-en="Find Us"           data-zh="联系我们">Find Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-en="Contact" data-zh="联系方式">Contact</div>
+        <ul class="footer-links">
+          <li>Blk 1004 Toa Payoh<br>Industrial Park S319075</li>
+          <li><a href="tel:+6562537788">+65 6253 7788</a></li>
+          <li><a href="mailto:enquiries@lianhuat.com.sg">enquiries@lianhuat.com.sg</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Lian Huat Hardware Pte Ltd · <span data-en="All rights reserved" data-zh="版权所有">All rights reserved</span></span>
+      <span>Built with <a href="#" aria-label="SGSitefy">SGSitefy</a> · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+  /* ─── Language toggle ─── */
+  (function () {
+    var currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+
+      // Update aria-pressed on buttons
+      document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+      document.getElementById('btn-zh').setAttribute('aria-pressed', lang === 'zh' ? 'true' : 'false');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+
+      // Update <html lang>
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+
+      // Update <title>
+      var titleEl = document.querySelector('title');
+      if (titleEl) {
+        var t = titleEl.getAttribute('data-' + lang);
+        if (t) titleEl.textContent = t;
+      }
+
+      // Walk every element with data-en / data-zh
+      var els = document.querySelectorAll('[data-en], [data-zh]');
+      els.forEach(function (el) {
+        if (el === titleEl) return; // already handled
+        var val = el.getAttribute('data-' + lang);
+        if (val !== null) {
+          el.innerHTML = val;
+        }
+      });
+    }
+
+    // Expose globally for onclick attributes
+    window.setLang = setLang;
+  })();
+
+  /* ─── Mobile hamburger ─── */
+  (function () {
+    var btn = document.getElementById('ham-btn');
+    var nav = document.getElementById('nav-links');
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close on nav link click
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  /* ─── Scroll-reveal ─── */
+  (function () {
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback: make all visible
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ─── Stagger category cards ─── */
+  (function () {
+    document.querySelectorAll('.cat-card').forEach(function (card, i) {
+      card.style.transitionDelay = (i * 80) + 'ms';
+    });
+  })();
+</script>
+
+</body>
+</html>

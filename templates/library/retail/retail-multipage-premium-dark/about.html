@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Maison — Store Name" data-zh="品牌 — 店名">Maison — Store Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-rich data-en="STORE<span>.</span>" data-zh="店名<span>.</span>">STORE<span>.</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" aria-current="page" data-slot="nav.about" data-en="Maison" data-zh="品牌">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phero">
+  <span class="eyebrow" data-slot="about.eyebrow" data-en="The maison" data-zh="品牌故事">The maison</span>
+  <h1 data-slot="about.headline" data-rich data-en="A house built on <em>discernment</em>" data-zh="以<em>鉴赏</em>立身的小店">A house built on <em>discernment</em></h1>
+</section>
+<section class="wrap sec">
+  <div class="aboutgrid">
+    <figure><img src="https://picsum.photos/seed/darkabout/640/800" data-slot="about.image" data-en-alt="Founder" data-zh-alt="创办人" alt="Founder"></figure>
+    <div>
+      <p data-slot="about.body1" data-en="A first paragraph on the store's origins and the standard it holds itself to." data-zh="第一段，讲述本店的起源及所坚守的标准。">A first paragraph on the store's origins and the standard it holds itself to.</p>
+      <p data-slot="about.body2" data-en="A second paragraph on sourcing, craftsmanship and the people behind it." data-zh="第二段，讲述选品、工艺与背后的团队。">A second paragraph on sourcing, craftsmanship and the people behind it.</p>
+      <p data-slot="about.body3" data-en="A third paragraph on the experience of being a guest in the store." data-zh="第三段，描述作为客人到店的体验。">A third paragraph on the experience of being a guest in the store.</p>
+    </div>
+  </div>
+</section>
+<section class="ctaband"><h2 data-slot="cta.title" data-en="You are most welcome" data-zh="诚挚欢迎您">You are most welcome</h2><a class="btn" href="contact.html" data-slot="cta.btn" data-en="Contact us" data-zh="联系我们">Contact us</a></section>
+</main>
+<footer><div class="row">
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</div></footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

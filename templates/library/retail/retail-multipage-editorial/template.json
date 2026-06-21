@@ -1,0 +1,17 @@
+{
+  "id": "retail-multipage-editorial",
+  "industry": "retail",
+  "kind": "multipage",
+  "aesthetic": "editorial",
+  "fonts": { "display": "Playfair Display", "text": "Source Serif 4" },
+  "tokens": {
+    "ink": "#1c1a17",
+    "bg": "#fbfaf7",
+    "surface": "#ffffff",
+    "brand": "#7a1f2b",
+    "accent": "#b08d3a"
+  },
+  "sections": ["nav","hero","categories","featured","editorial","about","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

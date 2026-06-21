@@ -1,0 +1,11 @@
+{
+  "id": "industrial-onepage-heritage",
+  "industry": "industrial",
+  "kind": "onepage",
+  "aesthetic": "heritage-classic",
+  "fonts": { "display": "Playfair Display", "text": "Source Sans 3" },
+  "tokens": { "ink": "#1e2733", "bg": "#f6f1e7", "surface": "#ece3d2", "brand": "#7a4a1e", "accent": "#b58a3c" },
+  "sections": ["hero", "trust", "about", "services", "work", "cta", "contact"],
+  "serviceCount": 5,
+  "entry": "index.html"
+}

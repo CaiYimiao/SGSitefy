@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Firm — Consultancy" data-zh="事务所 — 咨询">Firm — Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Atelier" data-zh="工作室">The Atelier</a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="masthead">
+  <div class="wrap">
+    <div class="byline">
+      <span data-slot="hero.by0" data-en="Brand & Strategy" data-zh="品牌与策略">Brand &amp; Strategy</span>
+      <span data-slot="hero.by1" data-en="Singapore" data-zh="新加坡">Singapore</span>
+      <span data-slot="hero.by2" data-en="Est. 2009" data-zh="创立于2009">Est. 2009</span>
+    </div>
+    <h1 data-slot="hero.headline" data-en="Ideas worth the ink." data-zh="值得书写的想法。" data-rich>Ideas worth <em data-en="the ink." data-zh="书写。">the ink.</em></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the consultancy you run and who it's for." data-zh="主标题副文 — 你的咨询业务与对象。">Hero supporting line — the consultancy you run and who it's for.</p>
+    <div class="cta-row">
+      <a class="btn" href="contact.html" data-slot="hero.cta1" data-en="Start a Project" data-zh="开始项目">Start a Project</a>
+      <a class="btn ghost" href="services.html" data-slot="hero.cta2" data-en="What We Do" data-zh="我们的服务">What We Do</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="intro.title" data-en="The brief" data-zh="简介">The brief</h2><p class="eyebrow" data-en="Introduction" data-zh="引言">Introduction</p></div>
+    <div class="cols">
+      <p class="drop" data-slot="intro.p1" data-en="Intro paragraph one — open with what you believe and how you work." data-zh="引言段落一 — 你的信念与工作方式。">Intro paragraph one — open with what you believe and how you work.</p>
+      <p data-slot="intro.p2" data-en="Intro paragraph two — the kind of clients you take and the result they get." data-zh="引言段落二 — 你的客户类型与成果。">Intro paragraph two — the kind of clients you take and the result they get.</p>
+      <p data-slot="intro.p3" data-en="Intro paragraph three — a closing note on standards or philosophy." data-zh="引言段落三 — 关于标准或理念的结语。">Intro paragraph three — a closing note on standards or philosophy.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-slot="preview.title" data-en="Selected services" data-zh="精选服务">Selected services</h2><a class="eyebrow" href="services.html" data-en="All services →" data-zh="全部服务 →">All services →</a></div>
+    <div class="preview-grid" data-slot="preview" data-min="3" data-max="3">
+      <article class="pcard"><p class="eyebrow" data-en="01" data-zh="01">01</p><h3 data-slot="preview.0.title" data-en="Brand Strategy" data-zh="品牌策略">Brand Strategy</h3><p data-slot="preview.0.desc" data-en="Short service summary placeholder." data-zh="服务简述占位。">Short service summary placeholder.</p><a href="services.html" data-en="Learn more" data-zh="了解更多">Learn more</a></article>
+      <article class="pcard"><p class="eyebrow" data-en="02" data-zh="02">02</p><h3 data-slot="preview.1.title" data-en="Identity Design" data-zh="形象设计">Identity Design</h3><p data-slot="preview.1.desc" data-en="Short service summary placeholder." data-zh="服务简述占位。">Short service summary placeholder.</p><a href="services.html" data-en="Learn more" data-zh="了解更多">Learn more</a></article>
+      <article class="pcard"><p class="eyebrow" data-en="03" data-zh="03">03</p><h3 data-slot="preview.2.title" data-en="Content & Editorial" data-zh="内容与编辑">Content &amp; Editorial</h3><p data-slot="preview.2.desc" data-en="Short service summary placeholder." data-zh="服务简述占位。">Short service summary placeholder.</p><a href="services.html" data-en="Learn more" data-zh="了解更多">Learn more</a></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <blockquote class="pull" data-slot="pull.text" data-en="“A pull-quote placeholder — one line that captures your point of view.”" data-zh="“引语占位 — 一句话概括你的观点。”">“A pull-quote placeholder — one line that captures your point of view.”</blockquote>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Have a brief in mind?" data-zh="心中已有想法？">Have a brief in mind?</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how to start a conversation." data-zh="行动号召副文 — 如何开始对话。">CTA supporting line — how to start a conversation.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Get in Touch" data-zh="联系我们">Get in Touch</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="The Atelier — Brand & Strategy" data-zh="工作室 — 品牌与策略">The Atelier — Brand &amp; Strategy</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

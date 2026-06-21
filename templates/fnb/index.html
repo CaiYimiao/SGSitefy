@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tiong Bahru Bakehouse — Artisan Bakery &amp; Café, Singapore</title>
+<meta name="description" content="Tiong Bahru Bakehouse — handcrafted sourdough, pastries and specialty coffee in the heart of Tiong Bahru, Singapore." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar" role="banner">
+  <div class="wrap">
+    <div>
+      <a href="tel:+6562225678"><span class="ic">☎</span> <span data-en="Call us:" data-zh="致电我们：">Call us:</span> +65 6222 5678</a>
+      <a href="mailto:hello@tiongbahru-bakehouse.sg"><span class="ic">✉</span> hello@tiongbahru-bakehouse.sg</a>
+    </div>
+    <div>
+      <span data-en="Chat &amp; order on WhatsApp" data-zh="WhatsApp 聊天及订购">Chat &amp; order on WhatsApp</span>
+      <a href="#" class="wa" aria-label="WhatsApp">✆</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse home">
+      <span class="mk" aria-hidden="true">TBB</span>
+      <span><b data-en="Tiong Bahru Bakehouse" data-zh="中峇鲁烘焙坊">Tiong Bahru Bakehouse</b><small data-en="Artisan Bakery &amp; Café" data-zh="手工烘焙与咖啡馆">Artisan Bakery &amp; Café</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html" class="active" data-en="Home" data-zh="主页">Home</a>
+      <a href="about.html"  data-en="About" data-zh="关于我们">About</a>
+      <a href="menu.html"   data-en="Menu" data-zh="菜单">Menu</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="contact.html#reserve" class="btn nav-cta" data-en="Order / Reserve" data-zh="订购 / 预订">Order / Reserve</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Hero Slider -->
+<section class="hero" aria-label="Hero">
+  <div class="slide on"><img src="https://picsum.photos/seed/bakehouse-hero1/1600/900" alt="Fresh sourdough loaves at Tiong Bahru Bakehouse" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/bakehouse-hero2/1600/900" alt="Artisan pastries and croissants" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/bakehouse-hero3/1600/900" alt="Specialty coffee and café interior" /></div>
+  <div class="slide"><img src="https://picsum.photos/seed/bakehouse-hero4/1600/900" alt="Bakers at work in the open kitchen" /></div>
+
+  <div class="hero-in">
+    <div class="wrap">
+      <div class="hero-card">
+        <p class="eyebrow" data-en="Artisan Bakery · Tiong Bahru, Singapore" data-zh="手工烘焙 · 新加坡中峇鲁">Artisan Bakery · Tiong Bahru, Singapore</p>
+        <h1>
+          <span data-rich
+            data-en="Baked with love, <span class='y'>served with soul</span>"
+            data-zh="用爱烘焙，<span class='y'>用心侍奉</span>">Baked with love, <span class="y">served with soul</span></span>
+        </h1>
+        <p data-en="Slow-fermented sourdough, buttery pastries and single-origin coffee — crafted daily in the heart of Tiong Bahru since 2014." data-zh="慢发酵天然酵母面包、香酥西点与单一产区咖啡——自2014年起，每日在中峇鲁精心制作。">Slow-fermented sourdough, buttery pastries and single-origin coffee — crafted daily in the heart of Tiong Bahru since 2014.</p>
+        <div class="hero-btns">
+          <a href="menu.html" class="btn btn-amber" data-en="Explore Our Menu" data-zh="浏览菜单">Explore Our Menu</a>
+          <a href="contact.html#reserve" class="btn btn-ghost" data-en="Reserve a Table" data-zh="预订座位">Reserve a Table</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dots" id="dots" aria-label="Slide navigation"></div>
+</section>
+
+<!-- Stats strip -->
+<section class="strip" aria-label="At a glance">
+  <div class="wrap">
+    <div class="grid">
+      <div class="it"><div class="n">2014</div><div class="l" data-en="Est. Year" data-zh="创立年份">Est. Year</div></div>
+      <div class="it"><div class="n">40+</div><div class="l" data-en="Menu Items" data-zh="菜单品项">Menu Items</div></div>
+      <div class="it"><div class="n">100%</div><div class="l" data-en="Natural Starters" data-zh="天然酵母">Natural Starters</div></div>
+      <div class="it"><div class="n">Daily</div><div class="l" data-en="Fresh Baked" data-zh="新鲜出炉">Fresh Baked</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="sec intro" id="intro">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <img src="https://picsum.photos/seed/bakehouse-interior/900/700" alt="Cosy interior of Tiong Bahru Bakehouse" />
+      </div>
+      <div class="reveal">
+        <p class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+        <h2 data-en="A neighbourhood bakery with a big heart" data-zh="有温度的街坊烘焙坊">A neighbourhood bakery with a big heart</h2>
+        <p class="lead" data-en="Born from a shared passion for honest bread and good coffee, Tiong Bahru Bakehouse has been a cherished corner of Singapore's oldest housing estate since 2014. Every loaf is long-fermented, every pastry hand-laminated, every cup brewed with care." data-zh="中峇鲁烘焙坊诞生于对好面包与好咖啡的共同热爱，自2014年起便成为新加坡最古老组屋区的温暖角落。每一条面包长时间发酵，每一款西点手工叠层，每一杯咖啡用心冲泡。">Born from a shared passion for honest bread and good coffee, Tiong Bahru Bakehouse has been a cherished corner of Singapore's oldest housing estate since 2014. Every loaf is long-fermented, every pastry hand-laminated, every cup brewed with care.</p>
+        <ul>
+          <li data-en="Stone-milled heritage flours, sourced responsibly" data-zh="石磨传统面粉，负责任采购">Stone-milled heritage flours, sourced responsibly</li>
+          <li data-en="Open kitchen — watch the bakers at work every morning" data-zh="开放式厨房——每天早上观摩面包师傅工作">Open kitchen — watch the bakers at work every morning</li>
+          <li data-en="Bilingual menu &amp; team — welcoming all neighbours" data-zh="双语菜单与团队——欢迎所有街坊">Bilingual menu &amp; team — welcoming all neighbours</li>
+        </ul>
+        <a href="about.html" class="btn btn-rust" style="margin-top:22px" data-en="Our Full Story →" data-zh="了解更多 →">Our Full Story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Signature Items Teaser -->
+<section class="sec" style="background:var(--soft)" id="signature">
+  <div class="wrap center">
+    <p class="eyebrow reveal" data-en="From the Oven" data-zh="出炉精选">From the Oven</p>
+    <h2 class="reveal" data-en="Signature favourites" data-zh="招牌心头好">Signature favourites</h2>
+    <p class="lead reveal" style="margin:12px auto 0" data-en="A small selection from our daily bake. Visit us early — popular items sell out by noon." data-zh="每日烘焙的精选品项。请早点光临——热门品项通常正午前售罄。">A small selection from our daily bake. Visit us early — popular items sell out by noon.</p>
+
+    <div class="items-grid reveal">
+
+      <div class="item-card">
+        <img src="https://picsum.photos/seed/sourdough-loaf/600/400" alt="Country sourdough loaf" />
+        <div class="body">
+          <span class="tag" data-en="Bread" data-zh="面包">Bread</span>
+          <h4 data-en="Country Sourdough" data-zh="乡村天然酵母面包">Country Sourdough</h4>
+          <p data-en="72-hour cold-fermented with a crackling crust and open, tangy crumb." data-zh="72小时低温发酵，外皮酥脆，内芯蓬松酸香。">72-hour cold-fermented with a crackling crust and open, tangy crumb.</p>
+          <span class="price">S$12</span>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <img src="https://picsum.photos/seed/butter-croissant/600/400" alt="Butter croissant" />
+        <div class="body">
+          <span class="tag" data-en="Pastry" data-zh="西点">Pastry</span>
+          <h4 data-en="Classic Butter Croissant" data-zh="经典牛油可颂">Classic Butter Croissant</h4>
+          <p data-en="27-layer hand-laminated dough using premium AOP Charentes-Poitou butter." data-zh="27层手工叠层面团，采用优质AOP夏朗特-普瓦图牛油。">27-layer hand-laminated dough using premium AOP Charentes-Poitou butter.</p>
+          <span class="price">S$5.50</span>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <img src="https://picsum.photos/seed/specialty-coffee/600/400" alt="Specialty latte" />
+        <div class="body">
+          <span class="tag" data-en="Coffee" data-zh="咖啡">Coffee</span>
+          <h4 data-en="Seasonal Filter Coffee" data-zh="季节性手冲咖啡">Seasonal Filter Coffee</h4>
+          <p data-en="Rotating single-origin beans, brewed on Kalita Wave for a clean, nuanced cup." data-zh="轮换单一产区豆，以Kalita Wave萃取，风味清晰细腻。">Rotating single-origin beans, brewed on Kalita Wave for a clean, nuanced cup.</p>
+          <span class="price">S$7</span>
+        </div>
+      </div>
+
+    </div>
+    <a href="menu.html" class="btn btn-rust reveal" style="margin-top:30px" data-en="View Full Menu →" data-zh="查看完整菜单 →">View Full Menu →</a>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Gallery" data-zh="图集">Gallery</p>
+    <h2 class="reveal" data-en="Inside the Bakehouse" data-zh="烘焙坊内的点点滴滴">Inside the Bakehouse</h2>
+    <div class="gal reveal" role="list">
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-bread/500/500" alt="Sourdough on wooden board" /><figcaption data-en="Morning loaves" data-zh="晨间面包">Morning loaves</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-pastry/500/500" alt="Pastry display counter" /><figcaption data-en="Pastry counter" data-zh="西点柜">Pastry counter</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-coffee/500/500" alt="Barista pouring latte" /><figcaption data-en="Craft pour" data-zh="精心拉花">Craft pour</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-cafe/500/500" alt="Sunlit café seating" /><figcaption data-en="Sunlit seating" data-zh="阳光座位">Sunlit seating</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-bake/500/500" alt="Bakers shaping dough" /><figcaption data-en="Shaping dough" data-zh="整形面团">Shaping dough</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-tarts/500/500" alt="Egg tarts and tarts" /><figcaption data-en="Fresh tarts" data-zh="新鲜挞">Fresh tarts</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-window/500/500" alt="Bakehouse shopfront" /><figcaption data-en="Eng Hoon Street" data-zh="英顺街">Eng Hoon Street</figcaption></figure>
+      <figure role="listitem"><img src="https://picsum.photos/seed/gal-team/500/500" alt="Team at the counter" /><figcaption data-en="Our team" data-zh="我们的团队">Our team</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-en="Celebrating something special?" data-zh="有特别的庆典？">Celebrating something special?</h2>
+    <p data-en="We do custom celebration cakes, corporate pastry boxes, and private café hire — just ask." data-zh="我们提供定制庆典蛋糕、企业西点礼盒及私人包场服务——欢迎询问。">We do custom celebration cakes, corporate pastry boxes, and private café hire — just ask.</p>
+    <a href="contact.html" class="btn btn-rust" data-en="Get in Touch" data-zh="联系我们">Get in Touch</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse">
+          <span class="mk" aria-hidden="true">TBB</span>
+          <span><b style="color:#fff;font-family:var(--fh)">Tiong Bahru Bakehouse</b><small>中峇鲁烘焙坊</small></span>
+        </a>
+        <p class="cn">中峇鲁烘焙坊</p>
+        <p data-en="Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014." data-zh="自2014年起，于新加坡深受喜爱的中峇鲁一带，精心制作天然酵母面包、西点与精品咖啡。">Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="TikTok">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Visit" data-zh="到访">Visit</h4>
+        <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+        <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+        <a href="menu.html" data-en="Menu" data-zh="菜单">Menu</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Menu" data-zh="菜单">Menu</h4>
+        <a href="menu.html#breads" data-en="Breads" data-zh="面包">Breads</a>
+        <a href="menu.html#pastries" data-en="Pastries" data-zh="西点">Pastries</a>
+        <a href="menu.html#coffee" data-en="Coffee" data-zh="咖啡">Coffee</a>
+        <a href="menu.html#bites" data-en="Savoury Bites" data-zh="咸食小食">Savoury Bites</a>
+      </div>
+      <div>
+        <h4 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h4>
+        <p data-en="Tue – Fri: 8 am – 6 pm" data-zh="周二至周五：上午8时–下午6时">Tue – Fri: 8 am – 6 pm</p>
+        <p data-en="Sat – Sun: 8 am – 8 pm" data-zh="周六至周日：上午8时–晚上8时">Sat – Sun: 8 am – 8 pm</p>
+        <p data-en="Mon: Closed" data-zh="周一：休息">Mon: Closed</p>
+        <p style="margin-top:10px">56 Eng Hoon Street<br>Singapore 160056</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Tiong Bahru Bakehouse Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FABs -->
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

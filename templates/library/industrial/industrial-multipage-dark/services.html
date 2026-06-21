@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Services — Precision Industrial" data-zh="服务 — 精密工业">Services — Precision Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" aria-current="page" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="phead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Capabilities" data-zh="能力">Capabilities</p>
+    <h1 data-slot="services.headline" data-en="What we" data-zh="我们的" data-rich>What we <em>master.</em></h1>
+    <p data-slot="services.sub" data-en="Page intro — the breadth of what you deliver, in one line." data-zh="页面引言 — 一句话概括你能交付的范围。">Page intro — the breadth of what you deliver, in one line.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="6">
+      <article class="svc"><div class="n">01</div><h3 data-slot="services.0.title" data-en="Precision Machining" data-zh="精密加工">Precision Machining</h3><p data-slot="services.0.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="services.1.title" data-en="Custom Tooling" data-zh="定制工装">Custom Tooling</h3><p data-slot="services.1.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="services.2.title" data-en="Surface Finishing" data-zh="表面处理">Surface Finishing</h3><p data-slot="services.2.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="services.3.title" data-en="Assembly" data-zh="装配">Assembly</h3><p data-slot="services.3.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+      <article class="svc"><div class="n">05</div><h3 data-slot="services.4.title" data-en="Quality Control" data-zh="质量控制">Quality Control</h3><p data-slot="services.4.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+      <article class="svc"><div class="n">06</div><h3 data-slot="services.5.title" data-en="R&amp;D Support" data-zh="研发支持">R&amp;D Support</h3><p data-slot="services.5.desc" data-en="Service description placeholder — scope, materials, tolerances." data-zh="服务描述占位 — 范围、材料、公差。">Service description placeholder — scope, materials, tolerances.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow" data-en="How We Work" data-zh="合作流程">How We Work</p><h2 data-slot="process.title" data-en="From brief to" data-zh="从需求到" data-rich>From brief to <em>delivery.</em></h2></div>
+    <div class="svc-grid" data-slot="process" data-min="3" data-max="4">
+      <article class="svc"><div class="n">01</div><h3 data-slot="process.0.title" data-en="Consult &amp; Spec" data-zh="咨询与定规">Consult &amp; Spec</h3><p data-slot="process.0.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">02</div><h3 data-slot="process.1.title" data-en="Prototype" data-zh="样件试制">Prototype</h3><p data-slot="process.1.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">03</div><h3 data-slot="process.2.title" data-en="Production" data-zh="量产">Production</h3><p data-slot="process.2.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="svc"><div class="n">04</div><h3 data-slot="process.3.title" data-en="QC &amp; Deliver" data-zh="质检与交付">QC &amp; Deliver</h3><p data-slot="process.3.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 data-slot="cta.headline" data-en="Have a spec" data-zh="有图纸" data-rich>Have a spec <em>ready?</em></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — turnaround and how to start." data-zh="行动号召副文 — 周期与如何开始。">CTA supporting line — turnaround and how to start.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="fbrand" data-slot="footer.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></div><p data-slot="footer.tagline" data-en="Precision industrial manufacturing." data-zh="精密工业制造。">Precision industrial manufacturing.</p></div>
+    <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+    <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

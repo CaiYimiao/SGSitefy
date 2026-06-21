@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Lab — Digital Product Studio" data-zh="实验室 — 数字产品工作室">Lab — Digital Product Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#eef0f2; --bg:#0a0c10; --surface:#13161c; --brand:#39ff8a; --accent:#6c5bff;
+  --line:rgba(238,240,242,.12);
+  --display:'Syne',system-ui,sans-serif; --text:'DM Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.6rem)}
+.eyebrow{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brand);font-weight:500}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.01em}
+.brand span{color:var(--brand)}
+.menu{display:flex;gap:2rem;font-size:.86rem}
+.menu a{opacity:.74;transition:opacity .25s,color .25s}
+.menu a:hover{opacity:1;color:var(--brand)}
+.navbtns{display:flex;gap:.8rem;align-items:center}
+.lang{background:none;border:1px solid var(--line);color:var(--ink);font-family:var(--text);font-size:.74rem;padding:.42rem .7rem;cursor:pointer;border-radius:999px;transition:.2s}
+.lang:hover{border-color:var(--brand);color:var(--brand)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.5rem;cursor:pointer}
+/* HERO */
+.hero{position:relative;padding:clamp(4rem,11vw,8rem) 0 clamp(2.5rem,6vw,5rem)}
+.hero::before{content:"";position:absolute;top:-20%;left:50%;width:80vw;height:60vh;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(108,91,255,.28),transparent 70%);filter:blur(20px);pointer-events:none}
+.hero h1{font-size:clamp(3rem,11vw,8.5rem);position:relative}
+.hero h1 .grad{background:linear-gradient(100deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.6rem;margin-top:1.8rem;position:relative}
+.hero .lead{max-width:42ch;font-size:1.1rem;opacity:.82}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{font-family:var(--text);font-weight:500;font-size:.88rem;padding:.92rem 1.7rem;background:var(--brand);color:var(--bg);cursor:pointer;border:1px solid var(--brand);border-radius:999px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(57,255,138,.25)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);box-shadow:none}
+/* TICKER */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--surface)}
+.ticker .track{display:inline-block;padding:1rem 0;font-family:var(--display);font-size:1.3rem;font-weight:700;animation:scroll 26s linear infinite}
+.ticker .track span{padding:0 1.3rem;opacity:.55}
+.ticker .track span b{color:var(--brand);font-weight:700}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+/* SECTIONS */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:2.4rem}
+.sec-head h2{font-size:clamp(2rem,6vw,4rem)}
+/* ABOUT */
+.about{display:grid;grid-template-columns:6fr 6fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.about-fig{position:relative}
+.about-fig img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.about-fig::after{content:"";position:absolute;inset:-1px;border-radius:16px;box-shadow:0 0 60px rgba(108,91,255,.2) inset;pointer-events:none}
+.about h2{font-size:clamp(1.9rem,5vw,3.2rem);margin-bottom:1.2rem}
+.about p{font-size:1.05rem;margin-bottom:1rem;opacity:.86;max-width:50ch}
+/* WORK */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem}
+.tile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.tile:hover{transform:translateY(-6px) scale(1.01)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile figcaption{position:absolute;left:0;bottom:0;right:0;padding:1.2rem;background:linear-gradient(transparent,rgba(10,12,16,.9));font-family:var(--display);font-weight:700;font-size:1.05rem}
+.tile figcaption small{display:block;font-family:var(--text);font-weight:400;font-size:.76rem;color:var(--brand);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem}
+.tile.a{grid-column:span 7;aspect-ratio:16/10}
+.tile.b{grid-column:span 5;aspect-ratio:4/5}
+.tile.c{grid-column:span 5;aspect-ratio:4/5}
+.tile.d{grid-column:span 7;aspect-ratio:16/10}
+.tile.e{grid-column:span 6;aspect-ratio:16/11}
+.tile.f{grid-column:span 6;aspect-ratio:16/11}
+/* PROCESS */
+.process{background:var(--surface)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;counter-reset:s}
+.step{padding:2rem 1.6rem;border:1px solid var(--line);border-radius:14px;position:relative;transition:border-color .3s}
+.step:hover{border-color:var(--accent)}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-weight:800;font-size:2rem;color:var(--accent);display:block;margin-bottom:.6rem}
+.step h3{font-size:1.25rem;margin-bottom:.5rem}
+.step p{font-size:.92rem;opacity:.78}
+/* CTA */
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 50% 120%,rgba(57,255,138,.2),transparent 60%)}
+.cta h2{font-size:clamp(2.4rem,8vw,5.5rem);position:relative}
+.cta h2 .grad{background:linear-gradient(100deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta p{max-width:48ch;margin:1.2rem auto 1.8rem;opacity:.84;position:relative}
+.cta .btn{position:relative}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,5vw,4rem)}
+.cinfo div{padding:1.1rem 0;border-top:1px solid var(--line)}
+.cinfo div:first-child{border:none}
+.cinfo .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--brand);margin-bottom:.3rem}
+.field{display:block;margin-bottom:1rem}
+.field span{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;opacity:.8}
+.field input,.field textarea{width:100%;font-family:var(--text);padding:.88rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.95rem;border-radius:10px}
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:2.6rem 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem}
+.credit{opacity:.5}
+@media(max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.5rem;gap:.9rem;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .tile.a,.tile.b,.tile.c,.tile.d,.tile.e,.tile.f{grid-column:span 12;aspect-ratio:16/10}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Kinetic<span>/</span>" data-zh="动力<span>/</span>" data-rich>Kinetic<span>/</span></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#work" data-slot="nav.work" data-en="Work" data-zh="作品">Work</a>
+      <a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a>
+      <a href="#process" data-slot="nav.process" data-en="Process" data-zh="流程">Process</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Product · Web · Motion" data-zh="产品 · 网页 · 动效">Product · Web · Motion</p>
+    <h1 data-slot="hero.headline" data-en="Interfaces that feel alive." data-zh="鲜活灵动的界面。" data-rich>Interfaces that feel <span class="grad" data-en="alive." data-zh="鲜活。">alive.</span></h1>
+    <div class="row">
+      <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the digital studio you run and what you build." data-zh="主标题副文 — 你的数字工作室与作品。">Hero supporting line — the digital studio you run and what you build.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Book a Call" data-zh="预约通话">Book a Call</a>
+        <a class="btn ghost" href="#work" data-slot="hero.cta2" data-en="View Work" data-zh="查看作品">View Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span data-slot="ticker.0" data-en="UX <b>/</b> Research" data-zh="用户体验 <b>/</b> 研究" data-rich>UX <b>/</b> Research</span><span data-slot="ticker.1" data-en="Design <b>/</b> Systems" data-zh="设计 <b>/</b> 系统" data-rich>Design <b>/</b> Systems</span><span data-slot="ticker.2" data-en="Build <b>/</b> Ship" data-zh="构建 <b>/</b> 交付" data-rich>Build <b>/</b> Ship</span><span data-slot="ticker.3" data-en="Motion <b>/</b> Brand" data-zh="动效 <b>/</b> 品牌" data-rich>Motion <b>/</b> Brand</span>
+    <span data-en="UX <b>/</b> Research" data-zh="用户体验 <b>/</b> 研究" data-rich>UX <b>/</b> Research</span><span data-en="Design <b>/</b> Systems" data-zh="设计 <b>/</b> 系统" data-rich>Design <b>/</b> Systems</span><span data-en="Build <b>/</b> Ship" data-zh="构建 <b>/</b> 交付" data-rich>Build <b>/</b> Ship</span><span data-en="Motion <b>/</b> Brand" data-zh="动效 <b>/</b> 品牌" data-rich>Motion <b>/</b> Brand</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about reveal">
+    <div>
+      <p class="eyebrow" data-en="About" data-zh="关于">About</p>
+      <h2 data-slot="about.title" data-en="Small team, sharp output." data-zh="精干团队，锐利成果。">Small team, sharp output.</h2>
+      <p data-slot="about.p1" data-en="About paragraph one — how you work and what makes the product feel right." data-zh="关于段落一 — 你的工作方式与产品质感。">About paragraph one — how you work and what makes the product feel right.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — the kind of partners you take on." data-zh="关于段落二 — 你的合作伙伴类型。">About paragraph two — the kind of partners you take on.</p>
+    </div>
+    <figure class="about-fig"><img src="https://picsum.photos/seed/kin-about/800/640" alt="" data-slot="about.image" data-en-alt="Team at work" data-zh-alt="团队工作">
+    </figure>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><p class="eyebrow" data-en="Selected Work" data-zh="精选作品">Selected Work</p><h2 data-slot="work.title" data-en="Things we shipped" data-zh="我们交付的作品">Things we shipped</h2></div><a class="eyebrow" href="#contact" data-en="Start a project →" data-zh="开始项目 →">Start a project →</a></div>
+    <div class="work-grid reveal" data-slot="work" data-min="4" data-max="6">
+      <figure class="tile a"><img src="https://picsum.photos/seed/kin-w0/900/560" alt="" data-slot="work.0.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.0.cap" data-en="Fintech App<small>Product · iOS</small>" data-zh="金融科技应用<small>产品 · iOS</small>" data-rich>Fintech App<small>Product · iOS</small></figcaption></figure>
+      <figure class="tile b"><img src="https://picsum.photos/seed/kin-w1/560/700" alt="" data-slot="work.1.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.1.cap" data-en="Brand Site<small>Web · Motion</small>" data-zh="品牌网站<small>网页 · 动效</small>" data-rich>Brand Site<small>Web · Motion</small></figcaption></figure>
+      <figure class="tile c"><img src="https://picsum.photos/seed/kin-w2/560/700" alt="" data-slot="work.2.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.2.cap" data-en="Dashboard<small>SaaS · Web</small>" data-zh="数据面板<small>SaaS · 网页</small>" data-rich>Dashboard<small>SaaS · Web</small></figcaption></figure>
+      <figure class="tile d"><img src="https://picsum.photos/seed/kin-w3/900/560" alt="" data-slot="work.3.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.3.cap" data-en="Design System<small>Systems</small>" data-zh="设计系统<small>系统</small>" data-rich>Design System<small>Systems</small></figcaption></figure>
+      <figure class="tile e"><img src="https://picsum.photos/seed/kin-w4/780/520" alt="" data-slot="work.4.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.4.cap" data-en="Commerce<small>Web</small>" data-zh="电商<small>网页</small>" data-rich>Commerce<small>Web</small></figcaption></figure>
+      <figure class="tile f"><img src="https://picsum.photos/seed/kin-w5/780/520" alt="" data-slot="work.5.image" data-en-alt="Project" data-zh-alt="项目"><figcaption data-slot="work.5.cap" data-en="Launch Film<small>Motion</small>" data-zh="发布影片<small>动效</small>" data-rich>Launch Film<small>Motion</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><p class="eyebrow" data-en="How We Work" data-zh="工作方式">How We Work</p><h2 data-slot="process.title" data-en="Four moves" data-zh="四个步骤">Four moves</h2></div></div>
+    <div class="steps reveal" data-slot="process" data-min="3" data-max="5">
+      <article class="step"><h3 data-slot="process.0.title" data-en="Discover" data-zh="探索">Discover</h3><p data-slot="process.0.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.1.title" data-en="Design" data-zh="设计">Design</h3><p data-slot="process.1.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.2.title" data-en="Build" data-zh="构建">Build</h3><p data-slot="process.2.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+      <article class="step"><h3 data-slot="process.3.title" data-en="Ship" data-zh="交付">Ship</h3><p data-slot="process.3.desc" data-en="Step description placeholder." data-zh="步骤描述占位。">Step description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2 data-slot="cta.headline" data-en="Got something to build?" data-zh="有想法要实现？" data-rich>Got something <span class="grad" data-en="to build?" data-zh="要实现？">to build?</span></h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — how the first call goes." data-zh="行动号召副文 — 初次通话流程。">CTA supporting line — how the first call goes.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Let's Talk" data-zh="聊一聊">Let's Talk</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><p class="eyebrow" data-en="Contact" data-zh="联系">Contact</p><h2 data-slot="contact.title" data-en="Get in touch" data-zh="联系我们">Get in touch</h2></div></div>
+    <div class="contact-grid reveal">
+      <div class="cinfo">
+        <div><div class="k" data-en="Studio" data-zh="工作室">Studio</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Fri, 10–7" data-zh="周一至周五 10–7">Mon–Fri, 10–7</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="Project details" data-zh="项目详情">Project details</span><textarea rows="4"></textarea></label>
+        <button class="btn" type="submit" data-slot="contact.submit" data-en="Send" data-zh="发送">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-slot="footer.name" data-en="Kinetic — Digital Studio" data-zh="动力 — 数字工作室">Kinetic — Digital Studio</span>
+    <span class="credit">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to);
+    if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});return;
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vitality Aesthetics &amp; Spa — Luxury Facials, Aesthetics &amp; Wellness, Orchard Road Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#5b21b6; --primary-d:#4c1d95; --primary-l:#7c3aed;
+  --mint:#d1fae5; --mint-d:#a7f3d0; --bg:#faf5ff; --bg-2:#f3e8ff;
+  --ink:#1f1235; --muted:#6b5d80; --line:#ece2f7; --white:#fff; --gold:#c9a227;
+  --maxw:1200px; --shadow:0 24px 60px rgba(91,33,182,.14); --shadow-sm:0 8px 26px rgba(91,33,182,.08);
+  --fh:'Archivo',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:78px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.65}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:50px;padding:14px 30px;font-family:var(--fb);font-weight:600;font-size:.9rem;letter-spacing:.3px;cursor:pointer;transition:.25s}
+.btn-pri{background:var(--primary);color:#fff}.btn-pri:hover{background:var(--primary-d);transform:translateY(-2px);box-shadow:0 12px 30px rgba(91,33,182,.35)}
+.btn-mint{background:var(--mint);color:var(--primary-d)}.btn-mint:hover{background:var(--mint-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.65);color:#fff}.btn-ghost:hover{background:#fff;color:var(--primary)}
+.btn-outline{background:transparent;border:1.5px solid var(--primary);color:var(--primary)}.btn-outline:hover{background:var(--primary);color:#fff}
+.eyebrow{font-family:var(--fb);text-transform:uppercase;letter-spacing:3.5px;color:var(--primary-l);font-weight:600;font-size:.72rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--gold)}
+.sec{padding:90px 0}.sec h2{font-size:2.6rem;color:var(--ink)}
+.lead{color:var(--muted);margin-top:14px;max-width:640px;font-size:1.04rem;line-height:1.8}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+
+/* ── header ── */
+.header{position:sticky;top:0;z-index:90;background:rgba(250,245,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mk{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--primary-l));color:#fff;display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.15rem;letter-spacing:.5px;box-shadow:0 6px 18px rgba(91,33,182,.3)}
+.brand b{font-family:var(--fh);color:var(--primary);font-size:1.12rem;font-weight:900;display:block;line-height:1.05;letter-spacing:-.01em}
+.brand small{font-size:.58rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-weight:600}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fb);font-weight:500;font-size:.86rem;letter-spacing:.2px;color:var(--ink);padding:10px 14px;border-radius:8px;transition:.2s}
+.nav>a:hover{background:var(--bg-2);color:var(--primary)}
+.lang{border:1.5px solid var(--primary);background:#fff;color:var(--primary);font-family:var(--fb);font-weight:600;font-size:.74rem;padding:7px 13px;border-radius:50px;cursor:pointer;margin-left:10px;transition:.2s}
+.lang:hover{background:var(--primary);color:#fff}
+.nav-book{background:var(--primary);color:#fff;margin-left:8px;border-radius:50px;padding:11px 22px;font-size:.84rem;font-weight:600;border:none;cursor:pointer;transition:.25s}
+.nav-book:hover{background:var(--primary-d);transform:translateY(-1px);box-shadow:0 8px 20px rgba(91,33,182,.3)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--primary);cursor:pointer}
+
+/* ── hero ── */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,var(--primary-d),var(--primary))}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.32}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(76,29,149,.92) 0%,rgba(91,33,182,.6) 55%,rgba(124,58,237,.25) 100%)}
+.hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4}
+.hero .blob.b1{width:380px;height:380px;background:var(--mint);top:-100px;right:-60px}
+.hero .blob.b2{width:300px;height:300px;background:var(--primary-l);bottom:-120px;left:-80px;opacity:.5}
+.hero-in{position:relative;z-index:3;width:100%}
+.hero-card{max-width:680px;color:#fff}
+.hero-card .eyebrow{color:var(--mint);--primary-l:var(--mint)}
+.hero-card h1{font-size:4rem;color:#fff;font-weight:900;line-height:1.05}
+.hero-card h1 em{color:var(--mint);font-style:italic;font-family:var(--fh)}
+.hero-card p{margin:20px 0 32px;font-size:1.12rem;color:#e9d8fd;max-width:540px;line-height:1.8}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-note{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;color:#d8c5f5;font-size:.86rem}
+.hero-note span{display:flex;align-items:center;gap:7px}
+.hero-note b{color:var(--mint);font-family:var(--fh);font-weight:800}
+
+/* ── trust bar ── */
+.trust{background:linear-gradient(135deg,var(--primary),var(--primary-l));border-top:3px solid var(--gold)}
+.trust .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.trust .it{padding:24px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;gap:12px;color:#fff}
+.trust .it:last-child{border:none}
+.trust .it .ico{font-size:1.6rem;color:var(--mint)}
+.trust .it b{font-family:var(--fh);font-weight:800;font-size:1.02rem;display:block}
+.trust .it small{font-size:.76rem;color:#e9d8fd}
+
+/* ── about ── */
+.about .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.about .imgwrap{position:relative}
+.about .imgwrap img{width:100%;height:480px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.about .imgwrap .badge{position:absolute;bottom:-22px;right:-12px;background:#fff;border-radius:18px;padding:18px 24px;box-shadow:var(--shadow);text-align:center;border:1px solid var(--line)}
+.about .imgwrap .badge b{font-family:var(--fh);font-size:2rem;color:var(--primary);display:block;line-height:1}
+.about .imgwrap .badge small{font-size:.72rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.about ul{list-style:none;margin:22px 0 28px}
+.about li{padding-left:30px;position:relative;margin-bottom:12px;color:var(--muted)}
+.about li::before{content:"✦";position:absolute;left:0;color:var(--primary-l);top:3px}
+
+/* ── price list ── */
+.prices{background:var(--bg-2)}
+.price-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:42px}
+.price-cat{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
+.price-cat:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.price-cat .head{background:linear-gradient(135deg,var(--primary),var(--primary-l));color:#fff;padding:26px 26px 22px}
+.price-cat .head .tag{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--mint);font-weight:600}
+.price-cat .head h3{font-size:1.5rem;margin-top:6px;color:#fff}
+.price-cat .list{padding:14px 26px 28px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.price-row:last-child{border-bottom:none}
+.price-row .nm{flex:1}
+.price-row .nm b{font-family:var(--fb);font-weight:600;font-size:.96rem;color:var(--ink);display:block}
+.price-row .nm small{font-size:.78rem;color:var(--muted)}
+.price-row .pr{font-family:var(--fh);font-weight:800;color:var(--primary);font-size:1.02rem;white-space:nowrap}
+.price-note{text-align:center;color:var(--muted);font-size:.86rem;margin-top:30px}
+
+/* ── why us ── */
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:42px}
+.why .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:.3s}
+.why .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:var(--mint-d)}
+.why .ico{width:58px;height:58px;border-radius:16px;background:var(--mint);color:var(--primary-d);display:grid;place-items:center;font-size:1.5rem;margin-bottom:16px}
+.why .card h4{font-size:1.2rem;color:var(--ink);margin-bottom:8px}
+.why .card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* ── gallery ── */
+.gallery{background:var(--bg-2)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+.gal-grid a{border-radius:16px;overflow:hidden;display:block;height:260px}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.gal-grid a:hover img{transform:scale(1.08)}
+
+/* ── membership ── */
+.member .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px 30px;display:flex;flex-direction:column;transition:.3s;position:relative}
+.plan:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.plan.feat{background:linear-gradient(160deg,var(--primary-d),var(--primary));color:#fff;border:none;box-shadow:var(--shadow)}
+.plan.feat .muted,.plan.feat li{color:#e9d8fd}
+.plan .ribbon{position:absolute;top:18px;right:18px;background:var(--gold);color:#3a2c00;font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:50px}
+.plan h3{font-size:1.4rem;margin-bottom:4px}
+.plan .muted{color:var(--muted);font-size:.86rem}
+.plan .price{font-family:var(--fh);font-weight:900;font-size:2.6rem;margin:18px 0 4px}
+.plan .price span{font-size:.9rem;font-weight:500;font-family:var(--fb);opacity:.8}
+.plan ul{list-style:none;margin:20px 0 26px;flex:1}
+.plan li{padding-left:26px;position:relative;margin-bottom:11px;font-size:.92rem;color:var(--muted)}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--primary-l);font-weight:700}
+.plan.feat li::before{color:var(--mint)}
+
+/* ── location / booking ── */
+.visit{background:linear-gradient(135deg,var(--primary-d),var(--primary));color:#fff}
+.visit .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.visit h2{color:#fff}.visit .lead{color:#e9d8fd}
+.clist{list-style:none;margin-top:24px}
+.clist li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#e9d8fd;font-size:.95rem;align-items:flex-start}
+.clist .ic{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.14);color:var(--mint);display:grid;place-items:center;flex-shrink:0;font-size:1rem}
+.clist b{color:#fff;display:block;font-family:var(--fh);font-weight:700;font-size:.82rem;letter-spacing:.5px}
+.hours{background:#fff;border-radius:20px;padding:30px 32px;box-shadow:var(--shadow);color:var(--ink)}
+.hours h3{font-size:1.3rem;color:var(--primary);margin-bottom:14px}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid var(--line)}
+.hours-table td{padding:12px 0;font-size:.92rem}
+.hours-table td:first-child{color:var(--muted);font-weight:500}
+.hours-table td:last-child{text-align:right;color:var(--ink);font-weight:600;font-family:var(--fh)}
+.hours .booknote{margin-top:22px;background:var(--bg);border-radius:14px;padding:18px 20px;text-align:center}
+.hours .booknote p{color:var(--muted);font-size:.88rem;margin-bottom:14px}
+
+/* ── footer ── */
+.foot{background:#150b29;color:#a991cf}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1.3fr;gap:40px;padding:60px 0 40px}
+.foot h4{color:#fff;font-family:var(--fh);font-size:1.05rem;margin-bottom:18px;font-weight:800}
+.foot .cn{color:var(--mint);letter-spacing:1px;margin:12px 0 10px;font-family:var(--fh);font-weight:700}
+.foot a{display:block;color:#a991cf;padding:5px 0;font-size:.9rem}.foot a:hover{color:var(--mint)}
+.foot p{font-size:.9rem;margin-bottom:8px;color:#a991cf}
+.foot .soc{display:flex;gap:9px;margin:16px 0}
+.foot .soc a{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;color:#cdb8ec;font-size:.85rem}
+.foot .soc a:hover{background:var(--primary-l);color:#fff}
+.foot .badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.foot .badges span{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:5px 10px;font-size:.68rem;color:#cdb8ec}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 24px;font-size:.78rem;color:#7c66a3;flex-wrap:wrap;gap:8px}
+
+/* ── floating ── */
+.fab{position:fixed;right:22px;z-index:80;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.22);cursor:pointer;border:none;color:#fff;transition:.25s}
+.fab:hover{transform:scale(1.08)}
+.fab-wa{bottom:88px;background:#25d366;font-size:1.5rem}
+.fab-top{bottom:22px;background:var(--primary);font-size:1.3rem;opacity:0;pointer-events:none}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* ── responsive ── */
+@media(max-width:960px){
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:12px 16px;box-shadow:var(--shadow);border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}.burger{display:block}
+  .about .grid,.visit .grid{grid-template-columns:1fr;gap:34px}
+  .price-cats,.why .grid,.member .grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .trust .grid{grid-template-columns:1fr}
+  .trust .it{border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .hero-card h1{font-size:2.7rem}
+  .about .imgwrap .badge{right:10px}
+}
+@media(max-width:600px){
+  .sec{padding:64px 0}.sec h2{font-size:2rem}
+  .price-cats,.why .grid,.member .grid,.gal-grid{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr}
+  .hero-card h1{font-size:2.2rem}
+  .foot .bar .wrap{flex-direction:column;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- header -->
+<header class="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="mk">VA</span>
+    <span><b>VITALITY</b><small data-en="Aesthetics &amp; Spa" data-zh="美学水疗">Aesthetics &amp; Spa</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about" data-en="About" data-zh="关于我们">About</a>
+    <a href="#prices" data-en="Treatments" data-zh="疗程价目">Treatments</a>
+    <a href="#why" data-en="Why Us" data-zh="为何选择">Why Us</a>
+    <a href="#gallery" data-en="Gallery" data-zh="环境实景">Gallery</a>
+    <a href="#member" data-en="Membership" data-zh="会员配套">Membership</a>
+    <a href="#visit" data-en="Visit" data-zh="到访">Visit</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#visit" class="nav-book" data-en="Book a Treatment" data-zh="预约疗程">Book a Treatment</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <div class="bg"><img src="https://picsum.photos/seed/vitality-spa-hero/1600/900" alt="Serene spa treatment room"></div>
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <div class="hero-in"><div class="wrap"><div class="hero-card reveal">
+    <p class="eyebrow" data-en="Orchard Road · Since 2017 · MOH-Registered" data-zh="乌节路 · 始于2017 · MOH注册">Orchard Road · Since 2017 · MOH-Registered</p>
+    <h1 data-rich data-en="Reveal your <em>radiance</em>, restore your calm" data-zh="焕发您的<em>光彩</em>，重拾宁静">Reveal your <em>radiance</em>, restore your calm</h1>
+    <p data-en="Singapore's premier aesthetics and spa sanctuary in the heart of Ngee Ann City — where medical-grade treatments meet a deeply restorative spa experience." data-zh="坐落于义安城核心地带，新加坡顶级美学水疗圣地——医疗级护理与深度修护水疗体验的完美融合。">Singapore's premier aesthetics and spa sanctuary in the heart of Ngee Ann City — where medical-grade treatments meet a deeply restorative spa experience.</p>
+    <div class="hero-cta">
+      <a href="#visit" class="btn btn-mint" data-en="Book a Treatment" data-zh="预约疗程">Book a Treatment</a>
+      <a href="#prices" class="btn btn-ghost" data-en="View Price List" data-zh="查看价目表">View Price List</a>
+    </div>
+    <div class="hero-note">
+      <span><b>4.9★</b> <span data-en="500+ Google reviews" data-zh="500+谷歌评价">500+ Google reviews</span></span>
+      <span><b>8</b> <span data-en="Private treatment suites" data-zh="间私人护理室">Private treatment suites</span></span>
+      <span><b>7</b> <span data-en="Years of glow" data-zh="年焕彩经验">Years of glow</span></span>
+    </div>
+  </div></div></div>
+</section>
+
+<!-- trust bar -->
+<section class="trust"><div class="wrap"><div class="grid">
+  <div class="it"><span class="ico">⚕</span><span><b data-en="MOH-Registered Clinic" data-zh="MOH注册诊所">MOH-Registered Clinic</b><small data-en="Licensed aesthetic practice" data-zh="持牌美学机构">Licensed aesthetic practice</small></span></div>
+  <div class="it"><span class="ico">★</span><span><b data-en="4.9★ · 500+ Reviews" data-zh="4.9★ · 500+评价">4.9★ · 500+ Reviews</b><small data-en="Loved across Singapore" data-zh="深受新加坡顾客喜爱">Loved across Singapore</small></span></div>
+  <div class="it"><span class="ico">♛</span><span><b data-en="2,000+ Members" data-zh="2,000+会员">2,000+ Members</b><small data-en="A community that glows" data-zh="焕彩会员社群">A community that glows</small></span></div>
+</div></div></section>
+
+<!-- about -->
+<section class="sec about" id="about"><div class="wrap"><div class="grid">
+  <div class="imgwrap reveal">
+    <img src="https://picsum.photos/seed/vitality-lounge/900/720" alt="Vitality spa lounge interior">
+    <div class="badge"><b>2017</b><small data-en="Established" data-zh="创立">Established</small></div>
+  </div>
+  <div class="reveal">
+    <p class="eyebrow" data-en="Our Sanctuary" data-zh="我们的圣地">Our Sanctuary</p>
+    <h2 data-en="Where aesthetics and serenity become one" data-zh="美学与宁静交融之地">Where aesthetics and serenity become one</h2>
+    <p class="lead" data-en="Founded in 2017, Vitality Aesthetics & Spa was born from a simple belief — that looking your best and feeling deeply at peace should never be separate experiences. Tucked inside Ngee Ann City on Orchard Road, our MOH-registered sanctuary blends advanced skin science with the unhurried ritual of a luxury spa." data-zh="活力美学水疗成立于2017年，源于一个简单信念——美丽外表与内心宁静本就不该分离。我们坐落于乌节路义安城内，这间MOH注册圣地将先进皮肤科学与从容的奢华水疗仪式完美融合。">Founded in 2017, Vitality Aesthetics &amp; Spa was born from a simple belief — that looking your best and feeling deeply at peace should never be separate experiences. Tucked inside Ngee Ann City on Orchard Road, our MOH-registered sanctuary blends advanced skin science with the unhurried ritual of a luxury spa.</p>
+    <ul>
+      <li data-en="Personalised skin consultation before every treatment" data-zh="每次护理前进行个性化肌肤咨询">Personalised skin consultation before every treatment</li>
+      <li data-en="Medical-grade devices, results-driven protocols" data-zh="医疗级仪器，成效导向方案">Medical-grade devices, results-driven protocols</li>
+      <li data-en="Clean, cruelty-free product lines exclusively" data-zh="全程使用洁净无动物实验产品">Clean, cruelty-free product lines exclusively</li>
+    </ul>
+    <a href="#prices" class="btn btn-outline" data-en="Explore Treatments →" data-zh="探索疗程 →">Explore Treatments →</a>
+  </div>
+</div></div></section>
+
+<!-- price list -->
+<section class="sec prices" id="prices"><div class="wrap center">
+  <p class="eyebrow" data-en="Treatment Menu" data-zh="疗程菜单">Treatment Menu</p>
+  <h2 data-en="Our treatments &amp; prices" data-zh="疗程与价目">Our treatments &amp; prices</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="Transparent pricing across three pillars of care. All prices in Singapore dollars, inclusive of consultation." data-zh="三大护理支柱，价格透明。所有价格以新元计算，含咨询费用。">Transparent pricing across three pillars of care. All prices in Singapore dollars, inclusive of consultation.</p>
+
+  <div class="price-cats">
+    <div class="price-cat reveal">
+      <div class="head"><span class="tag" data-en="Signature Facials" data-zh="招牌面部">Signature Facials</span><h3 data-en="Facial Therapy" data-zh="面部护理">Facial Therapy</h3></div>
+      <div class="list">
+        <div class="price-row"><span class="nm"><b data-en="Luminosity Glow Facial" data-zh="焕光亮肤面部护理">Luminosity Glow Facial</b><small data-en="60 min · all skin types" data-zh="60分钟 · 适合所有肤质">60 min · all skin types</small></span><span class="pr">S$128</span></div>
+        <div class="price-row"><span class="nm"><b data-en="HydraDeep Aqua Facial" data-zh="深层补水水嫩面部护理">HydraDeep Aqua Facial</b><small data-en="75 min · dehydrated skin" data-zh="75分钟 · 缺水肌肤">75 min · dehydrated skin</small></span><span class="pr">S$168</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Collagen Lift Facial" data-zh="胶原提升面部护理">Collagen Lift Facial</b><small data-en="90 min · firming &amp; lifting" data-zh="90分钟 · 紧致提升">90 min · firming &amp; lifting</small></span><span class="pr">S$218</span></div>
+        <div class="price-row"><span class="nm"><b data-en="24K Gold Radiance Ritual" data-zh="24K黄金焕彩仪式">24K Gold Radiance Ritual</b><small data-en="100 min · premium" data-zh="100分钟 · 尊贵">100 min · premium</small></span><span class="pr">S$288</span></div>
+      </div>
+    </div>
+    <div class="price-cat reveal">
+      <div class="head"><span class="tag" data-en="Aesthetics" data-zh="美学疗程">Aesthetics</span><h3 data-en="Advanced Skin" data-zh="进阶肌肤">Advanced Skin</h3></div>
+      <div class="list">
+        <div class="price-row"><span class="nm"><b data-en="Clarity LED Light Therapy" data-zh="净透LED光疗">Clarity LED Light Therapy</b><small data-en="45 min · acne &amp; redness" data-zh="45分钟 · 痘痘泛红">45 min · acne &amp; redness</small></span><span class="pr">S$98</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Microneedling RF" data-zh="微针射频">Microneedling RF</b><small data-en="60 min · texture &amp; pores" data-zh="60分钟 · 肤质毛孔">60 min · texture &amp; pores</small></span><span class="pr">S$258</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Chemical Peel Renewal" data-zh="化学焕肤更新">Chemical Peel Renewal</b><small data-en="50 min · pigmentation" data-zh="50分钟 · 色素沉淀">50 min · pigmentation</small></span><span class="pr">S$188</span></div>
+        <div class="price-row"><span class="nm"><b data-en="IPL Photo Rejuvenation" data-zh="IPL光子嫩肤">IPL Photo Rejuvenation</b><small data-en="40 min · tone &amp; spots" data-zh="40分钟 · 肤色斑点">40 min · tone &amp; spots</small></span><span class="pr">S$228</span></div>
+      </div>
+    </div>
+    <div class="price-cat reveal">
+      <div class="head"><span class="tag" data-en="Spa &amp; Body" data-zh="水疗与身体">Spa &amp; Body</span><h3 data-en="Body Rituals" data-zh="身体仪式">Body Rituals</h3></div>
+      <div class="list">
+        <div class="price-row"><span class="nm"><b data-en="Aromatherapy Massage" data-zh="芳香疗法按摩">Aromatherapy Massage</b><small data-en="60 min · full body" data-zh="60分钟 · 全身">60 min · full body</small></span><span class="pr">S$118</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Harmony Hot Stone Ritual" data-zh="和谐热石仪式">Harmony Hot Stone Ritual</b><small data-en="90 min · deep relax" data-zh="90分钟 · 深度放松">90 min · deep relax</small></span><span class="pr">S$188</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Detox Body Wrap" data-zh="排毒裹体">Detox Body Wrap</b><small data-en="75 min · firming" data-zh="75分钟 · 紧致">75 min · firming</small></span><span class="pr">S$168</span></div>
+        <div class="price-row"><span class="nm"><b data-en="Vitality Couple's Retreat" data-zh="活力双人静修">Vitality Couple's Retreat</b><small data-en="120 min · for two" data-zh="120分钟 · 双人">120 min · for two</small></span><span class="pr">S$398</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="price-note" data-en="Prices are starting rates and may vary by skin assessment. First-time guests enjoy 20% off any facial." data-zh="价格为起始价，可能因肌肤评估而异。首次到访宾客任选面部护理享八折优惠。">Prices are starting rates and may vary by skin assessment. First-time guests enjoy 20% off any facial.</p>
+  <a href="#visit" class="btn btn-pri" style="margin-top:18px" data-en="Book Your Treatment →" data-zh="立即预约疗程 →">Book Your Treatment →</a>
+</div></section>
+
+<!-- why us -->
+<section class="sec why" id="why"><div class="wrap center">
+  <p class="eyebrow" data-en="Why Vitality" data-zh="为何选择活力">Why Vitality</p>
+  <h2 data-en="Six reasons our guests stay" data-zh="宾客驻留的六大理由">Six reasons our guests stay</h2>
+  <div class="grid">
+    <div class="card reveal"><div class="ico">⚕</div><h4 data-en="MOH-Registered Care" data-zh="MOH注册护理">MOH-Registered Care</h4><p data-en="A fully licensed aesthetic practice with medically-trained therapists and strict safety protocols." data-zh="完全持牌的美学机构，配备受过医学训练的治疗师及严格安全规范。">A fully licensed aesthetic practice with medically-trained therapists and strict safety protocols.</p></div>
+    <div class="card reveal"><div class="ico">✦</div><h4 data-en="Tailored to You" data-zh="为您量身定制">Tailored to You</h4><p data-en="Every treatment begins with a skin analysis so your plan is built around your goals, not a template." data-zh="每项护理皆始于肌肤分析，方案围绕您的目标定制，绝非千篇一律。">Every treatment begins with a skin analysis so your plan is built around your goals, not a template.</p></div>
+    <div class="card reveal"><div class="ico">⚙</div><h4 data-en="Medical-Grade Tech" data-zh="医疗级科技">Medical-Grade Tech</h4><p data-en="From RF microneedling to IPL, we invest in proven, FDA-cleared devices for visible results." data-zh="从射频微针到IPL，我们投资经验证、FDA认证的仪器，带来可见成效。">From RF microneedling to IPL, we invest in proven, FDA-cleared devices for visible results.</p></div>
+    <div class="card reveal"><div class="ico">🌿</div><h4 data-en="Clean Products" data-zh="洁净产品">Clean Products</h4><p data-en="Cruelty-free, dermatologist-approved formulations chosen for Singapore's humid climate." data-zh="无动物实验、皮肤科医生认可的配方，专为新加坡潮湿气候挑选。">Cruelty-free, dermatologist-approved formulations chosen for Singapore's humid climate.</p></div>
+    <div class="card reveal"><div class="ico">🛎</div><h4 data-en="Five-Star Service" data-zh="五星服务">Five-Star Service</h4><p data-en="Private suites, warm towels, herbal tea — a calm ritual from the moment you arrive." data-zh="私人套房、热毛巾、草本茶——从踏入的那一刻起便是宁静仪式。">Private suites, warm towels, herbal tea — a calm ritual from the moment you arrive.</p></div>
+    <div class="card reveal"><div class="ico">♛</div><h4 data-en="Member Rewards" data-zh="会员礼遇">Member Rewards</h4><p data-en="Flexible membership packages with priority booking, member pricing and birthday perks." data-zh="灵活会员配套，享优先预约、会员价及生日礼遇。">Flexible membership packages with priority booking, member pricing and birthday perks.</p></div>
+  </div>
+</div></section>
+
+<!-- gallery -->
+<section class="sec gallery" id="gallery"><div class="wrap center">
+  <p class="eyebrow" data-en="Our Space" data-zh="我们的空间">Our Space</p>
+  <h2 data-en="A glimpse of the sanctuary" data-zh="圣地一瞥">A glimpse of the sanctuary</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="Soft light, quiet luxury and spaces designed to let you exhale." data-zh="柔和灯光、静谧奢华，每处空间都让您尽情放松。">Soft light, quiet luxury and spaces designed to let you exhale.</p>
+  <div class="gal-grid reveal">
+    <a><img src="https://picsum.photos/seed/vitality-gal1/600/500" alt="Treatment suite"></a>
+    <a><img src="https://picsum.photos/seed/vitality-gal2/600/500" alt="Reception lounge"></a>
+    <a><img src="https://picsum.photos/seed/vitality-gal3/600/500" alt="Facial in progress"></a>
+    <a><img src="https://picsum.photos/seed/vitality-gal4/600/500" alt="Relaxation room"></a>
+    <a><img src="https://picsum.photos/seed/vitality-gal5/600/500" alt="Spa products display"></a>
+    <a><img src="https://picsum.photos/seed/vitality-gal6/600/500" alt="Couple's suite"></a>
+  </div>
+</div></section>
+
+<!-- membership -->
+<section class="sec member" id="member"><div class="wrap center">
+  <p class="eyebrow" data-en="Membership" data-zh="会员配套">Membership</p>
+  <h2 data-en="Glow more, pay less" data-zh="焕彩更多，付出更少">Glow more, pay less</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="Choose a package that fits your ritual. All members enjoy priority booking and exclusive event invites." data-zh="选择适合您仪式的配套。所有会员均享优先预约及专属活动邀请。">Choose a package that fits your ritual. All members enjoy priority booking and exclusive event invites.</p>
+  <div class="grid">
+    <div class="plan reveal">
+      <h3 data-en="Glow Starter" data-zh="焕彩入门">Glow Starter</h3>
+      <p class="muted" data-en="Try the ritual" data-zh="体验仪式">Try the ritual</p>
+      <div class="price">S$88<span data-en="/mo" data-zh="/月">/mo</span></div>
+      <ul>
+        <li data-en="1 signature facial monthly" data-zh="每月1次招牌面部护理">1 signature facial monthly</li>
+        <li data-en="10% off all add-on treatments" data-zh="附加疗程九折">10% off all add-on treatments</li>
+        <li data-en="Priority weekday booking" data-zh="工作日优先预约">Priority weekday booking</li>
+        <li data-en="Birthday gift voucher" data-zh="生日礼券">Birthday gift voucher</li>
+      </ul>
+      <a href="#visit" class="btn btn-outline" data-en="Choose Starter" data-zh="选择入门">Choose Starter</a>
+    </div>
+    <div class="plan feat reveal">
+      <span class="ribbon" data-en="Most Popular" data-zh="最受欢迎">Most Popular</span>
+      <h3 data-en="Radiance Club" data-zh="焕彩会员">Radiance Club</h3>
+      <p class="muted" data-en="Our signature plan" data-zh="招牌配套">Our signature plan</p>
+      <div class="price">S$168<span data-en="/mo" data-zh="/月">/mo</span></div>
+      <ul>
+        <li data-en="2 treatments monthly (facial or spa)" data-zh="每月2次护理（面部或水疗）">2 treatments monthly (facial or spa)</li>
+        <li data-en="20% off all aesthetics services" data-zh="美学服务八折">20% off all aesthetics services</li>
+        <li data-en="Anytime priority booking" data-zh="随时优先预约">Anytime priority booking</li>
+        <li data-en="Quarterly complimentary upgrade" data-zh="每季免费升级一次">Quarterly complimentary upgrade</li>
+        <li data-en="Birthday gift &amp; member events" data-zh="生日礼遇及会员活动">Birthday gift &amp; member events</li>
+      </ul>
+      <a href="#visit" class="btn btn-mint" data-en="Join Radiance Club" data-zh="加入焕彩会员">Join Radiance Club</a>
+    </div>
+    <div class="plan reveal">
+      <h3 data-en="Vitality Elite" data-zh="活力尊享">Vitality Elite</h3>
+      <p class="muted" data-en="The full experience" data-zh="全方位体验">The full experience</p>
+      <div class="price">S$298<span data-en="/mo" data-zh="/月">/mo</span></div>
+      <ul>
+        <li data-en="Unlimited facials &amp; spa rituals" data-zh="无限次面部护理及水疗仪式">Unlimited facials &amp; spa rituals</li>
+        <li data-en="30% off all aesthetics &amp; products" data-zh="美学服务及产品七折">30% off all aesthetics &amp; products</li>
+        <li data-en="Dedicated personal therapist" data-zh="专属个人治疗师">Dedicated personal therapist</li>
+        <li data-en="Private suite &amp; concierge service" data-zh="私人套房及礼宾服务">Private suite &amp; concierge service</li>
+        <li data-en="Annual VIP wellness retreat" data-zh="年度VIP养生静修">Annual VIP wellness retreat</li>
+      </ul>
+      <a href="#visit" class="btn btn-outline" data-en="Go Elite" data-zh="尊享会员">Go Elite</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- visit / location / hours / booking -->
+<section class="sec visit" id="visit"><div class="wrap">
+  <div class="grid">
+    <div class="reveal">
+      <p class="eyebrow" data-en="Visit Us" data-zh="到访我们">Visit Us</p>
+      <h2 data-en="Book your moment of vitality" data-zh="预约您的活力时刻">Book your moment of vitality</h2>
+      <p class="lead" data-en="We're inside Ngee Ann City on Orchard Road, a two-minute walk from Orchard MRT. Call, email or drop by — our concierge will find the perfect time for you." data-zh="我们位于乌节路义安城内，距乌节地铁站步行两分钟。来电、电邮或亲临——礼宾人员将为您安排最合适的时间。">We're inside Ngee Ann City on Orchard Road, a two-minute walk from Orchard MRT. Call, email or drop by — our concierge will find the perfect time for you.</p>
+      <ul class="clist">
+        <li><span class="ic">📍</span><span><b data-en="Address" data-zh="地址">Address</b>391 Orchard Road, #14-05 Ngee Ann City, Singapore 238872</span></li>
+        <li><span class="ic">✆</span><span><b data-en="Phone" data-zh="电话">Phone</b><a href="tel:+6567331900">+65 6733 1900</a></span></li>
+        <li><span class="ic">✉</span><span><b data-en="Email" data-zh="电邮">Email</b><a href="mailto:care@vitalityspa.sg">care@vitalityspa.sg</a></span></li>
+        <li><span class="ic">⚐</span><span><b data-en="Company" data-zh="公司">Company</b>Vitality Aesthetics &amp; Spa Pte Ltd · UEN 201755443G</span></li>
+      </ul>
+    </div>
+    <div class="hours reveal">
+      <h3 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h3>
+      <table class="hours-table">
+        <tr><td data-en="Monday – Friday" data-zh="周一至周五">Monday – Friday</td><td>10:00 – 21:00</td></tr>
+        <tr><td data-en="Saturday" data-zh="周六">Saturday</td><td>10:00 – 20:00</td></tr>
+        <tr><td data-en="Sunday" data-zh="周日">Sunday</td><td>11:00 – 18:00</td></tr>
+        <tr><td data-en="Public Holidays" data-zh="公共假期">Public Holidays</td><td data-en="By appointment" data-zh="需预约">By appointment</td></tr>
+      </table>
+      <div class="booknote">
+        <p data-en="Last booking 90 minutes before closing. Same-day appointments subject to availability." data-zh="最后预约时段为打烊前90分钟。当日预约视空位情况而定。">Last booking 90 minutes before closing. Same-day appointments subject to availability.</p>
+        <a href="tel:+6567331900" class="btn btn-pri" data-en="Call to Book Now" data-zh="致电立即预约">Call to Book Now</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">VA</span><span><b style="color:#fff">VITALITY</b><small style="color:#a991cf" data-en="Aesthetics &amp; Spa" data-zh="美学水疗">Aesthetics &amp; Spa</small></span></a>
+      <p class="cn">活力美学水疗私人有限公司</p>
+      <p data-en="Luxury aesthetics and spa in the heart of Orchard Road since 2017 — where radiance meets calm." data-zh="自2017年起在乌节路核心地带提供奢华美学与水疗服务——光彩与宁静的相遇之地。">Luxury aesthetics and spa in the heart of Orchard Road since 2017 — where radiance meets calm.</p>
+      <div class="soc"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="TikTok">▶</a></div>
+      <div class="badges"><span data-en="MOH-Registered" data-zh="MOH注册">MOH-Registered</span><span data-en="CIDESCO" data-zh="CIDESCO">CIDESCO</span><span data-en="UEN 201755443G" data-zh="UEN 201755443G">UEN 201755443G</span></div>
+    </div>
+    <div>
+      <h4 data-en="Explore" data-zh="探索">Explore</h4>
+      <a href="#about" data-en="About Us" data-zh="关于我们">About Us</a>
+      <a href="#prices" data-en="Treatments &amp; Prices" data-zh="疗程与价目">Treatments &amp; Prices</a>
+      <a href="#member" data-en="Membership" data-zh="会员配套">Membership</a>
+      <a href="#gallery" data-en="Gallery" data-zh="环境实景">Gallery</a>
+      <a href="#visit" data-en="Book a Treatment" data-zh="预约疗程">Book a Treatment</a>
+    </div>
+    <div>
+      <h4 data-en="Visit Us" data-zh="到访我们">Visit Us</h4>
+      <p>391 Orchard Road<br>#14-05 Ngee Ann City<br>Singapore 238872</p>
+      <p style="margin-top:8px">+65 6733 1900<br>care@vitalityspa.sg</p>
+      <p style="margin-top:8px" data-en="Mon–Fri 10am–9pm · Sat 10am–8pm · Sun 11am–6pm" data-zh="周一至五 上午10时–晚9时 · 周六 上午10时–晚8时 · 周日 上午11时–下午6时">Mon–Fri 10am–9pm · Sat 10am–8pm · Sun 11am–6pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 Vitality Aesthetics &amp; Spa Pte Ltd</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp us" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang === 'en' ? true : false;
+  document.documentElement.lang = zh ? 'zh' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var key = zh ? 'zh' : 'en';
+    if(el.hasAttribute('data-rich')){
+      el.innerHTML = el.getAttribute('data-' + key);
+    } else {
+      el.textContent = el.getAttribute('data-' + key);
+    }
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? 'EN' : '中文'; });
+}
+// reveal on scroll
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+// close mobile nav on link click
+document.querySelectorAll('#nav a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); }); });
+// back to top
+window.addEventListener('scroll', function(){
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 500);
+});
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

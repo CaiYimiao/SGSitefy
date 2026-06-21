@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MktPlace Trading — Wholesale Supply & Distribution, Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0f172a; --navy-2:#1e293b; --navy-l:#334155;
+  --teal:#0d9488; --teal-d:#0f766e; --teal-l:#14b8a6;
+  --bg:#f0fdfa; --ink:#0f172a; --muted:#64748b; --line:#d7eee9; --white:#fff;
+  --maxw:1200px; --shadow:0 16px 44px rgba(15,23,42,.12);
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);color:var(--ink);background:var(--white);line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.12;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:6px;padding:13px 24px;font-family:var(--fh);font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-d);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy-2)}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.45);color:#fff}.btn-ghost:hover{background:#fff;color:var(--navy)}
+.eyebrow{font-family:var(--fh);text-transform:uppercase;letter-spacing:3px;color:var(--teal-d);font-weight:700;font-size:.8rem;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--teal)}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.sec{padding:74px 0}
+.lead{color:var(--muted);margin-top:10px;max-width:680px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+/* TOPBAR */
+.topbar{background:var(--navy);color:#cbd5e1;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:42px}
+.topbar a{color:#cbd5e1;margin-right:18px}.topbar a:hover{color:var(--teal-l)}
+.topbar .ic{color:var(--teal-l);margin-right:5px}
+
+/* HEADER / NAV */
+.header{position:sticky;top:0;z-index:80;background:#fff;box-shadow:0 2px 16px rgba(15,23,42,.08)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mk{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--navy-l));color:var(--teal-l);display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.05rem}
+.brand b{font-family:var(--fh);color:var(--navy);font-size:1.12rem;letter-spacing:1px;display:block;line-height:1}
+.brand small{font-size:.6rem;color:var(--muted);letter-spacing:3px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fh);font-weight:600;text-transform:uppercase;font-size:.78rem;letter-spacing:.5px;color:var(--ink);padding:10px 13px;border-radius:6px}
+.nav>a:hover{background:var(--bg);color:var(--teal-d)}
+.lang{border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-family:var(--fh);font-weight:700;font-size:.72rem;padding:7px 11px;border-radius:6px;cursor:pointer;margin-left:6px}
+.lang:hover{background:var(--navy);color:#fff}
+.nav-cta{background:var(--teal);color:#fff!important;border-radius:6px;padding:10px 16px!important;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;margin-left:6px;transition:.2s}
+.nav-cta:hover{background:var(--teal-d)!important}
+.burger{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer}
+
+/* HERO */
+.hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url('https://picsum.photos/seed/mkt-hero/1600/900') center/cover;opacity:.16}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,var(--navy) 35%,rgba(15,23,42,.6) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:74px;padding-bottom:74px}
+.hero .eyebrow{color:var(--teal-l)}
+.hero h1{font-size:3.1rem;color:#fff}.hero h1 .r{color:var(--teal-l)}
+.hero p{margin:18px 0 26px;font-size:1.12rem;color:#cbd5e1;max-width:540px}
+.hero-pts{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin:0 0 28px}
+.hero-pts li{display:flex;align-items:center;gap:8px;font-size:.92rem;color:#e2e8f0}
+.hero-pts li::before{content:"✓";width:20px;height:20px;border-radius:4px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:.7rem;flex-shrink:0}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:30px}
+.hero-card h3{color:#fff;font-size:1.2rem;margin-bottom:6px}
+.hero-card p{color:#cbd5e1;font-size:.9rem;margin:0 0 18px}
+.hero-card .mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.hero-card .mini div{background:rgba(255,255,255,.05);border-radius:8px;padding:12px 14px}
+.hero-card .mini .n{font-family:var(--fh);font-weight:900;font-size:1.5rem;color:var(--teal-l)}
+.hero-card .mini .l{font-size:.74rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px}
+
+/* TRUSTED BY */
+.trusted{background:#fff;border-bottom:1px solid var(--line);padding:34px 0}
+.trusted p{text-align:center;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:20px}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.logo-tile{border:1px solid var(--line);border-radius:8px;height:64px;display:grid;place-items:center;font-family:var(--fh);font-weight:800;font-size:.92rem;color:var(--navy-l);letter-spacing:1px;background:#fff;transition:.2s}
+.logo-tile:hover{border-color:var(--teal);color:var(--teal-d)}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+.about img{width:100%;height:420px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+.about h2{font-size:2.2rem;color:var(--navy)}
+.about ul{list-style:none;margin:18px 0 0}
+.about li{padding-left:28px;position:relative;margin-bottom:10px;color:var(--ink)}
+.about li::before{content:"▸";position:absolute;left:0;color:var(--teal-d);font-weight:800}
+
+/* CATEGORY CARDS */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.cat-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s;text-align:left}
+.cat-card:hover{box-shadow:var(--shadow);transform:translateY(-5px);border-color:var(--teal)}
+.cat-card .img{position:relative;height:170px;overflow:hidden;background:var(--bg)}
+.cat-card .img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.cat-card:hover .img img{transform:scale(1.07)}
+.cat-card .cnt{position:absolute;top:12px;right:12px;background:var(--navy);color:#fff;font-family:var(--fh);font-weight:700;font-size:.7rem;letter-spacing:.5px;padding:5px 11px;border-radius:6px}
+.cat-card .body{padding:20px 22px 22px}
+.cat-card h3{color:var(--navy);font-size:1.16rem;margin-bottom:6px}
+.cat-card p{font-size:.88rem;color:var(--muted)}
+.cat-card .arrow{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal-d)}
+
+/* WHY PARTNER */
+.why{background:var(--navy);color:#fff}
+.why .eyebrow{color:var(--teal-l)}
+.why .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:32px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden}
+.why .w{background:var(--navy);padding:30px 28px}
+.why .ic{width:48px;height:48px;border-radius:10px;background:rgba(13,148,136,.18);color:var(--teal-l);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px}
+.why h4{font-size:1.1rem;margin-bottom:7px}.why p{color:#94a3b8;font-size:.92rem}
+
+/* CATALOGUE GALLERY */
+.cat-gal{background:var(--bg)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.gal-grid a{position:relative;border-radius:12px;overflow:hidden;display:block;height:200px}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gal-grid a:hover img{transform:scale(1.08)}
+.gal-grid a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.5),transparent 55%)}
+.gal-grid .cap{position:absolute;bottom:12px;left:14px;z-index:2;color:#fff;font-family:var(--fh);font-weight:700;font-size:.84rem}
+
+/* STATS */
+.stats{background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats .it{padding:40px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.18)}.stats .it:last-child{border:none}
+.stats .n{font-family:var(--fh);font-size:2.6rem;font-weight:900}
+.stats .l{font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:#d1faf4;margin-top:4px}
+
+/* QUOTE FORM */
+.quote{background:var(--navy)}
+.quote .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.quote .eyebrow{color:var(--teal-l)}
+.quote h2{color:#fff;font-size:2.1rem}.quote .lead{color:#94a3b8}
+.clist{list-style:none;margin-top:20px}
+.clist li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#cbd5e1;font-size:.95rem}
+.clist .ic{width:34px;height:34px;border-radius:8px;background:var(--teal);color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:.9rem}
+.enq-form{background:#fff;border-radius:14px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;box-shadow:var(--shadow)}
+.enq-form .f{display:flex;flex-direction:column}.enq-form .full{grid-column:1/-1}
+.enq-form label{font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.enq-form input,.enq-form textarea,.enq-form select{border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:.92rem;color:var(--ink);outline:none;transition:.2s;background:#fff}
+.enq-form input:focus,.enq-form textarea:focus,.enq-form select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,.12)}
+
+/* FOOTER */
+.foot{background:#0a1120;color:#94a3b8}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:34px;padding:56px 0 36px}
+.foot h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.foot .cn{color:var(--teal-l);letter-spacing:1px;margin:10px 0 6px;font-size:1rem;font-family:var(--fh)}
+.foot a{display:block;color:#94a3b8;padding:4px 0;font-size:.9rem}.foot a:hover{color:var(--teal-l)}
+.foot p{font-size:.9rem;margin-bottom:8px;color:#94a3b8}
+.foot .soc{display:flex;gap:8px;margin:14px 0}
+.foot .soc a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;color:#cbd5e1}
+.foot .soc a:hover{background:var(--teal);color:#fff}
+.foot .badges{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.foot .badges span{border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:6px 10px;font-size:.7rem;color:#cbd5e1}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 24px;font-size:.8rem;color:#64748b;flex-wrap:wrap;gap:8px}
+
+/* FAB */
+.fab{position:fixed;right:20px;z-index:70;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;border:none;color:#fff;font-size:1.4rem}
+.fab-wa{bottom:84px;background:#25d366}
+.fab-top{bottom:20px;background:var(--navy);opacity:0;pointer-events:none;transition:.3s}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:10px;box-shadow:var(--shadow);z-index:79}
+  .nav.open{display:flex}.burger{display:block}
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .logos{grid-template-columns:repeat(3,1fr)}
+  .about .grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}.why .wgrid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}.stats .grid{grid-template-columns:repeat(2,1fr)}
+  .quote .grid{grid-template-columns:1fr}.enq-form{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:2.3rem}
+}
+@media(max-width:600px){
+  .logos{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:1fr}.gal-grid{grid-template-columns:1fr}
+  .stats .grid{grid-template-columns:1fr}.foot .grid{grid-template-columns:1fr}
+  .hero-card .mini{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6562661212"><span class="ic">☎</span> <span data-en="Sales:" data-zh="销售热线：">Sales:</span> +65 6266 1212</a>
+    <a href="mailto:sales@mktplace.com.sg"><span class="ic">✉</span> sales@mktplace.com.sg</a>
+  </div>
+  <div><span data-en="Mon–Fri 9am–6pm · Trade enquiries welcome" data-zh="周一至周五 9:00–18:00 · 欢迎贸易咨询">Mon–Fri 9am–6pm · Trade enquiries welcome</span></div>
+</div></div>
+
+<!-- HEADER -->
+<header class="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="mk">MP</span>
+    <span><b data-en="MKTPLACE" data-zh="集市贸易">MKTPLACE</b><small data-en="TRADING" data-zh="贸易批发">TRADING</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about" data-en="About" data-zh="关于我们">About</a>
+    <a href="#categories" data-en="Categories" data-zh="产品类别">Categories</a>
+    <a href="#why" data-en="Why Us" data-zh="为何选择">Why Us</a>
+    <a href="#catalogue" data-en="Catalogue" data-zh="产品目录">Catalogue</a>
+    <a href="#quote" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#quote" class="nav-cta" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="top"><div class="wrap">
+  <div>
+    <p class="eyebrow" data-en="Wholesale · Distribution · Bulk Supply · Since 2009" data-zh="批发 · 分销 · 批量供应 · 创立于 2009 年">Wholesale · Distribution · Bulk Supply · Since 2009</p>
+    <h1 data-rich
+      data-en="Singapore's one-stop <span class='r'>trading &amp; supply</span> partner"
+      data-zh="新加坡一站式<span class='r'>贸易与供应</span>伙伴">Singapore's one-stop <span class="r">trading &amp; supply</span> partner</h1>
+    <p data-en="From a single SKU to full container loads — MktPlace Trading sources, stocks and distributes for retailers, contractors and businesses across the region." data-zh="从单件商品到整柜供货——集市贸易为本地及区域的零售商、承包商与企业采购、备货并分销。">From a single SKU to full container loads — MktPlace Trading sources, stocks and distributes for retailers, contractors and businesses across the region.</p>
+    <ul class="hero-pts">
+      <li data-en="Bulk &amp; tiered trade pricing" data-zh="批量与分级贸易价格">Bulk &amp; tiered trade pricing</li>
+      <li data-en="Fast island-wide delivery" data-zh="全岛快速配送">Fast island-wide delivery</li>
+      <li data-en="Credit terms for trade accounts" data-zh="贸易账户信用账期">Credit terms for trade accounts</li>
+    </ul>
+    <a href="#quote" class="btn btn-teal" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+    <a href="#categories" class="btn btn-ghost" data-en="Browse Categories" data-zh="浏览类别">Browse Categories</a>
+  </div>
+  <div class="hero-card">
+    <h3 data-en="Trusted supply, at scale" data-zh="值得信赖的规模化供应">Trusted supply, at scale</h3>
+    <p data-en="Backed by 15+ years of distribution experience." data-zh="拥有 15 年以上的分销经验。">Backed by 15+ years of distribution experience.</p>
+    <div class="mini">
+      <div><div class="n">12,000+</div><div class="l" data-en="SKUs Stocked" data-zh="备货品种">SKUs Stocked</div></div>
+      <div><div class="n">150+</div><div class="l" data-en="Brands Carried" data-zh="代理品牌">Brands Carried</div></div>
+      <div><div class="n">2,400+</div><div class="l" data-en="Trade Clients" data-zh="贸易客户">Trade Clients</div></div>
+      <div><div class="n">48hrs</div><div class="l" data-en="Avg. Fulfilment" data-zh="平均交付">Avg. Fulfilment</div></div>
+    </div>
+    <a href="#quote" class="btn btn-teal" style="width:100%;justify-content:center" data-en="Open a Trade Account" data-zh="开设贸易账户">Open a Trade Account</a>
+  </div>
+</div></section>
+
+<!-- TRUSTED BY -->
+<section class="trusted"><div class="wrap">
+  <p data-en="Trusted by retailers, contractors &amp; businesses across Singapore" data-zh="深受新加坡各地零售商、承包商与企业信赖">Trusted by retailers, contractors &amp; businesses across Singapore</p>
+  <div class="logos">
+    <div class="logo-tile">NORTHGATE</div>
+    <div class="logo-tile">SUNRISE CO</div>
+    <div class="logo-tile">PACIFIC MART</div>
+    <div class="logo-tile">EVERTRADE</div>
+    <div class="logo-tile">LIONCITY</div>
+    <div class="logo-tile">KEPPEL SUP</div>
+  </div>
+</div></section>
+
+<!-- ABOUT -->
+<section class="sec about" id="about"><div class="wrap"><div class="grid">
+  <div class="reveal"><img src="https://picsum.photos/seed/mkt-warehouse/900/700" alt="MktPlace distribution warehouse"></div>
+  <div>
+    <p class="eyebrow" data-en="Our Story" data-zh="我们的故事">Our Story</p>
+    <h2 data-en="A distributor built for the way trade actually works" data-zh="为真实贸易需求而生的分销商">A distributor built for the way trade actually works</h2>
+    <p class="lead" data-en="Founded in 2009 in Singapore's western industrial belt, MktPlace Trading grew from a single warehouse into a multi-category distribution house. We hold deep stock, negotiate hard with suppliers, and pass scale on to our trade partners." data-zh="集市贸易于 2009 年创立于新加坡西部工业带，从单一仓库发展为多品类分销中心。我们深度备货，与供应商严格议价，并将规模优势让利给贸易伙伴。">Founded in 2009 in Singapore's western industrial belt, MktPlace Trading grew from a single warehouse into a multi-category distribution house. We hold deep stock, negotiate hard with suppliers, and pass scale on to our trade partners.</p>
+    <ul>
+      <li data-en="3,000 m² of climate-controlled warehousing" data-zh="3,000 平方米恒温仓储">3,000 m² of climate-controlled warehousing</li>
+      <li data-en="Direct importer for 150+ regional &amp; global brands" data-zh="150 多个区域及全球品牌的直接进口商">Direct importer for 150+ regional &amp; global brands</li>
+      <li data-en="Dedicated account managers for trade partners" data-zh="为贸易伙伴配备专属客户经理">Dedicated account managers for trade partners</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<!-- CATEGORIES -->
+<section class="sec center" id="categories" style="background:#fff"><div class="wrap">
+  <p class="eyebrow" data-en="Product Categories" data-zh="产品类别">Product Categories</p>
+  <h2 style="color:var(--navy)" data-en="Six divisions, one supplier" data-zh="六大品类，一站供应">Six divisions, one supplier</h2>
+  <p class="lead" style="margin:10px auto 0;text-align:center" data-en="Deep, ready-to-ship inventory across our core trading divisions." data-zh="覆盖核心贸易品类的充足现货，随时发货。">Deep, ready-to-ship inventory across our core trading divisions.</p>
+  <div class="cat-grid reveal">
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="1,800 items" data-zh="1,800 件">1,800 items</span><img src="https://picsum.photos/seed/mkt-cat1/700/500" alt="Household & Cleaning"></div>
+      <div class="body"><h3 data-en="Household &amp; Cleaning" data-zh="家居与清洁">Household &amp; Cleaning</h3><p data-en="Detergents, paper goods, kitchenware &amp; cleaning supplies." data-zh="洗涤剂、纸品、厨具及清洁用品。">Detergents, paper goods, kitchenware &amp; cleaning supplies.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="2,400 items" data-zh="2,400 件">2,400 items</span><img src="https://picsum.photos/seed/mkt-cat2/700/500" alt="Packaged Food & Beverage"></div>
+      <div class="body"><h3 data-en="Food &amp; Beverage" data-zh="食品与饮料">Food &amp; Beverage</h3><p data-en="Dry goods, snacks, drinks &amp; pantry staples by the case." data-zh="干货、零食、饮料及成箱的厨房常备品。">Dry goods, snacks, drinks &amp; pantry staples by the case.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="1,500 items" data-zh="1,500 件">1,500 items</span><img src="https://picsum.photos/seed/mkt-cat3/700/500" alt="Packaging & Disposables"></div>
+      <div class="body"><h3 data-en="Packaging &amp; Disposables" data-zh="包装与一次性用品">Packaging &amp; Disposables</h3><p data-en="Containers, bags, cutlery &amp; foodservice disposables." data-zh="容器、袋子、餐具及餐饮一次性用品。">Containers, bags, cutlery &amp; foodservice disposables.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="2,100 items" data-zh="2,100 件">2,100 items</span><img src="https://picsum.photos/seed/mkt-cat4/700/500" alt="Hardware & Industrial"></div>
+      <div class="body"><h3 data-en="Hardware &amp; Industrial" data-zh="五金与工业">Hardware &amp; Industrial</h3><p data-en="Fasteners, tools, safety gear &amp; MRO consumables." data-zh="紧固件、工具、安全装备及维修耗材。">Fasteners, tools, safety gear &amp; MRO consumables.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="1,300 items" data-zh="1,300 件">1,300 items</span><img src="https://picsum.photos/seed/mkt-cat5/700/500" alt="Electrical & Lighting"></div>
+      <div class="body"><h3 data-en="Electrical &amp; Lighting" data-zh="电气与照明">Electrical &amp; Lighting</h3><p data-en="Cables, fittings, LED lighting &amp; electrical accessories." data-zh="电缆、配件、LED 照明及电气附件。">Cables, fittings, LED lighting &amp; electrical accessories.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+    <div class="cat-card">
+      <div class="img"><span class="cnt" data-en="2,900 items" data-zh="2,900 件">2,900 items</span><img src="https://picsum.photos/seed/mkt-cat6/700/500" alt="Office & Stationery"></div>
+      <div class="body"><h3 data-en="Office &amp; Stationery" data-zh="办公与文具">Office &amp; Stationery</h3><p data-en="Paper, print supplies, stationery &amp; pantry essentials." data-zh="纸张、打印耗材、文具及茶水间用品。">Paper, print supplies, stationery &amp; pantry essentials.</p><span class="arrow" data-en="View range →" data-zh="查看产品 →">View range →</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- WHY PARTNER -->
+<section class="sec why" id="why"><div class="wrap">
+  <p class="eyebrow" data-en="Why Partner With Us" data-zh="为何与我们合作">Why Partner With Us</p>
+  <h2 style="color:#fff" data-en="The supply partner that scales with you" data-zh="与您一同成长的供应伙伴">The supply partner that scales with you</h2>
+  <div class="wgrid">
+    <div class="w reveal"><div class="ic">📦</div><h4 data-en="Deep, reliable stock" data-zh="充足可靠的库存">Deep, reliable stock</h4><p data-en="12,000+ SKUs held locally — order what you need, when you need it." data-zh="本地备货 12,000 多种——随需随订。">12,000+ SKUs held locally — order what you need, when you need it.</p></div>
+    <div class="w reveal"><div class="ic">💰</div><h4 data-en="Tiered bulk pricing" data-zh="分级批量价格">Tiered bulk pricing</h4><p data-en="The more you order, the better your rate — transparent trade tiers." data-zh="订量越大，价格越优——透明的贸易分级。">The more you order, the better your rate — transparent trade tiers.</p></div>
+    <div class="w reveal"><div class="ic">🚚</div><h4 data-en="Fast fulfilment" data-zh="快速交付">Fast fulfilment</h4><p data-en="48-hour average dispatch with island-wide delivery options." data-zh="平均 48 小时发货，提供全岛配送选项。">48-hour average dispatch with island-wide delivery options.</p></div>
+    <div class="w reveal"><div class="ic">📄</div><h4 data-en="Flexible credit terms" data-zh="灵活信用账期">Flexible credit terms</h4><p data-en="Approved trade accounts enjoy 30–60 day payment terms." data-zh="经批准的贸易账户可享 30–60 天付款账期。">Approved trade accounts enjoy 30–60 day payment terms.</p></div>
+    <div class="w reveal"><div class="ic">🤝</div><h4 data-en="Dedicated account team" data-zh="专属客户团队">Dedicated account team</h4><p data-en="One point of contact who knows your business and your orders." data-zh="一位了解您业务与订单的专属联系人。">One point of contact who knows your business and your orders.</p></div>
+    <div class="w reveal"><div class="ic">🌏</div><h4 data-en="Direct sourcing" data-zh="直接采购">Direct sourcing</h4><p data-en="As a direct importer, we cut the middlemen and the markup." data-zh="作为直接进口商，我们省去中间商与加价。">As a direct importer, we cut the middlemen and the markup.</p></div>
+  </div>
+</div></section>
+
+<!-- CATALOGUE GALLERY -->
+<section class="sec cat-gal center" id="catalogue"><div class="wrap">
+  <p class="eyebrow" data-en="Catalogue Showcase" data-zh="产品目录展示">Catalogue Showcase</p>
+  <h2 style="color:var(--navy)" data-en="A look inside the warehouse" data-zh="走进我们的仓库">A look inside the warehouse</h2>
+  <p class="lead" style="margin:10px auto 0;text-align:center" data-en="A snapshot of the ranges we stock and ship every day." data-zh="我们每日备货与发货的产品一览。">A snapshot of the ranges we stock and ship every day.</p>
+  <div class="gal-grid reveal">
+    <a href="#"><span class="cap" data-en="Household" data-zh="家居">Household</span><img src="https://picsum.photos/seed/mkt-gal1/600/600" alt="Catalogue 1"></a>
+    <a href="#"><span class="cap" data-en="Beverages" data-zh="饮料">Beverages</span><img src="https://picsum.photos/seed/mkt-gal2/600/600" alt="Catalogue 2"></a>
+    <a href="#"><span class="cap" data-en="Packaging" data-zh="包装">Packaging</span><img src="https://picsum.photos/seed/mkt-gal3/600/600" alt="Catalogue 3"></a>
+    <a href="#"><span class="cap" data-en="Hardware" data-zh="五金">Hardware</span><img src="https://picsum.photos/seed/mkt-gal4/600/600" alt="Catalogue 4"></a>
+    <a href="#"><span class="cap" data-en="Lighting" data-zh="照明">Lighting</span><img src="https://picsum.photos/seed/mkt-gal5/600/600" alt="Catalogue 5"></a>
+    <a href="#"><span class="cap" data-en="Stationery" data-zh="文具">Stationery</span><img src="https://picsum.photos/seed/mkt-gal6/600/600" alt="Catalogue 6"></a>
+    <a href="#"><span class="cap" data-en="Disposables" data-zh="一次性用品">Disposables</span><img src="https://picsum.photos/seed/mkt-gal7/600/600" alt="Catalogue 7"></a>
+    <a href="#"><span class="cap" data-en="Cleaning" data-zh="清洁">Cleaning</span><img src="https://picsum.photos/seed/mkt-gal8/600/600" alt="Catalogue 8"></a>
+  </div>
+</div></section>
+
+<!-- STATS -->
+<section class="stats"><div class="wrap"><div class="grid">
+  <div class="it"><div class="n">12,000+</div><div class="l" data-en="SKUs Stocked" data-zh="备货品种">SKUs Stocked</div></div>
+  <div class="it"><div class="n">150+</div><div class="l" data-en="Brands Carried" data-zh="代理品牌">Brands Carried</div></div>
+  <div class="it"><div class="n">15+</div><div class="l" data-en="Years in Trade" data-zh="贸易年资">Years in Trade</div></div>
+  <div class="it"><div class="n">2,400+</div><div class="l" data-en="Trade Clients" data-zh="贸易客户">Trade Clients</div></div>
+</div></div></section>
+
+<!-- REQUEST A QUOTE -->
+<section class="sec quote" id="quote"><div class="wrap"><div class="grid">
+  <div>
+    <p class="eyebrow" data-en="Request a Quote" data-zh="索取报价">Request a Quote</p>
+    <h2 data-en="Send us your list — we'll quote in one business day" data-zh="把清单发给我们——一个工作日内报价">Send us your list — we'll quote in one business day</h2>
+    <p class="lead" data-en="Tell us what you need and your expected volumes. Our team will prepare competitive trade pricing and confirm stock availability." data-zh="告诉我们您的需求与预计订量，我们的团队将提供有竞争力的贸易报价并确认现货供应。">Tell us what you need and your expected volumes. Our team will prepare competitive trade pricing and confirm stock availability.</p>
+    <ul class="clist">
+      <li><span class="ic">📍</span><span>3 Soon Lee Street, #05-12, Singapore 627606</span></li>
+      <li><span class="ic">☎</span><span>+65 6266 1212</span></li>
+      <li><span class="ic">✉</span><span>sales@mktplace.com.sg</span></li>
+      <li><span class="ic">🕒</span><span data-en="Mon–Fri 9am–6pm" data-zh="周一至周五 9:00–18:00">Mon–Fri 9am–6pm</span></li>
+    </ul>
+  </div>
+  <form class="enq-form" onsubmit="return sent(event)">
+    <div class="f"><label data-en="Company Name" data-zh="公司名称">Company Name</label><input type="text" required></div>
+    <div class="f"><label data-en="Contact Person" data-zh="联系人">Contact Person</label><input type="text" required></div>
+    <div class="f"><label data-en="Email" data-zh="电子邮箱">Email</label><input type="email" required></div>
+    <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel" required></div>
+    <div class="f"><label data-en="Product Category" data-zh="产品类别">Product Category</label>
+      <select>
+        <option data-en="Household &amp; Cleaning" data-zh="家居与清洁">Household &amp; Cleaning</option>
+        <option data-en="Food &amp; Beverage" data-zh="食品与饮料">Food &amp; Beverage</option>
+        <option data-en="Packaging &amp; Disposables" data-zh="包装与一次性用品">Packaging &amp; Disposables</option>
+        <option data-en="Hardware &amp; Industrial" data-zh="五金与工业">Hardware &amp; Industrial</option>
+        <option data-en="Electrical &amp; Lighting" data-zh="电气与照明">Electrical &amp; Lighting</option>
+        <option data-en="Office &amp; Stationery" data-zh="办公与文具">Office &amp; Stationery</option>
+      </select>
+    </div>
+    <div class="f"><label data-en="Estimated Volume" data-zh="预计订量">Estimated Volume</label><input type="text" placeholder="e.g. 500 units / month" data-en-ph="e.g. 500 units / month" data-zh-ph="例如 500 件 / 月"></div>
+    <div class="f full"><label data-en="Items &amp; Requirements" data-zh="所需产品与要求">Items &amp; Requirements</label><textarea rows="4" required placeholder="List the SKUs or categories you'd like quoted…" data-en-ph="List the SKUs or categories you'd like quoted…" data-zh-ph="请列出您希望报价的产品或类别……"></textarea></div>
+    <div class="f full"><button type="submit" class="btn btn-teal" data-en="Request Quote" data-zh="提交报价请求">Request Quote</button></div>
+  </form>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">MP</span><span><b style="color:#fff">MKTPLACE</b><small>TRADING</small></span></a>
+      <p class="cn">集市贸易私人有限公司</p>
+      <p data-en="Your one-stop wholesale supply &amp; distribution partner in Singapore since 2009." data-zh="自 2009 年起，您在新加坡的一站式批发供应与分销伙伴。">Your one-stop wholesale supply &amp; distribution partner in Singapore since 2009.</p>
+      <div class="soc">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="WhatsApp">✆</a>
+      </div>
+      <div class="badges"><span data-en="Since 2009" data-zh="创立2009">Since 2009</span><span data-en="12,000+ SKUs" data-zh="12000+品种">12,000+ SKUs</span><span data-en="Direct Importer" data-zh="直接进口商">Direct Importer</span></div>
+    </div>
+    <div>
+      <h4 data-en="Company" data-zh="公司">Company</h4>
+      <a href="#about" data-en="About Us" data-zh="关于我们">About Us</a>
+      <a href="#why" data-en="Why Partner" data-zh="为何合作">Why Partner</a>
+      <a href="#catalogue" data-en="Catalogue" data-zh="产品目录">Catalogue</a>
+      <a href="#quote" data-en="Request a Quote" data-zh="索取报价">Request a Quote</a>
+    </div>
+    <div>
+      <h4 data-en="Categories" data-zh="产品类别">Categories</h4>
+      <a href="#categories" data-en="Household &amp; Cleaning" data-zh="家居与清洁">Household &amp; Cleaning</a>
+      <a href="#categories" data-en="Food &amp; Beverage" data-zh="食品与饮料">Food &amp; Beverage</a>
+      <a href="#categories" data-en="Packaging" data-zh="包装用品">Packaging</a>
+      <a href="#categories" data-en="Hardware &amp; Industrial" data-zh="五金与工业">Hardware &amp; Industrial</a>
+      <a href="#categories" data-en="Office &amp; Stationery" data-zh="办公与文具">Office &amp; Stationery</a>
+    </div>
+    <div>
+      <h4 data-en="Contact Us" data-zh="联系方式">Contact Us</h4>
+      <p>3 Soon Lee Street, #05-12<br>Singapore 627606</p>
+      <p>Tel: +65 6266 1212<br>sales@mktplace.com.sg</p>
+      <p data-en="Mon–Fri: 9am–6pm" data-zh="周一至周五：9:00–18:00">Mon–Fri: 9am–6pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span data-en="© 2026 MktPlace Trading Pte Ltd · UEN 200933445F" data-zh="© 2026 集市贸易私人有限公司 · UEN 200933445F">© 2026 MktPlace Trading Pte Ltd · UEN 200933445F</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang !== 'zh';
+  document.documentElement.lang = zh ? 'zh' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    if(v!==null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-rich]').forEach(function(el){
+    var v = zh ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    if(v!==null) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-en-ph]').forEach(function(el){
+    el.placeholder = zh ? el.getAttribute('data-zh-ph') : el.getAttribute('data-en-ph');
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? 'EN' : '中文'; });
+}
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+window.addEventListener('scroll',function(){
+  document.getElementById('toTop').classList.toggle('show', window.scrollY>500);
+});
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open');});
+});
+function sent(e){e.preventDefault();alert(document.documentElement.lang==='zh'?'谢谢！我们将在一个工作日内回复您的报价请求。':'Thank you! We’ll respond to your quote request within one business day.');e.target.reset();return false;}
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

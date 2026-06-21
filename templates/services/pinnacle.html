@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pinnacle Law LLP — Corporate, Litigation &amp; Private Client Lawyers, Singapore</title>
+<meta name="description" content="Pinnacle Law LLP is a Singapore law firm established in 2013. Corporate &amp; M&amp;A, litigation, conveyancing, family, employment and IP. Book a consultation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --green:#064e3b; --green-2:#0a6b50; --green-d:#042f23;
+  --gold:#fbbf24; --gold-d:#d99c0e;
+  --ink:#1c2b25; --muted:#5b6b64; --line:#dde6e2; --bg:#f8faf9; --soft:#eef4f1; --white:#fff;
+  --maxw:1180px; --shadow:0 24px 60px rgba(6,78,59,.12);
+  --fh:'Archivo',Arial,sans-serif; --fb:'Inter',system-ui,sans-serif; --fs:'Playfair Display',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:78px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.68}
+h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.14;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:3px;padding:14px 28px;font-family:var(--fh);font-weight:700;font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:.24s}
+.btn-gold{background:var(--gold);color:var(--green-d)}.btn-gold:hover{background:var(--gold-d);transform:translateY(-2px)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff}.btn-ghost:hover{background:#fff;color:var(--green)}
+.btn-outline{background:transparent;border:1.5px solid var(--green);color:var(--green)}.btn-outline:hover{background:var(--green);color:#fff}
+.eyebrow{font-family:var(--fh);text-transform:uppercase;letter-spacing:3.5px;color:var(--gold-d);font-weight:700;font-size:.74rem;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:30px;height:1.5px;background:var(--gold)}
+.sec{padding:92px 0}
+.sec h2{font-size:2.5rem;color:var(--green)}
+.lead{color:var(--muted);margin-top:14px;max-width:660px;line-height:1.75}
+.center{text-align:center}.center .eyebrow{justify-content:center}.center .lead{margin:14px auto 0}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+
+/* topbar */
+.topbar{background:var(--green-d);color:#bfe0d4;font-size:.8rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:42px}
+.topbar a{color:#bfe0d4;margin-right:20px}.topbar a:hover{color:var(--gold)}
+.topbar .ic{color:var(--gold);margin-right:6px}
+
+/* header */
+.header{position:sticky;top:0;z-index:90;background:rgba(248,250,249,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line);transition:.3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(6,78,59,.1)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mk{width:46px;height:46px;border:1.5px solid var(--gold);border-radius:4px;background:var(--green);color:var(--gold);display:grid;place-items:center;font-family:var(--fs);font-weight:700;font-size:1.2rem;flex-shrink:0}
+.brand b{font-family:var(--fs);color:var(--green);font-size:1.16rem;letter-spacing:.3px;display:block;line-height:1.05}
+.brand small{font-size:.58rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-family:var(--fh);font-weight:700}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fh);font-weight:600;text-transform:uppercase;font-size:.76rem;letter-spacing:.8px;color:var(--ink);padding:10px 13px;border-radius:4px;position:relative}
+.nav>a:hover{color:var(--green)}
+.nav>a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:1.5px;background:var(--gold);transform:scaleX(0);transition:.25s}
+.nav>a:hover::after{transform:scaleX(1)}
+.lang{border:1.5px solid var(--green);background:transparent;color:var(--green);font-family:var(--fh);font-weight:700;font-size:.72rem;padding:7px 11px;border-radius:4px;cursor:pointer;margin-left:8px;transition:.2s;letter-spacing:.5px}
+.lang:hover{background:var(--green);color:#fff}
+.nav-cta{background:var(--gold);color:var(--green-d)!important;border-radius:4px;padding:11px 18px!important;margin-left:8px;font-weight:700}
+.nav-cta:hover{background:var(--gold-d)}
+.nav-cta::after{display:none}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--green);cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;background:var(--green-d)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.22}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(4,47,35,.96) 0%,rgba(4,47,35,.82) 50%,rgba(6,78,59,.5) 100%)}
+.hero-in{position:relative;z-index:3;color:#fff;padding:60px 0}
+.hero-card{max-width:760px}
+.hero .eyebrow{color:var(--gold)}
+.hero .eyebrow::before{background:var(--gold)}
+.hero h1{font-family:var(--fs);font-size:3.7rem;color:#fff;font-weight:600;line-height:1.08}
+.hero h1 .hi{color:var(--gold);font-style:italic}
+.hero p.sub{margin:24px 0 36px;font-size:1.18rem;color:#d4e6de;max-width:600px;line-height:1.75}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-rule{margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.16);padding-top:24px;max-width:600px}
+.hero-rule div{font-size:.82rem;color:#bfe0d4}
+.hero-rule b{display:block;font-family:var(--fs);color:var(--gold);font-size:1.5rem;font-weight:700}
+
+/* credentials bar */
+.creds{background:var(--green);color:#fff;border-top:3px solid var(--gold)}
+.creds .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.creds .it{padding:34px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}.creds .it:last-child{border:none}
+.creds .n{font-family:var(--fs);font-size:2.6rem;font-weight:700;color:var(--gold)}
+.creds .l{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:#bfe0d4;margin-top:6px;font-family:var(--fh);font-weight:600}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.about-figs{position:relative}
+.about-figs img{width:100%;height:480px;object-fit:cover;border-radius:6px;box-shadow:var(--shadow)}
+.about-figs .badge{position:absolute;bottom:-26px;right:-18px;background:var(--green);color:#fff;padding:22px 26px;border-radius:6px;border-left:4px solid var(--gold);box-shadow:var(--shadow)}
+.about-figs .badge b{font-family:var(--fs);color:var(--gold);font-size:2rem;display:block;font-weight:700}
+.about-figs .badge span{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:#bfe0d4;font-family:var(--fh);font-weight:600}
+.about-grid .sig{font-family:var(--fs);font-style:italic;color:var(--green);font-size:1.35rem;margin:22px 0 10px;line-height:1.45;border-left:3px solid var(--gold);padding-left:20px}
+.about-grid ul{list-style:none;margin-top:22px}
+.about-grid li{padding:9px 0 9px 32px;position:relative;border-bottom:1px solid var(--line);font-size:.96rem;color:var(--ink)}
+.about-grid li:last-child{border:none}
+.about-grid li::before{content:"✓";position:absolute;left:0;top:10px;color:var(--green-d);background:var(--gold);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.66rem;font-weight:700}
+
+/* practice areas */
+.pa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:42px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pa{background:#fff;padding:38px 30px;transition:.32s;position:relative}
+.pa:hover{background:var(--green);transform:none}
+.pa .num{font-family:var(--fs);font-size:1rem;color:var(--gold-d);font-weight:700;letter-spacing:1px}
+.pa:hover .num{color:var(--gold)}
+.pa .ic{width:52px;height:52px;margin:16px 0 18px;color:var(--green);transition:.32s}
+.pa:hover .ic{color:var(--gold)}
+.pa .ic svg{width:46px;height:46px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.pa h3{font-size:1.32rem;color:var(--green);transition:.32s}
+.pa:hover h3{color:#fff}
+.pa p{font-size:.92rem;color:var(--muted);line-height:1.65;margin-top:10px;transition:.32s}
+.pa:hover p{color:#cfe3da}
+
+/* lawyers */
+.lawyers{background:var(--soft)}
+.lw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:42px}
+.lw{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.32s}
+.lw:hover{box-shadow:var(--shadow);transform:translateY(-6px)}
+.lw .ph{position:relative;height:340px;overflow:hidden}
+.lw .ph img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.lw:hover .ph img{transform:scale(1.05)}
+.lw .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,47,35,.55),transparent 50%)}
+.lw .info{padding:26px}
+.lw h4{color:var(--green);font-size:1.32rem}
+.lw .role{font-family:var(--fh);font-size:.74rem;color:var(--gold-d);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:6px 0 14px}
+.lw p{font-size:.9rem;color:var(--muted);line-height:1.65}
+.lw .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.lw .tags span{font-size:.7rem;font-family:var(--fh);font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:var(--soft);color:var(--green);border:1px solid var(--line);padding:4px 9px;border-radius:3px}
+
+/* trust */
+.trust{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff}
+.trust .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
+.trust .w{padding:30px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.04);transition:.3s}
+.trust .w:hover{background:rgba(255,255,255,.08);border-color:rgba(251,191,36,.4)}
+.trust .no{font-family:var(--fs);font-size:2.1rem;font-weight:700;color:var(--gold);line-height:1}
+.trust h4{margin:12px 0 8px;font-size:1.22rem;color:#fff}
+.trust p{color:#cfe3da;font-size:.92rem;line-height:1.68}
+
+/* recognition strip */
+.recog{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.recog .wrap{padding:46px 24px;text-align:center}
+.recog .label{font-family:var(--fh);text-transform:uppercase;letter-spacing:3px;font-size:.72rem;color:var(--muted);margin-bottom:28px}
+.recog .row{display:flex;justify-content:center;align-items:center;gap:54px;flex-wrap:wrap}
+.recog .item{text-align:center;color:var(--green);opacity:.8;transition:.3s}
+.recog .item:hover{opacity:1}
+.recog .item .star{color:var(--gold);font-size:1.1rem;letter-spacing:2px}
+.recog .item b{display:block;font-family:var(--fs);font-size:1.1rem;font-weight:700;margin-top:6px}
+.recog .item span{display:block;font-size:.74rem;color:var(--muted);font-family:var(--fh);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+/* consultation form */
+.consult{background:var(--soft)}
+.consult-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:54px;align-items:start}
+.cinfo h2{color:var(--green);font-size:2.4rem}
+.clist{list-style:none;margin-top:28px}
+.clist li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.clist li:last-child{border:none}
+.clist .ic{width:42px;height:42px;border-radius:6px;background:var(--green);color:var(--gold);display:grid;place-items:center;flex-shrink:0;font-size:1.05rem}
+.clist .txt{color:var(--muted);font-size:.95rem;line-height:1.55}
+.clist .txt strong{display:block;color:var(--green);font-size:.74rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-family:var(--fh);font-weight:700}
+.cform{background:#fff;border-radius:10px;padding:40px;box-shadow:var(--shadow);border-top:4px solid var(--gold)}
+.cform h3{color:var(--green);font-size:1.55rem;margin-bottom:6px}
+.cform .note{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column}.f.full{grid-column:1/-1}
+.f label{font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-family:var(--fh)}
+.f input,.f textarea,.f select{border:1.5px solid var(--line);border-radius:6px;padding:13px 15px;font-family:inherit;font-size:.94rem;color:var(--ink);transition:.2s;background:#fff}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(6,78,59,.1)}
+.f textarea{resize:vertical}
+.cform .ok{display:none;background:var(--soft);border:1px solid var(--green);color:var(--green);border-radius:6px;padding:14px;margin-bottom:18px;font-size:.92rem}
+.cform .ok.show{display:block}
+
+/* footer */
+.foot{background:var(--green-d);color:#9ec3b6}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:40px;padding:64px 0 40px}
+.foot h4{color:#fff;font-family:var(--fh);font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.foot .brand b{color:#fff}
+.foot .cn{color:var(--gold);letter-spacing:1px;margin:14px 0 10px;font-size:.95rem;font-family:var(--fs)}
+.foot a{display:block;color:#9ec3b6;padding:5px 0;font-size:.89rem}.foot a:hover{color:var(--gold)}
+.foot p{font-size:.89rem;margin-bottom:8px;color:#86b0a2}
+.foot .soc{display:flex;gap:9px;margin:16px 0}
+.foot .soc a{width:34px;height:34px;border-radius:4px;background:rgba(255,255,255,.07);display:grid;place-items:center;padding:0;font-size:.82rem}
+.foot .soc a:hover{background:var(--gold);color:var(--green-d)}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 24px;font-size:.78rem;color:#6e988a;flex-wrap:wrap;gap:8px}
+
+/* floating */
+.fab{position:fixed;right:22px;z-index:70;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.25);cursor:pointer;border:none;color:#fff}
+.fab-top{bottom:22px;width:50px;height:50px;background:var(--green);font-size:1.3rem;opacity:0;pointer-events:none;transition:.3s}.fab-top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:960px){
+  .nav{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:14px;box-shadow:var(--shadow);z-index:99;gap:4px}
+  .nav.open{display:flex}.burger{display:block}
+  .nav>a{padding:12px 14px}
+  .about-grid,.consult-wrap{grid-template-columns:1fr;gap:40px}
+  .about-figs .badge{right:18px}
+  .pa-grid,.lw-grid,.trust .wgrid{grid-template-columns:1fr 1fr}
+  .creds .grid{grid-template-columns:repeat(3,1fr)}
+  .hero h1{font-size:2.7rem}
+  .foot .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .sec{padding:64px 0}.sec h2{font-size:1.9rem}
+  .pa-grid,.lw-grid,.trust .wgrid,.creds .grid,.fgrid{grid-template-columns:1fr}
+  .hero h1{font-size:2.1rem}
+  .creds .it{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot .grid{grid-template-columns:1fr}
+  .hero-rule{gap:18px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6562224400"><span class="ic">☎</span><span data-en="Call:" data-zh="致电：">Call:</span> +65 6222 4400</a>
+    <a href="mailto:contact@pinnaclelaw.sg"><span class="ic">✉</span> contact@pinnaclelaw.sg</a>
+  </div>
+  <div><span data-en="1 Raffles Place, #44-02 · Mon–Fri 9am–6pm" data-zh="莱佛士坊1号 #44-02 · 周一至五 9:00–18:00">1 Raffles Place, #44-02 · Mon–Fri 9am–6pm</span></div>
+</div></div>
+
+<!-- header -->
+<header class="header" id="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="mk">P</span>
+    <span><b>Pinnacle Law</b><small>LLP · Est. 2013</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about" data-en="The Firm" data-zh="关于本所">The Firm</a>
+    <a href="#practice" data-en="Practice Areas" data-zh="业务领域">Practice Areas</a>
+    <a href="#lawyers" data-en="Our Lawyers" data-zh="律师团队">Our Lawyers</a>
+    <a href="#trust" data-en="Why Us" data-zh="选择我们">Why Us</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <div class="bg"><img src="https://picsum.photos/seed/pinnacle-tower/1600/1000" alt="Singapore financial district" /></div>
+  <div class="hero-in"><div class="wrap"><div class="hero-card">
+    <p class="eyebrow" data-en="Singapore Law Firm · Since 2013" data-zh="新加坡律师事务所 · 创立于2013年">Singapore Law Firm · Since 2013</p>
+    <h1><span data-rich
+      data-en="Counsel of <span class='hi'>conviction.</span><br>Advocacy that endures."
+      data-zh="坚定的<span class='hi'>法律主张</span>，<br>历久弥坚的辩护。">Counsel of <span class="hi">conviction.</span><br>Advocacy that endures.</span></h1>
+    <p class="sub" data-en="Pinnacle Law LLP advises businesses, families and institutions across Singapore — combining commercial precision with the rigour of seasoned litigators." data-zh="巅峰律师事务所为新加坡的企业、家庭与机构提供法律服务——以商业的精准与资深诉讼律师的严谨，护您周全。">Pinnacle Law LLP advises businesses, families and institutions across Singapore — combining commercial precision with the rigour of seasoned litigators.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-gold" data-en="Book a Consultation" data-zh="预约咨询">Book a Consultation</a>
+      <a href="#practice" class="btn btn-ghost" data-en="Our Practice Areas" data-zh="业务领域">Our Practice Areas</a>
+    </div>
+    <div class="hero-rule">
+      <div><b>2013</b><span data-en="Established" data-zh="成立年份">Established</span></div>
+      <div><b>12</b><span data-en="Lawyers" data-zh="执业律师">Lawyers</span></div>
+      <div><b>1000+</b><span data-en="Matters handled" data-zh="承办案件">Matters handled</span></div>
+    </div>
+  </div></div></div>
+</section>
+
+<!-- credentials bar -->
+<section class="creds"><div class="wrap"><div class="grid">
+  <div class="it"><div class="n">Est. 2013</div><div class="l" data-en="Trusted Since" data-zh="信赖始于">Trusted Since</div></div>
+  <div class="it"><div class="n">12</div><div class="l" data-en="Lawyers &amp; Partners" data-zh="律师与合伙人">Lawyers &amp; Partners</div></div>
+  <div class="it"><div class="n">1,000+</div><div class="l" data-en="Cases Successfully Resolved" data-zh="成功处理案件">Cases Successfully Resolved</div></div>
+</div></div></section>
+
+<!-- about -->
+<section class="sec" id="about"><div class="wrap"><div class="about-grid">
+  <div class="about-figs reveal">
+    <img src="https://picsum.photos/seed/pinnacle-library/800/980" alt="Law firm library" />
+    <div class="badge"><b>10+</b><span data-en="Years of counsel" data-zh="年法律服务">Years of counsel</span></div>
+  </div>
+  <div class="reveal">
+    <p class="eyebrow" data-en="The Firm" data-zh="关于本所">The Firm</p>
+    <h2 data-en="A Singapore firm built on judgement, discretion and results" data-zh="以判断力、谨慎与成果立足的新加坡律所">A Singapore firm built on judgement, discretion and results</h2>
+    <p class="sig" data-en="“We measure our work not by the cases we take, but by the outcomes our clients carry forward.”" data-zh="“衡量我们工作的，不是承接的案件，而是客户由此获得的结果。”">“We measure our work not by the cases we take, but by the outcomes our clients carry forward.”</p>
+    <p class="lead" data-en="Founded in 2013 at One Raffles Place, Pinnacle Law LLP has grown into a full-service practice trusted by founders, family offices and listed companies alike. Our lawyers act with the candour of trusted advisers and the resolve of trial advocates." data-zh="巅峰律师事务所于2013年在莱佛士坊一号成立，如今已发展为一家深受创始人、家族办公室及上市公司信赖的综合性律所。我们的律师兼具值得信赖的顾问之坦诚与出庭辩护之坚定。">Founded in 2013 at One Raffles Place, Pinnacle Law LLP has grown into a full-service practice trusted by founders, family offices and listed companies alike. Our lawyers act with the candour of trusted advisers and the resolve of trial advocates.</p>
+    <ul>
+      <li data-en="Registered with the Legal Services Regulatory Authority of Singapore" data-zh="于新加坡法律服务监管局注册">Registered with the Legal Services Regulatory Authority of Singapore</li>
+      <li data-en="Bilingual counsel — fluent advocacy in English and Mandarin" data-zh="双语律师团队——精通中英文辩护">Bilingual counsel — fluent advocacy in English and Mandarin</li>
+      <li data-en="Fixed-scope fee arrangements available for most matters" data-zh="多数案件可提供固定收费方案">Fixed-scope fee arrangements available for most matters</li>
+      <li data-en="Direct partner involvement on every engagement" data-zh="每宗委托均有合伙人亲自参与">Direct partner involvement on every engagement</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<!-- practice areas -->
+<section class="sec" id="practice" style="background:#fff"><div class="wrap center">
+  <p class="eyebrow reveal" data-en="Practice Areas" data-zh="业务领域">Practice Areas</p>
+  <h2 class="reveal" data-en="Counsel across the matters that move your business" data-zh="覆盖关乎您企业发展的核心法律事务">Counsel across the matters that move your business</h2>
+  <p class="lead reveal" data-en="Six core practices, one standard of care — partner-led, commercially minded, and grounded in Singapore law." data-zh="六大核心业务，统一的服务标准——由合伙人主导，立足商业思维与新加坡法律。">Six core practices, one standard of care — partner-led, commercially minded, and grounded in Singapore law.</p>
+  <div class="pa-grid" style="text-align:left">
+    <div class="pa reveal"><div class="num">01</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M8 40V14l16-8 16 8v26"/><path d="M4 40h40M18 40V26h12v14M22 18h4"/></svg></div><h3 data-en="Corporate &amp; M&amp;A" data-zh="公司与并购">Corporate &amp; M&amp;A</h3><p data-en="Mergers, acquisitions, joint ventures, fundraising and shareholder arrangements for growth-stage and established companies." data-zh="为成长型及成熟企业提供并购、合资、融资及股东安排等法律服务。">Mergers, acquisitions, joint ventures, fundraising and shareholder arrangements for growth-stage and established companies.</p></div>
+    <div class="pa reveal"><div class="num">02</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M24 6v8M24 6l-12 6 12 6 12-6-12-6M12 12v6c0 4 12 4 12 0M36 12v6c0 4-12 4-12 0M10 40h28M24 18v22"/></svg></div><h3 data-en="Dispute Resolution &amp; Litigation" data-zh="争议解决与诉讼">Dispute Resolution &amp; Litigation</h3><p data-en="Commercial disputes, arbitration and trial advocacy before the Singapore courts — resolved decisively." data-zh="商业纠纷、仲裁及新加坡法院出庭辩护——果断解决。">Commercial disputes, arbitration and trial advocacy before the Singapore courts — resolved decisively.</p></div>
+    <div class="pa reveal"><div class="num">03</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M8 42V20l16-12 16 12v22M8 42h32M18 42V30h12v12M14 22h4M30 22h4"/></svg></div><h3 data-en="Conveyancing &amp; Real Estate" data-zh="房地产转让与不动产">Conveyancing &amp; Real Estate</h3><p data-en="Residential and commercial conveyancing, leases, en-bloc sales and property financing, handled end-to-end." data-zh="住宅及商业房产转让、租赁、集体出售与房产融资，全程一手包办。">Residential and commercial conveyancing, leases, en-bloc sales and property financing, handled end-to-end.</p></div>
+    <div class="pa reveal"><div class="num">04</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M24 26a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM10 42c0-7 6-12 14-12s14 5 14 12"/></svg></div><h3 data-en="Family &amp; Private Client" data-zh="家庭与私人客户">Family &amp; Private Client</h3><p data-en="Divorce, matrimonial assets, wills, probate and estate planning — handled with discretion and care." data-zh="离婚、夫妻资产、遗嘱、遗产认证及遗产规划——谨慎周到地处理。">Divorce, matrimonial assets, wills, probate and estate planning — handled with discretion and care.</p></div>
+    <div class="pa reveal"><div class="num">05</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M16 14V9a4 4 0 0 1 8 0M12 18h24l-2 22a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4Z"/><path d="M20 26v8M28 26v8"/></svg></div><h3 data-en="Employment &amp; Workplace" data-zh="劳动与职场法律">Employment &amp; Workplace</h3><p data-en="Employment contracts, MOM compliance, restructuring and workplace disputes for employers and executives." data-zh="为雇主与高管提供雇佣合同、人力部合规、重组及职场纠纷处理。">Employment contracts, MOM compliance, restructuring and workplace disputes for employers and executives.</p></div>
+    <div class="pa reveal"><div class="num">06</div><div class="ic"><svg viewBox="0 0 48 48"><path d="M24 6l4 8 8 1-6 6 2 9-8-4-8 4 2-9-6-6 8-1Z"/><path d="M16 38h16"/></svg></div><h3 data-en="Intellectual Property" data-zh="知识产权">Intellectual Property</h3><p data-en="Trademark and patent strategy, licensing, brand protection and IP disputes across Singapore and the region." data-zh="商标与专利策略、许可、品牌保护及知识产权纠纷，覆盖新加坡及区域市场。">Trademark and patent strategy, licensing, brand protection and IP disputes across Singapore and the region.</p></div>
+  </div>
+</div></section>
+
+<!-- lawyers -->
+<section class="sec lawyers" id="lawyers"><div class="wrap center">
+  <p class="eyebrow reveal" data-en="Our Lawyers" data-zh="律师团队">Our Lawyers</p>
+  <h2 class="reveal" data-en="The partners who will sit across the table from you" data-zh="将与您并肩而坐的合伙人">The partners who will sit across the table from you</h2>
+  <p class="lead reveal" data-en="Senior counsel lead every matter personally — you work with the lawyers whose names are on the door." data-zh="资深律师亲自主理每宗案件——与您合作的，正是事务所招牌上的律师。">Senior counsel lead every matter personally — you work with the lawyers whose names are on the door.</p>
+  <div class="lw-grid" style="text-align:left">
+    <div class="lw reveal">
+      <div class="ph"><img src="https://picsum.photos/seed/pinnacle-partner-tan/600/720" alt="Managing Partner" /></div>
+      <div class="info">
+        <h4 data-en="Daniel Tan, LL.B." data-zh="陈伟杰 律师">Daniel Tan, LL.B.</h4>
+        <div class="role" data-en="Managing Partner · Corporate &amp; M&amp;A" data-zh="管理合伙人 · 公司与并购">Managing Partner · Corporate &amp; M&amp;A</div>
+        <p data-en="Daniel founded Pinnacle in 2013 and advises boards on acquisitions, fundraising and governance, with over 18 years at the deal table." data-zh="陈律师于2013年创立巅峰律所，拥有逾18年交易经验，为董事会提供并购、融资及治理方面的咨询。">Daniel founded Pinnacle in 2013 and advises boards on acquisitions, fundraising and governance, with over 18 years at the deal table.</p>
+        <div class="tags"><span data-en="M&amp;A" data-zh="并购">M&amp;A</span><span data-en="Governance" data-zh="公司治理">Governance</span><span data-en="Funds" data-zh="基金">Funds</span></div>
+      </div>
+    </div>
+    <div class="lw reveal">
+      <div class="ph"><img src="https://picsum.photos/seed/pinnacle-partner-lim/600/720" alt="Litigation Partner" /></div>
+      <div class="info">
+        <h4 data-en="Rachel Lim, LL.M." data-zh="林慧敏 律师">Rachel Lim, LL.M.</h4>
+        <div class="role" data-en="Partner · Dispute Resolution" data-zh="合伙人 · 争议解决">Partner · Dispute Resolution</div>
+        <p data-en="A formidable advocate in the Singapore courts, Rachel leads the firm's litigation and arbitration practice with a record of decisive results." data-zh="林律师是新加坡法院的杰出辩护律师，主理本所诉讼与仲裁业务，以果断的成果著称。">A formidable advocate in the Singapore courts, Rachel leads the firm's litigation and arbitration practice with a record of decisive results.</p>
+        <div class="tags"><span data-en="Litigation" data-zh="诉讼">Litigation</span><span data-en="Arbitration" data-zh="仲裁">Arbitration</span></div>
+      </div>
+    </div>
+    <div class="lw reveal">
+      <div class="ph"><img src="https://picsum.photos/seed/pinnacle-partner-wong/600/720" alt="Private Client Partner" /></div>
+      <div class="info">
+        <h4 data-en="Marcus Wong, LL.B." data-zh="黄家俊 律师">Marcus Wong, LL.B.</h4>
+        <div class="role" data-en="Partner · Family &amp; Private Client" data-zh="合伙人 · 家庭与私人客户">Partner · Family &amp; Private Client</div>
+        <p data-en="Marcus guides families through divorce, succession and estate matters with the discretion and steadiness such moments demand." data-zh="黄律师以应有的谨慎与稳重，引导家庭处理离婚、继承及遗产事务。">Marcus guides families through divorce, succession and estate matters with the discretion and steadiness such moments demand.</p>
+        <div class="tags"><span data-en="Family Law" data-zh="家庭法">Family Law</span><span data-en="Estates" data-zh="遗产">Estates</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- trust -->
+<section class="sec trust" id="trust"><div class="wrap">
+  <p class="eyebrow" data-en="Why Clients Trust Us" data-zh="客户信赖之由">Why Clients Trust Us</p>
+  <h2 style="color:#fff" data-en="The standards that have defined us since 2013" data-zh="自2013年起恪守的准则">The standards that have defined us since 2013</h2>
+  <div class="wgrid">
+    <div class="w reveal"><div class="no">01</div><h4 data-en="Partner-led, always" data-zh="合伙人全程主导">Partner-led, always</h4><p data-en="A named partner owns your matter from first call to final outcome — no handing off to juniors." data-zh="从首次咨询到最终结果，均由指定合伙人全程负责——绝不转交初级律师。">A named partner owns your matter from first call to final outcome — no handing off to juniors.</p></div>
+    <div class="w reveal"><div class="no">02</div><h4 data-en="Commercially minded" data-zh="商业思维导向">Commercially minded</h4><p data-en="We give advice you can act on — weighing risk, cost and the result that actually serves your goals." data-zh="我们提供可付诸行动的建议——权衡风险、成本与真正契合您目标的结果。">We give advice you can act on — weighing risk, cost and the result that actually serves your goals.</p></div>
+    <div class="w reveal"><div class="no">03</div><h4 data-en="Transparent fees" data-zh="透明收费">Transparent fees</h4><p data-en="Clear, scoped estimates before we begin — and fixed-fee arrangements wherever the matter allows." data-zh="工作开始前提供清晰的范围报价——在案件允许时采用固定收费。">Clear, scoped estimates before we begin — and fixed-fee arrangements wherever the matter allows.</p></div>
+    <div class="w reveal"><div class="no">04</div><h4 data-en="Absolute discretion" data-zh="绝对保密">Absolute discretion</h4><p data-en="Confidentiality is the cornerstone of our private client and corporate work — kept without exception." data-zh="保密是我们私人客户与企业业务的基石——无一例外，严守始终。">Confidentiality is the cornerstone of our private client and corporate work — kept without exception.</p></div>
+    <div class="w reveal"><div class="no">05</div><h4 data-en="Bilingual counsel" data-zh="双语律师">Bilingual counsel</h4><p data-en="Advice and advocacy in fluent English and Mandarin, bridging Singapore, China and the wider region." data-zh="以流利的中英文提供咨询与辩护，连接新加坡、中国与更广阔的区域。">Advice and advocacy in fluent English and Mandarin, bridging Singapore, China and the wider region.</p></div>
+    <div class="w reveal"><div class="no">06</div><h4 data-en="Responsive by design" data-zh="迅捷的响应">Responsive by design</h4><p data-en="Calls returned the same day. When matters move quickly, so do we." data-zh="来电当日回复。案件进展迅速时，我们亦快速响应。">Calls returned the same day. When matters move quickly, so do we.</p></div>
+  </div>
+</div></section>
+
+<!-- recognition strip -->
+<section class="recog"><div class="wrap">
+  <p class="label" data-en="Recognised by leading legal directories" data-zh="获权威法律评级机构认可">Recognised by leading legal directories</p>
+  <div class="row">
+    <div class="item"><div class="star">★★★★★</div><b data-en="Tier 1" data-zh="第一梯队">Tier 1</b><span data-en="Corporate · 2025" data-zh="公司业务 · 2025">Corporate · 2025</span></div>
+    <div class="item"><div class="star">★★★★★</div><b data-en="Leading Firm" data-zh="领先律所">Leading Firm</b><span data-en="Dispute Resolution" data-zh="争议解决">Dispute Resolution</span></div>
+    <div class="item"><div class="star">★★★★★</div><b data-en="Recommended" data-zh="推荐律所">Recommended</b><span data-en="Private Client" data-zh="私人客户">Private Client</span></div>
+    <div class="item"><div class="star">★★★★★</div><b data-en="Rising Star" data-zh="新锐之星">Rising Star</b><span data-en="IP · 2024" data-zh="知识产权 · 2024">IP · 2024</span></div>
+  </div>
+</div></section>
+
+<!-- consultation -->
+<section class="sec consult" id="contact"><div class="wrap"><div class="consult-wrap">
+  <div class="cinfo reveal">
+    <p class="eyebrow" data-en="Book a Consultation" data-zh="预约咨询">Book a Consultation</p>
+    <h2 data-en="Speak with a Pinnacle partner" data-zh="与巅峰合伙人对话">Speak with a Pinnacle partner</h2>
+    <p class="lead" data-en="Share the broad strokes of your matter and we will arrange an initial consultation with the right lawyer. All enquiries are kept strictly confidential." data-zh="简要告知您的事务概况，我们将安排与合适律师的初步咨询。所有咨询均严格保密。">Share the broad strokes of your matter and we will arrange an initial consultation with the right lawyer. All enquiries are kept strictly confidential.</p>
+    <ul class="clist">
+      <li><span class="ic">⚖</span><span class="txt"><strong data-en="Office" data-zh="办公室">Office</strong>1 Raffles Place, #44-02 One Raffles Place, Singapore 048616</span></li>
+      <li><span class="ic">☎</span><span class="txt"><strong data-en="Telephone" data-zh="电话">Telephone</strong>+65 6222 4400</span></li>
+      <li><span class="ic">✉</span><span class="txt"><strong data-en="Email" data-zh="电邮">Email</strong>contact@pinnaclelaw.sg</span></li>
+      <li><span class="ic">🕑</span><span class="txt"><strong data-en="Hours" data-zh="办公时间">Hours</strong><span data-en="Monday – Friday, 9:00am – 6:00pm" data-zh="周一至周五 9:00–18:00">Monday – Friday, 9:00am – 6:00pm</span></span></li>
+    </ul>
+  </div>
+  <div class="cform reveal">
+    <h3 data-en="Request a consultation" data-zh="预约咨询">Request a consultation</h3>
+    <p class="note" data-en="We typically respond within one business day." data-zh="我们通常在一个工作日内回复。">We typically respond within one business day.</p>
+    <div class="ok" id="ok" data-en="Thank you — your request has been received. A member of our team will be in touch shortly." data-zh="谢谢您——我们已收到您的请求，团队成员将尽快与您联系。">Thank you — your request has been received. A member of our team will be in touch shortly.</div>
+    <form onsubmit="return submitForm(event)">
+      <div class="fgrid">
+        <div class="f"><label data-en="Full Name" data-zh="姓名">Full Name</label><input type="text" required /></div>
+        <div class="f"><label data-en="Phone" data-zh="电话">Phone</label><input type="tel" required /></div>
+        <div class="f full"><label data-en="Email" data-zh="电邮">Email</label><input type="email" required /></div>
+        <div class="f full"><label data-en="Practice Area" data-zh="业务领域">Practice Area</label>
+          <select>
+            <option data-en="Corporate &amp; M&amp;A" data-zh="公司与并购">Corporate &amp; M&amp;A</option>
+            <option data-en="Dispute Resolution &amp; Litigation" data-zh="争议解决与诉讼">Dispute Resolution &amp; Litigation</option>
+            <option data-en="Conveyancing &amp; Real Estate" data-zh="房地产转让与不动产">Conveyancing &amp; Real Estate</option>
+            <option data-en="Family &amp; Private Client" data-zh="家庭与私人客户">Family &amp; Private Client</option>
+            <option data-en="Employment &amp; Workplace" data-zh="劳动与职场">Employment &amp; Workplace</option>
+            <option data-en="Intellectual Property" data-zh="知识产权">Intellectual Property</option>
+          </select>
+        </div>
+        <div class="f full"><label data-en="Brief description of your matter" data-zh="事务简述">Brief description of your matter</label><textarea rows="4" required></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-green" style="margin-top:22px;width:100%;justify-content:center" data-en="Submit Request" data-zh="提交请求">Submit Request</button>
+    </form>
+  </div>
+</div></div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">P</span><span><b style="color:#fff">Pinnacle Law</b><small style="color:#9ec3b6">LLP · Est. 2013</small></span></a>
+      <p class="cn">巅峰律师事务所</p>
+      <p data-en="A Singapore law firm advising businesses, families and institutions with judgement, discretion and resolve — since 2013." data-zh="一家以判断力、谨慎与坚定服务企业、家庭与机构的新加坡律师事务所——自2013年起。">A Singapore law firm advising businesses, families and institutions with judgement, discretion and resolve — since 2013.</p>
+      <div class="soc"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Email">✉</a></div>
+    </div>
+    <div>
+      <h4 data-en="Firm" data-zh="本所">Firm</h4>
+      <a href="#about" data-en="The Firm" data-zh="关于本所">The Firm</a>
+      <a href="#lawyers" data-en="Our Lawyers" data-zh="律师团队">Our Lawyers</a>
+      <a href="#trust" data-en="Why Us" data-zh="选择我们">Why Us</a>
+    </div>
+    <div>
+      <h4 data-en="Practice" data-zh="业务">Practice</h4>
+      <a href="#practice" data-en="Corporate &amp; M&amp;A" data-zh="公司与并购">Corporate &amp; M&amp;A</a>
+      <a href="#practice" data-en="Litigation" data-zh="诉讼">Litigation</a>
+      <a href="#practice" data-en="Family Law" data-zh="家庭法">Family Law</a>
+      <a href="#practice" data-en="Intellectual Property" data-zh="知识产权">Intellectual Property</a>
+    </div>
+    <div>
+      <h4 data-en="Contact" data-zh="联系方式">Contact</h4>
+      <p>1 Raffles Place, #44-02<br>One Raffles Place<br>Singapore 048616</p>
+      <p>+65 6222 4400<br>contact@pinnaclelaw.sg</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 Pinnacle Law LLP · UEN T13LL1234A</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang === 'zh';
+  var to = zh ? 'en' : 'zh';
+  document.documentElement.lang = to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    if(el.hasAttribute('data-rich')){
+      el.innerHTML = el.getAttribute('data-'+to);
+    } else {
+      el.textContent = el.getAttribute('data-'+to);
+    }
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? '中文' : 'EN'; });
+}
+function submitForm(e){
+  e.preventDefault();
+  var ok = document.getElementById('ok');
+  ok.classList.add('show');
+  e.target.reset();
+  ok.scrollIntoView({behavior:'smooth',block:'center'});
+  return false;
+}
+// header shadow + back-to-top
+var header = document.getElementById('header'), toTop = document.getElementById('toTop');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  if(window.scrollY > 600) toTop.classList.add('show'); else toTop.classList.remove('show');
+});
+// close mobile nav on link click
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); });
+});
+// reveal on scroll
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

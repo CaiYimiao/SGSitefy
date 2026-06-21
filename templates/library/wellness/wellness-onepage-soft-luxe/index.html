@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Maison Name — luxe aesthetic & wellness" data-zh="名所 — 高端美学与养护">Maison Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#231f1d; --bg:#f7f2ec; --surface:#fffdfb; --brand:#9c7a5b; --accent:#d8c3a5;
+  --display:"Cormorant Garamond",Georgia,serif; --text:"Mulish",system-ui,sans-serif;
+  --s0:1rem; --s1:1.2rem; --s2:1.5rem; --s3:2rem; --s4:2.8rem; --s5:4.6rem;
+  --maxw:1160px; --pad:clamp(1.2rem,5vw,5rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);font-weight:300;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:.005em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brand);font-weight:600}
+:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand{font-family:var(--display);font-size:1.7rem;font-weight:500;letter-spacing:.04em}
+.menu{display:flex;gap:2.4rem;align-items:center;list-style:none}
+.menu a{text-decoration:none;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:color .3s ease}
+.menu a:hover{color:var(--brand)}
+.btn{display:inline-block;border:1px solid var(--brand);color:var(--brand);background:none;text-decoration:none;padding:.8rem 2rem;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:background .35s ease,color .35s ease}
+.btn:hover{background:var(--brand);color:var(--surface)}
+.btn.solid{background:var(--brand);color:var(--surface)}.btn.solid:hover{background:#85674c}
+.langbtn{background:none;border:1px solid var(--accent);color:var(--brand);padding:.4rem .7rem;font:inherit;font-size:.72rem;letter-spacing:.1em;cursor:pointer}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.burger span{width:24px;height:1px;background:var(--ink)}
+
+.hero{position:relative;min-height:84vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,242,236,.95) 0%,rgba(247,242,236,.7) 45%,rgba(247,242,236,.1) 100%)}
+.hero .wrap{position:relative;z-index:1;max-width:30ch}
+.hero h1{font-size:var(--s5);margin:1.2rem 0;text-wrap:balance}
+.hero p{font-size:var(--s1);max-width:42ch;color:#4a443f}
+.hero-cta{margin-top:2.4rem}
+
+.trust{text-align:center;padding:2.5rem 0;border-bottom:1px solid var(--accent)}
+.trust-in{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 3.5rem;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brand)}
+
+.about{padding:clamp(4rem,9vw,8rem) 0}
+.about .wrap{display:grid;grid-template-columns:5fr 6fr;gap:clamp(2rem,7vw,6rem);align-items:center}
+.about-img img{aspect-ratio:4/5;object-fit:cover}
+.about h2{font-size:var(--s4);margin:.8rem 0 1.4rem}
+.about p{margin-bottom:1.2rem;color:#4a443f;font-size:var(--s1)}
+
+.treat{padding:clamp(3rem,8vw,7rem) 0;background:var(--surface);text-align:center}
+.treat h2{font-size:var(--s4);margin:.6rem 0 3rem}
+.treat-list{max-width:760px;margin-inline:auto;text-align:left}
+.tr{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid var(--accent)}
+.tr h3{font-size:var(--s3)}
+.tr .dot{flex:1;border-bottom:1px dotted var(--accent);transform:translateY(-.3em)}
+.tr p{font-size:.85rem;color:#6b645d;margin-top:.3rem;font-weight:400}
+.tr .price{font-family:var(--display);font-size:1.4rem;color:var(--brand);white-space:nowrap}
+
+.proof{padding:clamp(4rem,9vw,8rem) 0;text-align:center}
+.proof p{font-family:var(--display);font-style:italic;font-size:var(--s4);line-height:1.25;max-width:24ch;margin-inline:auto}
+.proof footer{margin-top:2rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand)}
+
+.cta{position:relative;text-align:center;padding:clamp(4rem,9vw,7rem) 0;background:var(--ink);color:var(--bg)}
+.cta h2{font-size:var(--s4);color:var(--bg);margin-bottom:1.2rem}
+.cta p{max-width:44ch;margin:0 auto 2rem;opacity:.85;font-size:var(--s1)}
+.cta .btn{border-color:var(--accent);color:var(--accent)}.cta .btn:hover{background:var(--accent);color:var(--ink)}
+
+.contact{padding:clamp(3rem,8vw,6rem) 0}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
+.contact h2{font-size:var(--s3);margin-bottom:1.4rem}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--accent);font-size:.95rem;font-weight:400}
+.info p{margin-bottom:.8rem;font-weight:400}
+
+footer.site{background:var(--ink);color:#c9bba6;padding:2.8rem 0;font-size:.85rem;letter-spacing:.05em}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media(max-width:760px){
+  .menu{position:fixed;inset:84px 0 auto 0;background:var(--surface);flex-direction:column;padding:1.8rem;gap:1.4rem;display:none}
+  .menu.open{display:flex}.burger{display:flex}
+  .about .wrap,.contact .wrap{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Maison Name" data-zh="名所">Maison Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="#about" data-slot="nav.about" data-en="The House" data-zh="关于">The House</a></li>
+        <li><a href="#treatments" data-slot="nav.treatments" data-en="Treatments" data-zh="护理">Treatments</a></li>
+        <li><a href="#proof" data-slot="nav.proof" data-en="Clients" data-zh="客评">Clients</a></li>
+        <li><a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="#contact" class="btn solid" data-slot="nav.cta" data-en="Reserve" data-zh="预约">Reserve</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg"><img src="https://picsum.photos/seed/wellluxe-hero/1600/1000" data-slot="hero.image" data-en-alt="Luxe treatment suite" data-zh-alt="高端护理套房" alt="Luxe treatment suite"></div>
+    <div class="wrap">
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Aesthetic & wellness atelier" data-zh="美学养护工坊">Aesthetic &amp; wellness atelier</span>
+      <h1 data-slot="hero.headline" data-en="The art of feeling restored" data-zh="修护，是一门艺术">The art of feeling restored</h1>
+      <p data-slot="hero.sub" data-en="A private atelier for considered, results-led treatments — discreet, unhurried, and entirely yours." data-zh="一间私人工坊，专注于讲究而见效的护理——私密、从容，全然属于您。">A private atelier for considered treatments.</p>
+      <div class="hero-cta"><a href="#contact" class="btn solid" data-slot="hero.cta" data-en="Reserve a consultation" data-zh="预约咨询">Reserve a consultation</a></div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="trust-in">
+      <span data-slot="trust.0" data-en="Bespoke protocols" data-zh="定制方案">Bespoke protocols</span>
+      <span data-slot="trust.1" data-en="Master aestheticians" data-zh="资深美容师">Master aestheticians</span>
+      <span data-slot="trust.2" data-en="Private suites" data-zh="私人套房">Private suites</span>
+      <span data-slot="trust.3" data-en="By appointment" data-zh="预约制">By appointment</span>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-img"><img src="https://picsum.photos/seed/wellluxe-about/640/800" data-slot="about.image" data-en-alt="Atelier interior detail" data-zh-alt="工坊内景细节" alt="Atelier interior detail"></div>
+      <div>
+        <span class="eyebrow" data-slot="about.eyebrow" data-en="The house" data-zh="关于名所">The house</span>
+        <h2 data-slot="about.headline" data-en="Quiet luxury, real results" data-zh="静奢，亦见真效">Quiet luxury, real results</h2>
+        <p data-slot="about.body1" data-en="Placeholder for the maison story — its founder, its standards, and the discreet philosophy behind every treatment." data-zh="此处为名所简介占位文字——创办人、标准，以及每项护理背后低调的理念。">Placeholder story.</p>
+        <p data-slot="about.body2" data-en="Second paragraph placeholder — the team, the products, and the unhurried client experience." data-zh="第二段占位文字——团队、产品，以及从容的客户体验。">Second placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="treat" id="treatments">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="treat.eyebrow" data-en="The menu" data-zh="护理菜单">The menu</span>
+      <h2 data-slot="treat.headline" data-en="Signature treatments" data-zh="招牌护理">Signature treatments</h2>
+      <div class="treat-list" data-slot="treatments" data-min="3" data-max="5">
+        <div class="tr"><div><h3 data-slot="treatment.0.name" data-en="Bespoke facial" data-zh="定制面护">Bespoke facial</h3><p data-slot="treatment.0.desc" data-en="One refined placeholder line about this treatment." data-zh="一句精致的护理说明占位文字。">Placeholder.</p></div><span class="dot"></span><span class="price" data-slot="treatment.0.price" data-en="$280" data-zh="$280">$280</span></div>
+        <div class="tr"><div><h3 data-slot="treatment.1.name" data-en="Body ritual" data-zh="身体仪式">Body ritual</h3><p data-slot="treatment.1.desc" data-en="One refined placeholder line about this treatment." data-zh="一句精致的护理说明占位文字。">Placeholder.</p></div><span class="dot"></span><span class="price" data-slot="treatment.1.price" data-en="$340" data-zh="$340">$340</span></div>
+        <div class="tr"><div><h3 data-slot="treatment.2.name" data-en="Advanced peel" data-zh="进阶焕肤">Advanced peel</h3><p data-slot="treatment.2.desc" data-en="One refined placeholder line about this treatment." data-zh="一句精致的护理说明占位文字。">Placeholder.</p></div><span class="dot"></span><span class="price" data-slot="treatment.2.price" data-en="$390" data-zh="$390">$390</span></div>
+        <div class="tr"><div><h3 data-slot="treatment.3.name" data-en="LED therapy" data-zh="光疗">LED therapy</h3><p data-slot="treatment.3.desc" data-en="One refined placeholder line about this treatment." data-zh="一句精致的护理说明占位文字。">Placeholder.</p></div><span class="dot"></span><span class="price" data-slot="treatment.3.price" data-en="$220" data-zh="$220">$220</span></div>
+        <div class="tr"><div><h3 data-slot="treatment.4.name" data-en="Lymphatic care" data-zh="淋巴护理">Lymphatic care</h3><p data-slot="treatment.4.desc" data-en="One refined placeholder line about this treatment." data-zh="一句精致的护理说明占位文字。">Placeholder.</p></div><span class="dot"></span><span class="price" data-slot="treatment.4.price" data-en="$300" data-zh="$300">$300</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" id="proof">
+    <div class="wrap">
+      <p data-slot="proof.0.quote" data-en="“Placeholder testimonial — one elegant, restrained sentence on the experience.”" data-zh="“评价占位文字——一句优雅克制的体验描述。”">Placeholder testimonial.</p>
+      <footer data-slot="proof.0.author" data-en="— Client initials" data-zh="— 客户姓名缩写">— Client initials</footer>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 data-slot="cta.headline" data-en="Begin with a consultation" data-zh="由一次咨询开始">Begin with a consultation</h2>
+      <p data-slot="cta.sub" data-en="Every treatment starts with understanding you. Reserve a private appointment." data-zh="每项护理都始于了解您。预约一次私人咨询。">Reserve a private appointment.</p>
+      <a href="#contact" class="btn" data-slot="cta.button" data-en="Reserve" data-zh="预约">Reserve</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="info">
+        <h2 data-slot="contact.headline" data-en="The atelier" data-zh="工坊所在">The atelier</h2>
+        <p data-slot="contact.address" data-en="Block 000 Street Name #01-00, Singapore 000000" data-zh="新加坡 街道名称 第000座 #01-00，邮编 000000">Address placeholder</p>
+        <p data-slot="contact.phone" data-en="Phone: +65 0000 0000" data-zh="电话：+65 0000 0000">Phone placeholder</p>
+        <p data-slot="contact.email" data-en="Email: atelier@maison.sg" data-zh="邮箱：atelier@maison.sg">Email placeholder</p>
+      </div>
+      <div>
+        <h2 data-slot="hours.headline" data-en="By appointment" data-zh="预约时间">By appointment</h2>
+        <ul class="hours">
+          <li><span data-slot="hours.0.day" data-en="Tue – Sat" data-zh="周二至周六">Tue – Sat</span><span data-slot="hours.0.time" data-en="10:00am – 8:00pm" data-zh="上午10:00 – 晚上8:00">10:00am – 8:00pm</span></li>
+          <li><span data-slot="hours.1.day" data-en="Sunday" data-zh="周日">Sunday</span><span data-slot="hours.1.time" data-en="11:00am – 5:00pm" data-zh="上午11:00 – 下午5:00">11:00am – 5:00pm</span></li>
+          <li><span data-slot="hours.2.day" data-en="Monday" data-zh="周一">Monday</span><span data-slot="hours.2.time" data-en="Closed" data-zh="休息">Closed</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Maison Name. All rights reserved." data-zh="© 名所。版权所有。">© Maison Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const t=zh?el.dataset.zh:el.dataset.en;if(t!=null)el.textContent=t});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>{el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

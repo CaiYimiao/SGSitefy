@@ -1,0 +1,11 @@
+{
+  "id": "wellness-onepage-organic-natural",
+  "industry": "wellness",
+  "kind": "onepage",
+  "aesthetic": "organic-natural",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Newsreader" },
+  "tokens": { "ink": "#2a2620", "bg": "#f3eee3", "surface": "#fbf8f1", "brand": "#7d6a3f", "accent": "#a9b58c" },
+  "sections": ["hero","trust","about","treatments","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

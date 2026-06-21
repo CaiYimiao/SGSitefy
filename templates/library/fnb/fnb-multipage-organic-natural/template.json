@@ -1,0 +1,11 @@
+{
+  "id": "fnb-multipage-organic-natural",
+  "industry": "fnb",
+  "kind": "multipage",
+  "aesthetic": "organic-natural",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Source Sans 3" },
+  "tokens": { "ink": "#23291f", "bg": "#f3f1e7", "surface": "#e4e6d2", "brand": "#5c7345", "accent": "#c08a3e" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

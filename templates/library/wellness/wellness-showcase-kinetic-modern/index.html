@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Studio Name — movement, strength & recovery" data-zh="工作室名称 — 运动、力量与恢复">Studio Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#f0f2ec; --bg:#16181a; --surface:#202325; --brand:#c9f24d; --accent:#ff5e3a;
+  --display:"Syne",system-ui,sans-serif; --text:"DM Sans",system-ui,sans-serif;
+  --s0:1rem; --s1:1.25rem; --s2:1.563rem; --s3:1.953rem; --s4:2.441rem; --s5:3.5rem; --s6:5.6rem;
+  --maxw:1280px; --pad:clamp(1.3rem,5vw,4rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.03em;text-transform:uppercase}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brand)}
+:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px}
+
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid #2e3134}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--display);font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:-.03em}
+.menu{display:flex;gap:1.9rem;align-items:center;list-style:none}
+.menu a{text-decoration:none;font-weight:500;font-size:.9rem;transition:color .25s}
+.menu a:hover{color:var(--brand)}
+.btn{display:inline-block;background:var(--brand);color:#16181a;text-decoration:none;padding:.7rem 1.5rem;border-radius:2px;font-family:var(--display);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s}
+.btn:hover{transform:translateY(-2px);background:var(--accent);color:#fff}
+.langbtn{background:none;border:1px solid var(--ink);color:var(--ink);padding:.35rem .7rem;border-radius:2px;font-family:var(--display);font-weight:700;font-size:.78rem;cursor:pointer}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.burger span{width:25px;height:2.5px;background:var(--ink)}
+
+/* hero — oversized type over full-bleed image */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,24,26,.92) 0%,rgba(22,24,26,.55) 55%,rgba(22,24,26,.2) 100%);z-index:1}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:var(--s6);max-width:15ch}
+.hero h1 span{color:var(--brand)}
+.hero p{font-size:var(--s1);max-width:40ch;margin:1.4rem 0 2rem;color:#c4c8c0}
+.hero .row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+
+/* marquee */
+.marquee{background:var(--brand);color:#16181a;overflow:hidden;border-block:2px solid var(--ink);padding:.7rem 0}
+.marquee .track{display:flex;gap:2.5rem;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:1.4rem;text-transform:uppercase;animation:scroll 22s linear infinite;width:max-content}
+.marquee span::after{content:"✦";margin-left:2.5rem;color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ethos */
+.ethos{padding:clamp(4rem,9vw,7rem) 0}
+.ethos .wrap{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.ethos h2{font-size:var(--s5)}
+.ethos .big{font-family:var(--display);font-weight:800;font-size:clamp(4rem,12vw,9rem);color:var(--surface);line-height:.9;-webkit-text-stroke:1.5px var(--brand);color:transparent}
+.ethos p{font-size:var(--s1);margin-bottom:1rem;color:#c4c8c0}
+
+/* gallery — staggered spans */
+.gallery{padding:0 0 clamp(3rem,7vw,5rem)}
+.gallery .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.8rem,2vw,1.2rem)}
+.gallery figure{margin:0;overflow:hidden;border-radius:3px}
+.gallery img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}
+.gallery figure:hover img{transform:scale(1.06);filter:grayscale(0)}
+.kg1{grid-column:1/4;aspect-ratio:1}
+.kg2{grid-column:4/7;grid-row:span 2;aspect-ratio:3/4}
+.kg3{grid-column:1/3;aspect-ratio:1}
+.kg4{grid-column:3/4;aspect-ratio:1}
+
+/* classes list */
+.classes{padding:clamp(4rem,9vw,7rem) 0;background:var(--surface)}
+.classes h2{font-size:var(--s5);margin-bottom:2.5rem}
+.cl{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.5rem;align-items:center;padding:1.7rem 0;border-top:1px solid #34383b;transition:padding-left .35s cubic-bezier(.2,.8,.2,1)}
+.cl:last-child{border-bottom:1px solid #34383b}
+.cl:hover{padding-left:1.4rem}
+.cl .no{font-family:var(--display);font-weight:700;color:var(--brand);font-size:1.1rem}
+.cl h3{font-size:var(--s3)}
+.cl .lvl{font-size:.82rem;color:#9aa09c;letter-spacing:.06em;text-transform:uppercase}
+.cl .price{font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--accent);white-space:nowrap}
+
+/* quote */
+.quote{padding:clamp(4rem,9vw,7rem) 0;text-align:center}
+.quote p{font-family:var(--display);font-weight:700;font-size:var(--s4);line-height:1.15;max-width:20ch;margin-inline:auto;text-transform:uppercase}
+.quote p span{color:var(--brand)}
+.quote cite{display:block;margin-top:1.6rem;font-style:normal;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:#9aa09c}
+
+/* cta */
+.cta{padding:clamp(3rem,7vw,5rem) var(--pad)}
+.cta .inner{background:var(--brand);color:#16181a;border-radius:6px;padding:clamp(2.5rem,7vw,5rem);text-align:center;max-width:var(--maxw);margin-inline:auto}
+.cta h2{font-size:var(--s5)}
+.cta p{max-width:44ch;margin:1rem auto 2rem;font-weight:500}
+.cta .btn{background:#16181a;color:var(--brand)}
+.cta .btn:hover{background:var(--accent);color:#fff}
+
+footer.site{background:#0f1112;color:#8a908c;padding:2.6rem 0;font-size:.85rem;border-top:1px solid #2e3134}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media(max-width:760px){
+  .menu{position:fixed;inset:72px 0 auto 0;background:var(--surface);flex-direction:column;padding:1.7rem;gap:1.3rem;border-bottom:1px solid #34383b;display:none}
+  .menu.open{display:flex}.burger{display:flex}
+  .ethos .wrap{grid-template-columns:1fr;gap:1.6rem}
+  .gallery .grid{grid-template-columns:repeat(2,1fr)}
+  .kg1,.kg2,.kg3,.kg4{grid-column:auto;grid-row:auto;aspect-ratio:1}.kg2{grid-column:1/3;aspect-ratio:3/2}
+  .cl{grid-template-columns:auto 1fr auto;gap:.6rem 1rem}.cl .lvl{grid-column:2}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.marquee .track{animation:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Studio Name" data-zh="工作室名称">Studio Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="#ethos" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="#classes" data-slot="nav.classes" data-en="Classes" data-zh="课程">Classes</a></li>
+        <li><a href="#gallery" data-slot="nav.gallery" data-en="Studio" data-zh="场地">Studio</a></li>
+        <li><a href="#cta" class="btn" data-slot="nav.cta" data-en="Join" data-zh="加入">Join</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="bg" src="https://picsum.photos/seed/kinetic-hero/1800/1200" data-slot="hero.image" data-en-alt="Athlete mid-movement in studio" data-zh-alt="工作室中运动中的健身者" alt="Athlete mid-movement in studio">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Movement studio · Singapore" data-zh="运动工作室 · 新加坡">Movement studio · Singapore</span>
+      <h1 data-slot="hero.headline" data-rich data-en="Train hard. <span>Recover smart.</span>" data-zh="全力训练。<span>聪明恢复。</span>">Train hard. <span>Recover smart.</span></h1>
+      <p data-slot="hero.sub" data-en="Strength, mobility and recovery coaching for people who take their bodies seriously." data-zh="为认真对待身体的人，提供力量、活动度与恢复指导。">Placeholder sub.</p>
+      <div class="row">
+        <a href="#cta" class="btn" data-slot="hero.cta" data-en="Start free trial" data-zh="开始免费体验">Start free trial</a>
+        <a href="#classes" data-slot="hero.link" data-en="See the classes →" data-zh="查看课程 →">See the classes →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span data-slot="marquee.0" data-en="Strength" data-zh="力量">Strength</span>
+      <span data-slot="marquee.1" data-en="Mobility" data-zh="活动度">Mobility</span>
+      <span data-slot="marquee.2" data-en="Recovery" data-zh="恢复">Recovery</span>
+      <span data-slot="marquee.3" data-en="Conditioning" data-zh="体能">Conditioning</span>
+      <span data-en="Strength" data-zh="力量">Strength</span>
+      <span data-en="Mobility" data-zh="活动度">Mobility</span>
+      <span data-en="Recovery" data-zh="恢复">Recovery</span>
+      <span data-en="Conditioning" data-zh="体能">Conditioning</span>
+    </div>
+  </div>
+
+  <section class="ethos" id="ethos">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" data-slot="ethos.eyebrow" data-en="The approach" data-zh="方法">The approach</span>
+        <h2 data-slot="ethos.headline" data-en="No fluff. Real progress." data-zh="不浮夸。真进步。">No fluff. Real progress.</h2>
+        <div class="big" aria-hidden="true" data-slot="ethos.figure" data-en="01" data-zh="01">01</div>
+      </div>
+      <div>
+        <p data-slot="ethos.body1" data-en="Placeholder paragraph on the studio's training philosophy — direct, evidence-led, results-focused. Two punchy sentences." data-zh="关于工作室训练理念的占位段落——直接、循证、结果导向。两句有力的描述。">Placeholder.</p>
+        <p data-slot="ethos.body2" data-en="Second placeholder — the coaches, the programming, and how progress is tracked." data-zh="第二段占位文字——教练、课程编排，以及进度如何追踪。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="grid">
+        <figure class="kg1"><img src="https://picsum.photos/seed/kinetic-g1/600/600" data-slot="gallery.0" data-en-alt="Weights area" data-zh-alt="力量训练区" alt="Weights area"></figure>
+        <figure class="kg2"><img src="https://picsum.photos/seed/kinetic-g2/700/930" data-slot="gallery.1" data-en-alt="Coach and client" data-zh-alt="教练与学员" alt="Coach and client"></figure>
+        <figure class="kg3"><img src="https://picsum.photos/seed/kinetic-g3/600/600" data-slot="gallery.2" data-en-alt="Recovery zone" data-zh-alt="恢复区" alt="Recovery zone"></figure>
+        <figure class="kg4"><img src="https://picsum.photos/seed/kinetic-g4/400/400" data-slot="gallery.3" data-en-alt="Equipment detail" data-zh-alt="器械细节" alt="Equipment detail"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="classes" id="classes">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="classes.eyebrow" data-en="Classes & coaching" data-zh="课程与指导">Classes &amp; coaching</span>
+      <h2 data-slot="classes.headline" data-en="Pick your session" data-zh="选择你的课程">Pick your session</h2>
+      <div class="class-list" data-slot="classes" data-min="3" data-max="4">
+        <article class="cl"><span class="no">01</span><h3 data-slot="class.0.name" data-en="Strength foundations" data-zh="力量基础">Strength foundations</h3><span class="lvl" data-slot="class.0.level" data-en="All levels" data-zh="不限水平">All levels</span><span class="price" data-slot="class.0.price" data-en="$38" data-zh="$38">$38</span></article>
+        <article class="cl"><span class="no">02</span><h3 data-slot="class.1.name" data-en="Mobility flow" data-zh="活动度流动">Mobility flow</h3><span class="lvl" data-slot="class.1.level" data-en="Beginner" data-zh="初学">Beginner</span><span class="price" data-slot="class.1.price" data-en="$32" data-zh="$32">$32</span></article>
+        <article class="cl"><span class="no">03</span><h3 data-slot="class.2.name" data-en="Recovery lab" data-zh="恢复实验">Recovery lab</h3><span class="lvl" data-slot="class.2.level" data-en="All levels" data-zh="不限水平">All levels</span><span class="price" data-slot="class.2.price" data-en="$45" data-zh="$45">$45</span></article>
+        <article class="cl"><span class="no">04</span><h3 data-slot="class.3.name" data-en="1:1 coaching" data-zh="一对一指导">1:1 coaching</h3><span class="lvl" data-slot="class.3.level" data-en="By assessment" data-zh="评估制">By assessment</span><span class="price" data-slot="class.3.price" data-en="from $95" data-zh="$95 起">from $95</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>
+        <p data-slot="quote.text" data-rich data-en="“Strongest I've felt in <span>years</span> — and the first place I actually enjoyed.”" data-zh="“这是我<span>多年来</span>最强壮的状态——也是第一个我真正享受的地方。”">Placeholder quote.</p>
+        <cite data-slot="quote.author" data-en="Member, 2 years" data-zh="会员，两年">Member, 2 years</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <div class="inner">
+      <h2 data-slot="cta.headline" data-en="Your first class is on us" data-zh="首堂课程由我们请客">Your first class is on us</h2>
+      <p data-slot="cta.sub" data-en="Book a free trial session and feel the difference before you commit." data-zh="预约免费体验课，先感受不同，再做决定。">Placeholder sub.</p>
+      <a href="#" class="btn" data-slot="cta.button" data-en="Claim free trial" data-zh="领取免费体验">Claim free trial</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Studio Name. All rights reserved." data-zh="© 工作室名称。版权所有。">© Studio Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const t=zh?el.dataset.zh:el.dataset.en;if(t==null)return;if(el.hasAttribute('data-rich'))el.innerHTML=t;else el.textContent=t});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>{el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

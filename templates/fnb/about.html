@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Story — Tiong Bahru Bakehouse</title>
+<meta name="description" content="Learn the story behind Tiong Bahru Bakehouse — our bakers, our values, and our commitment to honest, handcrafted bread and pastry." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar" role="banner">
+  <div class="wrap">
+    <div>
+      <a href="tel:+6562225678"><span class="ic">☎</span> <span data-en="Call us:" data-zh="致电我们：">Call us:</span> +65 6222 5678</a>
+      <a href="mailto:hello@tiongbahru-bakehouse.sg"><span class="ic">✉</span> hello@tiongbahru-bakehouse.sg</a>
+    </div>
+    <div>
+      <span data-en="Chat &amp; order on WhatsApp" data-zh="WhatsApp 聊天及订购">Chat &amp; order on WhatsApp</span>
+      <a href="#" class="wa" aria-label="WhatsApp">✆</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse home">
+      <span class="mk" aria-hidden="true">TBB</span>
+      <span><b data-en="Tiong Bahru Bakehouse" data-zh="中峇鲁烘焙坊">Tiong Bahru Bakehouse</b><small data-en="Artisan Bakery &amp; Café" data-zh="手工烘焙与咖啡馆">Artisan Bakery &amp; Café</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+      <a href="about.html" class="active" data-en="About" data-zh="关于我们">About</a>
+      <a href="menu.html"  data-en="Menu" data-zh="菜单">Menu</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      <button class="lang" onclick="toggleLang()" aria-label="Switch language">中文</button>
+      <a href="contact.html#reserve" class="btn nav-cta" data-en="Order / Reserve" data-zh="订购 / 预订">Order / Reserve</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="phero" aria-label="About page banner">
+  <div class="wrap">
+    <h1 data-en="Our Story" data-zh="我们的故事">Our Story</h1>
+    <p class="crumb">
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a> /
+      <span data-en="About Us" data-zh="关于我们">About Us</span>
+    </p>
+  </div>
+</section>
+
+<!-- Origin Story -->
+<section class="sec story" id="story">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--amber)" data-en="How It Began" data-zh="起源">How It Began</p>
+        <h2 data-en="A humble loaf, a big dream" data-zh="一条朴实的面包，一个大梦想">A humble loaf, a big dream</h2>
+        <p class="lead" data-en="In 2014, husband-and-wife team Mei Lin and Ethan Chow converted a ground-floor shophouse at 56 Eng Hoon Street into a bakery that Tiong Bahru had long deserved. Ethan trained under sourdough masters in Lyon; Mei Lin spent a decade in Singapore's specialty-coffee scene. Together they built a place where bread is treated with the same reverence as fine wine — shaped by hand, leavened by live cultures, and baked on a hearth stone at 260 °C." data-zh="2014年，夫妻档周美琳与周亦涛将英顺街56号的一间底层店屋，改造成中峇鲁久违的好烘焙坊。Ethan曾赴里昂跟随天然酵母大师学艺；美琳则在新加坡精品咖啡圈打拼了十年。他们共同建立了一个将面包视如佳酿的地方——手工整形、活性发酵，以260°C炉石烘烤。">In 2014, husband-and-wife team Mei Lin and Ethan Chow converted a ground-floor shophouse at 56 Eng Hoon Street into a bakery that Tiong Bahru had long deserved. Ethan trained under sourdough masters in Lyon; Mei Lin spent a decade in Singapore's specialty-coffee scene. Together they built a place where bread is treated with the same reverence as fine wine — shaped by hand, leavened by live cultures, and baked on a hearth stone at 260 °C.</p>
+        <ul>
+          <li data-en="Naturally leavened with our own 10-year-old starter, 'Eng Hoon'" data-zh="以自养10年天然酵母'英顺'发酵">Naturally leavened with our own 10-year-old starter, 'Eng Hoon'</li>
+          <li data-en="Heritage flours stone-milled fresh, imported from France and Australia" data-zh="从法国和澳洲进口、现磨石磨传统面粉">Heritage flours stone-milled fresh, imported from France and Australia</li>
+          <li data-en="Zero artificial preservatives — what you see is what we bake" data-zh="零人工防腐剂——所见即所烘">Zero artificial preservatives — what you see is what we bake</li>
+          <li data-en="Open kitchen every morning from 6 am so you can watch the craft" data-zh="每天早上6时开放式厨房，欢迎观赏制作过程">Open kitchen every morning from 6 am so you can watch the craft</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <img src="https://picsum.photos/seed/bakehouse-founders/900/700" alt="Mei Lin and Ethan Chow, founders of Tiong Bahru Bakehouse" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats strip -->
+<section class="strip" aria-label="Numbers at a glance">
+  <div class="wrap">
+    <div class="grid">
+      <div class="it"><div class="n">10+</div><div class="l" data-en="Years of Craft" data-zh="烘焙年资">Years of Craft</div></div>
+      <div class="it"><div class="n">8</div><div class="l" data-en="Bakers on Team" data-zh="烘焙师团队">Bakers on Team</div></div>
+      <div class="it"><div class="n">40+</div><div class="l" data-en="Menu Items" data-zh="菜单品项">Menu Items</div></div>
+      <div class="it"><div class="n">6 am</div><div class="l" data-en="First Loaf Out" data-zh="第一条面包出炉">First Loaf Out</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="sec" id="values" style="background:var(--soft)">
+  <div class="wrap center">
+    <p class="eyebrow reveal" data-en="What We Stand For" data-zh="我们的价值观">What We Stand For</p>
+    <h2 class="reveal" data-en="Our four guiding principles" data-zh="四大核心理念">Our four guiding principles</h2>
+
+    <div class="vals reveal">
+      <div class="val">
+        <div class="ico" aria-hidden="true">🌾</div>
+        <h4 data-en="Honest Ingredients" data-zh="诚实食材">Honest Ingredients</h4>
+        <p data-en="We name every ingredient on our menu. No mystery additives, no shortcuts — just flour, water, salt and time." data-zh="我们在菜单上列明每种食材。没有神秘添加剂，没有捷径——只有面粉、水、盐和时间。">We name every ingredient on our menu. No mystery additives, no shortcuts — just flour, water, salt and time.</p>
+      </div>
+      <div class="val">
+        <div class="ico" aria-hidden="true">♻️</div>
+        <h4 data-en="Mindful Waste" data-zh="减少浪费">Mindful Waste</h4>
+        <p data-en="Day-old bread becomes croutons, puddings and porridge. Spent coffee grounds go to urban garden partners. We target zero food waste by 2027." data-zh="隔日面包化作面包丁、布丁与粥品。用过的咖啡渣送往都市园艺合作伙伴。我们的目标是2027年前实现零食物浪费。">Day-old bread becomes croutons, puddings and porridge. Spent coffee grounds go to urban garden partners. We target zero food waste by 2027.</p>
+      </div>
+      <div class="val">
+        <div class="ico" aria-hidden="true">🤝</div>
+        <h4 data-en="Community First" data-zh="社区优先">Community First</h4>
+        <p data-en="Every Saturday morning we run free bread-making workshops for Tiong Bahru residents. We are proud to be a true neighbourhood bakery." data-zh="每周六早上，我们为中峇鲁居民举办免费烘焙工作坊。我们以成为真正的街坊烘焙坊为荣。">Every Saturday morning we run free bread-making workshops for Tiong Bahru residents. We are proud to be a true neighbourhood bakery.</p>
+      </div>
+      <div class="val">
+        <div class="ico" aria-hidden="true">☕</div>
+        <h4 data-en="Slow Craft" data-zh="慢工出细活">Slow Craft</h4>
+        <p data-en="Speed is the enemy of good bread. We ferment for 48–72 hours, laminate pastry over two days, and hand-pull every espresso shot." data-zh="速度是好面包的天敌。我们发酵48至72小时，两天完成叠层西点，每一杯咖啡均手动萃取。">Speed is the enemy of good bread. We ferment for 48–72 hours, laminate pastry over two days, and hand-pull every espresso shot.</p>
+      </div>
+      <div class="val">
+        <div class="ico" aria-hidden="true">🌍</div>
+        <h4 data-en="Responsible Sourcing" data-zh="负责任采购">Responsible Sourcing</h4>
+        <p data-en="Our coffee is direct-trade from farms in Ethiopia, Colombia and Sumatra. Our dairy is hormone-free. We choose suppliers who share our ethics." data-zh="咖啡直接贸易自埃塞俄比亚、哥伦比亚和苏门答腊的农场。乳制品不含激素。我们选择与我们价值观相符的供应商。">Our coffee is direct-trade from farms in Ethiopia, Colombia and Sumatra. Our dairy is hormone-free. We choose suppliers who share our ethics.</p>
+      </div>
+      <div class="val">
+        <div class="ico" aria-hidden="true">🎓</div>
+        <h4 data-en="Lifelong Learning" data-zh="终身学习">Lifelong Learning</h4>
+        <p data-en="Our bakers attend international craft workshops yearly. We host visiting artisans from Japan, France and Scandinavia for pop-up collaborations." data-zh="我们的烘焙师每年参加国际工艺研习。我们邀请来自日本、法国和斯堪的纳维亚的手工艺人举办快闪合作活动。">Our bakers attend international craft workshops yearly. We host visiting artisans from Japan, France and Scandinavia for pop-up collaborations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="sec" id="team">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Meet the Team" data-zh="认识我们的团队">Meet the Team</p>
+    <h2 class="reveal" data-en="The hands behind every loaf" data-zh="每条面包背后的双手">The hands behind every loaf</h2>
+
+    <div class="team-grid reveal">
+      <div class="tm">
+        <img src="https://picsum.photos/seed/baker-ethan/600/400" alt="Ethan Chow, head baker" />
+        <div class="tbody">
+          <h4 data-en="Ethan Chow" data-zh="周亦涛">Ethan Chow</h4>
+          <small data-en="Co-Founder &amp; Head Baker" data-zh="联合创始人兼首席烘焙师">Co-Founder &amp; Head Baker</small>
+          <p data-en="Trained in Lyon and Tokyo; the visionary behind our sourdough programme and bread-scoring aesthetic." data-zh="曾在里昂和东京受训；是我们天然酵母项目与面包割纹美学的核心灵魂。">Trained in Lyon and Tokyo; the visionary behind our sourdough programme and bread-scoring aesthetic.</p>
+        </div>
+      </div>
+      <div class="tm">
+        <img src="https://picsum.photos/seed/baker-meilin/600/400" alt="Mei Lin Chow, head barista" />
+        <div class="tbody">
+          <h4 data-en="Mei Lin Chow" data-zh="周美琳">Mei Lin Chow</h4>
+          <small data-en="Co-Founder &amp; Head Barista" data-zh="联合创始人兼首席咖啡师">Co-Founder &amp; Head Barista</small>
+          <p data-en="SCA-certified Q Grader with ten years in Singapore's specialty coffee scene; curates our ever-changing bean selection." data-zh="SCA认证Q评委，拥有十年新加坡精品咖啡经验；负责甄选我们不断更新的咖啡豆。">SCA-certified Q Grader with ten years in Singapore's specialty coffee scene; curates our ever-changing bean selection.</p>
+        </div>
+      </div>
+      <div class="tm">
+        <img src="https://picsum.photos/seed/baker-rui/600/400" alt="Rui Fen, pastry chef" />
+        <div class="tbody">
+          <h4 data-en="Rui Fen Tan" data-zh="陈蕊芬">Rui Fen Tan</h4>
+          <small data-en="Pastry Chef" data-zh="西点主厨">Pastry Chef</small>
+          <p data-en="Honed her lamination skills at a Michelin-starred pâtisserie in Paris; now brings French finesse to Singapore flavours." data-zh="曾在巴黎一家米其林星级糕点店磨练叠层技艺；现将法式精致与新加坡风味融合。">Honed her lamination skills at a Michelin-starred pâtisserie in Paris; now brings French finesse to Singapore flavours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2 data-en="Come taste the difference" data-zh="来亲身感受不同">Come taste the difference</h2>
+    <p data-en="Find us at 56 Eng Hoon Street — open Tuesday to Sunday from 8 am." data-zh="来英顺街56号找我们——周二至周日，上午8时起营业。">Find us at 56 Eng Hoon Street — open Tuesday to Sunday from 8 am.</p>
+    <a href="contact.html" class="btn btn-rust" data-en="Get Directions" data-zh="查看路线">Get Directions</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a href="index.html" class="brand" aria-label="Tiong Bahru Bakehouse">
+          <span class="mk" aria-hidden="true">TBB</span>
+          <span><b style="color:#fff;font-family:var(--fh)">Tiong Bahru Bakehouse</b><small>中峇鲁烘焙坊</small></span>
+        </a>
+        <p class="cn">中峇鲁烘焙坊</p>
+        <p data-en="Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014." data-zh="自2014年起，于新加坡深受喜爱的中峇鲁一带，精心制作天然酵母面包、西点与精品咖啡。">Artisan sourdough, pastries &amp; specialty coffee in Singapore's beloved Tiong Bahru estate since 2014.</p>
+        <div class="soc" aria-label="Social media links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="TikTok">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Visit" data-zh="到访">Visit</h4>
+        <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+        <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+        <a href="menu.html" data-en="Menu" data-zh="菜单">Menu</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+      </div>
+      <div>
+        <h4 data-en="Menu" data-zh="菜单">Menu</h4>
+        <a href="menu.html#breads" data-en="Breads" data-zh="面包">Breads</a>
+        <a href="menu.html#pastries" data-en="Pastries" data-zh="西点">Pastries</a>
+        <a href="menu.html#coffee" data-en="Coffee" data-zh="咖啡">Coffee</a>
+        <a href="menu.html#bites" data-en="Savoury Bites" data-zh="咸食小食">Savoury Bites</a>
+      </div>
+      <div>
+        <h4 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h4>
+        <p data-en="Tue – Fri: 8 am – 6 pm" data-zh="周二至周五：上午8时–下午6时">Tue – Fri: 8 am – 6 pm</p>
+        <p data-en="Sat – Sun: 8 am – 8 pm" data-zh="周六至周日：上午8时–晚上8时">Sat – Sun: 8 am – 8 pm</p>
+        <p data-en="Mon: Closed" data-zh="周一：休息">Mon: Closed</p>
+        <p style="margin-top:10px">56 Eng Hoon Street<br>Singapore 160056</p>
+      </div>
+    </div>
+  </div>
+  <div class="bar">
+    <div class="wrap">
+      <span>© 2026 Tiong Bahru Bakehouse Pte Ltd</span>
+      <span>Built with SGSitefy · powered by Antigravity</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="fab fab-wa" aria-label="Chat on WhatsApp">✆</a>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "retail-multipage-soft-luxe",
+  "industry": "retail",
+  "kind": "multipage",
+  "aesthetic": "soft-luxe refined",
+  "fonts": { "display": "Cormorant Garamond", "text": "Jost" },
+  "tokens": { "ink": "#2b2724", "bg": "#f6f1ec", "surface": "#fffdfb", "brand": "#a8806a", "accent": "#7b8b7e" },
+  "sections": ["index", "about", "products", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

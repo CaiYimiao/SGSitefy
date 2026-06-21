@@ -1,0 +1,11 @@
+{
+  "id": "wellness-multipage-heritage",
+  "industry": "wellness",
+  "kind": "multipage",
+  "aesthetic": "heritage",
+  "fonts": { "display": "Marcellus", "text": "Spectral" },
+  "tokens": { "ink": "#23211c", "bg": "#f3ede1", "surface": "#fbf7ee", "brand": "#5a3a2e", "accent": "#3f5340" },
+  "sections": ["hero","trust","about","treatments","contact","footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

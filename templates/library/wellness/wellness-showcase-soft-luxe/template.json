@@ -1,0 +1,11 @@
+{
+  "id": "wellness-showcase-soft-luxe",
+  "industry": "wellness",
+  "kind": "showcase",
+  "aesthetic": "soft-luxe",
+  "fonts": { "display": "Cormorant Garamond", "text": "Jost" },
+  "tokens": { "ink": "#3a322c", "bg": "#f6efe7", "surface": "#fffdf9", "brand": "#9a7b5a", "accent": "#d8c3ad" },
+  "sections": ["hero","intro","gallery","ritual","quote","cta","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

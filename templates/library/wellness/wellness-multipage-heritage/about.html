@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Our House — House Name" data-zh="关于本馆 — 馆名">Our House — House Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="House Name" data-zh="馆名">House Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="Our House" data-zh="关于本馆">Our House</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Reserve" data-zh="预约">Reserve</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="phead">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="about.eyebrow" data-en="Our house" data-zh="关于本馆">Our house</span>
+      <h1 data-slot="about.headline" data-en="A lineage of careful hands" data-zh="细致之手的传承">A lineage of careful hands</h1>
+      <p data-slot="about.sub" data-en="The story of how this house began, and the standard it has kept ever since." data-zh="本馆肇始之缘，以及自此恪守至今的标准。">Placeholder sub.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split r-img">
+      <div>
+        <span class="eyebrow" data-slot="about.story.eyebrow" data-en="Our beginning" data-zh="本馆肇始">Our beginning</span>
+        <h2 data-slot="about.story.headline" data-en="Founded on patience" data-zh="以耐心为基">Founded on patience</h2>
+        <p data-slot="about.story.body1" data-en="Placeholder paragraph for the founding story — who began the house and the values they set. Two dignified sentences." data-zh="创办故事占位段落——创馆者与其所立之价值。两句沉稳的表述。">Placeholder.</p>
+        <p data-slot="about.story.body2" data-en="Second placeholder — the lineage of practitioners and the rituals carried forward." data-zh="第二段占位文字——理疗师的传承，以及延续至今的仪式。">Placeholder.</p>
+      </div>
+      <img src="https://picsum.photos/seed/heritage-story/760/950" data-slot="about.story.image" data-en-alt="Archive portrait of the house" data-zh-alt="本馆旧照" alt="Archive portrait of the house">
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap lead">
+      <span class="eyebrow" data-slot="about.values.eyebrow" data-en="What we keep" data-zh="我们所守">What we keep</span>
+      <h2 data-slot="about.values.headline" data-en="Principles, unchanged" data-zh="历久不变的原则">Principles, unchanged</h2>
+    </div>
+    <div class="wrap vgrid" data-slot="values" data-min="3" data-max="3">
+      <article class="vcard"><span class="vn">I</span><h3 data-slot="value.0.name" data-en="Time given freely" data-zh="从容不催">Time given freely</h3><p data-slot="value.0.desc" data-en="Placeholder line describing this principle with quiet dignity." data-zh="以沉静笔触描述此原则的占位文字。">Placeholder.</p></article>
+      <article class="vcard"><span class="vn">II</span><h3 data-slot="value.1.name" data-en="Tradition, kept" data-zh="守正传统">Tradition, kept</h3><p data-slot="value.1.desc" data-en="Placeholder line describing this principle with quiet dignity." data-zh="以沉静笔触描述此原则的占位文字。">Placeholder.</p></article>
+      <article class="vcard"><span class="vn">III</span><h3 data-slot="value.2.name" data-en="One guest at a time" data-zh="专注每位宾客">One guest at a time</h3><p data-slot="value.2.desc" data-en="Placeholder line describing this principle with quiet dignity." data-zh="以沉静笔触描述此原则的占位文字。">Placeholder.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap lead">
+      <span class="eyebrow" data-slot="about.team.eyebrow" data-en="Our practitioners" data-zh="本馆理疗师">Our practitioners</span>
+      <h2 data-slot="about.team.headline" data-en="Trained, and trusted" data-zh="受训，且可信">Trained, and trusted</h2>
+      <p data-slot="about.team.body" data-en="Placeholder paragraph on the team — their training, tenure, and the care they bring to each visit." data-zh="关于团队的占位段落——其训练、资历，以及为每次到访所投入的用心。">Placeholder.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2 data-slot="about.cta.headline" data-en="Come and see for yourself" data-zh="亲临体会本馆之心">Come and see for yourself</h2>
+    <p data-slot="about.cta.sub" data-en="A visit is the truest introduction. Reserve a quiet hour." data-zh="亲身到访，是最真切的相识。为您预留一段静时。">Placeholder sub.</p>
+    <a href="contact.html" class="btn" data-slot="about.cta.button" data-en="Reserve a visit" data-zh="预约到访">Reserve a visit</a>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© House Name. All rights reserved." data-zh="© 馆名。版权所有。">© House Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

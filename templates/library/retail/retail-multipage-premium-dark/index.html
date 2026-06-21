@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Store Name — Retail" data-zh="店名 — 零售">Store Name — Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" data-slot="brand" data-rich data-en="STORE<span>.</span>" data-zh="店名<span>.</span>">STORE<span>.</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a>
+      <a href="products.html" data-slot="nav.products" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="about.html" data-slot="nav.about" data-en="Maison" data-zh="品牌">Maison</a>
+      <a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap phero">
+  <div class="homehero">
+    <div>
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Fine Retail · Singapore" data-zh="精品零售 · 新加坡">Fine Retail · Singapore</span>
+      <h1 data-slot="hero.headline" data-rich data-en="Quietly <em>exceptional</em> things" data-zh="低调而<em>非凡</em>之物">Quietly <em>exceptional</em> things</h1>
+      <p class="lede" data-slot="hero.lede" data-en="One refined sentence on the store's restraint, quality and point of view." data-zh="一句话道出本店的克制、品质与格调。">One refined sentence on the store's restraint, quality and point of view.</p>
+      <a class="btn solid" href="products.html" data-slot="hero.cta" data-en="Explore the collection" data-zh="探索系列">Explore the collection</a>
+    </div>
+    <figure><img src="https://picsum.photos/seed/darkhero/800/1050" data-slot="hero.image" data-en-alt="Boutique interior" data-zh-alt="精品店内景" alt="Boutique interior"></figure>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="sechead"><span class="eyebrow" data-slot="cats.eyebrow" data-en="The departments" data-zh="商品部类">The departments</span><h2 data-slot="cats.title" data-en="Browse by category" data-zh="按类别浏览">Browse by category</h2></div>
+  <div class="cats" data-slot="categories" data-min="3" data-max="4">
+    <a class="cat" href="products.html"><span class="n">I</span><h3 data-en="Category One" data-zh="分类一">Category One</h3><span class="arrow">→</span></a>
+    <a class="cat" href="products.html"><span class="n">II</span><h3 data-en="Category Two" data-zh="分类二">Category Two</h3><span class="arrow">→</span></a>
+    <a class="cat" href="products.html"><span class="n">III</span><h3 data-en="Category Three" data-zh="分类三">Category Three</h3><span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="sechead"><span class="eyebrow" data-slot="feat.eyebrow" data-en="Selected pieces" data-zh="精选单品">Selected pieces</span><h2 data-slot="feat.title" data-en="This season" data-zh="本季精选">This season</h2></div>
+  <div class="prods" data-slot="products" data-min="3" data-max="3">
+    <article class="prod"><img src="https://picsum.photos/seed/darkp1/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product" data-zh="商品">Product</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkp2/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product" data-zh="商品">Product</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+    <article class="prod"><img src="https://picsum.photos/seed/darkp3/600/750" data-en-alt="Product" data-zh-alt="商品" alt="Product"><h3 data-en="Product" data-zh="商品">Product</h3><p class="price" data-en="$000" data-zh="¥000">$000</p></article>
+  </div>
+</section>
+
+<section class="proof sec"><div class="wrap">
+  <div class="quotes" data-slot="testimonials" data-min="2" data-max="2">
+    <blockquote class="quote"><p data-en="“A discreet, glowing word from a client.”" data-zh="“一位客人含蓄而真挚的赞许。”">“A discreet, glowing word from a client.”</p><cite data-en="Client" data-zh="客人">Client</cite></blockquote>
+    <blockquote class="quote"><p data-en="“A discreet, glowing word from a client.”" data-zh="“一位客人含蓄而真挚的赞许。”">“A discreet, glowing word from a client.”</p><cite data-en="Client" data-zh="客人">Client</cite></blockquote>
+  </div>
+</div></section>
+
+<section class="ctaband"><h2 data-slot="cta.title" data-rich data-en="An <em>invitation</em>" data-zh="诚<em>邀</em>到访">An <em>invitation</em></h2><a class="btn" href="contact.html" data-slot="cta.btn" data-en="Arrange a visit" data-zh="预约到访">Arrange a visit</a></section>
+</main>
+<footer><div class="row">
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</div></footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

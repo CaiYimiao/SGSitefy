@@ -1,0 +1,11 @@
+{
+  "id": "industrial-showcase-kinetic-modern",
+  "industry": "industrial",
+  "kind": "showcase",
+  "aesthetic": "kinetic-modern",
+  "fonts": { "display": "Syne", "text": "Hanken Grotesk" },
+  "tokens": { "ink": "#0a1622", "bg": "#eef2f5", "surface": "#ffffff", "brand": "#1763ff", "accent": "#13c4c0" },
+  "sections": ["hero", "stats", "work", "systems", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

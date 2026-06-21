@@ -1,0 +1,11 @@
+{
+  "id": "wellness-showcase-kinetic-modern",
+  "industry": "wellness",
+  "kind": "showcase",
+  "aesthetic": "kinetic-modern",
+  "fonts": { "display": "Syne", "text": "DM Sans" },
+  "tokens": { "ink": "#f0f2ec", "bg": "#16181a", "surface": "#202325", "brand": "#c9f24d", "accent": "#ff5e3a" },
+  "sections": ["hero","marquee","ethos","gallery","classes","quote","cta","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

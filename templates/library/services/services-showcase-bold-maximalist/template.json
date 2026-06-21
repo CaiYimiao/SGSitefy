@@ -1,0 +1,11 @@
+{
+  "id": "services-showcase-bold-maximalist",
+  "industry": "services",
+  "kind": "showcase",
+  "aesthetic": "bold-maximalist",
+  "fonts": { "display": "Anton", "text": "Sometype Mono" },
+  "tokens": { "ink": "#16140f", "bg": "#f6f1e7", "surface": "#ffe14d", "brand": "#e8431f", "accent": "#1d4ed8" },
+  "sections": ["hero", "marquee", "about", "work", "stats", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

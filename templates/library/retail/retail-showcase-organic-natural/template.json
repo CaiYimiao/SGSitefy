@@ -1,0 +1,11 @@
+{
+  "id": "retail-showcase-organic-natural",
+  "industry": "retail",
+  "kind": "showcase",
+  "aesthetic": "warm-craft organic",
+  "fonts": { "display": "Newsreader", "text": "Hanken Grotesk" },
+  "tokens": { "ink": "#33372c", "bg": "#f0ebe0", "surface": "#fbf8f1", "brand": "#8a9a5b", "accent": "#bc6c3c" },
+  "sections": ["hero", "values", "gallery", "feature", "process", "visit", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "retail-multipage-premium-dark",
+  "industry": "retail",
+  "kind": "multipage",
+  "aesthetic": "premium-dark",
+  "fonts": { "display": "Cormorant Garamond", "text": "Mulish" },
+  "tokens": {
+    "ink": "#f3efe8",
+    "bg": "#16140f",
+    "surface": "#211e17",
+    "brand": "#c9a96a",
+    "accent": "#6f8f7d"
+  },
+  "sections": ["nav","hero","categories","featured","about","proof","cta","contact","footer"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

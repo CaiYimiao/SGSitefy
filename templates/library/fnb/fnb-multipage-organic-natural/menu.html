@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Field & Spoon — Menu" data-zh="田与勺 — 菜单">Field &amp; Spoon — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Field &amp; Spoon" data-zh="田与勺"><span class="leaf"></span>Field &amp; Spoon</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" aria-current="page" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="menu.kick" data-en="Seasonal menu" data-zh="时令菜单">Seasonal menu</p>
+    <h1 data-slot="menu.title" data-en="What's growing right now." data-zh="此刻正当时的食材。">What's growing right now.</h1>
+    <p data-slot="menu.lead" data-en="Placeholder lead — the menu shifts with the harvest, so dishes rotate week to week." data-zh="占位引言——菜单随收成变化，菜品每周轮换。">Placeholder lead — the menu shifts with the harvest, so dishes rotate week to week.</p>
+  </section>
+
+  <section class="wrap menu-sec">
+    <h2 data-slot="menu.s1.head" data-en="From the garden" data-zh="来自园圃">From the garden</h2>
+    <div class="menu-grid" data-slot="menu.s1.items" data-min="4" data-max="6">
+      <div class="item"><div class="top"><h3 data-slot="menu.0.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.0.price" data-en="$16" data-zh="$16">$16</span></div><p data-slot="menu.0.desc" data-en="Short description of the dish and key produce." data-zh="菜品与主要食材的简短描述。">Short description of the dish and key produce.</p><span class="tag" data-slot="menu.0.tag" data-en="Vegan" data-zh="纯素">Vegan</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.1.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.1.price" data-en="$18" data-zh="$18">$18</span></div><p data-slot="menu.1.desc" data-en="Short description of the dish and key produce." data-zh="菜品与主要食材的简短描述。">Short description of the dish and key produce.</p><span class="tag" data-slot="menu.1.tag" data-en="Gluten-free" data-zh="无麸质">Gluten-free</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.2.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.2.price" data-en="$15" data-zh="$15">$15</span></div><p data-slot="menu.2.desc" data-en="Short description of the dish and key produce." data-zh="菜品与主要食材的简短描述。">Short description of the dish and key produce.</p><span class="tag" data-slot="menu.2.tag" data-en="Veg" data-zh="素食">Veg</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.3.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.3.price" data-en="$19" data-zh="$19">$19</span></div><p data-slot="menu.3.desc" data-en="Short description of the dish and key produce." data-zh="菜品与主要食材的简短描述。">Short description of the dish and key produce.</p><span class="tag" data-slot="menu.3.tag" data-en="Seasonal" data-zh="时令">Seasonal</span></div>
+    </div>
+  </section>
+
+  <section class="wrap menu-sec">
+    <h2 data-slot="menu.s2.head" data-en="Drinks & sweets" data-zh="饮品与甜点">Drinks &amp; sweets</h2>
+    <div class="menu-grid" data-slot="menu.s2.items" data-min="2" data-max="6">
+      <div class="item"><div class="top"><h3 data-slot="menu.4.name" data-en="Drink name" data-zh="饮品名">Drink name</h3><span class="price" data-slot="menu.4.price" data-en="$7" data-zh="$7">$7</span></div><p data-slot="menu.4.desc" data-en="Cold-pressed, house-made, or whatever is in season." data-zh="冷压、自制，或当季所有。">Cold-pressed, house-made, or whatever is in season.</p><span class="tag" data-slot="menu.4.tag" data-en="House-made" data-zh="自制">House-made</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.5.name" data-en="Sweet name" data-zh="甜点名">Sweet name</h3><span class="price" data-slot="menu.5.price" data-en="$9" data-zh="$9">$9</span></div><p data-slot="menu.5.desc" data-en="A simple dessert made with the day's fruit." data-zh="以当日水果制作的简单甜点。">A simple dessert made with the day's fruit.</p><span class="tag" data-slot="menu.5.tag" data-en="Vegan" data-zh="纯素">Vegan</span></div>
+    </div>
+  </section>
+
+  <section class="wrap cols rev">
+    <div class="pic"><img src="https://picsum.photos/seed/organic-menu/700/560" data-slot="menu.image" data-en-alt="Seasonal dishes on a table" data-zh-alt="餐桌上的时令菜品" alt="Seasonal dishes on a table" /></div>
+    <div>
+      <h2 data-slot="menu.note.head" data-en="A note on sourcing" data-zh="关于食材来源">A note on sourcing</h2>
+      <p data-slot="menu.note.body" data-en="Placeholder — explain allergens, dietary swaps, and where the produce comes from this week." data-zh="占位文字——说明过敏原、饮食替换，以及本周食材的来源。">Placeholder — explain allergens, dietary swaps, and where the produce comes from this week.</p>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Come hungry." data-zh="带着好胃口来。">Come hungry.</h2>
+    <p data-slot="cta.sub" data-en="Menus rotate weekly — ask your server what just arrived." data-zh="菜单每周更新——欢迎询问当日新鲜到货。">Menus rotate weekly — ask your server what just arrived.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Plan your visit" data-zh="规划到访">Plan your visit</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Field &amp; Spoon" data-zh="田与勺">Field &amp; Spoon</span>
+    <span data-slot="footer.addr" data-en="Dempsey Hill, Singapore" data-zh="新加坡登布西山">Dempsey Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

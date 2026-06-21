@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Shop — Naturally Made" data-zh="店名 — 自然之作">Shop — Naturally Made</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#33372c; --bg:#f0ebe0; --surface:#fbf8f1; --brand:#8a9a5b; --accent:#bc6c3c;
+  --d:'Newsreader',serif; --t:'Hanken Grotesk',sans-serif;
+  --gap:clamp(1.5rem,4vw,4rem); --r:clamp(1.5rem,4vw,2.5rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);line-height:1.65}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.04;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--gap)}
+header{position:sticky;top:0;z-index:50;background:rgba(240,235,224,.88);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--gap)}
+.brand{font-family:var(--d);font-weight:500;font-size:1.6rem;font-style:italic}
+.links{display:flex;gap:1.8rem;align-items:center}
+.links a{font-weight:500;font-size:.95rem}
+.links a:hover{color:var(--accent)}
+.langbtn{border:1.5px solid var(--ink);background:none;color:var(--ink);padding:.4rem 1rem;font-family:var(--t);font-weight:700;cursor:pointer;border-radius:999px;transition:.2s}
+.langbtn:hover{background:var(--brand);color:var(--surface);border-color:var(--brand)}
+.burger{display:none;border:none;background:none;color:var(--ink);font-size:1.7rem;cursor:pointer}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding:clamp(2rem,6vw,5rem) 0}
+.eyebrow{display:inline-block;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--accent);background:var(--surface);padding:.4rem 1rem;border-radius:999px}
+.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);margin:1.2rem 0}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero p{font-size:clamp(1.1rem,2vw,1.3rem);max-width:40ch}
+.btn{display:inline-block;margin-top:1.8rem;background:var(--accent);color:var(--surface);font-weight:700;padding:.9rem 2.1rem;border-radius:999px;transition:transform .2s ease,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--ink)}
+.heroart{position:relative}
+.heroart img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:48% 52% 56% 44%/55% 47% 53% 45%}
+.heroart .leaf{position:absolute;right:-1rem;bottom:1rem;width:42%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--bg)}
+.sec{padding:clamp(3rem,7vw,5.5rem) 0}
+.kick{font-family:var(--t);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;color:var(--accent)}
+.h2{font-size:clamp(2rem,5.5vw,3.6rem);margin:.4rem 0 var(--gap);max-width:18ch}
+.h2 em{font-style:italic;color:var(--brand)}
+/* values — pill row, not equal cards */
+.values{display:flex;flex-wrap:wrap;gap:1rem}
+.values li{list-style:none;background:var(--surface);border-radius:999px;padding:.7rem 1.4rem;font-weight:500;display:flex;align-items:center;gap:.6rem}
+.values li::before{content:"";width:.65rem;height:.65rem;border-radius:50%;background:var(--brand)}
+.values li:nth-child(even)::before{background:var(--accent)}
+/* gallery — organic offset grid */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1rem,2.5vw,2rem)}
+.gcard{background:var(--surface);border-radius:var(--r);overflow:hidden}
+.gcard img{width:100%;aspect-ratio:5/4;object-fit:cover;transition:transform .6s ease}
+.gcard:hover img{transform:scale(1.04)}
+.gcard:nth-child(odd){margin-top:0}
+.gcard:nth-child(even){margin-top:clamp(1.5rem,5vw,4rem)}
+.gcard .meta{padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:baseline}
+.gcard h3{font-size:1.4rem}
+.gcard .pr{font-family:var(--d);font-style:italic;color:var(--accent);font-size:1.2rem}
+/* feature */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--brand);color:var(--surface);border-radius:var(--r);overflow:hidden}
+.feature img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.feature .txt{padding:clamp(2rem,4vw,3.5rem)}
+.feature h2{font-size:clamp(1.9rem,4vw,3rem)}
+.feature p{margin-top:1.1rem;font-size:1.12rem;opacity:.95}
+/* process — numbered steps, asymmetric */
+.steps{display:grid;gap:1.2rem}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;background:var(--surface);border-radius:var(--r);padding:1.6rem var(--gap)}
+.step .n{font-family:var(--d);font-style:italic;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--brand);line-height:1}
+.step h3{font-size:1.4rem}
+.step p{margin-top:.3rem;color:#5a5e50}
+.step:nth-child(2){margin-left:clamp(0px,6vw,4rem)}
+.step:nth-child(3){margin-left:clamp(0px,12vw,8rem)}
+/* visit */
+.visit{background:var(--ink);color:var(--bg);border-radius:var(--r);padding:clamp(2.5rem,6vw,4.5rem) var(--gap);display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);align-items:center}
+.visit h2{font-size:clamp(2rem,5vw,3.4rem)}
+.visit dl div{margin-top:1rem}
+.visit dt{font-family:var(--d);font-style:italic;color:var(--brand)}
+.visit dd{font-size:1.1rem}
+footer{padding:2.4rem var(--gap);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:500}
+footer a:hover{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+@media(max-width:900px){.hero,.feature,.visit{grid-template-columns:1fr}.feature img{min-height:260px}.gcard:nth-child(even){margin-top:0}}
+@media(max-width:760px){
+  .burger{display:block}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--surface);padding:1.4rem var(--gap)}
+  .links.open{display:flex}
+  .gallery{grid-template-columns:1fr}
+  .step:nth-child(2),.step:nth-child(3){margin-left:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" data-slot="brand" data-en="Wild &amp; Made" data-zh="野生造物">Wild &amp; Made</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="#gallery" data-slot="nav.shop" data-en="The Goods" data-zh="好物">The Goods</a>
+      <a href="#feature" data-slot="nav.story" data-en="Our Way" data-zh="理念">Our Way</a>
+      <a href="#visit" data-slot="nav.visit" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="wrap hero">
+  <div>
+    <span class="eyebrow" data-slot="hero.eyebrow" data-en="Small batch · Singapore" data-zh="小批量 · 新加坡">Small batch · Singapore</span>
+    <h1 data-slot="hero.headline" data-rich data-en="Made by hand, <em>grown</em> with care" data-zh="亲手所制，用心<em>培育</em>">Made by hand, <em>grown</em> with care</h1>
+    <p data-slot="hero.lede" data-en="One warm sentence on what the shop grows or makes and the simple way it does it." data-zh="一句温暖的话，介绍本店所栽所制，以及那份简单的用心。">One warm sentence on what the shop grows or makes and the simple way it does it.</p>
+    <a class="btn" href="#gallery" data-slot="hero.cta" data-en="Browse the goods →" data-zh="逛逛好物 →">Browse the goods →</a>
+  </div>
+  <figure class="heroart">
+    <img src="https://picsum.photos/seed/orghero/640/800" data-slot="hero.image" data-en-alt="Hero product" data-zh-alt="主打商品" alt="Hero product">
+    <img class="leaf" src="https://picsum.photos/seed/orgleaf/300/300" data-slot="hero.image2" data-en-alt="Detail" data-zh-alt="细节" alt="Detail">
+  </figure>
+</section>
+
+<section class="wrap sec">
+  <span class="kick" data-slot="values.kick" data-en="What we stand on" data-zh="我们的坚持">What we stand on</span>
+  <h2 class="h2" data-slot="values.title" data-rich data-en="Honest things, <em>made well</em>" data-zh="诚实之物，<em>用心而造</em>">Honest things, <em>made well</em></h2>
+  <ul class="values" data-slot="values" data-min="3" data-max="5">
+    <li data-en="Natural materials" data-zh="天然用料">Natural materials</li>
+    <li data-en="Made in small batches" data-zh="小批量制作">Made in small batches</li>
+    <li data-en="Zero rush, zero waste" data-zh="不赶工，不浪费">Zero rush, zero waste</li>
+    <li data-en="Locally sourced" data-zh="本地采购">Locally sourced</li>
+  </ul>
+</section>
+
+<section class="wrap sec" id="gallery">
+  <span class="kick" data-slot="gallery.kick" data-en="On the shelf" data-zh="货架上">On the shelf</span>
+  <h2 class="h2" data-slot="gallery.title" data-en="This season's harvest" data-zh="本季所获">This season's harvest</h2>
+  <div class="gallery" data-slot="gallery" data-min="4" data-max="6">
+    <figure class="gcard"><img src="https://picsum.photos/seed/og1/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product One" data-zh="商品一">Product One</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+    <figure class="gcard"><img src="https://picsum.photos/seed/og2/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product Two" data-zh="商品二">Product Two</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+    <figure class="gcard"><img src="https://picsum.photos/seed/og3/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product Three" data-zh="商品三">Product Three</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+    <figure class="gcard"><img src="https://picsum.photos/seed/og4/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product Four" data-zh="商品四">Product Four</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+    <figure class="gcard"><img src="https://picsum.photos/seed/og5/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product Five" data-zh="商品五">Product Five</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+    <figure class="gcard"><img src="https://picsum.photos/seed/og6/620/500" data-en-alt="Product" data-zh-alt="商品" alt="Product"><div class="meta"><h3 data-en="Product Six" data-zh="商品六">Product Six</h3><span class="pr" data-en="$00" data-zh="¥00">$00</span></div></figure>
+  </div>
+</section>
+
+<section class="wrap sec" id="feature">
+  <div class="feature">
+    <img src="https://picsum.photos/seed/orgfeat/700/760" data-slot="feature.image" data-en-alt="At work" data-zh-alt="制作中" alt="At work">
+    <div class="txt">
+      <span class="kick" style="color:var(--surface);opacity:.85" data-slot="feature.kick" data-en="Our way" data-zh="我们的理念">Our way</span>
+      <h2 data-slot="feature.title" data-en="Closer to the source" data-zh="离源头更近一点">Closer to the source</h2>
+      <p data-slot="feature.body" data-en="Two or three grounded sentences on where the goods come from and the care taken at each step." data-zh="两三句踏实的话，讲述好物的来处，以及每一步的用心。">Two or three grounded sentences on where the goods come from and the care taken at each step.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <span class="kick" data-slot="process.kick" data-en="How it's done" data-zh="如何制成">How it's done</span>
+  <h2 class="h2" data-slot="process.title" data-rich data-en="From seed to <em>shelf</em>" data-zh="从种子到<em>货架</em>">From seed to <em>shelf</em></h2>
+  <div class="steps" data-slot="process" data-min="3" data-max="3">
+    <div class="step"><span class="n">01</span><div><h3 data-en="Step One" data-zh="第一步">Step One</h3><p data-en="A short line about the first stage of the work." data-zh="一句话，说说第一阶段的工作。">A short line about the first stage of the work.</p></div></div>
+    <div class="step"><span class="n">02</span><div><h3 data-en="Step Two" data-zh="第二步">Step Two</h3><p data-en="A short line about the second stage of the work." data-zh="一句话，说说第二阶段的工作。">A short line about the second stage of the work.</p></div></div>
+    <div class="step"><span class="n">03</span><div><h3 data-en="Step Three" data-zh="第三步">Step Three</h3><p data-en="A short line about the final stage of the work." data-zh="一句话，说说最后阶段的工作。">A short line about the final stage of the work.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap sec" id="visit">
+  <div class="visit">
+    <div>
+      <span class="kick" style="color:var(--brand)" data-slot="visit.kick" data-en="Come by" data-zh="欢迎光临">Come by</span>
+      <h2 data-slot="visit.title" data-en="Find us on the corner" data-zh="街角与你相见">Find us on the corner</h2>
+    </div>
+    <dl>
+      <div><dt data-en="Where" data-zh="地址">Where</dt><dd data-slot="contact.address" data-en="Street address, Singapore" data-zh="新加坡街道地址">Street address, Singapore</dd></div>
+      <div><dt data-en="Open" data-zh="营业">Open</dt><dd data-slot="contact.hours" data-en="Wed–Sun, 00:00–00:00" data-zh="周三至周日 00:00–00:00">Wed–Sun, 00:00–00:00</dd></div>
+      <div><dt data-en="Reach us" data-zh="联系">Reach us</dt><dd data-slot="contact.email" data-en="hello@shop.sg · +65 0000 0000" data-zh="hello@shop.sg · +65 0000 0000">hello@shop.sg · +65 0000 0000</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+<footer>
+  <span data-slot="footer.copy" data-en="© Shop Name — made naturally" data-zh="© 店名 — 自然之作">© Shop Name — made naturally</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</footer>
+<script>
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const v=zh?el.dataset.zh:el.dataset.en;if(el.hasAttribute('data-rich'))el.innerHTML=v;else el.textContent=v;});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt);
+}
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

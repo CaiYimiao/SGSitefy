@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="meta.title" data-en="Store — Kinetic" data-zh="商店 — 动感">Store — Kinetic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#ededeb; --bg:#0d0f0e; --surface:#181b19; --brand:#c6f24e; --accent:#ff6a3d;
+  --d:'Syne',sans-serif; --t:'IBM Plex Sans',sans-serif;
+  --gap:clamp(1.5rem,4vw,4rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:.96;letter-spacing:-.02em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gap)}
+header{position:sticky;top:0;z-index:50;background:rgba(13,15,14,.82);backdrop-filter:blur(10px);border-bottom:1px solid #2a2e2b}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gap)}
+.brand{font-family:var(--d);font-weight:800;font-size:1.5rem;letter-spacing:-.03em}
+.brand span{color:var(--brand)}
+.links{display:flex;gap:1.8rem;align-items:center}
+.links a{font-weight:500;font-size:.92rem;position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--brand);transition:width .25s cubic-bezier(.4,0,.2,1)}
+.links a:hover::after{width:100%}
+.langbtn{border:1px solid var(--ink);background:none;color:var(--ink);padding:.35rem .9rem;font-family:var(--d);font-weight:700;cursor:pointer;border-radius:999px;transition:.2s}
+.langbtn:hover{background:var(--brand);color:var(--bg);border-color:var(--brand)}
+.burger{display:none;border:none;background:none;color:var(--ink);font-size:1.7rem;cursor:pointer}
+/* hero */
+.hero{padding:clamp(3rem,9vw,7rem) 0 clamp(2rem,5vw,4rem);position:relative}
+.hero h1{font-size:clamp(3.2rem,13vw,11rem);text-transform:uppercase}
+.hero h1 .o{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.hero h1 .b{color:var(--brand)}
+.herofoot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-top:clamp(1.5rem,4vw,3rem)}
+.herofoot p{max-width:38ch;font-size:clamp(1.05rem,2vw,1.3rem);color:#b9bdb8}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--brand);color:var(--bg);font-family:var(--d);font-weight:700;padding:.95rem 2rem;border-radius:999px;transition:transform .2s cubic-bezier(.4,0,.2,1),background .2s}
+.btn:hover{transform:translateY(-3px);background:var(--accent);color:var(--ink)}
+.marquee{border-block:1px solid #2a2e2b;overflow:hidden;white-space:nowrap;margin-top:var(--gap)}
+.marquee p{display:inline-block;padding:.7rem 0;font-family:var(--d);font-weight:700;font-size:clamp(1.4rem,4vw,2.6rem);text-transform:uppercase;color:var(--surface);-webkit-text-stroke:1px #3a3e3b;animation:slide 26s linear infinite}
+.marquee p b{color:var(--brand);-webkit-text-stroke:0}
+@keyframes slide{to{transform:translateX(-50%)}}
+.sec{padding:clamp(3.5rem,8vw,6rem) 0}
+.kick{font-family:var(--d);font-weight:700;letter-spacing:.05em;font-size:.85rem;color:var(--brand);text-transform:uppercase}
+.h2{font-size:clamp(2.2rem,7vw,4.8rem);margin:.5rem 0 var(--gap);text-transform:uppercase}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+/* gallery — asymmetric grid spans */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.8rem,1.5vw,1.4rem)}
+.gcard{position:relative;overflow:hidden;border-radius:14px;background:var(--surface)}
+.gcard img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.gcard:hover img{transform:scale(1.06)}
+.gcard figcaption{position:absolute;inset:auto 0 0 0;padding:1.1rem;display:flex;justify-content:space-between;align-items:end;background:linear-gradient(transparent,rgba(13,15,14,.9));font-family:var(--d);font-weight:700}
+.gcard .pr{color:var(--brand)}
+.gcard:nth-child(1){grid-column:span 7}
+.gcard:nth-child(1) img{aspect-ratio:16/11}
+.gcard:nth-child(2){grid-column:span 5}
+.gcard:nth-child(2) img{aspect-ratio:16/11}
+.gcard:nth-child(3){grid-column:span 4}
+.gcard:nth-child(4){grid-column:span 4}
+.gcard:nth-child(5){grid-column:span 4}
+/* feature */
+.feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.feature img{width:100%;border-radius:16px;aspect-ratio:4/5;object-fit:cover}
+.feature h2{font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase}
+.feature p{margin-top:1.2rem;font-size:1.15rem;color:#b9bdb8}
+/* stats — oversized numerals */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2.5rem);border-top:1px solid #2a2e2b;padding-top:var(--gap)}
+.stat .n{font-family:var(--d);font-weight:800;font-size:clamp(3rem,8vw,6rem);line-height:1;color:var(--brand)}
+.stat p{margin-top:.4rem;color:#b9bdb8;font-size:1rem}
+/* cta */
+.cta{text-align:center;background:var(--surface);border-radius:20px;padding:clamp(3rem,8vw,6rem) var(--gap)}
+.cta h2{font-size:clamp(2.4rem,8vw,5.5rem);text-transform:uppercase}
+.cta h2 span{color:var(--accent)}
+footer{padding:2.4rem var(--gap);border-top:1px solid #2a2e2b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#b9bdb8;font-size:.95rem}
+footer a:hover{color:var(--brand)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
+@media(max-width:900px){.gcard{grid-column:span 6!important}.feature{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .burger{display:block}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:1.4rem var(--gap);border-bottom:1px solid #2a2e2b}
+  .links.open{display:flex}
+  .gcard{grid-column:span 12!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" data-slot="brand" data-rich data-en="STORE<span>.</span>" data-zh="商店<span>.</span>">STORE<span>.</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    <div class="links" id="menu">
+      <a href="#gallery" data-slot="nav.shop" data-en="Collection" data-zh="系列">Collection</a>
+      <a href="#feature" data-slot="nav.about" data-en="Studio" data-zh="工作室">Studio</a>
+      <a href="#cta" data-slot="nav.visit" data-en="Visit" data-zh="到店">Visit</a>
+      <button class="langbtn" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <h1 data-slot="hero.headline" data-rich data-en="Move<br><span class='o'>with</span> <span class='b'>intent</span>" data-zh="<span class='b'>有意</span><br><span class='o'>而</span>动">Move<br><span class="o">with</span> <span class="b">intent</span></h1>
+    <div class="herofoot">
+      <p data-slot="hero.lede" data-en="One sharp sentence on what the store sells and the feeling it leaves." data-zh="一句利落的话，道出本店所售之物，与它留下的感觉。">One sharp sentence on what the store sells and the feeling it leaves.</p>
+      <a class="btn" href="#gallery" data-slot="hero.cta" data-en="See the drop →" data-zh="查看上新 →">See the drop →</a>
+    </div>
+  </div>
+</section>
+<div class="marquee"><p data-slot="hero.ticker" data-rich data-en="new season · <b>limited run</b> · in stock · new season · <b>limited run</b> · in stock · " data-zh="新季 · <b>限量发售</b> · 现货 · 新季 · <b>限量发售</b> · 现货 · ">new season · <b>limited run</b> · in stock · new season · <b>limited run</b> · in stock · </p></div>
+
+<section class="wrap sec" id="gallery">
+  <span class="kick rv" data-slot="gallery.kick" data-en="The collection" data-zh="本季系列">The collection</span>
+  <h2 class="h2 rv" data-slot="gallery.title" data-en="In stock now" data-zh="现货上架">In stock now</h2>
+  <div class="gallery" data-slot="gallery" data-min="4" data-max="5">
+    <figure class="gcard rv"><img src="https://picsum.photos/seed/km1/900/640" data-en-alt="Product" data-zh-alt="商品" alt="Product"><figcaption><span data-en="Product One" data-zh="商品一">Product One</span><span class="pr" data-en="$00" data-zh="¥00">$00</span></figcaption></figure>
+    <figure class="gcard rv"><img src="https://picsum.photos/seed/km2/700/640" data-en-alt="Product" data-zh-alt="商品" alt="Product"><figcaption><span data-en="Product Two" data-zh="商品二">Product Two</span><span class="pr" data-en="$00" data-zh="¥00">$00</span></figcaption></figure>
+    <figure class="gcard rv"><img src="https://picsum.photos/seed/km3/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><figcaption><span data-en="Product Three" data-zh="商品三">Product Three</span><span class="pr" data-en="$00" data-zh="¥00">$00</span></figcaption></figure>
+    <figure class="gcard rv"><img src="https://picsum.photos/seed/km4/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><figcaption><span data-en="Product Four" data-zh="商品四">Product Four</span><span class="pr" data-en="$00" data-zh="¥00">$00</span></figcaption></figure>
+    <figure class="gcard rv"><img src="https://picsum.photos/seed/km5/600/600" data-en-alt="Product" data-zh-alt="商品" alt="Product"><figcaption><span data-en="Product Five" data-zh="商品五">Product Five</span><span class="pr" data-en="$00" data-zh="¥00">$00</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap sec" id="feature">
+  <div class="feature">
+    <img class="rv" src="https://picsum.photos/seed/kmfeat/720/900" data-slot="feature.image" data-en-alt="In the studio" data-zh-alt="工作室" alt="In the studio">
+    <div class="rv">
+      <span class="kick" data-slot="feature.kick" data-en="The studio" data-zh="幕后工作室">The studio</span>
+      <h2 data-slot="feature.title" data-en="Designed, then made" data-zh="先设计，后制成">Designed, then made</h2>
+      <p data-slot="feature.body" data-en="Two or three confident sentences on the design point of view and how each piece comes together." data-zh="两三句自信的话，讲述设计的态度，以及每件单品如何成型。">Two or three confident sentences on the design point of view and how each piece comes together.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <dl class="stats" data-slot="stats" data-min="3" data-max="3">
+    <div class="stat rv"><dt class="n" data-slot="stat.0.n" data-en="00+" data-zh="00+">00+</dt><dd><p data-slot="stat.0.l" data-en="Pieces in the line" data-zh="系列单品">Pieces in the line</p></dd></div>
+    <div class="stat rv"><dt class="n" data-slot="stat.1.n" data-en="00" data-zh="00">00</dt><dd><p data-slot="stat.1.l" data-en="Years in the trade" data-zh="入行年数">Years in the trade</p></dd></div>
+    <div class="stat rv"><dt class="n" data-slot="stat.2.n" data-en="1:1" data-zh="1:1">1:1</dt><dd><p data-slot="stat.2.l" data-en="Made-to-order on request" data-zh="可接受定制">Made-to-order on request</p></dd></div>
+  </dl>
+</section>
+
+<section class="wrap sec" id="cta">
+  <div class="cta rv">
+    <h2 data-slot="cta.title" data-rich data-en="Come <span>see it</span>" data-zh="<span>亲临</span>一看">Come <span>see it</span></h2>
+    <p style="margin:1rem 0 1.8rem;color:#b9bdb8" data-slot="cta.body" data-en="Street address, Singapore · Tue–Sun 00:00–00:00" data-zh="新加坡街道地址 · 周二至周日 00:00–00:00">Street address, Singapore · Tue–Sun 00:00–00:00</p>
+    <a class="btn" href="#" data-slot="cta.btn" data-en="Get directions →" data-zh="获取路线 →">Get directions →</a>
+  </div>
+</section>
+</main>
+<footer>
+  <span data-slot="footer.copy" data-en="© Store Name" data-zh="© 商店名">© Store Name</span>
+  <span>Built with SGSitefy · powered by Antigravity</span>
+</footer>
+<script>
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const v=zh?el.dataset.zh:el.dataset.en;if(el.hasAttribute('data-rich'))el.innerHTML=v;else el.textContent=v;});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt);
+}
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+  document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+})();
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

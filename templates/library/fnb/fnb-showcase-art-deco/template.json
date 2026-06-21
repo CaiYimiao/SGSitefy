@@ -1,0 +1,11 @@
+{
+  "id": "fnb-showcase-art-deco",
+  "industry": "fnb",
+  "kind": "showcase",
+  "aesthetic": "art-deco",
+  "fonts": { "display": "Cormorant Garamond", "text": "Jost" },
+  "tokens": { "ink": "#0f1a17", "bg": "#0b1411", "surface": "#13211c", "brand": "#c8a35b", "accent": "#1d6f5c" },
+  "sections": ["hero", "strip", "gallery", "feature", "menu", "social", "cta", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

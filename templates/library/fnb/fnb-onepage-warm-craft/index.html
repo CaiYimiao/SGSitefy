@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Warm Craft Kitchen" data-zh="暖工坊厨房">Warm Craft Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#2b1d14; --bg:#f7efe2; --surface:#efe2cd; --brand:#b5481f; --accent:#5a6e4a;
+    --display:"Fraunces",Georgia,serif; --text:"Public Sans",system-ui,sans-serif;
+    --step-0:1rem; --step-1:1.333rem; --step-2:1.777rem; --step-3:2.369rem; --step-4:3.157rem; --step-5:4.6rem;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.6;
+    background-image:radial-gradient(rgba(43,29,20,.025) 1px,transparent 1px);background-size:4px 4px;}
+  h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;font-weight:900}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  :focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(247,239,226,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--surface)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:var(--display);font-weight:900;font-size:var(--step-1);letter-spacing:-.03em}
+  .nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--brand);transition:width .25s cubic-bezier(.2,.8,.2,1)}
+  .nav-links a:hover::after{width:100%}
+  .lang{border:1px solid var(--ink);background:none;padding:6px 14px;border-radius:30px;font-family:var(--text);font-weight:700;cursor:pointer;font-size:.8rem}
+  .lang:hover{background:var(--ink);color:var(--bg)}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer}
+  /* hero */
+  .hero{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;padding:80px 0 64px}
+  .hero h1{font-size:var(--step-5);font-style:italic}
+  .hero h1 em{color:var(--brand);font-style:normal}
+  .hero p{margin:24px 0 32px;font-size:var(--step-1);max-width:42ch;color:#5a4636}
+  .hero-img{position:relative}
+  .hero-img img{border-radius:6px 90px 6px 6px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:18px 18px 0 var(--accent)}
+  .btn{display:inline-block;background:var(--brand);color:#fff;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:700;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+  .btn:hover{transform:translateY(-3px);background:#9a3c18}
+  .btn.ghost{background:none;color:var(--ink);border:2px solid var(--ink);margin-left:12px}
+  .btn.ghost:hover{background:var(--ink);color:var(--bg)}
+  /* quickinfo */
+  .quickinfo{background:var(--accent);color:#f7efe2}
+  .qi-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;padding:28px 0}
+  .qi-grid div{font-weight:500}
+  .qi-grid strong{display:block;font-family:var(--display);font-size:var(--step-1);font-weight:600}
+  /* about */
+  .about{padding:96px 0;display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
+  .about .kick{color:var(--brand);font-weight:700;letter-spacing:.15em;text-transform:uppercase;font-size:.8rem}
+  .about h2{font-size:var(--step-4);margin:12px 0 20px}
+  .about img{border-radius:90px 6px 6px 6px;aspect-ratio:1;object-fit:cover;box-shadow:-16px 16px 0 var(--surface)}
+  /* menu */
+  .menu{padding:40px 0 96px}
+  .menu h2{font-size:var(--step-4);text-align:center;margin-bottom:8px}
+  .menu .lead{text-align:center;color:#5a4636;margin-bottom:48px}
+  .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 64px;max-width:880px;margin:0 auto}
+  .item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:18px 0;border-bottom:1px dashed #c9b79a;align-items:baseline}
+  .item h3{font-size:var(--step-1);font-weight:600}
+  .item .price{font-family:var(--display);font-weight:900;color:var(--brand);font-size:var(--step-1)}
+  .item p{grid-column:1/-1;color:#6b5746;font-size:.92rem;margin-top:2px}
+  /* social */
+  .social{background:var(--surface);padding:96px 0;text-align:center}
+  .social h2{font-size:var(--step-3);margin-bottom:40px}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .quote{background:var(--bg);padding:28px;border-radius:6px;text-align:left;border-left:4px solid var(--brand)}
+  .quote p{font-family:var(--display);font-style:italic;font-size:var(--step-1);margin-bottom:14px}
+  .quote span{font-weight:700;font-size:.9rem}
+  /* cta */
+  .cta{background:var(--brand);color:#fff;text-align:center;padding:88px 24px}
+  .cta h2{font-size:var(--step-4);margin-bottom:16px;font-style:italic}
+  .cta .btn{background:#fff;color:var(--brand)}
+  .cta .btn:hover{background:var(--ink);color:#fff}
+  /* contact */
+  .contact{padding:96px 0;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contact h2{font-size:var(--step-3);margin-bottom:20px}
+  .contact dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px}
+  .contact dt{color:var(--brand);font-weight:700}
+  .contact iframe,.contact .map{width:100%;height:300px;border:0;border-radius:6px;background:var(--surface)}
+  /* footer */
+  footer.ft{background:var(--ink);color:#e9dcc8;padding:48px 0;text-align:center}
+  footer.ft .built{margin-top:18px;font-size:.82rem;opacity:.7}
+  @media(max-width:760px){
+    .nav-links{position:fixed;inset:68px 0 auto 0;flex-direction:column;background:var(--bg);padding:24px;gap:18px;border-bottom:1px solid var(--surface);transform:translateY(-120%);transition:transform .3s}
+    .nav-links.open{transform:translateY(0)}
+    .burger{display:block}
+    .hero,.about,.contact,.menu-list,.quotes{grid-template-columns:1fr;gap:32px}
+    .hero h1{font-size:var(--step-4)}
+    .qi-grid{flex-direction:column;gap:16px}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Maison Brûlée" data-zh="焙坊">Maison Brûlée</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#about" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="#menu" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="#social" data-slot="nav.reviews" data-en="Reviews" data-zh="评价">Reviews</a></li>
+        <li><a href="#contact" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <h1 data-slot="hero.headline" data-rich data-en="Slow food, <em>real fire.</em>" data-zh="慢火，<em>真味。</em>">Slow food, <em>real fire.</em></h1>
+      <p data-slot="hero.sub" data-en="A neighbourhood kitchen plating honest dishes from wood-fired ovens and good local produce." data-zh="社区小厨，柴火炉慢烤，选用本地新鲜食材，烹出诚意料理。">A neighbourhood kitchen plating honest dishes from wood-fired ovens and good local produce.</p>
+      <a class="btn" href="#contact" data-slot="hero.cta" data-en="Book a table" data-zh="预订座位">Book a table</a>
+      <a class="btn ghost" href="#menu" data-slot="hero.cta2" data-en="See menu" data-zh="查看菜单">See menu</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://picsum.photos/seed/warmcraft-hero/720/900" data-slot="hero.image" data-en-alt="Signature plated dish" data-zh-alt="招牌料理" alt="Signature plated dish" />
+    </div>
+  </section>
+
+  <section class="quickinfo">
+    <div class="wrap qi-grid">
+      <div data-slot="quickinfo.hours" data-en="Open · Tue–Sun" data-zh="营业 · 周二至周日"><strong data-slot="quickinfo.hours.v" data-en="11:30 – 22:00" data-zh="11:30 – 22:00">11:30 – 22:00</strong>Open · Tue–Sun</div>
+      <div data-slot="quickinfo.loc" data-en="Find us" data-zh="地址"><strong data-slot="quickinfo.loc.v" data-en="123 Tiong Bahru Rd" data-zh="中峇鲁路123号">123 Tiong Bahru Rd</strong>Find us</div>
+      <div data-slot="quickinfo.call" data-en="Reservations" data-zh="预订"><strong data-slot="quickinfo.call.v" data-en="+65 6123 4567" data-zh="+65 6123 4567">+65 6123 4567</strong>Reservations</div>
+    </div>
+  </section>
+
+  <section class="wrap about" id="about">
+    <img src="https://picsum.photos/seed/warmcraft-chef/640/640" data-slot="about.image" data-en-alt="Chef at the oven" data-zh-alt="主厨在炉前" alt="Chef at the oven" />
+    <div>
+      <span class="kick" data-slot="about.kick" data-en="Our story" data-zh="我们的故事">Our story</span>
+      <h2 data-slot="about.headline" data-en="Cooked the long way, on purpose." data-zh="慢工细活，皆有用心。">Cooked the long way, on purpose.</h2>
+      <p data-slot="about.body" data-en="Placeholder — describe the kitchen's roots, the people behind it, and what makes a meal here feel like home." data-zh="占位文字——讲述厨房的起源、背后的团队，以及为何在这里用餐宛如归家。">Placeholder — describe the kitchen's roots, the people behind it, and what makes a meal here feel like home.</p>
+    </div>
+  </section>
+
+  <section class="wrap menu" id="menu">
+    <h2 data-slot="menu.headline" data-en="From the kitchen" data-zh="厨房精选">From the kitchen</h2>
+    <p class="lead" data-slot="menu.lead" data-en="A short rotating list — ask your server for today's specials." data-zh="精简轮换菜单——今日特餐请询问服务员。">A short rotating list — ask your server for today's specials.</p>
+    <div class="menu-list" data-slot="menu.items" data-min="4" data-max="6">
+      <div class="item"><h3 data-slot="menu.0.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.0.price" data-en="$18" data-zh="$18">$18</span><p data-slot="menu.0.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+      <div class="item"><h3 data-slot="menu.1.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.1.price" data-en="$22" data-zh="$22">$22</span><p data-slot="menu.1.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+      <div class="item"><h3 data-slot="menu.2.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.2.price" data-en="$16" data-zh="$16">$16</span><p data-slot="menu.2.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+      <div class="item"><h3 data-slot="menu.3.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.3.price" data-en="$28" data-zh="$28">$28</span><p data-slot="menu.3.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+      <div class="item"><h3 data-slot="menu.4.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.4.price" data-en="$14" data-zh="$14">$14</span><p data-slot="menu.4.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+      <div class="item"><h3 data-slot="menu.5.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.5.price" data-en="$12" data-zh="$12">$12</span><p data-slot="menu.5.desc" data-en="Short description of ingredients." data-zh="食材简介。">Short description of ingredients.</p></div>
+    </div>
+  </section>
+
+  <section class="social" id="social">
+    <div class="wrap">
+      <h2 data-slot="social.headline" data-en="What guests say" data-zh="食客之声">What guests say</h2>
+      <div class="quotes">
+        <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review quote about the food and the warmth.”" data-zh="“关于美食与温暖的占位评价。”">“Placeholder review quote about the food and the warmth.”</p><span data-slot="social.0.name" data-en="— Guest name" data-zh="— 食客姓名">— Guest name</span></figure>
+        <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review quote about the food and the warmth.”" data-zh="“关于美食与温暖的占位评价。”">“Placeholder review quote about the food and the warmth.”</p><span data-slot="social.1.name" data-en="— Guest name" data-zh="— 食客姓名">— Guest name</span></figure>
+        <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review quote about the food and the warmth.”" data-zh="“关于美食与温暖的占位评价。”">“Placeholder review quote about the food and the warmth.”</p><span data-slot="social.2.name" data-en="— Guest name" data-zh="— 食客姓名">— Guest name</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 data-slot="cta.headline" data-en="A table is waiting." data-zh="餐桌为您留座。">A table is waiting.</h2>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Reserve now" data-zh="立即预订">Reserve now</a>
+  </section>
+
+  <section class="wrap contact" id="contact">
+    <div>
+      <h2 data-slot="contact.headline" data-en="Come find us" data-zh="欢迎到访">Come find us</h2>
+      <dl>
+        <dt data-slot="contact.addr.l" data-en="Address" data-zh="地址">Address</dt><dd data-slot="contact.addr" data-en="123 Tiong Bahru Rd, Singapore" data-zh="新加坡中峇鲁路123号">123 Tiong Bahru Rd, Singapore</dd>
+        <dt data-slot="contact.phone.l" data-en="Phone" data-zh="电话">Phone</dt><dd data-slot="contact.phone" data-en="+65 6123 4567" data-zh="+65 6123 4567">+65 6123 4567</dd>
+        <dt data-slot="contact.email.l" data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="hello@example.sg" data-zh="hello@example.sg">hello@example.sg</dd>
+        <dt data-slot="contact.hours.l" data-en="Hours" data-zh="营业">Hours</dt><dd data-slot="contact.hours" data-en="Tue–Sun, 11:30–22:00" data-zh="周二至周日 11:30–22:00">Tue–Sun, 11:30–22:00</dd>
+      </dl>
+    </div>
+    <div class="map" role="img" aria-label="Map placeholder" data-slot="contact.map"></div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <p class="brand" data-slot="footer.name" data-en="Maison Brûlée" data-zh="焙坊">Maison Brûlée</p>
+    <p class="built">Built with SGSitefy · powered by Antigravity</p>
+  </div>
+</footer>
+
+<script>
+  function toggleLang(){
+    const zh = document.documentElement.lang !== "zh";
+    document.documentElement.lang = zh ? "zh" : "en";
+    document.querySelectorAll("[data-en]").forEach(el=>{
+      const v = zh ? el.getAttribute("data-zh") : el.getAttribute("data-en");
+      if(v==null) return;
+      if(el.hasAttribute("data-rich")) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll("[data-en-alt]").forEach(el=>{
+      el.alt = zh ? el.getAttribute("data-zh-alt") : el.getAttribute("data-en-alt");
+    });
+  }
+  function toggleNav(btn){
+    const l=document.getElementById("navlinks");
+    const o=l.classList.toggle("open");
+    btn.setAttribute("aria-expanded",o);
+  }
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

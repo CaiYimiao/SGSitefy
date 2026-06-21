@@ -1,0 +1,11 @@
+{
+  "id": "industrial-onepage-brutalist",
+  "industry": "industrial",
+  "kind": "onepage",
+  "aesthetic": "brutalist-industrial",
+  "fonts": { "display": "Archivo Black", "text": "IBM Plex Mono" },
+  "tokens": { "ink": "#16130f", "bg": "#f2efe7", "surface": "#e3ddcd", "brand": "#d6431a", "accent": "#1c2b2a" },
+  "sections": ["hero", "trust", "about", "services", "work", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

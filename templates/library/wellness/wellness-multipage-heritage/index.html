@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="House Name — a heritage of considered care" data-zh="馆名 — 传承细致的照护">House Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="House Name" data-zh="馆名">House Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="Our House" data-zh="关于本馆">Our House</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Reserve" data-zh="预约">Reserve</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="hero.eyebrow" data-en="Established care · Singapore" data-zh="传承照护 · 新加坡">Established care · Singapore</span>
+      <h1 data-slot="hero.headline" data-en="Wellness in the old, careful way" data-zh="以古法之心，行细致之养">Wellness in the old, careful way</h1>
+      <p data-slot="hero.sub" data-en="A house of traditional and modern therapies, practised slowly and with intention since our founding." data-zh="一所融合传统与现代疗法的养护之所，自创立以来，始终从容而用心。">Placeholder sub.</p>
+      <div class="cta">
+        <a href="contact.html" class="btn" data-slot="hero.cta" data-en="Reserve a visit" data-zh="预约到访">Reserve a visit</a>
+        <a href="treatments.html" class="btn ghost" data-slot="hero.link" data-en="Our treatments" data-zh="本馆疗程">Our treatments</a>
+      </div>
+    </div>
+    <div class="wrap hero-img"><img src="https://picsum.photos/seed/heritage-hero/1600/610" data-slot="hero.image" data-en-alt="Heritage wellness interior" data-zh-alt="传统养护馆内景" alt="Heritage wellness interior"></div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="item"><b data-slot="trust.0.stat" data-en="Est. 1998" data-zh="始于1998">Est. 1998</b><span data-slot="trust.0.label" data-en="serving Singapore" data-zh="服务新加坡">serving Singapore</span></div>
+      <div class="item"><b data-slot="trust.1.stat" data-en="20k+" data-zh="2万+">20k+</b><span data-slot="trust.1.label" data-en="guests cared for" data-zh="位宾客获照护">guests cared for</span></div>
+      <div class="item"><b data-slot="trust.2.stat" data-en="12" data-zh="12">12</b><span data-slot="trust.2.label" data-en="senior practitioners" data-zh="位资深理疗师">senior practitioners</span></div>
+      <div class="item"><b data-slot="trust.3.stat" data-en="4.9" data-zh="4.9">4.9</b><span data-slot="trust.3.label" data-en="guest rating" data-zh="宾客评分">guest rating</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split r-img">
+      <div>
+        <span class="eyebrow" data-slot="home.about.eyebrow" data-en="Our house" data-zh="关于本馆">Our house</span>
+        <h2 data-slot="home.about.headline" data-en="A practice passed down" data-zh="代代相传的修为">A practice passed down</h2>
+        <p data-slot="home.about.body1" data-en="Placeholder paragraph introducing the house's lineage and philosophy in two measured, dignified sentences." data-zh="介绍本馆传承与理念的占位段落，两句沉稳而有分量的表述。">Placeholder.</p>
+        <p data-slot="home.about.body2" data-en="Second placeholder — the practitioners, the rituals, and what guests can expect." data-zh="第二段占位文字——理疗师、仪式，以及宾客可期待之处。">Placeholder.</p>
+        <a href="about.html" class="btn ghost" data-slot="home.about.link" data-en="Read our story" data-zh="阅读本馆故事">Read our story</a>
+      </div>
+      <img src="https://picsum.photos/seed/heritage-about/760/950" data-slot="home.about.image" data-en-alt="Practitioner preparing herbs" data-zh-alt="理疗师备制草药" alt="Practitioner preparing herbs">
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap lead">
+      <span class="eyebrow" data-slot="home.treat.eyebrow" data-en="Signature treatments" data-zh="招牌疗程">Signature treatments</span>
+      <h2 data-slot="home.treat.headline" data-en="A considered selection" data-zh="臻心之选">A considered selection</h2>
+      <p data-slot="home.treat.body" data-en="Placeholder line inviting guests to explore the full treatment ledger." data-zh="邀请宾客查阅完整疗程目录的占位文字。">Placeholder.</p>
+    </div>
+    <div class="wrap ledger" data-slot="treatments" data-min="3" data-max="3">
+      <article class="lr"><span class="num">I</span><div><h3 data-slot="treatment.0.name" data-en="Herbal therapy" data-zh="草本疗法">Herbal therapy</h3><p data-slot="treatment.0.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.0.price" data-en="from $120" data-zh="$120 起">from $120</span></article>
+      <article class="lr"><span class="num">II</span><div><h3 data-slot="treatment.1.name" data-en="Acupressure" data-zh="指压疗法">Acupressure</h3><p data-slot="treatment.1.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.1.price" data-en="from $90" data-zh="$90 起">from $90</span></article>
+      <article class="lr"><span class="num">III</span><div><h3 data-slot="treatment.2.name" data-en="Restorative ritual" data-zh="修复仪式">Restorative ritual</h3><p data-slot="treatment.2.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.2.price" data-en="from $150" data-zh="$150 起">from $150</span></article>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2 data-slot="home.cta.headline" data-en="You are warmly expected" data-zh="诚挚恭候您的到访">You are warmly expected</h2>
+    <p data-slot="home.cta.sub" data-en="Reserve a quiet hour with us. We attend to one guest at a time." data-zh="为您预留一段静谧时光。我们专注照护每一位宾客。">Placeholder sub.</p>
+    <a href="contact.html" class="btn" data-slot="home.cta.button" data-en="Reserve a visit" data-zh="预约到访">Reserve a visit</a>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© House Name. All rights reserved." data-zh="© 馆名。版权所有。">© House Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

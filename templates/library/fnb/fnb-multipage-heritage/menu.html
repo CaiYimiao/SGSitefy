@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Heng Kee Kopitiam — Menu" data-zh="兴记茶室 — 菜单">Heng Kee Kopitiam — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-rich data-en="Heng Kee <small>Est. 1968</small>" data-zh="兴记 <small>始于1968</small>">Heng Kee <small>Est. 1968</small></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="Our story" data-zh="本店故事">Our story</a></li>
+        <li><a href="menu.html" aria-current="page" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="menu.kick" data-en="The menu" data-zh="菜单">The menu</p>
+    <h1 data-slot="menu.title" data-en="Breakfast the old way." data-zh="老派早餐。">Breakfast the old way.</h1>
+    <p data-slot="menu.lead" data-en="Placeholder lead — kopi, toast, eggs and a few kitchen classics. Prices kept honest." data-zh="占位引言——咖啡、烤面包、鸡蛋，以及几道厨房经典。价格实在。">Placeholder lead — kopi, toast, eggs and a few kitchen classics. Prices kept honest.</p>
+  </section>
+
+  <section class="wrap menu-sec">
+    <p class="kick" data-slot="menu.s1.kick" data-en="Toast & eggs" data-zh="烤面包与鸡蛋">Toast &amp; eggs</p>
+    <h2 data-slot="menu.s1.head" data-en="The morning set" data-zh="早餐套餐">The morning set</h2>
+    <div class="menu-grid" data-slot="menu.s1.items" data-min="4" data-max="6">
+      <div class="item"><div class="top"><h3 data-slot="menu.0.name" data-en="Item name" data-zh="菜名">Item name</h3><span class="price" data-slot="menu.0.price" data-en="$3.20" data-zh="$3.20">$3.20</span></div><p data-slot="menu.0.desc" data-en="Short description of the dish." data-zh="菜品的简短描述。">Short description of the dish.</p><span class="tag" data-slot="menu.0.tag" data-en="Signature" data-zh="招牌">Signature</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.1.name" data-en="Item name" data-zh="菜名">Item name</h3><span class="price" data-slot="menu.1.price" data-en="$2.80" data-zh="$2.80">$2.80</span></div><p data-slot="menu.1.desc" data-en="Short description of the dish." data-zh="菜品的简短描述。">Short description of the dish.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.2.name" data-en="Item name" data-zh="菜名">Item name</h3><span class="price" data-slot="menu.2.price" data-en="$2.20" data-zh="$2.20">$2.20</span></div><p data-slot="menu.2.desc" data-en="Short description of the dish." data-zh="菜品的简短描述。">Short description of the dish.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.3.name" data-en="Item name" data-zh="菜名">Item name</h3><span class="price" data-slot="menu.3.price" data-en="$4.50" data-zh="$4.50">$4.50</span></div><p data-slot="menu.3.desc" data-en="Short description of the dish." data-zh="菜品的简短描述。">Short description of the dish.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap menu-sec">
+    <p class="kick" data-slot="menu.s2.kick" data-en="From the cup" data-zh="杯中之物">From the cup</p>
+    <h2 data-slot="menu.s2.head" data-en="Kopi & tea" data-zh="咖啡与茶">Kopi &amp; tea</h2>
+    <div class="menu-grid" data-slot="menu.s2.items" data-min="2" data-max="6">
+      <div class="item"><div class="top"><h3 data-slot="menu.4.name" data-en="Drink name" data-zh="饮品名">Drink name</h3><span class="price" data-slot="menu.4.price" data-en="$1.40" data-zh="$1.40">$1.40</span></div><p data-slot="menu.4.desc" data-en="Sock-brewed, the way it's always been." data-zh="布袋滤泡，一如往昔。">Sock-brewed, the way it's always been.</p><span class="tag" data-slot="menu.4.tag" data-en="House classic" data-zh="本店经典">House classic</span></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.5.name" data-en="Drink name" data-zh="饮品名">Drink name</h3><span class="price" data-slot="menu.5.price" data-en="$1.60" data-zh="$1.60">$1.60</span></div><p data-slot="menu.5.desc" data-en="Short description of the drink." data-zh="饮品的简短描述。">Short description of the drink.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap cols rev">
+    <div class="pic"><img src="https://picsum.photos/seed/hengkee-menu/700/560" data-slot="menu.image" data-en-alt="The toast counter" data-zh-alt="烤面包柜台" alt="The toast counter" /></div>
+    <div>
+      <h2 data-slot="menu.note.head" data-en="Good to know" data-zh="温馨提示">Good to know</h2>
+      <p data-slot="menu.note.body" data-en="Placeholder — order at the counter, cash preferred, takeaway available. Mention any sold-out-by-noon favourites." data-zh="占位文字——柜台点单，建议付现，可外带。可说明哪些招牌中午前就会售罄。">Placeholder — order at the counter, cash preferred, takeaway available. Mention any sold-out-by-noon favourites.</p>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Best had in the morning." data-zh="清晨享用最佳。">Best had in the morning.</h2>
+    <p data-slot="cta.sub" data-en="We open early and sell out fast — come before the toast runs out." data-zh="我们一早开门，常常很快售罄——趁烤面包还在快来。">We open early and sell out fast — come before the toast runs out.</p>
+    <a class="btn" href="contact.html" data-slot="cta.button" data-en="Plan your visit" data-zh="规划到访">Plan your visit</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Heng Kee Kopitiam" data-zh="兴记茶室">Heng Kee Kopitiam</span>
+    <span data-slot="footer.addr" data-en="Tiong Bahru, Singapore" data-zh="新加坡中峇鲁">Tiong Bahru, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

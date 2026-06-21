@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Centre Name — wellness centre" data-zh="中心名称 — 健康中心">Centre Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Centre Name" data-zh="中心名称">Centre Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" aria-current="page" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Services" data-zh="服务">Services</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap grid12">
+      <h1 data-slot="hero.headline" data-en="Precise, calm wellness care" data-zh="精准而从容的健康照护">Precise, calm wellness care</h1>
+      <div class="meta" data-slot="hero.meta" data-en="Wellness centre / Singapore / Since 2016" data-zh="健康中心 / 新加坡 / 始于2016">Wellness centre / Singapore / Since 2016</div>
+      <p data-slot="hero.sub" data-en="A methodical approach to physiotherapy, recovery and preventive health — clear plans, measured progress." data-zh="对物理治疗、康复与预防保健的系统化方法——方案清晰，进展可量。">Placeholder sub.</p>
+      <div class="cta">
+        <a href="contact.html" class="btn" data-slot="hero.cta" data-en="Book an assessment" data-zh="预约评估">Book an assessment</a>
+        <a href="treatments.html" class="btn" style="background:var(--brand)" data-slot="hero.link" data-en="View services" data-zh="查看服务">View services</a>
+      </div>
+    </div>
+    <div class="wrap hero-img"><img src="https://picsum.photos/seed/wellswiss-hero/1500/640" data-slot="hero.image" data-en-alt="Wellness centre studio" data-zh-alt="健康中心场地" alt="Wellness centre studio"></div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap grid12">
+      <div class="item"><b data-slot="trust.0.stat" data-en="9k+" data-zh="9千+">9k+</b><span data-slot="trust.0.label" data-en="clients treated" data-zh="服务客户">clients treated</span></div>
+      <div class="item"><b data-slot="trust.1.stat" data-en="8" data-zh="8">8</b><span data-slot="trust.1.label" data-en="certified specialists" data-zh="认证专家">certified specialists</span></div>
+      <div class="item"><b data-slot="trust.2.stat" data-en="4.9" data-zh="4.9">4.9</b><span data-slot="trust.2.label" data-en="average rating" data-zh="平均评分">average rating</span></div>
+      <div class="item"><b data-slot="trust.3.stat" data-en="10y" data-zh="10年">10y</b><span data-slot="trust.3.label" data-en="of practice" data-zh="临床经验">of practice</span></div>
+    </div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap grid12 lead-row">
+      <div class="label"><span class="eyebrow" data-slot="home.lead.eyebrow" data-en="Overview" data-zh="概览">Overview</span></div>
+      <div class="body">
+        <h2 data-slot="home.lead.headline" data-en="Method over guesswork" data-zh="以方法取代猜测">Method over guesswork</h2>
+        <p data-slot="home.lead.body" data-en="Placeholder paragraph describing the centre's systematic, evidence-led approach in two clear sentences." data-zh="描述中心系统化、循证理念的占位文字，两句清晰表述。">Placeholder.</p>
+      </div>
+    </div>
+    <div class="wrap imgband"><img src="https://picsum.photos/seed/wellswiss-band/1500/500" data-slot="home.band.image" data-en-alt="Treatment in progress" data-zh-alt="治疗进行中" alt="Treatment in progress"></div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap grid12">
+      <h2 data-slot="home.cta.headline" data-en="Start with an assessment" data-zh="从一次评估开始">Start with an assessment</h2>
+      <div class="a"><a href="contact.html" class="btn" data-slot="home.cta.button" data-en="Book now" data-zh="立即预约">Book now</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Centre Name. All rights reserved." data-zh="© 中心名称。版权所有。">© Centre Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

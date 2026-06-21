@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="The Larder — Contact" data-zh="食房 — 联系">The Larder — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="The Larder" data-zh="食房">The Larder</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" aria-current="page" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="contact.kick" data-en="Visit" data-zh="到访">Visit</p>
+    <h1 data-slot="contact.title" data-en="We'd love to have you." data-zh="期待您的到来。">We'd love to have you.</h1>
+    <p data-slot="contact.lead" data-en="Placeholder — reservation note, walk-in policy, or private dining line." data-zh="占位文字——预订须知、散客政策或私人宴会联系方式。">Placeholder — reservation note, walk-in policy, or private dining line.</p>
+  </section>
+
+  <section class="wrap contact">
+    <div>
+      <h2 data-slot="contact.h2" data-en="Find us" data-zh="联系我们">Find us</h2>
+      <dl>
+        <dt data-slot="contact.addr.l" data-en="Address" data-zh="地址">Address</dt><dd data-slot="contact.addr" data-en="12 Duxton Hill, Singapore" data-zh="新加坡达士敦山12号">12 Duxton Hill, Singapore</dd>
+        <dt data-slot="contact.phone.l" data-en="Phone" data-zh="电话">Phone</dt><dd data-slot="contact.phone" data-en="+65 6456 7890" data-zh="+65 6456 7890">+65 6456 7890</dd>
+        <dt data-slot="contact.email.l" data-en="Email" data-zh="邮箱">Email</dt><dd data-slot="contact.email" data-en="reserve@example.sg" data-zh="reserve@example.sg">reserve@example.sg</dd>
+        <dt data-slot="contact.hours.l" data-en="Hours" data-zh="营业">Hours</dt><dd data-slot="contact.hours" data-en="Wed–Sun, 18:00–23:00" data-zh="周三至周日 18:00–23:00">Wed–Sun, 18:00–23:00</dd>
+      </dl>
+    </div>
+    <div class="map" role="img" aria-label="Map placeholder" data-slot="contact.map"></div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="The Larder" data-zh="食房">The Larder</span>
+    <span data-slot="footer.addr" data-en="Duxton Hill, Singapore" data-zh="新加坡达士敦山">Duxton Hill, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

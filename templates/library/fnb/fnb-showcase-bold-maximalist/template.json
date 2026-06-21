@@ -1,0 +1,11 @@
+{
+  "id": "fnb-showcase-bold-maximalist",
+  "industry": "fnb",
+  "kind": "showcase",
+  "aesthetic": "bold-maximalist",
+  "fonts": { "display": "Anton", "text": "DM Sans" },
+  "tokens": { "ink": "#161310", "bg": "#fff3df", "surface": "#ff5a36", "brand": "#11804f", "accent": "#ffd23f" },
+  "sections": ["hero", "marquee", "gallery", "feature", "menu", "social", "cta", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

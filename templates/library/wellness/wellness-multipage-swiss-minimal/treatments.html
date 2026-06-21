@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Services — Centre Name" data-zh="服务 — 中心名称">Services — Centre Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Centre Name" data-zh="中心名称">Centre Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" aria-current="page" data-slot="nav.treatments" data-en="Services" data-zh="服务">Services</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap grid12">
+      <h1 data-slot="treat.headline" data-en="Services, priced plainly" data-zh="服务，明码标价">Services, priced plainly</h1>
+      <div class="meta" data-slot="treat.meta" data-en="Services / Rate card" data-zh="服务 / 价目表">Services / Rate card</div>
+      <p data-slot="treat.sub" data-en="Each service begins with an assessment so the plan fits you, not a template." data-zh="每项服务皆以评估开始，让方案契合您本人，而非套用模板。">Placeholder sub.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap tlist" data-slot="treatments" data-min="4" data-max="6">
+      <div class="tr"><span class="num">01</span><h3 data-slot="treatment.0.name" data-en="Physiotherapy" data-zh="物理治疗">Physiotherapy</h3><p data-slot="treatment.0.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.0.price" data-en="from $90" data-zh="$90 起">from $90</span></div>
+      <div class="tr"><span class="num">02</span><h3 data-slot="treatment.1.name" data-en="Sports recovery" data-zh="运动康复">Sports recovery</h3><p data-slot="treatment.1.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.1.price" data-en="from $110" data-zh="$110 起">from $110</span></div>
+      <div class="tr"><span class="num">03</span><h3 data-slot="treatment.2.name" data-en="Posture &amp; mobility" data-zh="体态与活动度">Posture &amp; mobility</h3><p data-slot="treatment.2.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.2.price" data-en="from $80" data-zh="$80 起">from $80</span></div>
+      <div class="tr"><span class="num">04</span><h3 data-slot="treatment.3.name" data-en="Preventive screening" data-zh="预防性筛查">Preventive screening</h3><p data-slot="treatment.3.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.3.price" data-en="from $70" data-zh="$70 起">from $70</span></div>
+      <div class="tr"><span class="num">05</span><h3 data-slot="treatment.4.name" data-en="Rehab programmes" data-zh="康复计划">Rehab programmes</h3><p data-slot="treatment.4.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.4.price" data-en="from $140" data-zh="$140 起">from $140</span></div>
+      <div class="tr"><span class="num">06</span><h3 data-slot="treatment.5.name" data-en="Wellness consults" data-zh="健康咨询">Wellness consults</h3><p data-slot="treatment.5.desc" data-en="Placeholder line describing this service in one measured sentence." data-zh="一句平实的服务说明占位文字。">Placeholder.</p><span class="price" data-slot="treatment.5.price" data-en="from $60" data-zh="$60 起">from $60</span></div>
+    </div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap grid12 lead-row">
+      <div class="label"><span class="eyebrow" data-slot="treat.note.eyebrow" data-en="Good to know" data-zh="温馨提示">Good to know</span></div>
+      <div class="body">
+        <h2 data-slot="treat.note.headline" data-en="How a plan works" data-zh="方案如何运作">How a plan works</h2>
+        <p data-slot="treat.note.body" data-en="Placeholder paragraph explaining assessment, plan, and review in two clear sentences." data-zh="以两句清晰文字说明评估、方案与复核的占位段落。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap grid12">
+      <h2 data-slot="treat.cta.headline" data-en="Not sure where to start?" data-zh="不确定从何开始？">Not sure where to start?</h2>
+      <div class="a"><a href="contact.html" class="btn" data-slot="treat.cta.button" data-en="Book an assessment" data-zh="预约评估">Book an assessment</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Centre Name. All rights reserved." data-zh="© 中心名称。版权所有。">© Centre Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

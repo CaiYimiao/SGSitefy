@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Heng Kee Kopitiam — Our story" data-zh="兴记茶室 — 本店故事">Heng Kee Kopitiam — Our story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand" data-slot="brand.name" data-rich data-en="Heng Kee <small>Est. 1968</small>" data-zh="兴记 <small>始于1968</small>">Heng Kee <small>Est. 1968</small></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="Our story" data-zh="本店故事">Our story</a></li>
+        <li><a href="menu.html" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap phead">
+    <p class="kick" data-slot="about.kick" data-en="Our story" data-zh="本店故事">Our story</p>
+    <h1 data-slot="about.title" data-en="A coffeeshop the family never let go." data-zh="一家家族始终不舍放手的茶室。">A coffeeshop the family never let go.</h1>
+    <p data-slot="about.lead" data-en="Placeholder lead — one sentence on what has kept the doors open across three generations." data-zh="占位引言——一句话讲述是什么让这家店三代不歇。">Placeholder lead — one sentence on what has kept the doors open across three generations.</p>
+  </section>
+
+  <section class="wrap cols">
+    <div class="pic"><img src="https://picsum.photos/seed/hengkee-about1/700/560" data-slot="about.image" data-en-alt="The founder behind the counter" data-zh-alt="柜台后的创始人" alt="The founder behind the counter" /></div>
+    <div>
+      <h2 data-slot="about.h2" data-en="How it started" data-zh="如何开始">How it started</h2>
+      <p data-slot="about.body" data-en="Placeholder — the founding story, the original stall, the move to this shophouse. Keep claims grounded in the real profile." data-zh="占位文字——创立故事、最初的小摊、迁入这间店屋的经过。所有内容须基于真实资料。">Placeholder — the founding story, the original stall, the move to this shophouse. Keep claims grounded in the real profile.</p>
+      <p data-slot="about.body2" data-en="Placeholder — a second paragraph on the hand-down of the recipe and the people in the kitchen today." data-zh="占位文字——第二段，讲述配方的代代相传，以及如今厨房里的人。">Placeholder — a second paragraph on the hand-down of the recipe and the people in the kitchen today.</p>
+    </div>
+  </section>
+
+  <section class="wrap cols rev">
+    <div class="pic"><img src="https://picsum.photos/seed/hengkee-about2/700/560" data-slot="about.image2" data-en-alt="Charcoal toasting the bread" data-zh-alt="炭火烘烤面包" alt="Charcoal toasting the bread" /></div>
+    <div>
+      <h2 data-slot="about.h3" data-en="The same, on purpose" data-zh="刻意地一成不变">The same, on purpose</h2>
+      <p data-slot="about.body3" data-en="Placeholder — why nothing changes: charcoal toast, sock-brewed kopi, kaya made fresh each morning. Sincere and specific." data-zh="占位文字——为何坚持不变：炭火烤面包、布袋滤泡咖啡、每早现做咖椰。真诚而具体。">Placeholder — why nothing changes: charcoal toast, sock-brewed kopi, kaya made fresh each morning. Sincere and specific.</p>
+    </div>
+  </section>
+
+  <section class="social">
+    <div class="wrap">
+      <h2 data-slot="social.headline" data-en="In the regulars' words" data-zh="熟客有话说">In the regulars' words</h2>
+      <div class="quotes">
+        <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.0.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+        <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.1.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+        <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><span data-slot="social.2.name" data-en="— Regular" data-zh="— 熟客">— Regular</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <h2 data-slot="cta.headline" data-en="Taste a bit of history." data-zh="品一口历史。">Taste a bit of history.</h2>
+    <p data-slot="cta.sub" data-en="The menu hasn't moved far in fifty years — see what's on it." data-zh="五十年来菜单变化不大——看看都有什么。">The menu hasn't moved far in fifty years — see what's on it.</p>
+    <a class="btn" href="menu.html" data-slot="cta.button" data-en="Browse the menu" data-zh="浏览菜单">Browse the menu</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Heng Kee Kopitiam" data-zh="兴记茶室">Heng Kee Kopitiam</span>
+    <span data-slot="footer.addr" data-en="Tiong Bahru, Singapore" data-zh="新加坡中峇鲁">Tiong Bahru, Singapore</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

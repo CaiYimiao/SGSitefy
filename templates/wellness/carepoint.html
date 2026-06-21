@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CarePoint Family Clinic — Trusted GP &amp; Family Healthcare, Ang Mo Kio Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --primary:#7f1d1d; --primary-d:#641414; --primary-l:#a13030;
+  --peach:#fed7aa; --peach-d:#fdba74; --bg:#fffbeb; --bg-2:#fef3da;
+  --ink:#2a1410; --muted:#7a5d52; --line:#f1e4cf; --white:#fff; --green:#15803d;
+  --maxw:1180px; --shadow:0 20px 50px rgba(127,29,29,.13); --shadow-sm:0 8px 24px rgba(127,29,29,.07);
+  --fh:'Archivo',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:74px}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.65}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:800;line-height:1.14;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:10px;padding:14px 28px;font-family:var(--fb);font-weight:600;font-size:.9rem;letter-spacing:.2px;cursor:pointer;transition:.25s}
+.btn-pri{background:var(--primary);color:#fff}.btn-pri:hover{background:var(--primary-d);transform:translateY(-2px);box-shadow:0 12px 26px rgba(127,29,29,.3)}
+.btn-peach{background:var(--peach);color:var(--primary-d)}.btn-peach:hover{background:var(--peach-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.65);color:#fff}.btn-ghost:hover{background:#fff;color:var(--primary)}
+.btn-outline{background:transparent;border:1.5px solid var(--primary);color:var(--primary)}.btn-outline:hover{background:var(--primary);color:#fff}
+.eyebrow{font-family:var(--fb);text-transform:uppercase;letter-spacing:3px;color:var(--primary-l);font-weight:600;font-size:.72rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--peach-d)}
+.sec{padding:84px 0}.sec h2{font-size:2.5rem;color:var(--ink)}
+.lead{color:var(--muted);margin-top:14px;max-width:660px;font-size:1.02rem;line-height:1.8}
+.center{text-align:center}.center .eyebrow{justify-content:center}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s,transform .75s}.reveal.in{opacity:1;transform:none}
+
+/* ── topbar ── */
+.topbar{background:var(--primary-d);color:#f6d9c2;font-size:.8rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;flex-wrap:wrap;gap:6px}
+.topbar a{color:#f6d9c2;margin-right:16px}.topbar a:hover{color:#fff}
+.topbar .ic{color:var(--peach);margin-right:4px}
+
+/* ── header ── */
+.header{position:sticky;top:0;z-index:90;background:#fff;box-shadow:0 2px 16px rgba(127,29,29,.07)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mk{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-l));color:#fff;display:grid;place-items:center;font-family:var(--fh);font-weight:900;font-size:1.35rem}
+.brand b{font-family:var(--fh);color:var(--primary);font-size:1.14rem;font-weight:900;display:block;line-height:1.05}
+.brand small{font-size:.58rem;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>a{font-family:var(--fb);font-weight:500;font-size:.86rem;letter-spacing:.2px;color:var(--ink);padding:10px 14px;border-radius:8px;transition:.2s}
+.nav>a:hover{background:var(--bg-2);color:var(--primary)}
+.lang{border:1.5px solid var(--primary);background:#fff;color:var(--primary);font-family:var(--fb);font-weight:600;font-size:.74rem;padding:7px 13px;border-radius:8px;cursor:pointer;margin-left:10px;transition:.2s}
+.lang:hover{background:var(--primary);color:#fff}
+.nav-book{background:var(--primary);color:#fff;margin-left:8px;border-radius:10px;padding:11px 20px;font-size:.84rem;font-weight:600;border:none;cursor:pointer;transition:.25s}
+.nav-book:hover{background:var(--primary-d);transform:translateY(-1px)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--primary);cursor:pointer}
+
+/* ── hero ── */
+.hero{background:linear-gradient(135deg,#fff 0%,var(--bg-2) 100%);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding-top:64px;padding-bottom:64px}
+.hero h1{font-size:3.3rem;color:var(--primary);line-height:1.08}
+.hero .sub{color:var(--muted);margin:20px 0 28px;font-size:1.08rem;max-width:520px;line-height:1.8}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-hours{margin-top:30px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:12px;padding:18px 22px;box-shadow:var(--shadow-sm);max-width:480px}
+.hero-hours .hl{font-family:var(--fh);font-weight:800;color:var(--primary);font-size:.82rem;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-hours .row{display:flex;justify-content:space-between;font-size:.9rem;padding:4px 0;color:var(--ink)}
+.hero-hours .row span:first-child{color:var(--muted)}
+.hero-hours .open{color:var(--green);font-weight:600;font-family:var(--fh)}
+.hero-img{position:relative}
+.hero-img img{width:100%;height:480px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}
+.hero-img .chip{position:absolute;left:-14px;bottom:32px;background:#fff;border-radius:14px;padding:14px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;border:1px solid var(--line)}
+.hero-img .chip .ic{width:42px;height:42px;border-radius:50%;background:var(--peach);color:var(--primary-d);display:grid;place-items:center;font-size:1.2rem}
+.hero-img .chip b{font-family:var(--fh);font-size:1.2rem;color:var(--primary);display:block;line-height:1}
+.hero-img .chip small{font-size:.74rem;color:var(--muted)}
+
+/* ── quick info bar ── */
+.qbar{background:var(--primary);color:#fff}
+.qbar .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.qbar .it{padding:22px 18px;display:flex;align-items:center;gap:14px;justify-content:center;border-right:1px solid rgba(255,255,255,.15)}
+.qbar .it:last-child{border:none}
+.qbar .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.14);color:var(--peach);display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+.qbar b{font-family:var(--fh);font-weight:800;font-size:1rem;display:block}
+.qbar small{font-size:.78rem;color:#f6d9c2}
+
+/* ── about ── */
+.about .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center}
+.about img{width:100%;height:440px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
+.about ul{list-style:none;margin:22px 0 0}
+.about li{padding-left:30px;position:relative;margin-bottom:12px;color:var(--muted)}
+.about li::before{content:"✚";position:absolute;left:0;color:var(--primary-l);font-weight:700;top:1px}
+.stat-row{display:flex;gap:34px;margin-top:26px;flex-wrap:wrap}
+.stat-row .s b{font-family:var(--fh);font-size:2rem;color:var(--primary);display:block;line-height:1}
+.stat-row .s small{font-size:.8rem;color:var(--muted)}
+
+/* ── services ── */
+.services{background:var(--bg-2)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:.3s;border-top:4px solid var(--peach-d)}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-top-color:var(--primary)}
+.svc .ico{width:56px;height:56px;border-radius:14px;background:var(--peach);color:var(--primary-d);display:grid;place-items:center;font-size:1.5rem;margin-bottom:16px}
+.svc h4{font-size:1.22rem;color:var(--ink);margin-bottom:8px}
+.svc p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* ── doctors ── */
+.docs .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:42px}
+.doc{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
+.doc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.doc .img{height:300px;overflow:hidden}
+.doc .img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.doc:hover .img img{transform:scale(1.05)}
+.doc .body{padding:24px 24px 28px}
+.doc h4{font-size:1.3rem;color:var(--ink);margin-bottom:4px}
+.doc .role{font-size:.78rem;color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.doc p{font-size:.88rem;color:var(--muted);line-height:1.65}
+.doc .quals{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.doc .quals span{background:var(--bg-2);color:var(--primary);font-size:.7rem;padding:4px 10px;border-radius:8px;font-weight:600}
+
+/* ── why families ── */
+.why{background:var(--bg-2)}
+.why .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:42px}
+.why .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start;transition:.3s}
+.why .card:hover{box-shadow:var(--shadow-sm);transform:translateX(4px)}
+.why .ico{width:50px;height:50px;border-radius:12px;background:var(--peach);color:var(--primary-d);display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+.why .card h4{font-size:1.12rem;color:var(--ink);margin-bottom:6px}
+.why .card p{font-size:.88rem;color:var(--muted);line-height:1.65}
+
+/* ── gallery ── */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+.gal-grid a{border-radius:14px;overflow:hidden;display:block;height:240px}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.gal-grid a:hover img{transform:scale(1.07)}
+
+/* ── location / hours ── */
+.visit{background:#fff}
+.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);margin-top:42px}
+.visit-info{background:var(--primary);color:#fff;padding:44px 40px}
+.visit-info h3{color:#fff;font-size:1.5rem;margin-bottom:18px}
+.clist{list-style:none}
+.clist li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#f6d9c2;font-size:.94rem;align-items:flex-start}
+.clist li:last-child{border:none}
+.clist .ic{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.14);color:var(--peach);display:grid;place-items:center;flex-shrink:0;font-size:1rem}
+.clist b{color:#fff;display:block;font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.5px}
+.clist a{color:#f6d9c2}.clist a:hover{color:#fff}
+.hours-wrap{padding:44px 40px;background:#fff}
+.hours-wrap h3{color:var(--primary);font-size:1.5rem;margin-bottom:8px}
+.hours-wrap p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid var(--line)}
+.hours-table tr.now{background:var(--bg-2)}
+.hours-table td{padding:13px 8px;font-size:.92rem}
+.hours-table td:first-child{color:var(--ink);font-weight:600}
+.hours-table td:nth-child(2){text-align:right;color:var(--muted)}
+.hours-table .badge{display:inline-block;background:#dcfce7;color:var(--green);font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px}
+.hours-table .closed{color:#b91c1c;font-weight:600}
+.hours-note{margin-top:16px;font-size:.84rem;color:var(--muted);background:var(--bg);border-radius:10px;padding:12px 16px;border-left:4px solid var(--peach-d)}
+
+/* ── contact CTA ── */
+.cta{background:linear-gradient(135deg,var(--primary-d),var(--primary));text-align:center;padding:66px 0}
+.cta h2{color:#fff;font-size:2.2rem}.cta p{color:#f6d9c2;margin:12px auto 24px;font-size:1.02rem;max-width:560px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── footer ── */
+.foot{background:#2a1410;color:#c9a99b}
+.foot .grid{display:grid;grid-template-columns:1.7fr 1fr 1.3fr;gap:40px;padding:58px 0 38px}
+.foot h4{color:#fff;font-family:var(--fh);font-size:1.05rem;margin-bottom:18px;font-weight:800}
+.foot .cn{color:var(--peach);letter-spacing:1px;margin:12px 0 10px;font-family:var(--fh);font-weight:700}
+.foot a{display:block;color:#c9a99b;padding:5px 0;font-size:.9rem}.foot a:hover{color:var(--peach)}
+.foot p{font-size:.9rem;margin-bottom:8px;color:#c9a99b}
+.foot .soc{display:flex;gap:9px;margin:16px 0}
+.foot .soc a{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;color:#e0c4b6;font-size:.85rem}
+.foot .soc a:hover{background:var(--primary-l);color:#fff}
+.foot .badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.foot .badges span{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:5px 10px;font-size:.68rem;color:#e0c4b6}
+.foot .bar{border-top:1px solid rgba(255,255,255,.1)}
+.foot .bar .wrap{display:flex;justify-content:space-between;padding:18px 24px;font-size:.78rem;color:#9c7666;flex-wrap:wrap;gap:8px}
+
+/* ── floating ── */
+.fab{position:fixed;right:22px;z-index:80;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.22);cursor:pointer;border:none;color:#fff;transition:.25s}
+.fab:hover{transform:scale(1.08)}
+.fab-call{bottom:88px;background:var(--primary);font-size:1.4rem}
+.fab-top{bottom:22px;background:var(--primary-l);font-size:1.3rem;opacity:0;pointer-events:none}.fab-top.show{opacity:1;pointer-events:auto}
+
+/* ── responsive ── */
+@media(max-width:960px){
+  .nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:12px 16px;box-shadow:var(--shadow)}
+  .nav.open{display:flex}.burger{display:block}
+  .hero .wrap,.about .grid,.visit-grid{grid-template-columns:1fr;gap:34px}
+  .svc-grid,.docs .grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .qbar .grid{grid-template-columns:1fr}
+  .qbar .it{border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:2.5rem}
+}
+@media(max-width:600px){
+  .sec{padding:60px 0}.sec h2{font-size:1.9rem}
+  .svc-grid,.docs .grid,.why .grid,.gal-grid{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.1rem}
+  .foot .bar .wrap{flex-direction:column;text-align:center}
+  .hero-img .chip{left:8px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6564527000"><span class="ic">✆</span> <span data-en="Call:" data-zh="电话：">Call:</span> +65 6452 7000</a>
+    <a href="mailto:clinic@carepoint.sg"><span class="ic">✉</span> clinic@carepoint.sg</a>
+  </div>
+  <div><span data-en="Walk-ins welcome · CHAS &amp; Medisave accredited" data-zh="欢迎即到即诊 · CHAS与保健储蓄认证">Walk-ins welcome · CHAS &amp; Medisave accredited</span></div>
+</div></div>
+
+<!-- header -->
+<header class="header"><div class="wrap">
+  <a href="#top" class="brand">
+    <span class="mk">✚</span>
+    <span><b>CAREPOINT</b><small data-en="Family Clinic" data-zh="家庭诊所">Family Clinic</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about" data-en="About" data-zh="关于诊所">About</a>
+    <a href="#services" data-en="Services" data-zh="医疗服务">Services</a>
+    <a href="#doctors" data-en="Our Doctors" data-zh="医生团队">Our Doctors</a>
+    <a href="#why" data-en="Why Us" data-zh="为何选择">Why Us</a>
+    <a href="#visit" data-en="Location &amp; Hours" data-zh="地点与时间">Location &amp; Hours</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="tel:+6564527000" class="nav-book" data-en="Call Clinic" data-zh="致电诊所">Call Clinic</a>
+  </nav>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<!-- hero -->
+<section class="hero" id="top"><div class="wrap">
+  <div class="reveal">
+    <p class="eyebrow" data-en="Ang Mo Kio · Caring for families since 2012" data-zh="宏茂桥 · 自2012年守护家庭">Ang Mo Kio · Caring for families since 2012</p>
+    <h1 data-en="Trusted family healthcare, close to home" data-zh="值得信赖的家庭医疗，就在身边">Trusted family healthcare, close to home</h1>
+    <p class="sub" data-en="A warm neighbourhood GP clinic in Ang Mo Kio caring for every generation — from your child's first check-up to managing grandpa's chronic conditions. CHAS, Medisave and walk-ins welcome." data-zh="位于宏茂桥的温馨社区全科诊所，守护每一代人——从孩子的第一次体检到爷爷的慢性病管理。接受CHAS、保健储蓄，欢迎即到即诊。">A warm neighbourhood GP clinic in Ang Mo Kio caring for every generation — from your child's first check-up to managing grandpa's chronic conditions. CHAS, Medisave and walk-ins welcome.</p>
+    <div class="hero-cta">
+      <a href="tel:+6564527000" class="btn btn-pri" data-en="Call to Visit" data-zh="致电就诊">Call to Visit</a>
+      <a href="#services" class="btn btn-outline" data-en="Our Services" data-zh="医疗服务">Our Services</a>
+    </div>
+    <div class="hero-hours">
+      <div class="hl">🕐 <span data-en="Open Today" data-zh="今日营业">Open Today</span> <span class="open">· <span data-en="Now Open" data-zh="正在营业">Now Open</span></span></div>
+      <div class="row"><span data-en="Mon – Fri" data-zh="周一至周五">Mon – Fri</span><span>8:30am – 9:00pm</span></div>
+      <div class="row"><span data-en="Sat, Sun &amp; PH" data-zh="周六、周日及公假">Sat, Sun &amp; PH</span><span>8:30am – 1:00pm</span></div>
+    </div>
+  </div>
+  <div class="hero-img reveal">
+    <img src="https://picsum.photos/seed/carepoint-clinic-hero/900/720" alt="Friendly doctor with a family at the clinic">
+    <div class="chip"><span class="ic">♥</span><span><b>30,000+</b><small data-en="Patients cared for" data-zh="名患者获得照护">Patients cared for</small></span></div>
+  </div>
+</div></section>
+
+<!-- quick info bar -->
+<section class="qbar"><div class="wrap"><div class="grid">
+  <div class="it"><span class="ico">⛨</span><span><b data-en="CHAS Accredited" data-zh="CHAS认证">CHAS Accredited</b><small data-en="Blue, Orange &amp; Pioneer cards" data-zh="蓝卡、橙卡及建国一代卡">Blue, Orange &amp; Pioneer cards</small></span></div>
+  <div class="it"><span class="ico">$</span><span><b data-en="Medisave Claimable" data-zh="可用保健储蓄">Medisave Claimable</b><small data-en="For eligible treatments" data-zh="适用于符合条件的疗程">For eligible treatments</small></span></div>
+  <div class="it"><span class="ico">⏱</span><span><b data-en="Walk-Ins Welcome" data-zh="欢迎即到即诊">Walk-Ins Welcome</b><small data-en="No appointment needed" data-zh="无需预约">No appointment needed</small></span></div>
+</div></div></section>
+
+<!-- about -->
+<section class="sec about" id="about"><div class="wrap"><div class="grid">
+  <div class="reveal"><img src="https://picsum.photos/seed/carepoint-reception/900/700" alt="CarePoint clinic reception"></div>
+  <div class="reveal">
+    <p class="eyebrow" data-en="About the Clinic" data-zh="关于诊所">About the Clinic</p>
+    <h2 data-en="A clinic that feels like family" data-zh="如家人般的诊所">A clinic that feels like family</h2>
+    <p class="lead" data-en="Since 2012, CarePoint Family Clinic has been a familiar face in the Ang Mo Kio heartland. Our doctors take the time to listen, explain clearly and treat you the way they'd treat their own family — practical, affordable, no rushing. Three generations of neighbours have trusted us with their everyday health." data-zh="自2012年起，关怀家庭诊所一直是宏茂桥组屋区熟悉的面孔。我们的医生用心倾听、清楚解释，像对待自己家人一样照护您——实在、实惠、不催赶。三代街坊都把日常健康交托给我们。">Since 2012, CarePoint Family Clinic has been a familiar face in the Ang Mo Kio heartland. Our doctors take the time to listen, explain clearly and treat you the way they'd treat their own family — practical, affordable, no rushing. Three generations of neighbours have trusted us with their everyday health.</p>
+    <ul>
+      <li data-en="Care for all ages — infants to the elderly" data-zh="照护所有年龄——从婴儿到长者">Care for all ages — infants to the elderly</li>
+      <li data-en="Clear pricing, CHAS subsidies applied on the spot" data-zh="价格透明，当场扣除CHAS津贴">Clear pricing, CHAS subsidies applied on the spot</li>
+      <li data-en="Same-day appointments &amp; walk-ins" data-zh="当日预约及即到即诊">Same-day appointments &amp; walk-ins</li>
+    </ul>
+    <div class="stat-row">
+      <div class="s"><b>2012</b><small data-en="Established" data-zh="创立年份">Established</small></div>
+      <div class="s"><b>30,000+</b><small data-en="Patients" data-zh="名患者">Patients</small></div>
+      <div class="s"><b>3</b><small data-en="Resident doctors" data-zh="位驻诊医生">Resident doctors</small></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- services -->
+<section class="sec services" id="services"><div class="wrap center">
+  <p class="eyebrow" data-en="Our Services" data-zh="医疗服务">Our Services</p>
+  <h2 data-en="Everyday care, all under one roof" data-zh="日常医疗，一站到位">Everyday care, all under one roof</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="From the common cold to long-term condition management, our family doctors handle the health needs of your whole household." data-zh="从普通感冒到长期病管理，我们的家庭医生照顾全家人的健康需求。">From the common cold to long-term condition management, our family doctors handle the health needs of your whole household.</p>
+  <div class="svc-grid">
+    <div class="svc reveal"><div class="ico">🩺</div><h4 data-en="General Consultation" data-zh="一般诊症">General Consultation</h4><p data-en="Coughs, colds, fevers, infections and everyday ailments — seen promptly by a caring GP." data-zh="咳嗽、感冒、发烧、感染及日常小病——由贴心的全科医生迅速诊治。">Coughs, colds, fevers, infections and everyday ailments — seen promptly by a caring GP.</p></div>
+    <div class="svc reveal"><div class="ico">📋</div><h4 data-en="Health Screening" data-zh="健康检查">Health Screening</h4><p data-en="Comprehensive screening packages including blood tests, ECG and lifestyle assessments." data-zh="全面检查配套，包括血液检验、心电图及生活方式评估。">Comprehensive screening packages including blood tests, ECG and lifestyle assessments.</p></div>
+    <div class="svc reveal"><div class="ico">💉</div><h4 data-en="Vaccinations" data-zh="疫苗接种">Vaccinations</h4><p data-en="Childhood, travel and seasonal flu vaccinations for the whole family, all on schedule." data-zh="为全家提供儿童、旅行及季节性流感疫苗，按时接种。">Childhood, travel and seasonal flu vaccinations for the whole family, all on schedule.</p></div>
+    <div class="svc reveal"><div class="ico">❤</div><h4 data-en="Chronic Disease Management" data-zh="慢性病管理">Chronic Disease Management</h4><p data-en="Ongoing care for diabetes, hypertension and cholesterol under the CHAS Chronic scheme." data-zh="在CHAS慢性病计划下，持续管理糖尿病、高血压及胆固醇。">Ongoing care for diabetes, hypertension and cholesterol under the CHAS Chronic scheme.</p></div>
+    <div class="svc reveal"><div class="ico">✚</div><h4 data-en="Minor Procedures" data-zh="小型手术">Minor Procedures</h4><p data-en="Wound dressing, suturing, removal of cysts and other minor surgical procedures in-clinic." data-zh="伤口包扎、缝合、囊肿切除及其他诊所内小型手术。">Wound dressing, suturing, removal of cysts and other minor surgical procedures in-clinic.</p></div>
+    <div class="svc reveal"><div class="ico">🏠</div><h4 data-en="House Calls" data-zh="上门出诊">House Calls</h4><p data-en="Home visits for elderly and home-bound patients within the Ang Mo Kio area." data-zh="为宏茂桥区内的长者及行动不便患者提供上门出诊。">Home visits for elderly and home-bound patients within the Ang Mo Kio area.</p></div>
+  </div>
+</div></section>
+
+<!-- doctors -->
+<section class="sec docs" id="doctors"><div class="wrap center">
+  <p class="eyebrow" data-en="Meet the Team" data-zh="认识团队">Meet the Team</p>
+  <h2 data-en="Doctors who know your name" data-zh="记得您名字的医生">Doctors who know your name</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="Experienced family physicians who've cared for the Ang Mo Kio community for years." data-zh="经验丰富的家庭医生，多年来照护宏茂桥社区。">Experienced family physicians who've cared for the Ang Mo Kio community for years.</p>
+  <div class="grid">
+    <div class="doc reveal">
+      <div class="img"><img src="https://picsum.photos/seed/carepoint-drtan/600/600" alt="Dr Daniel Tan"></div>
+      <div class="body">
+        <h4>Dr Daniel Tan</h4>
+        <div class="role" data-en="Senior Family Physician" data-zh="资深家庭医生">Senior Family Physician</div>
+        <p data-en="Founder of CarePoint, Dr Tan has practised family medicine for over 20 years with a special interest in chronic disease care." data-zh="关怀诊所创办人陈医生，从事家庭医学逾20年，尤其专注慢性病护理。">Founder of CarePoint, Dr Tan has practised family medicine for over 20 years with a special interest in chronic disease care.</p>
+        <div class="quals"><span>MBBS</span><span>GDFM</span><span data-en="20+ yrs" data-zh="20+年经验">20+ yrs</span></div>
+      </div>
+    </div>
+    <div class="doc reveal">
+      <div class="img"><img src="https://picsum.photos/seed/carepoint-drlim/600/600" alt="Dr Rachel Lim"></div>
+      <div class="body">
+        <h4>Dr Rachel Lim</h4>
+        <div class="role" data-en="Family Physician · Paediatrics" data-zh="家庭医生 · 儿科">Family Physician · Paediatrics</div>
+        <p data-en="Dr Lim cares for our youngest patients with warmth and patience, from newborn checks to childhood vaccinations." data-zh="林医生以温暖与耐心照护我们最年幼的患者，从新生儿检查到儿童疫苗接种。">Dr Lim cares for our youngest patients with warmth and patience, from newborn checks to childhood vaccinations.</p>
+        <div class="quals"><span>MBBS</span><span>MMed (Paeds)</span><span data-en="12 yrs" data-zh="12年经验">12 yrs</span></div>
+      </div>
+    </div>
+    <div class="doc reveal">
+      <div class="img"><img src="https://picsum.photos/seed/carepoint-drwong/600/600" alt="Dr Marcus Wong"></div>
+      <div class="body">
+        <h4>Dr Marcus Wong</h4>
+        <div class="role" data-en="Family Physician · Minor Surgery" data-zh="家庭医生 · 小手术">Family Physician · Minor Surgery</div>
+        <p data-en="Dr Wong handles minor procedures and acute care, known for his steady hands and reassuring manner." data-zh="黄医生负责小型手术及急症护理，以沉稳的双手与令人安心的态度著称。">Dr Wong handles minor procedures and acute care, known for his steady hands and reassuring manner.</p>
+        <div class="quals"><span>MBBS</span><span>GDFM</span><span data-en="15 yrs" data-zh="15年经验">15 yrs</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- why families -->
+<section class="sec why" id="why"><div class="wrap center">
+  <p class="eyebrow" data-en="Why Families Choose Us" data-zh="家庭为何选择我们">Why Families Choose Us</p>
+  <h2 data-en="Care you can count on" data-zh="值得信赖的照护">Care you can count on</h2>
+  <div class="grid">
+    <div class="card reveal"><div class="ico">⏱</div><div><h4 data-en="Short Waiting Times" data-zh="候诊时间短">Short Waiting Times</h4><p data-en="Online queue updates and efficient front-desk flow mean less time in the waiting room." data-zh="在线排队更新与高效的前台流程，让您减少候诊时间。">Online queue updates and efficient front-desk flow mean less time in the waiting room.</p></div></div>
+    <div class="card reveal"><div class="ico">$</div><div><h4 data-en="Affordable &amp; Subsidised" data-zh="实惠且可获津贴">Affordable &amp; Subsidised</h4><p data-en="CHAS, Pioneer and Merdeka subsidies plus Medisave claims keep your bills manageable." data-zh="CHAS、建国一代及立国一代津贴，加上保健储蓄报销，减轻您的负担。">CHAS, Pioneer and Merdeka subsidies plus Medisave claims keep your bills manageable.</p></div></div>
+    <div class="card reveal"><div class="ico">👨‍👩‍👧</div><div><h4 data-en="Whole-Family Records" data-zh="全家病历">Whole-Family Records</h4><p data-en="One clinic that knows your family's full history — continuity of care across generations." data-zh="一间了解您全家完整病史的诊所——跨代延续的照护。">One clinic that knows your family's full history — continuity of care across generations.</p></div></div>
+    <div class="card reveal"><div class="ico">🗣</div><div><h4 data-en="We Speak Your Language" data-zh="我们说您的语言">We Speak Your Language</h4><p data-en="English, Mandarin, Malay and dialects — so every patient feels understood." data-zh="英语、华语、马来语及方言——让每位患者都感到被理解。">English, Mandarin, Malay and dialects — so every patient feels understood.</p></div></div>
+    <div class="card reveal"><div class="ico">📍</div><div><h4 data-en="Right in the Heartland" data-zh="就在组屋区">Right in the Heartland</h4><p data-en="Ground-floor location with barrier-free access, minutes from Ang Mo Kio MRT and bus interchange." data-zh="一楼无障碍通道，距宏茂桥地铁站及巴士转换站仅数分钟。">Ground-floor location with barrier-free access, minutes from Ang Mo Kio MRT and bus interchange.</p></div></div>
+    <div class="card reveal"><div class="ico">📞</div><div><h4 data-en="Easy to Reach" data-zh="联系便捷">Easy to Reach</h4><p data-en="Call ahead, walk in, or arrange a house call — getting seen is simple." data-zh="来电预约、即到即诊或安排上门出诊——就诊轻松简单。">Call ahead, walk in, or arrange a house call — getting seen is simple.</p></div></div>
+  </div>
+</div></section>
+
+<!-- gallery -->
+<section class="sec" style="background:#fff"><div class="wrap center">
+  <p class="eyebrow" data-en="Our Clinic" data-zh="我们的诊所">Our Clinic</p>
+  <h2 data-en="A bright, welcoming space" data-zh="明亮温馨的空间">A bright, welcoming space</h2>
+  <p class="lead" style="margin:14px auto 0;text-align:center" data-en="Clean, calm and family-friendly — designed to put everyone at ease." data-zh="整洁、宁静、亲子友善——让每个人都感到自在。">Clean, calm and family-friendly — designed to put everyone at ease.</p>
+  <div class="gal-grid reveal">
+    <a><img src="https://picsum.photos/seed/carepoint-gal1/600/480" alt="Clinic waiting area"></a>
+    <a><img src="https://picsum.photos/seed/carepoint-gal2/600/480" alt="Consultation room"></a>
+    <a><img src="https://picsum.photos/seed/carepoint-gal3/600/480" alt="Reception desk"></a>
+    <a><img src="https://picsum.photos/seed/carepoint-gal4/600/480" alt="Treatment room"></a>
+    <a><img src="https://picsum.photos/seed/carepoint-gal5/600/480" alt="Children's corner"></a>
+    <a><img src="https://picsum.photos/seed/carepoint-gal6/600/480" alt="Clinic entrance"></a>
+  </div>
+</div></section>
+
+<!-- location & hours -->
+<section class="sec visit" id="visit"><div class="wrap center">
+  <p class="eyebrow" data-en="Find Us" data-zh="找到我们">Find Us</p>
+  <h2 data-en="Location &amp; opening hours" data-zh="地点与营业时间">Location &amp; opening hours</h2>
+  <div class="visit-grid" style="text-align:left">
+    <div class="visit-info">
+      <h3 data-en="Visit the Clinic" data-zh="到访诊所">Visit the Clinic</h3>
+      <ul class="clist">
+        <li><span class="ic">📍</span><span><b data-en="Address" data-zh="地址">Address</b>Blk 712 Ang Mo Kio Ave 6, #01-4052, Singapore 560712</span></li>
+        <li><span class="ic">✆</span><span><b data-en="Phone" data-zh="电话">Phone</b><a href="tel:+6564527000">+65 6452 7000</a></span></li>
+        <li><span class="ic">✉</span><span><b data-en="Email" data-zh="电邮">Email</b><a href="mailto:clinic@carepoint.sg">clinic@carepoint.sg</a></span></li>
+        <li><span class="ic">🚇</span><span><b data-en="Getting Here" data-zh="交通">Getting Here</b><span data-en="5-min walk from Ang Mo Kio MRT (NS16)" data-zh="距宏茂桥地铁站（NS16）步行5分钟">5-min walk from Ang Mo Kio MRT (NS16)</span></span></li>
+        <li><span class="ic">⚐</span><span><b data-en="Company" data-zh="公司">Company</b>CarePoint Family Clinic Pte Ltd · UEN 201266778D</span></li>
+      </ul>
+    </div>
+    <div class="hours-wrap">
+      <h3 data-en="Opening Hours" data-zh="营业时间">Opening Hours</h3>
+      <p data-en="Open 7 days a week, including public holidays." data-zh="每周7天营业，包括公共假期。">Open 7 days a week, including public holidays.</p>
+      <table class="hours-table">
+        <tr class="now"><td data-en="Monday" data-zh="周一">Monday</td><td>8:30am – 9:00pm</td><td><span class="badge" data-en="Open" data-zh="营业">Open</span></td></tr>
+        <tr><td data-en="Tuesday" data-zh="周二">Tuesday</td><td>8:30am – 9:00pm</td><td></td></tr>
+        <tr><td data-en="Wednesday" data-zh="周三">Wednesday</td><td>8:30am – 9:00pm</td><td></td></tr>
+        <tr><td data-en="Thursday" data-zh="周四">Thursday</td><td>8:30am – 9:00pm</td><td></td></tr>
+        <tr><td data-en="Friday" data-zh="周五">Friday</td><td>8:30am – 9:00pm</td><td></td></tr>
+        <tr><td data-en="Saturday" data-zh="周六">Saturday</td><td>8:30am – 1:00pm</td><td></td></tr>
+        <tr><td data-en="Sunday &amp; PH" data-zh="周日及公假">Sunday &amp; PH</td><td>8:30am – 1:00pm</td><td></td></tr>
+      </table>
+      <div class="hours-note" data-en="Lunch break 1:00pm – 2:00pm on weekdays. Last registration 30 minutes before closing." data-zh="工作日午休时间为下午1时至2时。最后登记时间为打烊前30分钟。">Lunch break 1:00pm – 2:00pm on weekdays. Last registration 30 minutes before closing.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- contact CTA -->
+<section class="cta"><div class="wrap">
+  <h2 data-en="Need to see a doctor today?" data-zh="今天需要看诊吗？">Need to see a doctor today?</h2>
+  <p data-en="Walk in or give us a call — our friendly team will take good care of you and your family." data-zh="即到即诊或来电——我们友善的团队会悉心照顾您与家人。">Walk in or give us a call — our friendly team will take good care of you and your family.</p>
+  <div class="cta-btns">
+    <a href="tel:+6564527000" class="btn btn-peach" data-en="Call +65 6452 7000" data-zh="致电 +65 6452 7000">Call +65 6452 7000</a>
+    <a href="mailto:clinic@carepoint.sg" class="btn btn-ghost" data-en="Email the Clinic" data-zh="电邮诊所">Email the Clinic</a>
+  </div>
+</div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="#top" class="brand"><span class="mk">✚</span><span><b style="color:#fff">CAREPOINT</b><small style="color:#c9a99b" data-en="Family Clinic" data-zh="家庭诊所">Family Clinic</small></span></a>
+      <p class="cn">关怀家庭诊所私人有限公司</p>
+      <p data-en="A trusted neighbourhood family clinic in Ang Mo Kio since 2012 — caring for every generation, close to home." data-zh="自2012年起，宏茂桥值得信赖的社区家庭诊所——守护每一代人，就在身边。">A trusted neighbourhood family clinic in Ang Mo Kio since 2012 — caring for every generation, close to home.</p>
+      <div class="soc"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="WhatsApp">✆</a></div>
+      <div class="badges"><span data-en="CHAS Accredited" data-zh="CHAS认证">CHAS Accredited</span><span data-en="Medisave" data-zh="保健储蓄">Medisave</span><span data-en="UEN 201266778D" data-zh="UEN 201266778D">UEN 201266778D</span></div>
+    </div>
+    <div>
+      <h4 data-en="Quick Links" data-zh="快速链接">Quick Links</h4>
+      <a href="#about" data-en="About the Clinic" data-zh="关于诊所">About the Clinic</a>
+      <a href="#services" data-en="Our Services" data-zh="医疗服务">Our Services</a>
+      <a href="#doctors" data-en="Our Doctors" data-zh="医生团队">Our Doctors</a>
+      <a href="#why" data-en="Why Families Choose Us" data-zh="为何选择我们">Why Families Choose Us</a>
+      <a href="#visit" data-en="Location &amp; Hours" data-zh="地点与时间">Location &amp; Hours</a>
+    </div>
+    <div>
+      <h4 data-en="Visit Us" data-zh="到访我们">Visit Us</h4>
+      <p>Blk 712 Ang Mo Kio Ave 6<br>#01-4052<br>Singapore 560712</p>
+      <p style="margin-top:8px">+65 6452 7000<br>clinic@carepoint.sg</p>
+      <p style="margin-top:8px" data-en="Mon–Fri 8:30am–9pm · Sat/Sun/PH 8:30am–1pm" data-zh="周一至五 上午8:30–晚9时 · 周六/日/公假 上午8:30–下午1时">Mon–Fri 8:30am–9pm · Sat/Sun/PH 8:30am–1pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 CarePoint Family Clinic Pte Ltd</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-call" aria-label="Call us" onclick="window.location.href='tel:+6564527000'">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleLang(){
+  var zh = document.documentElement.lang === 'en' ? true : false;
+  document.documentElement.lang = zh ? 'zh' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var key = zh ? 'zh' : 'en';
+    if(el.hasAttribute('data-rich')){
+      el.innerHTML = el.getAttribute('data-' + key);
+    } else {
+      el.textContent = el.getAttribute('data-' + key);
+    }
+  });
+  document.querySelectorAll('.lang').forEach(function(b){ b.textContent = zh ? 'EN' : '中文'; });
+}
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+document.querySelectorAll('#nav a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('nav').classList.remove('open'); }); });
+window.addEventListener('scroll', function(){
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 500);
+});
+</script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

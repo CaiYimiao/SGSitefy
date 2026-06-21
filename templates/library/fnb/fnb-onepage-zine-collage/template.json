@@ -1,0 +1,11 @@
+{
+  "id": "fnb-onepage-zine-collage",
+  "industry": "fnb",
+  "kind": "onepage",
+  "aesthetic": "zine-collage",
+  "fonts": { "display": "Bricolage Grotesque", "text": "Space Mono" },
+  "tokens": { "ink": "#181818", "bg": "#f4f0e6", "surface": "#ffe14d", "brand": "#e8431f", "accent": "#1452c7" },
+  "sections": ["hero", "quickinfo", "about", "menu", "social", "cta", "contact", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

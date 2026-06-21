@@ -1,0 +1,11 @@
+{
+  "id": "industrial-showcase-warm-craft",
+  "industry": "industrial",
+  "kind": "showcase",
+  "aesthetic": "warm-craft",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#2a201a", "bg": "#f5ede1", "surface": "#e9dcc8", "brand": "#bb5a37", "accent": "#5c6b4a" },
+  "sections": ["hero", "ribbon", "story", "gallery", "offer", "cta", "contact"],
+  "serviceCount": 4,
+  "entry": "index.html"
+}

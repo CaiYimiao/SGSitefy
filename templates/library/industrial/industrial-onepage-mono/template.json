@@ -1,0 +1,11 @@
+{
+  "id": "industrial-onepage-mono",
+  "industry": "industrial",
+  "kind": "onepage",
+  "aesthetic": "mono-technical",
+  "fonts": { "display": "Space Mono", "text": "IBM Plex Sans" },
+  "tokens": { "ink": "#0e1417", "bg": "#fbfcfb", "surface": "#eef2f1", "brand": "#0a6e5c", "accent": "#e8a317" },
+  "sections": ["hero", "trust", "about", "services", "work", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

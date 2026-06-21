@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="About — Centre Name" data-zh="关于 — 中心名称">About — Centre Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Centre Name" data-zh="中心名称">Centre Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" aria-current="page" data-slot="nav.about" data-en="About" data-zh="关于">About</a></li>
+        <li><a href="treatments.html" data-slot="nav.treatments" data-en="Services" data-zh="服务">Services</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap grid12">
+      <h1 data-slot="about.headline" data-en="A centre built on method" data-zh="以方法构建的中心">A centre built on method</h1>
+      <div class="meta" data-slot="about.meta" data-en="About / Our practice" data-zh="关于 / 我们的实践">About / Our practice</div>
+      <p data-slot="about.sub" data-en="We treat recovery as a measurable process — every plan documented, every step reviewed." data-zh="我们将康复视为可量化的过程——每项方案皆有记录，每个步骤皆经复核。">Placeholder sub.</p>
+    </div>
+    <div class="wrap hero-img"><img src="https://picsum.photos/seed/wellswiss-about-hero/1500/640" data-slot="about.image" data-en-alt="Centre interior" data-zh-alt="中心内部" alt="Centre interior"></div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap grid12 split">
+      <div class="l"><img src="https://picsum.photos/seed/wellswiss-story/900/680" data-slot="about.story.image" data-en-alt="Specialist at work" data-zh-alt="专家工作中" alt="Specialist at work"></div>
+      <div class="r">
+        <span class="eyebrow" data-slot="about.story.eyebrow" data-en="Our story" data-zh="我们的故事">Our story</span>
+        <h2 data-slot="about.story.headline" data-en="Founded to do things properly" data-zh="为把事情做对而创立">Founded to do things properly</h2>
+        <p data-slot="about.story.body1" data-en="Placeholder paragraph for the founding story — who started the centre, the gap they saw, and the standard they set. Two to three grounded sentences." data-zh="创办故事占位段落——创办人、所见的缺口，以及他们设立的标准。两三句平实表述。">Placeholder.</p>
+        <p data-slot="about.story.body2" data-en="Second placeholder paragraph — the team, the disciplines covered, and what stays consistent across every visit." data-zh="第二段占位文字——团队、涵盖的专业领域，以及每次到访都保持一致的部分。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section line">
+    <div class="wrap grid12 lead-row">
+      <div class="label"><span class="eyebrow" data-slot="about.values.eyebrow" data-en="Principles" data-zh="原则">Principles</span></div>
+      <div class="body">
+        <h2 data-slot="about.values.headline" data-en="Three things we hold to" data-zh="我们坚守的三件事">Three things we hold to</h2>
+      </div>
+    </div>
+    <div class="wrap tlist" data-slot="values" data-min="3" data-max="3">
+      <div class="tr"><span class="num">01</span><h3 data-slot="value.0.name" data-en="Evidence first" data-zh="循证为先">Evidence first</h3><p data-slot="value.0.desc" data-en="Placeholder line describing this principle plainly." data-zh="平实描述此原则的占位文字。">Placeholder.</p><span class="price"></span></div>
+      <div class="tr"><span class="num">02</span><h3 data-slot="value.1.name" data-en="Clear plans" data-zh="清晰方案">Clear plans</h3><p data-slot="value.1.desc" data-en="Placeholder line describing this principle plainly." data-zh="平实描述此原则的占位文字。">Placeholder.</p><span class="price"></span></div>
+      <div class="tr"><span class="num">03</span><h3 data-slot="value.2.name" data-en="Measured progress" data-zh="可量进展">Measured progress</h3><p data-slot="value.2.desc" data-en="Placeholder line describing this principle plainly." data-zh="平实描述此原则的占位文字。">Placeholder.</p><span class="price"></span></div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap grid12">
+      <h2 data-slot="about.cta.headline" data-en="Meet the team in person" data-zh="亲自认识我们的团队">Meet the team in person</h2>
+      <div class="a"><a href="contact.html" class="btn" data-slot="about.cta.button" data-en="Book a visit" data-zh="预约到访">Book a visit</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Centre Name. All rights reserved." data-zh="© 中心名称。版权所有。">© Centre Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

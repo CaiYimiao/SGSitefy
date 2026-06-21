@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact &amp; Booking — Serene Aesthetics &amp; Wellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6562387600"><span class="ic">✆</span> <span data-en="Call Us:" data-zh="电话：">Call Us:</span> +65 6238 7600</a>
+    <a href="mailto:hello@sereneaesthetics.com.sg"><span class="ic">✉</span> hello@sereneaesthetics.com.sg</a>
+  </div>
+  <div><span data-en="Mon – Sat · 10am – 8pm" data-zh="周一至周六 · 上午10时至晚上8时">Mon – Sat · 10am – 8pm</span></div>
+</div></div>
+
+<!-- header -->
+<header class="header"><div class="wrap">
+  <a href="index.html" class="brand">
+    <span class="mk">SA</span>
+    <span><b>SERENE AESTHETICS</b><small>&amp; Wellness</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="treatments.html" data-en="Treatments" data-zh="疗程">Treatments</a>
+    <a href="contact.html" class="active" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="contact.html" class="btn nav-book" data-en="Book Now" data-zh="立即预约">Book Now</a>
+  </nav>
+  <button class="burger" aria-label="Menu">☰</button>
+</div></header>
+
+<!-- page hero -->
+<section class="phero"><div class="wrap">
+  <h1 data-en="Book &amp; Contact" data-zh="预约与联系">Book &amp; Contact</h1>
+  <p class="crumb"><a href="index.html" data-en="Home" data-zh="主页">Home</a> / <span data-en="Contact" data-zh="联系">Contact</span></p>
+</div></section>
+
+<!-- contact + form -->
+<section class="sec contact-sec"><div class="wrap"><div class="grid">
+  <div class="reveal">
+    <p class="eyebrow" style="--teal-2:#ccfbf1;color:var(--accent)" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+    <h2 data-en="We'd love to hear from you" data-zh="我们很乐意听取您的声音">We'd love to hear from you</h2>
+    <p class="lead" data-en="Whether you'd like to book a treatment, ask about our packages, or simply find out which service suits you best — our team is here to help. First consultations are always complimentary." data-zh="无论您希望预约疗程、询问套餐详情，还是了解哪种服务最适合您——我们的团队随时为您服务。首次咨询始终免费。">Whether you'd like to book a treatment, ask about our packages, or simply find out which service suits you best — our team is here to help. First consultations are always complimentary.</p>
+    <ul class="clist" style="margin-top:24px">
+      <li>
+        <span class="ic">◉</span>
+        <span>391 Orchard Road, Ngee Ann City, #05-xx<br>Singapore 238872</span>
+      </li>
+      <li>
+        <span class="ic">✆</span>
+        <span>+65 6238 7600</span>
+      </li>
+      <li>
+        <span class="ic">✉</span>
+        <span>hello@sereneaesthetics.com.sg</span>
+      </li>
+      <li>
+        <span class="ic">◷</span>
+        <div>
+          <table class="hours-table">
+            <tr><td data-en="Monday – Friday" data-zh="周一至周五">Monday – Friday</td><td>10:00 am – 8:00 pm</td></tr>
+            <tr><td data-en="Saturday" data-zh="周六">Saturday</td><td>10:00 am – 8:00 pm</td></tr>
+            <tr><td data-en="Sunday" data-zh="周日">Sunday</td><td>11:00 am – 6:00 pm</td></tr>
+            <tr><td data-en="Public Holidays" data-zh="公共假日">Public Holidays</td><td data-en="By appointment" data-zh="需预约">By appointment</td></tr>
+          </table>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <form class="form reveal" onsubmit="return false" aria-label="Booking enquiry form">
+    <div class="f">
+      <label for="f-name" data-en="Your Name *" data-zh="您的姓名 *">Your Name *</label>
+      <input id="f-name" type="text" required autocomplete="name" />
+    </div>
+    <div class="f">
+      <label for="f-phone" data-en="Phone Number" data-zh="联系电话">Phone Number</label>
+      <input id="f-phone" type="tel" autocomplete="tel" />
+    </div>
+    <div class="f full">
+      <label for="f-email" data-en="Email Address *" data-zh="电邮地址 *">Email Address *</label>
+      <input id="f-email" type="email" required autocomplete="email" />
+    </div>
+    <div class="f full">
+      <label for="f-treatment" data-en="Treatment of Interest" data-zh="感兴趣的疗程">Treatment of Interest</label>
+      <select id="f-treatment">
+        <option value="" data-en="— Please select —" data-zh="— 请选择 —">— Please select —</option>
+        <option value="luminosity" data-en="Luminosity Signature Facial" data-zh="焕光招牌面部护理">Luminosity Signature Facial</option>
+        <option value="aqua" data-en="Aqua Infusion Facial" data-zh="水润注入面部护理">Aqua Infusion Facial</option>
+        <option value="renewal" data-en="Timeless Renewal Facial" data-zh="永恒更新抗衰老面部护理">Timeless Renewal Facial</option>
+        <option value="led" data-en="Clarity LED Skin Therapy" data-zh="净透LED肌肤疗法">Clarity LED Skin Therapy</option>
+        <option value="peel" data-en="Radiance Enzyme Peel" data-zh="焕彩酵素焕肤">Radiance Enzyme Peel</option>
+        <option value="microneedle" data-en="Micro-Needling Collagen Boost" data-zh="微针胶原蛋白增生疗程">Micro-Needling Collagen Boost</option>
+        <option value="harmony" data-en="Harmony Full-Body Ritual" data-zh="和谐全身养生仪式">Harmony Full-Body Ritual</option>
+        <option value="aroma" data-en="Bespoke Aromatherapy Massage" data-zh="定制芳香疗法按摩">Bespoke Aromatherapy Massage</option>
+        <option value="scalp" data-en="Scalp Detox & Renewal Ritual" data-zh="头皮排毒与更新仪式">Scalp Detox &amp; Renewal Ritual</option>
+        <option value="consult" data-en="Free Skin Consultation" data-zh="免费肌肤咨询">Free Skin Consultation</option>
+        <option value="other" data-en="Other / Not sure yet" data-zh="其他/尚未确定">Other / Not sure yet</option>
+      </select>
+    </div>
+    <div class="f full">
+      <label for="f-date" data-en="Preferred Date &amp; Time" data-zh="首选日期及时间">Preferred Date &amp; Time</label>
+      <input id="f-date" type="text" placeholder="e.g. Saturday afternoon, any week" />
+    </div>
+    <div class="f full">
+      <label for="f-msg" data-en="Message / Skin Concerns" data-zh="留言 / 肌肤问题">Message / Skin Concerns</label>
+      <textarea id="f-msg" rows="4" placeholder="Tell us about your skin concerns or any questions you have…"></textarea>
+    </div>
+    <button class="btn btn-teal full" type="submit" style="border-radius:10px;justify-content:center;font-size:.9rem" data-en="Send Booking Enquiry" data-zh="发送预约询问">Send Booking Enquiry</button>
+    <p class="full" style="font-size:.75rem;color:var(--muted);text-align:center;margin-top:-4px" data-en="We'll reply within one business day. Fields marked * are required." data-zh="我们将在一个工作日内回复。标有*的字段为必填项。">We'll reply within one business day. Fields marked * are required.</p>
+  </form>
+</div></div></section>
+
+<!-- map + visit info -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="visit-grid reveal">
+    <div class="visit-info">
+      <h3 data-en="Find Us" data-zh="找到我们">Find Us</h3>
+      <p style="color:#ccfbf1;font-family:var(--fh);font-size:1.1rem;margin-bottom:12px" data-en="Serene Aesthetics &amp; Wellness" data-zh="宁静美容养生">Serene Aesthetics &amp; Wellness</p>
+      <p data-en="391 Orchard Road, Ngee Ann City" data-zh="391 乌节路，义安城">391 Orchard Road, Ngee Ann City</p>
+      <p data-en="#05-xx, Singapore 238872" data-zh="#05-xx，新加坡 238872">#05-xx, Singapore 238872</p>
+      <p style="margin-top:16px" data-en="Nearest MRT: Orchard (NS22 / TE14)" data-zh="最近地铁站：乌节站（NS22 / TE14）">Nearest MRT: Orchard (NS22 / TE14)</p>
+      <p data-en="Parking: Ngee Ann City basement car park" data-zh="停车：义安城地下停车场">Parking: Ngee Ann City basement car park</p>
+      <p style="margin-top:16px" data-en="Tel: +65 6238 7600" data-zh="电话：+65 6238 7600">Tel: +65 6238 7600</p>
+      <p data-en="Email: hello@sereneaesthetics.com.sg" data-zh="电邮：hello@sereneaesthetics.com.sg">Email: hello@sereneaesthetics.com.sg</p>
+      <p style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15)">
+        <span data-en="Mon – Sat: 10:00 am – 8:00 pm" data-zh="周一至周六：上午10时至晚上8时">Mon – Sat: 10:00 am – 8:00 pm</span><br>
+        <span data-en="Sun: 11:00 am – 6:00 pm" data-zh="周日：上午11时至下午6时">Sun: 11:00 am – 6:00 pm</span>
+      </p>
+    </div>
+    <iframe
+      loading="lazy"
+      title="Serene Aesthetics &amp; Wellness location map"
+      src="https://maps.google.com/maps?q=391+Orchard+Road,+Ngee+Ann+City,+Singapore+238872&z=16&output=embed"
+    ></iframe>
+  </div>
+</div></section>
+
+<!-- CTA band -->
+<section class="cta-band"><div class="wrap">
+  <h2 data-en="Your journey to radiance starts here" data-zh="您的焕彩之旅从这里开始">Your journey to radiance starts here</h2>
+  <p data-en="Call us at +65 6238 7600 or send an enquiry above — we look forward to welcoming you." data-zh="致电 +65 6238 7600 或在上方发送询问——我们期待欢迎您的到来。">Call us at +65 6238 7600 or send an enquiry above — we look forward to welcoming you.</p>
+  <a href="treatments.html" class="btn btn-ghost" data-en="Browse All Treatments" data-zh="浏览全部疗程">Browse All Treatments</a>
+</div></section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="index.html" class="brand"><span class="mk">SA</span><span><b style="color:#fff">SERENE AESTHETICS</b><small>&amp; Wellness</small></span></a>
+      <p class="cn">宁静美容养生</p>
+      <p style="color:#96c2bf" data-en="Facial, skin and holistic wellness in the heart of Orchard Road since 2009." data-zh="自2009年起在乌节路中心提供面部、肌肤及整体养生服务。">Facial, skin and holistic wellness in the heart of Orchard Road since 2009.</p>
+      <div class="soc">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="TikTok">▶</a>
+      </div>
+      <div class="badges"><span>CIDESCO</span><span data-en="ITEC Certified" data-zh="ITEC认证">ITEC Certified</span><span data-en="NEA Licensed" data-zh="NEA持牌">NEA Licensed</span></div>
+    </div>
+    <div>
+      <h4 data-en="Explore" data-zh="探索">Explore</h4>
+      <a href="about.html" data-en="Our Story" data-zh="我们的故事">Our Story</a>
+      <a href="about.html#therapists" data-en="Our Therapists" data-zh="我们的治疗师">Our Therapists</a>
+      <a href="about.html#accreditations" data-en="Accreditations" data-zh="资质认证">Accreditations</a>
+      <a href="treatments.html" data-en="All Treatments" data-zh="全部疗程">All Treatments</a>
+    </div>
+    <div>
+      <h4 data-en="Treatments" data-zh="疗程">Treatments</h4>
+      <a href="treatments.html#facial" data-en="Facial Treatments" data-zh="面部疗程">Facial Treatments</a>
+      <a href="treatments.html#skin" data-en="Skin Therapies" data-zh="肌肤疗法">Skin Therapies</a>
+      <a href="treatments.html#holistic" data-en="Holistic Wellness" data-zh="整体养生">Holistic Wellness</a>
+      <a href="contact.html" data-en="Book Now" data-zh="立即预约">Book Now</a>
+    </div>
+    <div>
+      <h4 data-en="Visit Us" data-zh="到访我们">Visit Us</h4>
+      <p style="color:#96c2bf">391 Orchard Road<br>Ngee Ann City, #05-xx<br>Singapore 238872</p>
+      <p style="color:#96c2bf;margin-top:8px">+65 6238 7600<br>hello@sereneaesthetics.com.sg</p>
+      <p style="color:#96c2bf;margin-top:8px" data-en="Mon–Sat 10am–8pm · Sun 11am–6pm" data-zh="周一至周六 上午10时–晚上8时 · 周日 上午11时–下午6时">Mon–Sat 10am–8pm · Sun 11am–6pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span>© 2026 Serene Aesthetics &amp; Wellness Pte Ltd</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp us" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

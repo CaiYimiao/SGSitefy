@@ -1,0 +1,11 @@
+{
+  "id": "retail-showcase-zine-collage",
+  "industry": "retail",
+  "kind": "showcase",
+  "aesthetic": "cut-paper editorial zine",
+  "fonts": { "display": "Fraunces", "text": "Public Sans" },
+  "tokens": { "ink": "#241c17", "bg": "#f4ead7", "surface": "#fffaf0", "brand": "#e0452c", "accent": "#2f5d50" },
+  "sections": ["hero", "marquee", "gallery", "feature", "editorial", "stockists", "footer"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

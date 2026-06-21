@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Company — Heritage Industrial" data-zh="公司 — 老字号工业">Company — Heritage Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e2733; --bg:#f6f1e7; --surface:#ece3d2; --brand:#7a4a1e; --accent:#b58a3c;
+  --display:'Playfair Display',serif; --text:'Source Sans 3',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.65}
+h1,h2,h3{font-family:var(--display);line-height:1.1;font-weight:700}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.rule{display:inline-block;width:48px;height:2px;background:var(--accent);vertical-align:middle;margin-right:.8rem}
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--accent)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-family:var(--display);font-size:1.5rem;font-weight:700;letter-spacing:.01em}
+.brand small{display:block;font-family:var(--text);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.menu{display:flex;gap:1.8rem;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase}
+.menu a{padding:.3rem 0;border-bottom:1px solid transparent;transition:border-color .2s ease}
+.menu a:hover{border-color:var(--accent)}
+.navbtns{display:flex;gap:.7rem;align-items:center}
+.lang{background:none;border:1px solid var(--brand);color:var(--brand);font-family:var(--text);font-size:.74rem;padding:.35rem .7rem;cursor:pointer;letter-spacing:.05em}
+.lang:hover{background:var(--brand);color:var(--bg)}
+.burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+/* HERO */
+.hero{position:relative;background:var(--ink);color:var(--bg);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;filter:sepia(.3)}
+.hero .wrap{position:relative;padding:clamp(4rem,11vw,9rem) 0;text-align:center}
+.hero .eyebrow{color:var(--accent)}
+.hero h1{font-size:clamp(2.6rem,8vw,5.6rem);color:var(--bg);margin:1.4rem 0;font-style:italic}
+.hero h1 span{font-style:normal;display:block;color:var(--accent)}
+.hero .lead{max-width:50ch;margin:0 auto 2.2rem;font-size:1.15rem;opacity:.92}
+.btn{display:inline-block;font-family:var(--text);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;padding:.95rem 1.8rem;background:var(--accent);color:var(--ink);border:1px solid var(--accent);cursor:pointer;transition:background .2s ease,color .2s ease}
+.btn:hover{background:transparent;color:var(--accent)}
+.btn.dark{background:var(--brand);border-color:var(--brand);color:var(--bg)}
+.btn.dark:hover{background:transparent;color:var(--brand)}
+.btn+.btn{margin-left:.8rem}
+/* TRUST */
+.trust{background:var(--surface);text-align:center;padding:1.6rem 0}
+.trust .wrap{display:flex;justify-content:center;gap:clamp(1.5rem,5vw,4rem);flex-wrap:wrap;align-items:center}
+.trust span{font-family:var(--display);font-style:italic;font-size:1.05rem;color:var(--brand)}
+/* SECTION */
+section{padding:clamp(4rem,9vw,7rem) 0}
+.sec-head{text-align:center;max-width:60ch;margin:0 auto 3rem}
+.sec-head h2{font-size:clamp(2rem,5.5vw,3.6rem);margin:.7rem 0}
+/* ABOUT */
+.about{display:grid;grid-template-columns:6fr 5fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.about-fig{position:relative}
+.about-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--accent)}
+.about-fig .seal{position:absolute;bottom:-22px;right:-22px;width:120px;height:120px;border:2px solid var(--accent);border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center;font-family:var(--display);font-style:italic;color:var(--brand);font-size:.9rem;line-height:1.2;padding:1rem}
+.about p{margin-bottom:1.2rem;font-size:1.05rem}
+.about .lead-first::first-letter{font-family:var(--display);font-size:3.4rem;float:left;line-height:.8;margin:.1rem .6rem 0 0;color:var(--brand)}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.6rem}
+.svc{background:var(--bg);border:1px solid var(--accent);padding:2rem;text-align:center;transition:transform .25s ease,box-shadow .25s ease}
+.svc:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(30,39,51,.12)}
+.svc .ic{font-family:var(--display);font-style:italic;font-size:2rem;color:var(--accent)}
+.svc h3{font-size:1.3rem;margin:.8rem 0 .6rem}
+.svc p{font-size:.95rem;color:#4a4438}
+/* WORK */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.work-grid figure{position:relative;overflow:hidden;border:1px solid var(--accent)}
+.work-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.15);transition:transform .5s ease,filter .5s ease}
+.work-grid figure:hover img{transform:scale(1.05);filter:sepia(0)}
+.work-grid figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(30,39,51,.85));color:var(--bg);font-family:var(--display);font-style:italic;padding:1.4rem 1rem .9rem;font-size:1rem}
+/* CTA */
+.cta{background:var(--brand);color:var(--bg);text-align:center}
+.cta h2{font-size:clamp(2rem,6vw,4rem);color:var(--bg);font-style:italic}
+.cta p{max-width:46ch;margin:1.2rem auto 2rem;opacity:.92;font-size:1.1rem}
+/* CONTACT */
+.contact{background:var(--surface)}
+.contact-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(2rem,5vw,4rem)}
+.cinfo div{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--accent)}
+.cinfo .k{font-family:var(--display);font-style:italic;color:var(--brand);font-size:1.1rem;margin-bottom:.2rem}
+.field{display:block;margin-bottom:1.1rem}
+.field span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.4rem;color:var(--brand);font-weight:600}
+.field input,.field textarea{width:100%;padding:.85rem;border:1px solid var(--brand);background:var(--bg);font-family:var(--text)}
+/* FOOTER */
+footer{background:var(--ink);color:var(--bg);padding:2.6rem 0;text-align:center}
+footer .brand{color:var(--bg);margin-bottom:.6rem}
+footer .credit{opacity:.55;font-size:.8rem;margin-top:.8rem}
+@media(max-width:760px){
+  .menu{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--accent);padding:1rem 1.5rem;gap:.6rem}
+  .menu.open{display:flex}.burger{display:block}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .about-fig .seal{right:8px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="HEATHROW &amp; CO" data-zh="恒昌行" data-rich>HEATHROW &amp; CO<small data-en="Foundry · Since 1962" data-zh="铸造 · 始于1962">Foundry · Since 1962</small></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#about" data-slot="nav.about" data-en="Heritage" data-zh="传承">Heritage</a>
+      <a href="#services" data-slot="nav.services" data-en="Services" data-zh="服务">Services</a>
+      <a href="#work" data-slot="nav.work" data-en="Work" data-zh="作品">Work</a>
+      <a href="#contact" data-slot="nav.contact" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <img class="hero-img" src="https://picsum.photos/seed/herit-hero/1600/900" alt="" data-slot="hero.image" data-en-alt="Foundry interior" data-zh-alt="铸造车间">
+  <div class="wrap">
+    <p class="eyebrow" data-slot="hero.eyebrow" data-en="Family-run since 1962" data-zh="家族经营 始于1962">Family-run since 1962</p>
+    <h1 data-slot="hero.headline" data-en="Craftsmanship" data-zh="匠心工艺" data-rich>Craftsmanship<span data-en="Forged Over Decades." data-zh="数十年铸就。">Forged Over Decades.</span></h1>
+    <p class="lead" data-slot="hero.sub" data-en="Hero supporting line — the legacy, the trade, the trust you've earned." data-zh="主标题副文 — 传承、行业、赢得的信任。">Hero supporting line — the legacy, the trade, the trust you've earned.</p>
+    <a class="btn" href="#contact" data-slot="hero.cta1" data-en="Enquire Now" data-zh="立即咨询">Enquire Now</a>
+    <a class="btn dark" href="#work" data-slot="hero.cta2" data-en="Our Work" data-zh="我们的作品">Our Work</a>
+  </div>
+</section>
+
+<section class="trust" aria-label="Trust">
+  <div class="wrap">
+    <span data-slot="trust.0" data-en="Three Generations" data-zh="三代传承">Three Generations</span>
+    <span data-slot="trust.1" data-en="ISO Certified" data-zh="ISO 认证">ISO Certified</span>
+    <span data-slot="trust.2" data-en="60+ Years" data-zh="60+ 年">60+ Years</span>
+    <span data-slot="trust.3" data-en="Trusted Island-Wide" data-zh="全岛信赖">Trusted Island-Wide</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-fig">
+      <img src="https://picsum.photos/seed/herit-about/700/880" alt="" data-slot="about.image" data-en-alt="Founder at work" data-zh-alt="创始人工作中">
+      <div class="seal" data-slot="about.seal" data-en="Est. 1962" data-zh="始于 1962">Est. 1962</div>
+    </div>
+    <div>
+      <p class="eyebrow"><span class="rule"></span><span data-en="Our Story" data-zh="我们的故事">Our Story</span></p>
+      <h2 style="font-size:clamp(1.8rem,4.5vw,3rem);margin:.6rem 0 1.2rem" data-slot="about.title" data-en="A Trade Passed Down" data-zh="代代相传的手艺">A Trade Passed Down</h2>
+      <p class="lead-first" data-slot="about.p1" data-en="About paragraph one — the founding, the values, the workmanship handed down." data-zh="关于段落一 — 创立、价值观、代代相传的工艺。">About paragraph one — the founding, the values, the workmanship handed down.</p>
+      <p data-slot="about.p2" data-en="About paragraph two — how the craft adapted while the standards held." data-zh="关于段落二 — 工艺如何演进而标准始终如一。">About paragraph two — how the craft adapted while the standards held.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-en="What We Offer" data-zh="我们的服务">What We Offer</p>
+      <h2 data-slot="services.title" data-en="Services &amp; Trades" data-zh="服务与工艺">Services &amp; Trades</h2>
+    </div>
+    <div class="svc-grid" data-slot="services" data-min="3" data-max="5">
+      <article class="svc"><div class="ic">I</div><h3 data-slot="services.0.title" data-en="Metal Casting" data-zh="金属铸造">Metal Casting</h3><p data-slot="services.0.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="ic">II</div><h3 data-slot="services.1.title" data-en="Restoration" data-zh="修复">Restoration</h3><p data-slot="services.1.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="ic">III</div><h3 data-slot="services.2.title" data-en="Bespoke Fittings" data-zh="定制配件">Bespoke Fittings</h3><p data-slot="services.2.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="ic">IV</div><h3 data-slot="services.3.title" data-en="Finishing" data-zh="表面处理">Finishing</h3><p data-slot="services.3.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+      <article class="svc"><div class="ic">V</div><h3 data-slot="services.4.title" data-en="Consultation" data-zh="咨询">Consultation</h3><p data-slot="services.4.desc" data-en="Service description placeholder." data-zh="服务描述占位。">Service description placeholder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-en="Portfolio" data-zh="作品集">Portfolio</p>
+      <h2 data-slot="work.title" data-en="Of Our Hands" data-zh="出自我们之手">Of Our Hands</h2>
+    </div>
+    <div class="work-grid" data-slot="gallery" data-min="3" data-max="3">
+      <figure><img src="https://picsum.photos/seed/herit-w0/600/800" alt="" data-slot="gallery.0" data-en-alt="Project one" data-zh-alt="项目一"><figcaption data-slot="gallery.0.cap" data-en="Project caption" data-zh="项目说明">Project caption</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/herit-w1/600/800" alt="" data-slot="gallery.1" data-en-alt="Project two" data-zh-alt="项目二"><figcaption data-slot="gallery.1.cap" data-en="Project caption" data-zh="项目说明">Project caption</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/herit-w2/600/800" alt="" data-slot="gallery.2" data-en-alt="Project three" data-zh-alt="项目三"><figcaption data-slot="gallery.2.cap" data-en="Project caption" data-zh="项目说明">Project caption</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap" style="text-align:center">
+    <h2 data-slot="cta.headline" data-en="Let's Build Something Lasting" data-zh="让我们打造经久之作">Let's Build Something Lasting</h2>
+    <p data-slot="cta.sub" data-en="CTA supporting line — invite the visitor to begin a conversation." data-zh="行动号召副文 — 邀请访客开启对话。">CTA supporting line — invite the visitor to begin a conversation.</p>
+    <a class="btn" href="#contact" data-slot="cta.button" data-en="Request a Consultation" data-zh="预约咨询">Request a Consultation</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+      <h2 data-slot="contact.title" data-en="Visit the Workshop" data-zh="到访工坊">Visit the Workshop</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div><div class="k" data-en="Address" data-zh="地址">Address</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+        <div><div class="k" data-en="Telephone" data-zh="电话">Telephone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+        <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+        <div style="border:none"><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Sat, 9am–6pm" data-zh="周一至周六 9:00–18:00">Mon–Sat, 9am–6pm</p></div>
+      </div>
+      <form onsubmit="return false">
+        <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text"></label>
+        <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email"></label>
+        <label class="field"><span data-en="How can we help?" data-zh="我们能帮您什么？">How can we help?</span><textarea rows="4"></textarea></label>
+        <button class="btn dark" type="submit" data-slot="contact.submit" data-en="Send Message" data-zh="发送消息">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" data-slot="footer.name" data-en="HEATHROW &amp; CO" data-zh="恒昌行">HEATHROW &amp; CO</div>
+    <div data-slot="footer.tagline" data-en="Foundry &amp; Metalwork · Since 1962" data-zh="铸造与金工 · 始于1962">Foundry &amp; Metalwork · Since 1962</div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var to=html.lang==='en'?'zh':'en';
+  html.lang=to;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v=el.getAttribute('data-'+to); if(v===null)return;
+    if(el.hasAttribute('data-rich')){el.innerHTML=v;}else{el.textContent=v;}
+  });
+  document.querySelectorAll('[data-en-alt]').forEach(function(el){
+    var v=el.getAttribute('data-'+to+'-alt'); if(v)el.alt=v;
+  });
+  document.querySelectorAll('.lang').forEach(function(b){b.textContent=to==='en'?'中文':'EN';});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

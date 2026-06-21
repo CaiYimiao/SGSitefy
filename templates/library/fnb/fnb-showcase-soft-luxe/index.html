@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="Maison Lèvain" data-zh="叶凡之家">Maison Lèvain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#2c2520; --bg:#f7f1ea; --surface:#ece1d4; --brand:#8c6a4f; --accent:#a8b08f;
+    --display:"Fraunces",serif; --text:"Public Sans",system-ui,sans-serif;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.7;font-weight:400}
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;letter-spacing:-.015em}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+  .kick{color:var(--brand);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem}
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(247,241,234,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(140,106,79,.18)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:82px}
+  .brand{font-family:var(--display);font-style:italic;font-size:1.7rem;text-decoration:none;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:34px;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:500;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
+  .nav-links a:hover{color:var(--brand)}
+  .lang{border:1px solid var(--brand);color:var(--brand);background:none;padding:7px 18px;border-radius:30px;font-family:var(--text);font-weight:600;cursor:pointer;font-size:.74rem;letter-spacing:.08em}
+  .lang:hover{background:var(--brand);color:var(--bg)}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer}
+  /* hero */
+  .hero{position:relative;padding:0;margin-top:18px}
+  .hero-img{width:100%;height:78vh;min-height:480px;object-fit:cover;border-radius:2px}
+  .hero-cap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
+  .hero-cap .panel{position:absolute;bottom:-72px;left:30px;background:var(--bg);padding:44px 52px;max-width:560px;box-shadow:0 30px 60px -30px rgba(44,37,32,.35)}
+  .hero-cap h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:14px 0 18px}
+  .hero-cap h1 em{font-style:italic;color:var(--brand)}
+  .hero-cap p{color:#5e544b;max-width:42ch}
+  .hero-cap .btn{margin-top:24px}
+  .btn{display:inline-block;background:var(--ink);color:var(--bg);padding:13px 32px;text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;border-radius:30px;transition:background .3s,transform .3s}
+  .btn:hover{background:var(--brand);transform:translateY(-2px)}
+  .btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink);margin-left:12px}
+  .btn.ghost:hover{background:var(--ink);color:var(--bg)}
+  /* intro */
+  .intro{padding:150px 0 90px;text-align:center;max-width:760px;margin:0 auto}
+  .intro h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:16px 0;font-weight:400}
+  .intro p{color:#5e544b;font-size:1.12rem}
+  /* gallery */
+  .gallery{padding:40px 0 90px}
+  .gal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+  .gal-grid figure{overflow:hidden;border-radius:2px}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+  .gal-grid figure:hover img{transform:scale(1.05)}
+  .gal-grid figcaption{font-family:var(--display);font-style:italic;font-size:.9rem;color:var(--brand);padding-top:8px}
+  .ga{grid-column:span 7;aspect-ratio:7/5}
+  .gb{grid-column:span 5;aspect-ratio:5/6;margin-top:48px}
+  .gc{grid-column:span 5;aspect-ratio:5/4}
+  .gd{grid-column:span 7;aspect-ratio:7/4}
+  /* feature */
+  .feature{background:var(--surface);padding:110px 0}
+  .feature .wrap{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center}
+  .feature img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+  .feature h2{font-size:clamp(2rem,4.4vw,3.4rem);margin:14px 0 18px}
+  .feature p{color:#5e544b}
+  /* menu */
+  .menu{padding:110px 0}
+  .menu-head{text-align:center;margin-bottom:54px}
+  .menu-head h2{font-size:clamp(2rem,4.4vw,3.4rem);margin-top:12px}
+  .menu-list{max-width:780px;margin:0 auto;display:grid;gap:0}
+  .item{display:grid;grid-template-columns:1fr auto;gap:8px 22px;padding:24px 0;border-bottom:1px solid rgba(140,106,79,.2)}
+  .item h3{font-size:1.4rem;font-weight:500}
+  .item .price{font-family:var(--display);font-size:1.3rem;color:var(--brand)}
+  .item p{grid-column:1/2;color:#5e544b;font-size:.96rem;margin-top:2px}
+  /* social */
+  .social{background:var(--ink);color:var(--bg);padding:110px 0;text-align:center}
+  .social .q{max-width:780px;margin:0 auto}
+  .social blockquote{font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.3}
+  .social cite{display:block;margin-top:24px;font-style:normal;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  /* cta */
+  .cta{padding:120px 0;text-align:center}
+  .cta h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:16px}
+  .cta h2 em{font-style:italic;color:var(--brand)}
+  .cta p{color:#5e544b;margin-bottom:30px;max-width:46ch;margin-left:auto;margin-right:auto}
+  /* footer */
+  footer.ft{border-top:1px solid rgba(140,106,79,.2);padding:54px 0}
+  footer.ft .ft-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:baseline}
+  footer.ft .brand{font-style:italic}
+  footer.ft .built{width:100%;text-align:center;font-size:.78rem;color:#8d8377;margin-top:24px}
+  @media(max-width:760px){
+    .nav-links{position:fixed;inset:82px 0 auto 0;flex-direction:column;background:var(--bg);padding:26px;gap:18px;border-bottom:1px solid rgba(140,106,79,.18);transform:translateY(-150%);transition:transform .3s}
+    .nav-links.open{transform:translateY(0)}
+    .burger{display:block}
+    .hero-cap .panel{position:static;max-width:none;margin:-60px 0 0;padding:32px 28px}
+    .intro{padding:80px 0 60px}
+    .gal-grid{grid-template-columns:1fr}
+    .ga,.gb,.gc,.gd{grid-column:1/-1;margin-top:0;aspect-ratio:4/3}
+    .feature .wrap{grid-template-columns:1fr;gap:34px}
+    .btn.ghost{margin-left:0;margin-top:12px}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Maison Lèvain" data-zh="叶凡之家">Maison Lèvain</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#gallery" data-slot="nav.gallery" data-en="Gallery" data-zh="画廊">Gallery</a></li>
+        <li><a href="#menu" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="#social" data-slot="nav.reviews" data-en="Notes" data-zh="评价">Notes</a></li>
+        <li><a href="#cta" data-slot="nav.visit" data-en="Reserve" data-zh="预订">Reserve</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-img" src="https://picsum.photos/seed/levain-hero/1600/900" data-slot="hero.image" data-en-alt="Elegant plated dish" data-zh-alt="精致摆盘料理" alt="Elegant plated dish" />
+    <div class="hero-cap">
+      <div class="panel">
+        <p class="kick" data-slot="hero.kick" data-en="Patisserie & table" data-zh="法式甜点与餐桌">Patisserie &amp; table</p>
+        <h1 data-slot="hero.headline" data-rich data-en="Quiet luxury, <em>plated daily.</em>" data-zh="低调奢华，<em>每日呈现。</em>">Quiet luxury, <em>plated daily.</em></h1>
+        <p data-slot="hero.sub" data-en="Placeholder intro — a refined, unhurried kitchen built on butter, time and care. Set a calm, premium tone." data-zh="占位引言——以黄油、时间与用心打造的精致从容厨房。营造平和而高雅的语气。">Placeholder intro — a refined, unhurried kitchen built on butter, time and care. Set a calm, premium tone.</p>
+        <div><a class="btn" href="#cta" data-slot="hero.cta" data-en="Reserve a table" data-zh="预订座位">Reserve a table</a><a class="btn ghost" href="#menu" data-slot="hero.cta2" data-en="View menu" data-zh="查看菜单">View menu</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap intro">
+    <p class="kick" data-slot="intro.kick" data-en="Our philosophy" data-zh="我们的理念">Our philosophy</p>
+    <h2 data-slot="intro.headline" data-en="Few things, done beautifully." data-zh="少即是美，精雕细琢。">Few things, done beautifully.</h2>
+    <p data-slot="intro.body" data-en="Placeholder — a short statement of intent: seasonal, restrained, generous. Let the whitespace carry it." data-zh="占位文字——简短的理念陈述：时令、克制、慷慨。让留白来承载。">Placeholder — a short statement of intent: seasonal, restrained, generous. Let the whitespace carry it.</p>
+  </section>
+
+  <section class="wrap gallery" id="gallery">
+    <div class="gal-grid" data-slot="gallery" data-min="4" data-max="4">
+      <figure class="ga"><img src="https://picsum.photos/seed/levain-g0/900/640" data-slot="gallery.0" data-en-alt="Signature plate" data-zh-alt="招牌料理" alt="Signature plate" /><figcaption data-slot="gallery.0.cap" data-en="The signature" data-zh="招牌之作">The signature</figcaption></figure>
+      <figure class="gb"><img src="https://picsum.photos/seed/levain-g1/640/760" data-slot="gallery.1" data-en-alt="Pastry detail" data-zh-alt="甜点细节" alt="Pastry detail" /><figcaption data-slot="gallery.1.cap" data-en="Morning bakes" data-zh="晨间烘焙">Morning bakes</figcaption></figure>
+      <figure class="gc"><img src="https://picsum.photos/seed/levain-g2/760/600" data-slot="gallery.2" data-en-alt="Dining room" data-zh-alt="用餐空间" alt="Dining room" /><figcaption data-slot="gallery.2.cap" data-en="The room" data-zh="用餐空间">The room</figcaption></figure>
+      <figure class="gd"><img src="https://picsum.photos/seed/levain-g3/900/520" data-slot="gallery.3" data-en-alt="Counter display" data-zh-alt="柜台陈列" alt="Counter display" /><figcaption data-slot="gallery.3.cap" data-en="At the counter" data-zh="柜台一隅">At the counter</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap">
+      <img src="https://picsum.photos/seed/levain-feat/640/800" data-slot="feature.image" data-en-alt="The head baker" data-zh-alt="主厨" alt="The head baker" />
+      <div>
+        <p class="kick" data-slot="feature.kick" data-en="The craft" data-zh="匠心">The craft</p>
+        <h2 data-slot="feature.headline" data-en="Made slowly, on purpose." data-zh="慢工出细活。">Made slowly, on purpose.</h2>
+        <p data-slot="feature.body" data-en="Placeholder — the maker's story, the technique, the sourcing. Sincere and specific, never boastful." data-zh="占位文字——匠人故事、技法、选材。真诚而具体，不事张扬。">Placeholder — the maker's story, the technique, the sourcing. Sincere and specific, never boastful.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap menu" id="menu">
+    <div class="menu-head">
+      <p class="kick" data-slot="menu.kick" data-en="The menu" data-zh="菜单">The menu</p>
+      <h2 data-slot="menu.headline" data-en="A short, seasonal list." data-zh="精简的时令菜单。">A short, seasonal list.</h2>
+    </div>
+    <div class="menu-list" data-slot="menu" data-min="3" data-max="5">
+      <div class="item"><h3 data-slot="menu.0.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.0.price" data-en="$28" data-zh="$28">$28</span><p data-slot="menu.0.desc" data-en="A quiet description of the plate and its key elements." data-zh="一段对菜品与主要元素的低调描述。">A quiet description of the plate and its key elements.</p></div>
+      <div class="item"><h3 data-slot="menu.1.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.1.price" data-en="$32" data-zh="$32">$32</span><p data-slot="menu.1.desc" data-en="A quiet description of the plate and its key elements." data-zh="一段对菜品与主要元素的低调描述。">A quiet description of the plate and its key elements.</p></div>
+      <div class="item"><h3 data-slot="menu.2.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.2.price" data-en="$24" data-zh="$24">$24</span><p data-slot="menu.2.desc" data-en="A quiet description of the plate and its key elements." data-zh="一段对菜品与主要元素的低调描述。">A quiet description of the plate and its key elements.</p></div>
+      <div class="item"><h3 data-slot="menu.3.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.3.price" data-en="$18" data-zh="$18">$18</span><p data-slot="menu.3.desc" data-en="A quiet description of the plate and its key elements." data-zh="一段对菜品与主要元素的低调描述。">A quiet description of the plate and its key elements.</p></div>
+      <div class="item"><h3 data-slot="menu.4.name" data-en="Dish name" data-zh="菜名">Dish name</h3><span class="price" data-slot="menu.4.price" data-en="$14" data-zh="$14">$14</span><p data-slot="menu.4.desc" data-en="A quiet description of the plate and its key elements." data-zh="一段对菜品与主要元素的低调描述。">A quiet description of the plate and its key elements.</p></div>
+    </div>
+  </section>
+
+  <section class="social" id="social">
+    <div class="wrap q">
+      <blockquote data-slot="social.0.quote" data-en="“Placeholder review — a single, beautifully written line a guest could say.”" data-zh="“占位评价——一句食客可能说出的、优美的话。”">“Placeholder review — a single, beautifully written line a guest could say.”</blockquote>
+      <cite data-slot="social.0.name" data-en="A regular guest" data-zh="一位常客">A regular guest</cite>
+    </div>
+  </section>
+
+  <section class="wrap cta" id="cta">
+    <h2 data-slot="cta.headline" data-rich data-en="We've <em>saved you</em> a seat." data-zh="为你<em>留一个</em>座位。">We've <em>saved you</em> a seat.</h2>
+    <p data-slot="cta.sub" data-en="Reservations recommended for dinner; the counter is first-come for breakfast." data-zh="晚餐建议预订；早餐柜台采先到先得。">Reservations recommended for dinner; the counter is first-come for breakfast.</p>
+    <a class="btn" href="#top" data-slot="cta.button" data-en="Make a reservation" data-zh="立即预订">Make a reservation</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="brand" data-slot="footer.name" data-en="Maison Lèvain" data-zh="叶凡之家">Maison Lèvain</span>
+    <span data-slot="footer.addr" data-en="Tiong Bahru, Singapore · +65 6543 2109" data-zh="新加坡中峇鲁 · +65 6543 2109">Tiong Bahru, Singapore · +65 6543 2109</span>
+    <span class="built">Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+  function toggleLang(){
+    const zh = document.documentElement.lang !== "zh";
+    document.documentElement.lang = zh ? "zh" : "en";
+    document.querySelectorAll("[data-en]").forEach(el=>{
+      const v = zh ? el.getAttribute("data-zh") : el.getAttribute("data-en");
+      if(v==null) return;
+      if(el.hasAttribute("data-rich")) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll("[data-en-alt]").forEach(el=>{
+      el.alt = zh ? el.getAttribute("data-zh-alt") : el.getAttribute("data-en-alt");
+    });
+  }
+  function toggleNav(btn){
+    const l=document.getElementById("navlinks");
+    const o=l.classList.toggle("open");
+    btn.setAttribute("aria-expanded",o);
+  }
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

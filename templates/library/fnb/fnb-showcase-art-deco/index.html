@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-slot="meta.title" data-en="The Gilded Owl" data-zh="鎏金夜枭">The Gilded Owl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f1a17; --bg:#0b1411; --surface:#13211c; --brand:#c8a35b; --accent:#1d6f5c;
+    --line:rgba(200,163,91,.4);
+    --display:"Cormorant Garamond",serif; --text:"Jost",system-ui,sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{font-family:var(--text);color:#e7e2d4;background:var(--bg);line-height:1.7;font-weight:300}
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;letter-spacing:.01em}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+  .kick{color:var(--brand);font-weight:400;letter-spacing:.4em;text-transform:uppercase;font-size:.7rem}
+  .deco{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--brand);font-size:.8rem;letter-spacing:.3em}
+  .deco::before,.deco::after{content:"";height:1px;width:60px;background:var(--brand)}
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(11,20,17,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .brand{font-family:var(--display);font-size:1.7rem;text-decoration:none;color:var(--brand);letter-spacing:.04em}
+  .nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+  .nav-links a{text-decoration:none;font-weight:400;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;transition:color .25s}
+  .nav-links a:hover{color:var(--brand)}
+  .lang{border:1px solid var(--brand);color:var(--brand);background:none;padding:7px 17px;font-family:var(--text);font-weight:400;cursor:pointer;font-size:.72rem;letter-spacing:.14em}
+  .lang:hover{background:var(--brand);color:var(--ink)}
+  .burger{display:none;background:none;border:0;color:var(--brand);font-size:1.6rem;cursor:pointer}
+  /* hero */
+  .hero{position:relative;text-align:center;padding:90px 0 80px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:22px;border:1px solid var(--line);pointer-events:none;clip-path:polygon(24px 0,calc(100% - 24px) 0,100% 24px,100% calc(100% - 24px),calc(100% - 24px) 100%,24px 100%,0 calc(100% - 24px),0 24px)}
+  .hero h1{font-size:clamp(3rem,9vw,7rem);margin:20px 0;letter-spacing:.02em}
+  .hero h1 em{font-style:italic;color:var(--brand)}
+  .hero p{max-width:48ch;margin:0 auto;color:#bcc4b8}
+  .hero .btn{margin-top:30px}
+  .btn{display:inline-block;background:var(--brand);color:var(--ink);padding:14px 38px;text-decoration:none;font-weight:500;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--brand);transition:background .3s,color .3s}
+  .btn:hover{background:transparent;color:var(--brand)}
+  .btn.ghost{background:transparent;color:var(--brand)}
+  .btn.ghost:hover{background:var(--brand);color:var(--ink)}
+  /* strip */
+  .strip{border-bottom:1px solid var(--line)}
+  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:24px;padding:30px}
+  .strip div{text-align:center}
+  .strip .v{font-family:var(--display);font-size:2.2rem;color:var(--brand);line-height:1}
+  .strip .l{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#9aa79b;margin-top:6px}
+  /* gallery */
+  .gallery{padding:90px 0}
+  .ghead{text-align:center;margin-bottom:46px}
+  .ghead h2{font-size:clamp(2.2rem,5vw,4rem);margin:14px 0}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal-grid figure{position:relative;overflow:hidden}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform .8s cubic-bezier(.2,.8,.2,1);filter:saturate(.9)}
+  .gal-grid figure::after{content:"";position:absolute;inset:10px;border:1px solid rgba(200,163,91,.5);pointer-events:none}
+  .gal-grid figure:hover img{transform:scale(1.06)}
+  .gal-grid figure.tall{grid-row:span 2;aspect-ratio:auto}
+  .gal-grid figure.tall img{aspect-ratio:1/2}
+  /* feature */
+  .feature{background:var(--surface);padding:100px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .feature .wrap{display:grid;grid-template-columns:6fr 6fr;gap:56px;align-items:center}
+  .feature .pic{position:relative}
+  .feature .pic img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .feature .pic::before{content:"";position:absolute;inset:-14px;border:1px solid var(--brand);pointer-events:none}
+  .feature h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 18px;color:var(--brand)}
+  .feature p{color:#bcc4b8}
+  /* menu */
+  .menu{padding:100px 0}
+  .mhead{text-align:center;margin-bottom:50px}
+  .mhead h2{font-size:clamp(2.2rem,5vw,4rem);margin-top:14px}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 60px;max-width:920px;margin:0 auto}
+  .item{border-bottom:1px solid var(--line);padding-bottom:16px}
+  .item .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-family:var(--display)}
+  .item h3{font-size:1.6rem;font-weight:500}
+  .item .dots{flex:1;border-bottom:1px dotted var(--line);margin:0 6px;transform:translateY(-4px)}
+  .item .price{font-size:1.5rem;color:var(--brand)}
+  .item p{font-size:.9rem;color:#9aa79b;margin-top:4px}
+  /* social */
+  .social{background:var(--surface);padding:100px 0;text-align:center;border-top:1px solid var(--line)}
+  .social h2{font-size:clamp(1.8rem,4vw,3rem);margin-top:14px;margin-bottom:46px}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .quote{border:1px solid var(--line);padding:30px 24px}
+  .quote p{font-family:var(--display);font-style:italic;font-size:1.3rem;line-height:1.4;color:#e7e2d4}
+  .quote cite{display:block;margin-top:18px;font-style:normal;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand)}
+  /* cta */
+  .cta{text-align:center;padding:110px 0;border-top:1px solid var(--line)}
+  .cta h2{font-size:clamp(2.4rem,6vw,5rem);margin:16px 0}
+  .cta h2 em{font-style:italic;color:var(--brand)}
+  .cta p{color:#bcc4b8;max-width:44ch;margin:0 auto 30px}
+  /* footer */
+  footer.ft{border-top:1px solid var(--line);padding:54px 0;text-align:center}
+  footer.ft .brand{font-size:1.5rem;display:inline-block;margin-bottom:10px}
+  footer.ft .addr{font-size:.84rem;color:#9aa79b;letter-spacing:.06em}
+  footer.ft .built{font-size:.74rem;color:#6f7d70;margin-top:22px;letter-spacing:.04em}
+  @media(max-width:760px){
+    .nav-links{position:fixed;inset:80px 0 auto 0;flex-direction:column;background:var(--ink);padding:26px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .3s}
+    .nav-links.open{transform:translateY(0)}
+    .burger{display:block}
+    .gal-grid{grid-template-columns:1fr 1fr}
+    .gal-grid figure.tall{grid-row:span 1}
+    .gal-grid figure.tall img{aspect-ratio:1}
+    .feature .wrap,.menu-grid,.quotes{grid-template-columns:1fr;gap:30px}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="The Gilded Owl" data-zh="鎏金夜枭">The Gilded Owl</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#gallery" data-slot="nav.gallery" data-en="Gallery" data-zh="画廊">Gallery</a></li>
+        <li><a href="#menu" data-slot="nav.menu" data-en="Menu" data-zh="菜单">Menu</a></li>
+        <li><a href="#social" data-slot="nav.reviews" data-en="Praise" data-zh="评价">Praise</a></li>
+        <li><a href="#cta" data-slot="nav.visit" data-en="Reserve" data-zh="预订">Reserve</a></li>
+        <li><button class="lang" onclick="toggleLang()" data-slot="nav.lang" data-en="中文" data-zh="EN">中文</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kick" data-slot="hero.kick" data-en="Supper club & cocktails" data-zh="夜宴与鸡尾酒">Supper club &amp; cocktails</p>
+      <h1 data-slot="hero.headline" data-rich data-en="An <em>evening</em> worth dressing for." data-zh="一个值得<em>盛装</em>赴约的夜晚。">An <em>evening</em> worth dressing for.</h1>
+      <p data-slot="hero.sub" data-en="Placeholder intro — a jewel-box dining room of brass, velvet and candlelight. Set a glamorous, after-dark tone." data-zh="占位引言——黄铜、丝绒与烛光交织的珠宝盒般餐室。营造迷人的夜色氛围。">Placeholder intro — a jewel-box dining room of brass, velvet and candlelight. Set a glamorous, after-dark tone.</p>
+      <a class="btn" href="#cta" data-slot="hero.cta" data-en="Reserve a table" data-zh="预订座位">Reserve a table</a>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="At a glance">
+    <div class="wrap">
+      <div><div class="v" data-slot="strip.0.v" data-en="Est. 1924" data-zh="始于1924">Est. 1924</div><div class="l" data-slot="strip.0.l" data-en="Heritage" data-zh="传承">Heritage</div></div>
+      <div><div class="v" data-slot="strip.1.v" data-en="18:00–01:00" data-zh="18:00–01:00">18:00–01:00</div><div class="l" data-slot="strip.1.l" data-en="Nightly" data-zh="每晚">Nightly</div></div>
+      <div><div class="v" data-slot="strip.2.v" data-en="40 seats" data-zh="40座">40 seats</div><div class="l" data-slot="strip.2.l" data-en="Intimate" data-zh="私密空间">Intimate</div></div>
+      <div><div class="v" data-slot="strip.3.v" data-en="Live jazz" data-zh="爵士现场">Live jazz</div><div class="l" data-slot="strip.3.l" data-en="Fri & Sat" data-zh="周五周六">Fri &amp; Sat</div></div>
+    </div>
+  </section>
+
+  <section class="wrap gallery" id="gallery">
+    <div class="ghead">
+      <div class="deco" aria-hidden="true">✦</div>
+      <h2 data-slot="gallery.headline" data-en="Inside the room" data-zh="室内一隅">Inside the room</h2>
+    </div>
+    <div class="gal-grid" data-slot="gallery" data-min="5" data-max="6">
+      <figure class="tall"><img src="https://picsum.photos/seed/owl-g0/600/1200" data-slot="gallery.0" data-en-alt="The dining room" data-zh-alt="用餐厅堂" alt="The dining room" /></figure>
+      <figure><img src="https://picsum.photos/seed/owl-g1/600/600" data-slot="gallery.1" data-en-alt="Signature cocktail" data-zh-alt="招牌鸡尾酒" alt="Signature cocktail" /></figure>
+      <figure><img src="https://picsum.photos/seed/owl-g2/600/600" data-slot="gallery.2" data-en-alt="Plated course" data-zh-alt="精致菜品" alt="Plated course" /></figure>
+      <figure><img src="https://picsum.photos/seed/owl-g3/600/600" data-slot="gallery.3" data-en-alt="The bar" data-zh-alt="吧台" alt="The bar" /></figure>
+      <figure><img src="https://picsum.photos/seed/owl-g4/600/600" data-slot="gallery.4" data-en-alt="Brass detail" data-zh-alt="黄铜细节" alt="Brass detail" /></figure>
+      <figure><img src="https://picsum.photos/seed/owl-g5/600/600" data-slot="gallery.5" data-en-alt="Candlelit table" data-zh-alt="烛光餐桌" alt="Candlelit table" /></figure>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap">
+      <div class="pic"><img src="https://picsum.photos/seed/owl-feat/640/800" data-slot="feature.image" data-en-alt="The head bartender" data-zh-alt="首席调酒师" alt="The head bartender" /></div>
+      <div>
+        <p class="kick" data-slot="feature.kick" data-en="The house" data-zh="本店">The house</p>
+        <h2 data-slot="feature.headline" data-en="A century of late nights." data-zh="百年不眠之夜。">A century of late nights.</h2>
+        <p data-slot="feature.body" data-en="Placeholder — the room's history, the cocktail programme, the people who keep it glowing. Refined and specific." data-zh="占位文字——厅堂的历史、鸡尾酒节目、维系这片光辉的人。优雅而具体。">Placeholder — the room's history, the cocktail programme, the people who keep it glowing. Refined and specific.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap menu" id="menu">
+    <div class="mhead">
+      <div class="deco" aria-hidden="true">✦</div>
+      <h2 data-slot="menu.headline" data-en="The carte" data-zh="菜单">The carte</h2>
+    </div>
+    <div class="menu-grid" data-slot="menu" data-min="4" data-max="6">
+      <div class="item"><div class="top"><h3 data-slot="menu.0.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.0.price" data-en="$26" data-zh="$26">$26</span></div><p data-slot="menu.0.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.1.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.1.price" data-en="$24" data-zh="$24">$24</span></div><p data-slot="menu.1.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.2.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.2.price" data-en="$30" data-zh="$30">$30</span></div><p data-slot="menu.2.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.3.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.3.price" data-en="$22" data-zh="$22">$22</span></div><p data-slot="menu.3.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.4.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.4.price" data-en="$18" data-zh="$18">$18</span></div><p data-slot="menu.4.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+      <div class="item"><div class="top"><h3 data-slot="menu.5.name" data-en="Dish or drink" data-zh="菜品或饮品">Dish or drink</h3><span class="dots" aria-hidden="true"></span><span class="price" data-slot="menu.5.price" data-en="$20" data-zh="$20">$20</span></div><p data-slot="menu.5.desc" data-en="Tasting note." data-zh="风味描述。">Tasting note.</p></div>
+    </div>
+  </section>
+
+  <section class="social" id="social">
+    <div class="wrap">
+      <div class="deco" aria-hidden="true">✦</div>
+      <h2 data-slot="social.headline" data-en="What they say" data-zh="宾客之声">What they say</h2>
+      <div class="quotes">
+        <figure class="quote"><p data-slot="social.0.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><cite data-slot="social.0.name" data-en="A guest" data-zh="一位宾客">A guest</cite></figure>
+        <figure class="quote"><p data-slot="social.1.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><cite data-slot="social.1.name" data-en="A guest" data-zh="一位宾客">A guest</cite></figure>
+        <figure class="quote"><p data-slot="social.2.quote" data-en="“Placeholder review.”" data-zh="“占位评价。”">“Placeholder review.”</p><cite data-slot="social.2.name" data-en="A guest" data-zh="一位宾客">A guest</cite></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta" id="cta">
+    <div class="deco" aria-hidden="true">✦</div>
+    <h2 data-slot="cta.headline" data-rich data-en="The night <em>awaits.</em>" data-zh="良夜<em>已候。</em>">The night <em>awaits.</em></h2>
+    <p data-slot="cta.sub" data-en="Reservations open thirty days ahead. Smart dress, please." data-zh="预订提前三十天开放。请着正装。">Reservations open thirty days ahead. Smart dress, please.</p>
+    <a class="btn ghost" href="#top" data-slot="cta.button" data-en="Reserve your evening" data-zh="预订今宵">Reserve your evening</a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <span class="brand" data-slot="footer.name" data-en="The Gilded Owl" data-zh="鎏金夜枭">The Gilded Owl</span>
+    <div class="addr" data-slot="footer.addr" data-en="Ann Siang Hill, Singapore · +65 6321 0987" data-zh="新加坡安祥山 · +65 6321 0987">Ann Siang Hill, Singapore · +65 6321 0987</div>
+    <div class="built">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+
+<script>
+  function toggleLang(){
+    const zh = document.documentElement.lang !== "zh";
+    document.documentElement.lang = zh ? "zh" : "en";
+    document.querySelectorAll("[data-en]").forEach(el=>{
+      const v = zh ? el.getAttribute("data-zh") : el.getAttribute("data-en");
+      if(v==null) return;
+      if(el.hasAttribute("data-rich")) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll("[data-en-alt]").forEach(el=>{
+      el.alt = zh ? el.getAttribute("data-zh-alt") : el.getAttribute("data-en-alt");
+    });
+  }
+  function toggleNav(btn){
+    const l=document.getElementById("navlinks");
+    const o=l.classList.toggle("open");
+    btn.setAttribute("aria-expanded",o);
+  }
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

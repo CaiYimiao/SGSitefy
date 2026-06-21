@@ -1,0 +1,11 @@
+{
+  "id": "services-onepage-mono-technical",
+  "industry": "services",
+  "kind": "onepage",
+  "aesthetic": "mono-technical",
+  "fonts": { "display": "Space Mono", "text": "IBM Plex Sans" },
+  "tokens": { "ink": "#0e1413", "bg": "#f4f6f3", "surface": "#e4e8e2", "brand": "#0a6b5a", "accent": "#d2552a" },
+  "sections": ["hero", "credentials", "about", "services", "team", "proof", "cta", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

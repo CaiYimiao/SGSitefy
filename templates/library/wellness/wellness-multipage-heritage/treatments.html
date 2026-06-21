@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Treatments — House Name" data-zh="疗程 — 馆名">Treatments — House Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="House Name" data-zh="馆名">House Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-slot="nav.home" data-en="Home" data-zh="首页">Home</a></li>
+        <li><a href="about.html" data-slot="nav.about" data-en="Our House" data-zh="关于本馆">Our House</a></li>
+        <li><a href="treatments.html" aria-current="page" data-slot="nav.treatments" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="contact.html" data-slot="nav.contact" data-en="Visit" data-zh="到访">Visit</a></li>
+        <li><a href="contact.html" class="btn" data-slot="nav.cta" data-en="Reserve" data-zh="预约">Reserve</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="phead">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="treat.eyebrow" data-en="The ledger" data-zh="疗程目录">The ledger</span>
+      <h1 data-slot="treat.headline" data-en="Treatments & rituals" data-zh="疗程与仪式">Treatments &amp; rituals</h1>
+      <p data-slot="treat.sub" data-en="Each treatment begins with a quiet consultation, so the ritual suits you." data-zh="每项疗程皆以静心问询开始，使仪式契合您本人。">Placeholder sub.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap ledger" data-slot="treatments" data-min="4" data-max="6">
+      <article class="lr"><span class="num">I</span><div><h3 data-slot="treatment.0.name" data-en="Herbal therapy" data-zh="草本疗法">Herbal therapy</h3><p data-slot="treatment.0.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.0.price" data-en="from $120" data-zh="$120 起">from $120</span></article>
+      <article class="lr"><span class="num">II</span><div><h3 data-slot="treatment.1.name" data-en="Acupressure" data-zh="指压疗法">Acupressure</h3><p data-slot="treatment.1.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.1.price" data-en="from $90" data-zh="$90 起">from $90</span></article>
+      <article class="lr"><span class="num">III</span><div><h3 data-slot="treatment.2.name" data-en="Restorative ritual" data-zh="修复仪式">Restorative ritual</h3><p data-slot="treatment.2.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.2.price" data-en="from $150" data-zh="$150 起">from $150</span></article>
+      <article class="lr"><span class="num">IV</span><div><h3 data-slot="treatment.3.name" data-en="Cupping therapy" data-zh="拔罐疗法">Cupping therapy</h3><p data-slot="treatment.3.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.3.price" data-en="from $80" data-zh="$80 起">from $80</span></article>
+      <article class="lr"><span class="num">V</span><div><h3 data-slot="treatment.4.name" data-en="Aromatic compress" data-zh="芳香热敷">Aromatic compress</h3><p data-slot="treatment.4.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.4.price" data-en="from $100" data-zh="$100 起">from $100</span></article>
+      <article class="lr"><span class="num">VI</span><div><h3 data-slot="treatment.5.name" data-en="Full restorative day" data-zh="全日静养">Full restorative day</h3><p data-slot="treatment.5.desc" data-en="Placeholder line describing this treatment with quiet dignity." data-zh="以沉静笔触描述此疗程的占位文字。">Placeholder.</p></div><span class="price" data-slot="treatment.5.price" data-en="from $280" data-zh="$280 起">from $280</span></article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap lead">
+      <span class="eyebrow" data-slot="treat.note.eyebrow" data-en="Before you visit" data-zh="到访之前">Before you visit</span>
+      <h2 data-slot="treat.note.headline" data-en="How a visit unfolds" data-zh="一次到访如何展开">How a visit unfolds</h2>
+      <p data-slot="treat.note.body" data-en="Placeholder paragraph explaining consultation, treatment, and rest in two unhurried sentences." data-zh="以两句从容文字说明问询、疗程与歇息的占位段落。">Placeholder.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2 data-slot="treat.cta.headline" data-en="Unsure which ritual suits you?" data-zh="不知哪项仪式适合您？">Unsure which ritual suits you?</h2>
+    <p data-slot="treat.cta.sub" data-en="Reserve a consultation and we will guide you gently." data-zh="预约一次问询，我们将温和地为您引导。">Placeholder sub.</p>
+    <a href="contact.html" class="btn" data-slot="treat.cta.button" data-en="Reserve a consultation" data-zh="预约问询">Reserve a consultation</a>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© House Name. All rights reserved." data-zh="© 馆名。版权所有。">© House Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

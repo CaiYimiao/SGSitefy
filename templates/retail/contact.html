@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Lian Huat Hardware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar"><div class="wrap">
+  <div>
+    <a href="tel:+6562851234"><span class="ic">☎</span> <span data-en="Call Us:" data-zh="致电我们：">Call Us:</span> +65 6285 1234</a>
+    <a href="mailto:sales@lianhuat.com.sg"><span class="ic">✉</span> sales@lianhuat.com.sg</a>
+  </div>
+  <div><span data-en="Mon–Sat 8am–6pm" data-zh="周一至周六 8:00–18:00">Mon–Sat 8am–6pm</span></div>
+</div></div>
+
+<!-- HEADER -->
+<header class="header"><div class="wrap">
+  <a href="index.html" class="brand">
+    <span class="mk">LH</span>
+    <span><b data-en="LIAN HUAT" data-zh="联发五金">LIAN HUAT</b><small data-en="HARDWARE" data-zh="五金工具">HARDWARE</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="products.html" data-en="Products" data-zh="产品">Products</a>
+    <a href="contact.html" class="active" data-en="Contact" data-zh="联系">Contact</a>
+    <button class="lang" onclick="toggleLang()">中文</button>
+    <a href="contact.html" class="nav-cta" data-en="Get a Quote" data-zh="索取报价">Get a Quote</a>
+  </nav>
+  <button class="burger" aria-label="Menu">☰</button>
+</div></header>
+
+<!-- PAGE HERO -->
+<section class="phero"><div class="wrap">
+  <h1 data-en="Contact Us" data-zh="联系我们">Contact Us</h1>
+  <p class="crumb"><a href="index.html" data-en="Home" data-zh="主页">Home</a> / <span data-en="Contact" data-zh="联系">Contact</span></p>
+</div></section>
+
+<!-- ENQUIRY FORM + CONTACT INFO -->
+<section class="sec contact-sec"><div class="wrap"><div class="grid">
+  <div class="reveal">
+    <p class="eyebrow" style="color:#fca5a5" data-en="Get In Touch" data-zh="联系我们">Get In Touch</p>
+    <h2 data-en="Send us your enquiry" data-zh="向我们发送询价">Send us your enquiry</h2>
+    <p class="lead" data-en="Looking for a specific product, need a bulk quote, or want to open a trade account? Fill in the form and we'll reply within one business day." data-zh="寻找特定产品、需要批量报价，或想开设贸易账户？填写表格，我们将在一个工作日内回复。">Looking for a specific product, need a bulk quote, or want to open a trade account? Fill in the form and we'll reply within one business day.</p>
+    <ul class="clist" style="margin-top:22px">
+      <li>
+        <span class="ic">⊕</span>
+        <span>Blk 1004 Toa Payoh Industrial Park, Singapore 319075</span>
+      </li>
+      <li>
+        <span class="ic">☎</span>
+        <span>+65 6285 1234</span>
+      </li>
+      <li>
+        <span class="ic">✉</span>
+        <span>sales@lianhuat.com.sg</span>
+      </li>
+    </ul>
+    <p style="color:#9ca3af;font-size:.88rem;margin-top:20px;font-family:var(--fh);text-transform:uppercase;letter-spacing:1px" data-en="Opening Hours" data-zh="营业时间">Opening Hours</p>
+    <table class="hours-table">
+      <tr>
+        <td data-en="Monday – Friday" data-zh="周一至周五">Monday – Friday</td>
+        <td data-en="8:00 am – 6:00 pm" data-zh="8:00 – 18:00">8:00 am – 6:00 pm</td>
+      </tr>
+      <tr>
+        <td data-en="Saturday" data-zh="周六">Saturday</td>
+        <td data-en="8:00 am – 1:00 pm" data-zh="8:00 – 13:00">8:00 am – 1:00 pm</td>
+      </tr>
+      <tr>
+        <td data-en="Sunday &amp; Public Holidays" data-zh="周日及公众假期">Sunday &amp; Public Holidays</td>
+        <td data-en="Closed" data-zh="休息">Closed</td>
+      </tr>
+    </table>
+  </div>
+
+  <form class="enq-form reveal" onsubmit="return false">
+    <div class="f">
+      <label data-en="Name *" data-zh="姓名 *">Name *</label>
+      <input type="text" required placeholder="Your name">
+    </div>
+    <div class="f">
+      <label data-en="Phone *" data-zh="电话 *">Phone *</label>
+      <input type="tel" required placeholder="+65 XXXX XXXX">
+    </div>
+    <div class="f full">
+      <label data-en="Email *" data-zh="电邮 *">Email *</label>
+      <input type="email" required placeholder="you@company.com">
+    </div>
+    <div class="f full">
+      <label data-en="Company / Organisation" data-zh="公司 / 机构">Company / Organisation</label>
+      <input type="text" placeholder="Optional">
+    </div>
+    <div class="f full">
+      <label data-en="Enquiry Type" data-zh="询价类型">Enquiry Type</label>
+      <select>
+        <option data-en="Product Enquiry" data-zh="产品询价">Product Enquiry</option>
+        <option data-en="Bulk / Trade Quote" data-zh="批量 / 贸易报价">Bulk / Trade Quote</option>
+        <option data-en="Trade Account Application" data-zh="贸易账户申请">Trade Account Application</option>
+        <option data-en="Brand / Sourcing Request" data-zh="品牌 / 货源需求">Brand / Sourcing Request</option>
+        <option data-en="General Enquiry" data-zh="一般询问">General Enquiry</option>
+      </select>
+    </div>
+    <div class="f full">
+      <label data-en="Message / Product List *" data-zh="留言 / 产品清单 *">Message / Product List *</label>
+      <textarea rows="5" required placeholder="Describe what you need — include quantities where possible."></textarea>
+    </div>
+    <div class="full">
+      <button class="btn btn-red" type="submit" style="width:100%;justify-content:center;padding:14px" data-en="Send Enquiry" data-zh="发送询价">Send Enquiry</button>
+    </div>
+  </form>
+</div></div></section>
+
+<!-- MAP / VISIT -->
+<section class="sec visit" style="padding-top:0"><div class="wrap">
+  <div class="grid reveal">
+    <div class="info">
+      <h3 data-en="Visit our store" data-zh="莅临我们的门店">Visit our store</h3>
+      <p data-en="Lian Huat Hardware Pte Ltd" data-zh="联发五金私人有限公司">Lian Huat Hardware Pte Ltd</p>
+      <p>Blk 1004 Toa Payoh Industrial Park<br>Singapore 319075</p>
+      <p data-en="Tel: +65 6285 1234" data-zh="电话：+65 6285 1234">Tel: +65 6285 1234</p>
+      <p data-en="Email: sales@lianhuat.com.sg" data-zh="电邮：sales@lianhuat.com.sg">Email: sales@lianhuat.com.sg</p>
+      <p style="margin-top:16px;font-size:.88rem;color:#9ca3af" data-en="Nearest MRT: Toa Payoh (NS19) — 8 min walk" data-zh="最近地铁站：大巴窑站（NS19）— 步行8分钟">Nearest MRT: Toa Payoh (NS19) — 8 min walk</p>
+    </div>
+    <iframe
+      loading="lazy"
+      title="Lian Huat Hardware location map"
+      src="https://maps.google.com/maps?q=Toa+Payoh+Industrial+Park,+Singapore+319075&z=16&output=embed">
+    </iframe>
+  </div>
+</div></section>
+
+<!-- CTA BAND -->
+<section class="cta-band"><div class="wrap">
+  <h2 data-en="Prefer to call? We're ready." data-zh="想致电？我们随时候命。">Prefer to call? We're ready.</h2>
+  <p data-en="Speak directly with our team Monday to Friday, 8am–6pm." data-zh="周一至周五8:00–18:00，直接与我们的团队通话。">Speak directly with our team Monday to Friday, 8am–6pm.</p>
+  <a href="tel:+6562851234" class="btn btn-dark">+65 6285 1234</a>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap"><div class="grid">
+    <div>
+      <a href="index.html" class="brand"><span class="mk">LH</span><span><b style="color:#fff">LIAN HUAT</b><small>HARDWARE</small></span></a>
+      <p class="cn">联发五金</p>
+      <p style="color:#9ca3af" data-en="Your trusted hardware, tools &amp; industrial supplies partner in Singapore since 1985." data-zh="自1985年起，您在新加坡值得信赖的五金、工具与工业用品供应商。">Your trusted hardware, tools &amp; industrial supplies partner in Singapore since 1985.</p>
+      <div class="soc">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="WhatsApp">✆</a>
+      </div>
+      <div class="badges"><span data-en="Since 1985" data-zh="创立1985">Since 1985</span><span data-en="5,000+ SKUs" data-zh="5000+品种">5,000+ SKUs</span><span data-en="40+ Brands" data-zh="40+品牌">40+ Brands</span></div>
+    </div>
+    <div>
+      <h4 data-en="Quick Links" data-zh="快速链接">Quick Links</h4>
+      <a href="index.html" data-en="Home" data-zh="主页">Home</a>
+      <a href="about.html" data-en="About Us" data-zh="关于我们">About Us</a>
+      <a href="products.html" data-en="Products" data-zh="产品">Products</a>
+      <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+    </div>
+    <div>
+      <h4 data-en="Categories" data-zh="产品类别">Categories</h4>
+      <a href="products.html#hand-tools" data-en="Hand Tools" data-zh="手工具">Hand Tools</a>
+      <a href="products.html#power-tools" data-en="Power Tools" data-zh="电动工具">Power Tools</a>
+      <a href="products.html#safety" data-en="Safety &amp; PPE" data-zh="安全与防护">Safety &amp; PPE</a>
+      <a href="products.html#fasteners" data-en="Fasteners" data-zh="紧固件">Fasteners</a>
+      <a href="products.html#industrial" data-en="Industrial Supplies" data-zh="工业用品">Industrial Supplies</a>
+    </div>
+    <div>
+      <h4 data-en="Contact Us" data-zh="联系方式">Contact Us</h4>
+      <p style="color:#9ca3af">Blk 1004 Toa Payoh Industrial Park<br>Singapore 319075</p>
+      <p style="color:#9ca3af">Tel: +65 6285 1234<br>sales@lianhuat.com.sg</p>
+      <p style="color:#9ca3af" data-en="Mon–Fri: 8am–6pm<br>Sat: 8am–1pm" data-zh="周一至周五：8:00–18:00<br>周六：8:00–13:00">Mon–Fri: 8am–6pm<br>Sat: 8am–1pm</p>
+    </div>
+  </div></div>
+  <div class="bar"><div class="wrap">
+    <span data-en="© 2026 Lian Huat Hardware Pte Ltd · UEN 198501234K" data-zh="© 2026 联发五金私人有限公司 · UEN 198501234K">© 2026 Lian Huat Hardware Pte Ltd · UEN 198501234K</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div></div>
+</footer>
+
+<button class="fab fab-wa" aria-label="WhatsApp" onclick="return false">✆</button>
+<button class="fab fab-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="app.js"></script>
+<script>(function(){var p=location.pathname,i=p.indexOf('/templates/'),b=i>=0?p.slice(0,i+10):'..';var s=document.createElement('script');s.src=b+'/sitefy-edit.js';document.head.appendChild(s);})();</script>
+</body>
+</html>

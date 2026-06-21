@@ -1,0 +1,11 @@
+{
+  "id": "industrial-multipage-editorial",
+  "industry": "industrial",
+  "kind": "multipage",
+  "aesthetic": "editorial",
+  "fonts": { "display": "Libre Caslon Display", "text": "Work Sans" },
+  "tokens": { "ink": "#1b1815", "bg": "#f4f1ea", "surface": "#e7e1d3", "brand": "#9c3b22", "accent": "#2f4538" },
+  "sections": ["index", "about", "services", "contact"],
+  "serviceCount": 6,
+  "entry": "index.html"
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Contact — Precision Industrial" data-zh="联系 — 精密工业">Contact — Precision Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand" data-slot="brand.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="about.html" data-en="About" data-zh="关于">About</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="contact.html" aria-current="page" data-en="Contact" data-zh="联系">Contact</a>
+    </nav>
+    <div class="navbtns">
+      <button class="lang" onclick="toggleLang()" data-en="中文" data-zh="EN">中文</button>
+      <button class="burger" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<header class="phead">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Get in Touch" data-zh="联系我们">Get in Touch</p>
+    <h1 data-slot="contact.headline" data-en="Let's" data-zh="开始" data-rich>Let's <em>talk.</em></h1>
+    <p data-slot="contact.sub" data-en="Page intro — invite a quote, a visit, or a question." data-zh="页面引言 — 邀请报价、到访或咨询。">Page intro — invite a quote, a visit, or a question.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap contact-grid">
+    <div class="cinfo">
+      <div><div class="k" data-en="Address" data-zh="地址">Address</div><p data-slot="contact.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+      <div><div class="k" data-en="Phone" data-zh="电话">Phone</div><p data-slot="contact.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p></div>
+      <div><div class="k" data-en="Email" data-zh="邮箱">Email</div><p data-slot="contact.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+      <div><div class="k" data-en="Hours" data-zh="营业时间">Hours</div><p data-slot="contact.hours" data-en="Mon–Sat, 8am–6pm" data-zh="周一至周六 8:00–18:00">Mon–Sat, 8am–6pm</p></div>
+    </div>
+    <form onsubmit="return false">
+      <label class="field"><span data-en="Name" data-zh="姓名">Name</span><input type="text" name="name"></label>
+      <label class="field"><span data-en="Email" data-zh="邮箱">Email</span><input type="email" name="email"></label>
+      <label class="field"><span data-en="Phone" data-zh="电话">Phone</span><input type="tel" name="phone"></label>
+      <label class="field"><span data-en="Project details" data-zh="项目详情">Project details</span><textarea rows="5" name="message"></textarea></label>
+      <button class="btn" type="submit" data-slot="contact.submit" data-en="Send Enquiry" data-zh="发送咨询">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="fbrand" data-slot="footer.name" data-en="Vanta<i>&middot;</i>" data-zh="梵塔<i>&middot;</i>" data-rich>Vanta<i>&middot;</i></div><p data-slot="footer.tagline" data-en="Precision industrial manufacturing." data-zh="精密工业制造。">Precision industrial manufacturing.</p></div>
+    <div><b data-en="Pages" data-zh="页面">Pages</b><a href="about.html" data-en="About" data-zh="关于">About</a><a href="services.html" data-en="Services" data-zh="服务">Services</a><a href="contact.html" data-en="Contact" data-zh="联系">Contact</a></div>
+    <div><b data-en="Contact" data-zh="联系">Contact</b><p data-slot="footer.phone" data-en="+65 0000 0000" data-zh="+65 0000 0000">+65 0000 0000</p><p data-slot="footer.email" data-en="hello@example.com" data-zh="hello@example.com">hello@example.com</p></div>
+    <div><b data-en="Address" data-zh="地址">Address</b><p data-slot="footer.address" data-en="Address placeholder" data-zh="地址占位">Address placeholder</p></div>
+    <div class="credit">Built with SGSitefy · powered by Antigravity</div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-slot="meta.title" data-en="Studio Name — handcrafted wellness & bodywork" data-zh="工作室名称 — 匠心手作的身心调理">Studio Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2e221a; --bg:#efe6d8; --surface:#f8f2e8; --brand:#b1542f; --accent:#7a8b5f;
+  --display:"Bricolage Grotesque",system-ui,sans-serif; --text:"Newsreader",Georgia,serif;
+  --s0:1rem; --s1:1.2rem; --s2:1.44rem; --s3:1.728rem; --s4:2.25rem; --s5:3.1rem; --s6:4.6rem;
+  --maxw:1240px; --pad:clamp(1.3rem,5vw,4rem);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background-image:var(--grain);pointer-events:none;z-index:999;mix-blend-mode:multiply}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand)}
+:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px}
+
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
+.menu{display:flex;gap:2rem;align-items:center;list-style:none}
+.menu a{text-decoration:none;font-family:var(--display);font-weight:500;font-size:.9rem;transition:color .25s}
+.menu a:hover{color:var(--brand)}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;padding:.7rem 1.5rem;border-radius:999px;font-family:var(--display);font-weight:500;font-size:.85rem;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s}
+.btn:hover{transform:translateY(-2px);background:var(--brand)}
+.langbtn{background:none;border:2px solid var(--ink);color:var(--ink);padding:.35rem .7rem;border-radius:999px;font-family:var(--display);font-size:.78rem;cursor:pointer}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.burger span{width:25px;height:2.5px;background:var(--ink)}
+
+/* hero — split, oversized type + offset image */
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 clamp(2rem,5vw,4rem)}
+.hero .wrap{display:grid;grid-template-columns:6fr 5fr;gap:clamp(1.5rem,5vw,3.5rem);align-items:end}
+.hero h1{font-size:var(--s6);text-wrap:balance}
+.hero h1 em{font-family:var(--text);font-style:italic;font-weight:400;color:var(--brand)}
+.hero p{font-size:var(--s1);font-style:italic;max-width:40ch;margin:1.4rem 0 2rem;color:#544336}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;border:2px solid var(--ink)}
+.hero-tag{position:absolute;top:-14px;right:-10px;background:var(--accent);color:#fff;font-family:var(--display);font-weight:500;font-size:.8rem;padding:.5rem .9rem;border-radius:999px;transform:rotate(4deg)}
+
+/* ethos band */
+.ethos{background:var(--ink);color:var(--bg);padding:clamp(3rem,7vw,5rem) 0}
+.ethos .wrap{display:grid;grid-template-columns:5fr 6fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.ethos h2{font-size:var(--s5);color:var(--bg)}
+.ethos p{font-size:var(--s2);font-style:italic;margin-bottom:1rem;color:#e3d6c4}
+
+/* gallery — masonry-ish columns */
+.gallery{padding:clamp(3rem,7vw,5rem) 0}
+.gallery .head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+.gallery h2{font-size:var(--s5)}
+.gcols{columns:3;column-gap:clamp(.8rem,2vw,1.4rem)}
+.gcols figure{margin:0 0 clamp(.8rem,2vw,1.4rem);break-inside:avoid;overflow:hidden;border-radius:4px;border:2px solid var(--ink)}
+.gcols img{width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.gcols figure:hover img{transform:scale(1.04)}
+
+/* craft list — numbered offset */
+.craft{padding:clamp(3rem,7vw,5rem) 0;background:var(--surface);border-block:2px solid var(--ink)}
+.craft h2{font-size:var(--s5);max-width:16ch;margin-bottom:2.5rem}
+.cl{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:baseline;padding:1.7rem 0;border-top:1px dashed var(--ink)}
+.cl:last-child{border-bottom:1px dashed var(--ink)}
+.cl .no{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--brand)}
+.cl h3{font-size:var(--s3)}
+.cl p{font-size:.95rem;font-style:italic;color:#544336;margin-top:.3rem;max-width:54ch}
+.cl .price{font-family:var(--display);font-weight:500;font-size:1.1rem;color:var(--brand);white-space:nowrap}
+.cl:nth-child(even){padding-left:clamp(0px,4vw,3rem)}
+
+/* quote */
+.quote{padding:clamp(3.5rem,8vw,6rem) 0}
+.quote blockquote{max-width:28ch;margin-inline:auto;text-align:center}
+.quote p{font-family:var(--text);font-style:italic;font-size:var(--s4);line-height:1.3}
+.quote cite{display:block;margin-top:1.4rem;font-family:var(--display);font-style:normal;font-weight:500;font-size:.82rem;letter-spacing:.1em;color:var(--brand)}
+
+/* cta */
+.cta{position:relative;color:#fff;overflow:hidden;text-align:center}
+.cta img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta::before{content:"";position:absolute;inset:0;background:rgba(46,34,26,.6);z-index:1}
+.cta .wrap{position:relative;z-index:2;padding:clamp(3.5rem,8vw,6rem) 0}
+.cta h2{font-size:var(--s5)}
+.cta p{font-style:italic;max-width:44ch;margin:1rem auto 2rem;font-size:var(--s1)}
+
+footer.site{background:var(--ink);color:#cbb89e;padding:2.6rem 0;font-size:.85rem}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media(max-width:760px){
+  .menu{position:fixed;inset:74px 0 auto 0;background:var(--surface);flex-direction:column;padding:1.7rem;gap:1.3rem;border-bottom:2px solid var(--ink);display:none}
+  .menu.open{display:flex}.burger{display:flex}
+  .hero .wrap,.ethos .wrap{grid-template-columns:1fr;gap:1.6rem}
+  .gcols{columns:2}
+  .cl{grid-template-columns:auto 1fr}.cl .price{grid-column:2;justify-self:start}.cl:nth-child(even){padding-left:0}
+}
+@media(max-width:460px){.gcols{columns:1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" data-slot="brand.name" data-en="Studio Name" data-zh="工作室名称">Studio Name</a>
+    <nav aria-label="Primary">
+      <ul class="menu" id="menu">
+        <li><a href="#ethos" data-slot="nav.about" data-en="Ethos" data-zh="理念">Ethos</a></li>
+        <li><a href="#craft" data-slot="nav.craft" data-en="Treatments" data-zh="疗程">Treatments</a></li>
+        <li><a href="#gallery" data-slot="nav.gallery" data-en="The Studio" data-zh="工作室">The Studio</a></li>
+        <li><a href="#cta" class="btn" data-slot="nav.cta" data-en="Book" data-zh="预约">Book</a></li>
+        <li><button class="langbtn" onclick="toggleLang()" aria-label="Switch language">中 / EN</button></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" data-slot="hero.eyebrow" data-en="Bodywork studio · Singapore" data-zh="身体调理工作室 · 新加坡">Bodywork studio · Singapore</span>
+        <h1 data-slot="hero.headline" data-rich data-en="Healing made by <em>hand</em>" data-zh="以<em>双手</em>成就的疗愈">Healing made by <em>hand</em></h1>
+        <p data-slot="hero.sub" data-en="Small-batch, hands-on bodywork and herbal therapies — rooted in craft, made for real bodies." data-zh="小规模、亲手施作的身体调理与草本疗法——源于匠心，为真实的身体而生。">Placeholder sub.</p>
+        <a href="#cta" class="btn" data-slot="hero.cta" data-en="Book a session" data-zh="预约疗程">Book a session</a>
+      </div>
+      <div class="hero-img">
+        <img src="https://picsum.photos/seed/warmcraft-hero/720/900" data-slot="hero.image" data-en-alt="Therapist hands at work" data-zh-alt="理疗师施作中的双手" alt="Therapist hands at work">
+        <span class="hero-tag" data-slot="hero.tag" data-en="Since 2014" data-zh="始于2014">Since 2014</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ethos" id="ethos">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow" style="color:var(--accent)" data-slot="ethos.eyebrow" data-en="Our ethos" data-zh="我们的理念">Our ethos</span>
+        <h2 data-slot="ethos.headline" data-en="Slow hands, real results" data-zh="慢工细作，实在成效">Slow hands, real results</h2>
+      </div>
+      <div>
+        <p data-slot="ethos.body1" data-en="Placeholder paragraph on the studio's hands-on, unhurried craft. Two warm, tactile sentences." data-zh="关于工作室亲手、从容匠艺的占位段落。两句温暖而具质感的描述。">Placeholder.</p>
+        <p data-slot="ethos.body2" data-en="Second placeholder — the materials, the training, and the care behind every session." data-zh="第二段占位文字——材料、训练，以及每次疗程背后的用心。">Placeholder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-slot="gallery.headline" data-en="Inside the studio" data-zh="工作室一隅">Inside the studio</h2>
+        <span class="eyebrow" data-slot="gallery.eyebrow" data-en="A warm, worn-in space" data-zh="温暖而有岁月感的空间">A warm, worn-in space</span>
+      </div>
+      <div class="gcols">
+        <figure><img src="https://picsum.photos/seed/warmcraft-g1/600/760" data-slot="gallery.0" data-en-alt="Studio detail" data-zh-alt="工作室细节" alt="Studio detail"></figure>
+        <figure><img src="https://picsum.photos/seed/warmcraft-g2/600/520" data-slot="gallery.1" data-en-alt="Herbal preparation" data-zh-alt="草本准备" alt="Herbal preparation"></figure>
+        <figure><img src="https://picsum.photos/seed/warmcraft-g3/600/680" data-slot="gallery.2" data-en-alt="Treatment table" data-zh-alt="理疗床" alt="Treatment table"></figure>
+        <figure><img src="https://picsum.photos/seed/warmcraft-g4/600/600" data-slot="gallery.3" data-en-alt="Natural textures" data-zh-alt="天然质感" alt="Natural textures"></figure>
+        <figure><img src="https://picsum.photos/seed/warmcraft-g5/600/440" data-slot="gallery.4" data-en-alt="Window light" data-zh-alt="窗边光线" alt="Window light"></figure>
+        <figure><img src="https://picsum.photos/seed/warmcraft-g6/600/720" data-slot="gallery.5" data-en-alt="Hands and oil" data-zh-alt="双手与精油" alt="Hands and oil"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="craft" id="craft">
+    <div class="wrap">
+      <span class="eyebrow" data-slot="craft.eyebrow" data-en="Treatments" data-zh="疗程">Treatments</span>
+      <h2 data-slot="craft.headline" data-en="Made to order, for your body" data-zh="为您的身体量身施作">Made to order, for your body</h2>
+      <div class="craft-list" data-slot="treatments" data-min="3" data-max="4">
+        <article class="cl"><span class="no">01</span><div><h3 data-slot="treatment.0.name" data-en="Deep tissue" data-zh="深层组织">Deep tissue</h3><p data-slot="treatment.0.desc" data-en="Italic placeholder line describing this treatment." data-zh="斜体占位文字，描述此疗程。">Placeholder.</p></div><span class="price" data-slot="treatment.0.price" data-en="from $110" data-zh="$110 起">from $110</span></article>
+        <article class="cl"><span class="no">02</span><div><h3 data-slot="treatment.1.name" data-en="Herbal compress" data-zh="草本热敷">Herbal compress</h3><p data-slot="treatment.1.desc" data-en="Italic placeholder line describing this treatment." data-zh="斜体占位文字，描述此疗程。">Placeholder.</p></div><span class="price" data-slot="treatment.1.price" data-en="from $95" data-zh="$95 起">from $95</span></article>
+        <article class="cl"><span class="no">03</span><div><h3 data-slot="treatment.2.name" data-en="Pre-natal care" data-zh="孕期护理">Pre-natal care</h3><p data-slot="treatment.2.desc" data-en="Italic placeholder line describing this treatment." data-zh="斜体占位文字，描述此疗程。">Placeholder.</p></div><span class="price" data-slot="treatment.2.price" data-en="from $120" data-zh="$120 起">from $120</span></article>
+        <article class="cl"><span class="no">04</span><div><h3 data-slot="treatment.3.name" data-en="Restorative full body" data-zh="全身修复">Restorative full body</h3><p data-slot="treatment.3.desc" data-en="Italic placeholder line describing this treatment." data-zh="斜体占位文字，描述此疗程。">Placeholder.</p></div><span class="price" data-slot="treatment.3.price" data-en="from $150" data-zh="$150 起">from $150</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>
+        <p data-slot="quote.text" data-en="“It feels less like a clinic and more like being cared for by someone who knows hands.”" data-zh="“这里不像诊所，更像被一位真正懂手艺的人悉心照料。”">Placeholder quote.</p>
+        <cite data-slot="quote.author" data-en="— A regular guest" data-zh="— 一位常客">— A regular guest</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <img class="bg" src="https://picsum.photos/seed/warmcraft-cta/1800/900" data-slot="cta.image" data-en-alt="Warm studio entrance" data-zh-alt="温暖的工作室入口" alt="Warm studio entrance">
+    <div class="wrap">
+      <h2 data-slot="cta.headline" data-en="Come in for a session" data-zh="前来体验一次疗程">Come in for a session</h2>
+      <p data-slot="cta.sub" data-en="By appointment only. Message us to find a time that suits you." data-zh="仅限预约。讯息我们以安排合适的时间。">Placeholder sub.</p>
+      <a href="#" class="btn" data-slot="cta.button" data-en="Book now" data-zh="立即预约">Book now</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-slot="footer.brand" data-en="© Studio Name. All rights reserved." data-zh="© 工作室名称。版权所有。">© Studio Name</span>
+    <span>Built with SGSitefy · powered by Antigravity</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function toggleLang(){
+  const zh=document.documentElement.lang!=='zh';
+  document.documentElement.lang=zh?'zh':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{const t=zh?el.dataset.zh:el.dataset.en;if(t==null)return;if(el.hasAttribute('data-rich'))el.innerHTML=t;else el.textContent=t});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>{el.alt=zh?el.dataset.zhAlt:el.dataset.enAlt});
+}
+</script>
+<script src="../../../sitefy-edit.js"></script>
+</body>
+</html>
