@@ -27,7 +27,21 @@ interface BuildRequested {
 }
 
 export const buildSite = inngest.createFunction(
-  { id: "build-site", triggers: [{ event: "site/build.requested" }] },
+  {
+    id: "build-site",
+    triggers: [{ event: "site/build.requested" }],
+    retries: 2,
+    // If the build ultimately fails (e.g. a Gemini call errors), mark the
+    // build FAILED so the UI stops showing "Building" forever.
+    onFailure: async ({ event, error }) => {
+      const original = (event as { data: { event: { data: BuildRequested } } }).data.event.data;
+      console.error(`build-site failed for build ${original.buildId}:`, error);
+      await db.build.update({
+        where: { id: original.buildId },
+        data: { status: "FAILED" },
+      }).catch(() => {});
+    },
+  },
   async ({ event, step }) => {
     const { buildId, siteId, profile, description, photos } = event.data as BuildRequested;
     const photoUrls = photos.map((p) => p.url);
