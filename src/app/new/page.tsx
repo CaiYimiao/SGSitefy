@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { auth } from "@/auth";
 import { OnboardingWizard } from "@/components/onboarding-wizard";
+import { BreathingOrbs } from "@/components/breathing-orbs";
 import "../_marketing/homepage.css";
 
 export default async function NewSitePage() {
   const session = await auth();
   return (
-    <div className="sgsitefy-home" style={{ minHeight: "100vh", background: "var(--bg)" }}>
+    <div className="sgsitefy-home" style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
+      <BreathingOrbs />
       {/* top bar with back link */}
       <div className="pvbar">
         <Link href="/" className="pvbar-brand" style={{ textDecoration: "none", gap: 10 }}>
@@ -20,7 +22,7 @@ export default async function NewSitePage() {
         </nav>
       </div>
 
-      <main style={{ maxWidth: 720, margin: "0 auto", padding: "44px 24px 96px" }}>
+      <main style={{ maxWidth: 720, margin: "0 auto", padding: "44px 24px 96px", position: "relative", zIndex: 1 }}>
         <div style={{ marginBottom: 28 }}>
           <p className="sec-eyebrow">Build your site</p>
           <h1 className="sec-title" style={{ fontSize: "2rem" }}>Let&apos;s get you online</h1>

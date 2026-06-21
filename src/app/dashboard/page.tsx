@@ -4,6 +4,7 @@ import { auth, signOut } from "@/auth";
 import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { ResumeDraftBanner } from "@/components/resume-draft-banner";
+import { BreathingOrbs } from "@/components/breathing-orbs";
 import { Plus, ExternalLink, Loader2, CheckCircle2, AlertCircle, Globe } from "lucide-react";
 
 type Status = { label: string; cls: string; icon: React.ReactNode; pulse?: boolean };
@@ -33,7 +34,8 @@ export default async function DashboardPage() {
   const sites = memberships.flatMap((m) => m.org.sites);
 
   return (
-    <main className="container max-w-5xl py-12">
+    <main className="container relative z-10 max-w-5xl py-12">
+      <BreathingOrbs />
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Your sites</h1>

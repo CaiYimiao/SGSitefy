@@ -52,3 +52,35 @@
   * { @apply border-border; }
   body { @apply bg-background text-foreground; }
 }
+
+/* ── Breathing background orbs (for the plain app pages) ── */
+.orb-field {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-field .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.42;
+  will-change: transform, opacity;
+  animation: orb-breathe 11s ease-in-out infinite;
+}
+.orb-field .orb-1 { top: -120px; left: -100px; width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(79,70,229,.55) 0%, rgba(79,70,229,0) 70%); animation-delay: 0s; }
+.orb-field .orb-2 { bottom: -140px; right: -120px; width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(245,158,11,.45) 0%, rgba(245,158,11,0) 70%); animation-delay: -3.5s; }
+.orb-field .orb-3 { top: 8%; right: -80px; width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(238,37,54,.38) 0%, rgba(238,37,54,0) 70%); animation-delay: -6s; }
+.orb-field .orb-4 { bottom: 4%; left: -60px; width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(20,184,166,.40) 0%, rgba(20,184,166,0) 70%); animation-delay: -8.5s; }
+@keyframes orb-breathe {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.36; }
+  50%      { transform: scale(1.18) translateY(-14px); opacity: 0.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orb-field .orb { animation: none; }
+}
