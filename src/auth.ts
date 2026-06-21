@@ -1,16 +1,16 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import Google from "next-auth/providers/google";
-import Facebook from "next-auth/providers/facebook";
 import Credentials from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
+import authConfig from "@/auth.config";
 
 /**
- * Auth.js v5 for SGSitefy.
+ * Auth.js v5 for SGSitefy — full (Node-runtime) config.
  *
- * Free providers: Google + Facebook (OAuth). Users + accounts are persisted via
- * the Prisma adapter (any free Postgres — Neon / Supabase / Vercel Postgres).
- * Apple is intentionally omitted: it requires the paid Apple Developer Program.
+ * Free providers: Google + Facebook (OAuth, defined in auth.config.ts). Users +
+ * accounts are persisted via the Prisma adapter (any free Postgres — Neon /
+ * Supabase / Vercel Postgres). Apple is intentionally omitted: it requires the
+ * paid Apple Developer Program.
  *
  * A "dev" email-only Credentials provider stays available locally (or when
  * ALLOW_DEV_LOGIN=true) so you can sign in before wiring OAuth credentials.
@@ -18,6 +18,9 @@ import { db } from "@/lib/db";
  * Sessions are JWT (required by the Credentials provider and cheaper at the
  * edge); the adapter still records each user/OAuth account in the database, so
  * every user gets their own dedicated, queryable storage.
+ *
+ * NOTE: the adapter + db + Credentials live ONLY here, never in auth.config.ts —
+ * that keeps the middleware's edge bundle under the 1 MB limit.
  */
 
 // Each user gets a personal Organization (their workspace) on first sign-in.
@@ -52,37 +55,17 @@ const devProvider = Credentials({
   },
 });
 
-const providers = [
-  Google({
-    clientId: process.env.AUTH_GOOGLE_ID,
-    clientSecret: process.env.AUTH_GOOGLE_SECRET,
-  }),
-  Facebook({
-    clientId: process.env.AUTH_FACEBOOK_ID,
-    clientSecret: process.env.AUTH_FACEBOOK_SECRET,
-  }),
-  ...(allowDevLogin ? [devProvider] : []),
-];
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   adapter: PrismaAdapter(db),
-  session: { strategy: "jwt" },
-  pages: { signIn: "/signin" },
-  providers,
+  providers: [
+    ...authConfig.providers,
+    ...(allowDevLogin ? [devProvider] : []),
+  ],
   events: {
     // Fires when the adapter creates a brand-new user (first OAuth sign-in).
     async createUser({ user }) {
       if (user.id) await ensurePersonalOrg(user.id, user.name);
-    },
-  },
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) token.uid = (user as { id: string }).id;
-      return token;
-    },
-    session({ session, token }) {
-      if (token.uid && session.user) (session.user as { id?: string }).id = token.uid as string;
-      return session;
     },
   },
 });
