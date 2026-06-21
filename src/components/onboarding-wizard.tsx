@@ -1,16 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { CompanyProfile } from "@/types/company-profile";
 import { ArrowRight, ArrowLeft, Loader2, Plus, X, Check } from "lucide-react";
 
 const STEPS = ["UEN", "Details", "Photos", "Describe", "Generate", "Done"];
-
 const DRAFT_KEY = "sitefy_wizard_draft";
 
 export function OnboardingWizard({ loggedIn }: { loggedIn: boolean }) {
@@ -159,19 +153,17 @@ export function OnboardingWizard({ loggedIn }: { loggedIn: boolean }) {
 
       const { buildId, slug } = data as { buildId: string; slug: string };
 
-      // Fake progress — eases from 0 → 90 over ~35s, slows near the top
       progressRef.current = setInterval(() => {
         setBuildProgress((prev) => {
           if (prev >= 90) return prev;
           const remaining = 90 - prev;
-          const step = Math.max(0.3, remaining * 0.04);
-          const next = Math.min(90, prev + step);
+          const inc = Math.max(0.3, remaining * 0.04);
+          const next = Math.min(90, prev + inc);
           setBuildStage(stageFor(next));
           return next;
         });
       }, 500);
 
-      // Poll build status every 3s
       pollRef.current = setInterval(async () => {
         try {
           const r = await fetch(`/api/builds/${buildId}`);
@@ -225,166 +217,128 @@ export function OnboardingWizard({ loggedIn }: { loggedIn: boolean }) {
 
   return (
     <div>
-      <Stepper step={step} />
+      {/* Stepper */}
+      <div className="stepper">
+        {STEPS.map((label, i) => (
+          <React.Fragment key={label}>
+            <div className={`dot${i === step ? " active" : i < step ? " done" : ""}`} title={label}>
+              {i < step ? <Check className="size-3.5" /> : i + 1}
+            </div>
+            {i < STEPS.length - 1 && <div className={`seg${i < step ? " done" : ""}`} />}
+          </React.Fragment>
+        ))}
+      </div>
+
       {error && (
-        <p className="mb-4 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+        <div style={{ margin: "0 0 18px", padding: "12px 14px", borderRadius: "10px", background: "#fef2f2", color: "#dc2626", fontSize: ".88rem", border: "1px solid #fecaca", fontWeight: 500 }}>
           {error}
-        </p>
+        </div>
       )}
 
       {/* Step 0 — UEN */}
       {step === 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Let&apos;s find your business</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="uen">UEN (Unique Entity Number)</Label>
-              <Input id="uen" placeholder="e.g. 200708024D" value={uen} onChange={(e) => setUen(e.target.value)} />
-              <p className="text-xs text-muted-foreground">We prefill your details from the public registry. You can edit everything next.</p>
-            </div>
-            <Button onClick={lookup} disabled={busy || !uen.trim()}>
-              {busy ? <Loader2 className="animate-spin" /> : <ArrowRight />} Look up
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="wizard visible">
+          <h2 className="wzh">Let&apos;s find your business</h2>
+          <div className="field">
+            <label htmlFor="uen">UEN (Unique Entity Number)</label>
+            <input id="uen" placeholder="e.g. 200708024D" value={uen} onChange={(e) => setUen(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && uen.trim()) lookup(); }} />
+            <p className="hint">We prefill your details from the public registry. You&apos;ll confirm and can edit everything next.</p>
+          </div>
+          <button className="btn btn-primary" onClick={lookup} disabled={busy || !uen.trim()}>
+            {busy ? <Loader2 className="size-4 animate-spin" /> : <ArrowRight className="size-4" />} Look up
+          </button>
+        </div>
       )}
 
       {/* Step 1 — Details */}
       {step === 1 && (
-        <Card>
-          <CardHeader><CardTitle>Confirm your details</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2 rounded-lg border bg-muted/40 p-3">
-              <Label>Import from a link <span className="font-normal text-muted-foreground">(your website, Google or Facebook)</span></Label>
-              <div className="flex gap-2">
-                <Input placeholder="https://your-business.com" value={importUrl} onChange={(e) => setImportUrl(e.target.value)} />
-                <Button variant="outline" onClick={importFromLink} disabled={importing || !importUrl.trim()}>
-                  {importing ? <Loader2 className="animate-spin" /> : null} Import
-                </Button>
-              </div>
-              <p className="text-xs text-muted-foreground">Pulls your name, contact and photos from public page data. Use links you own.</p>
+        <div className="wizard visible">
+          <h2 className="wzh">Confirm your details</h2>
+          <div className="importbox">
+            <label style={{ fontSize: ".8rem", fontWeight: 600 }}>Import from a link <span style={{ fontWeight: 400, color: "var(--muted)" }}>(your website, Google or Facebook)</span></label>
+            <div className="ir">
+              <input placeholder="https://your-business.com" value={importUrl} onChange={(e) => setImportUrl(e.target.value)} />
+              <button className="btn btn-outline" onClick={importFromLink} disabled={importing || !importUrl.trim()}>
+                {importing ? <Loader2 className="size-4 animate-spin" /> : null} Import
+              </button>
             </div>
-            <Field label="Company name (EN)" value={profile.nameEn ?? ""} onChange={(v) => set({ nameEn: v })} />
-            <Field label="公司名称 (中文)" value={profile.nameZh ?? ""} onChange={(v) => set({ nameZh: v })} />
-            <Field label="Industry" value={profile.ssic ?? ""} onChange={(v) => set({ ssic: v })} />
-            <Field label="Address" value={profile.address ?? ""} onChange={(v) => set({ address: v })} />
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="Phone" value={profile.phone ?? ""} onChange={(v) => set({ phone: v })} />
-              <Field label="Email" value={profile.email ?? ""} onChange={(v) => set({ email: v })} />
-            </div>
-            <Nav onBack={() => setStep(0)} onNext={() => setStep(2)} nextLabel="Photos" />
-          </CardContent>
-        </Card>
+            <p className="hint">Pulls your name, contact and photos from public page data. Use links you own.</p>
+          </div>
+          <Field label="Company name (EN)" value={profile.nameEn ?? ""} onChange={(v) => set({ nameEn: v })} />
+          <Field label="公司名称 (中文)" value={profile.nameZh ?? ""} onChange={(v) => set({ nameZh: v })} />
+          <Field label="Industry" value={profile.ssic ?? ""} onChange={(v) => set({ ssic: v })} />
+          <Field label="Address" value={profile.address ?? ""} onChange={(v) => set({ address: v })} />
+          <div className="row2">
+            <Field label="Phone" value={profile.phone ?? ""} onChange={(v) => set({ phone: v })} />
+            <Field label="Email" value={profile.email ?? ""} onChange={(v) => set({ email: v })} />
+          </div>
+          <Nav onBack={() => setStep(0)} onNext={() => setStep(2)} nextLabel="Photos" />
+        </div>
       )}
 
       {/* Step 2 — Photos */}
       {step === 2 && (
-        <Card>
-          <CardHeader><CardTitle>Add your photos</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Paste image URLs for now (uploads + Google/Facebook import come next). Only use photos you own.
-            </p>
-            <div className="flex gap-2">
-              <Input placeholder="https://…/photo.jpg" value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)} />
-              <Button variant="outline" onClick={addPhoto}><Plus /> Add</Button>
+        <div className="wizard visible">
+          <h2 className="wzh">Add your photos</h2>
+          <p className="hint" style={{ marginBottom: 14 }}>Paste image URLs or upload files. Only use photos you own.</p>
+          <div className="importbox">
+            <div className="ir">
+              <input placeholder="https://…/photo.jpg" value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") addPhoto(); }} />
+              <button className="btn btn-outline" onClick={addPhoto}><Plus className="size-4" /> Add</button>
             </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => { const f = e.target.files?.[0]; if (f) uploadFile(f); e.currentTarget.value = ""; }}
-                className="text-sm file:mr-3 file:rounded-md file:border file:bg-secondary file:px-3 file:py-1.5 file:text-sm"
-              />
-              <span className="text-xs text-muted-foreground">or upload a file (needs Vercel Blob)</span>
-            </div>
-            <div className="grid grid-cols-3 gap-3">
+            <label className="hint" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10, cursor: "pointer" }}>
+              <input type="file" accept="image/*" onChange={(e) => { const f = e.target.files?.[0]; if (f) uploadFile(f); e.currentTarget.value = ""; }} style={{ fontSize: ".82rem" }} />
+            </label>
+          </div>
+          {photos.length > 0 && (
+            <div className="photos">
               {photos.map((p) => (
-                <div key={p.id} className="group relative aspect-video overflow-hidden rounded-md border">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.url} alt={p.id} className="h-full w-full object-cover" />
-                  <button
-                    onClick={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))}
-                    className="absolute right-1 top-1 rounded-full bg-background/80 p-1 opacity-0 group-hover:opacity-100"
-                  >
-                    <X className="size-3" />
-                  </button>
+                <div key={p.id} className="ph filled" style={{ backgroundImage: `url(${p.url})` }}>
+                  <button className="ph-x" onClick={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))} aria-label="Remove photo"><X className="size-3" /></button>
                 </div>
               ))}
             </div>
-            <Nav onBack={() => setStep(1)} onNext={() => setStep(3)} nextLabel="Describe" />
-          </CardContent>
-        </Card>
+          )}
+          <Nav onBack={() => setStep(1)} onNext={() => setStep(3)} nextLabel="Describe" />
+        </div>
       )}
 
       {/* Step 3 — Describe */}
       {step === 3 && (
-        <Card>
-          <CardHeader><CardTitle>Describe what you do</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="desc">One or two sentences is enough</Label>
-              <Textarea
-                id="desc"
-                rows={4}
-                placeholder="e.g. We're a metal fabrication workshop in Yishun — laser cutting, bending and stainless steel work for any order size."
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-            <Nav onBack={() => setStep(2)} onNext={generate} nextLabel="Generate site" nextDisabled={!description.trim()} />
-          </CardContent>
-        </Card>
+        <div className="wizard visible">
+          <h2 className="wzh">Describe what you do</h2>
+          <div className="field">
+            <label htmlFor="desc">One or two sentences is enough</label>
+            <textarea id="desc" rows={4} placeholder="e.g. We're a metal fabrication workshop in Yishun — laser cutting, bending and stainless steel work for any order size." value={description} onChange={(e) => setDescription(e.target.value)} />
+          </div>
+          <Nav onBack={() => setStep(2)} onNext={generate} nextLabel="Generate site" nextDisabled={!description.trim()} />
+        </div>
       )}
 
-      {/* Step 4 — Building (progress bar) */}
+      {/* Step 4 — Building */}
       {step === 4 && (
-        <Card>
-          <CardContent className="flex flex-col items-center gap-6 py-16 text-center">
-            <div className="w-full max-w-sm space-y-3">
-              <p className="text-sm font-medium text-muted-foreground">{buildStage}</p>
-              <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
-                <div
-                  className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
-                  style={{ width: `${buildProgress}%` }}
-                />
-              </div>
-              <p className="text-xs tabular-nums text-muted-foreground">{Math.round(buildProgress)}%</p>
-            </div>
-            <p className="max-w-xs text-xs text-muted-foreground">
-              SitefyAI is picking your layout, writing bilingual copy, and generating images. Usually done in 30–60 seconds.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="wizard visible" style={{ textAlign: "center", padding: "48px 32px" }}>
+          <div className="spinner" style={{ marginBottom: 20 }} />
+          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", marginBottom: 18 }}>{buildStage}</p>
+          <div style={{ height: 8, width: "100%", maxWidth: 360, margin: "0 auto 8px", borderRadius: 999, background: "var(--bg-2)", overflow: "hidden" }}>
+            <div style={{ height: "100%", borderRadius: 999, background: "var(--primary)", width: `${buildProgress}%`, transition: "width .5s ease" }} />
+          </div>
+          <p className="hint" style={{ fontVariantNumeric: "tabular-nums" }}>{Math.round(buildProgress)}%</p>
+          <p className="hint" style={{ maxWidth: 320, margin: "16px auto 0" }}>SitefyAI is picking your layout, writing bilingual copy, and generating images. Usually done in 30–60 seconds.</p>
+        </div>
       )}
 
       {/* Step 5 — Site ready */}
       {step === 5 && siteUrl && (
-        <Card>
-          <CardContent className="flex flex-col items-center gap-5 py-16 text-center">
-            <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-              <Check className="size-7 text-primary" />
-            </div>
-            <div className="space-y-1">
-              <p className="text-lg font-semibold">Your site is live</p>
-              <p className="text-sm text-muted-foreground">
-                Open it below, or head to your dashboard to manage it.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <Button asChild>
-                <a href={siteUrl} target="_blank" rel="noopener">
-                  View site <ArrowRight className="ml-1 size-4" />
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="/dashboard">Dashboard</a>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="wizard visible" style={{ textAlign: "center", padding: "48px 32px" }}>
+          <div className="done-check" aria-hidden="true">✓</div>
+          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.3rem", marginBottom: 6 }}>Your site is live</p>
+          <p className="hint" style={{ marginBottom: 22 }}>Open it below, or head to your dashboard to manage it.</p>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a className="btn btn-primary" href={siteUrl} target="_blank" rel="noopener">View site <ArrowRight className="size-4" /></a>
+            <a className="btn btn-outline" href="/dashboard">Dashboard</a>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -392,40 +346,20 @@ export function OnboardingWizard({ loggedIn }: { loggedIn: boolean }) {
 
 /* ---------- helpers ---------- */
 
-function Stepper({ step }: { step: number }) {
-  return (
-    <div className="mb-6 flex items-center gap-2">
-      {STEPS.map((label, i) => (
-        <div key={label} className="flex items-center gap-2">
-          <div
-            className={`flex size-7 items-center justify-center rounded-full text-xs font-medium ${
-              i < step ? "bg-primary text-primary-foreground" : i === step ? "border-2 border-primary text-primary" : "border text-muted-foreground"
-            }`}
-          >
-            {i < step ? <Check className="size-3.5" /> : i + 1}
-          </div>
-          {i < STEPS.length - 1 && <div className={`h-px w-6 ${i < step ? "bg-primary" : "bg-border"}`} />}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function Field({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
   return (
-    <div className="space-y-2">
-      <Label>{label}</Label>
-      <Input value={value} onChange={(e) => onChange(e.target.value)} />
+    <div className="field">
+      <label>{label}</label>
+      <input value={value} onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 }
 
 function Nav({ onBack, onNext, nextLabel, nextDisabled }: { onBack: () => void; onNext: () => void; nextLabel: string; nextDisabled?: boolean }) {
   return (
-    <div className="flex justify-between pt-2">
-      <Button variant="ghost" onClick={onBack}><ArrowLeft /> Back</Button>
-      <Button onClick={onNext} disabled={nextDisabled}>{nextLabel} <ArrowRight /></Button>
+    <div className="navbtns">
+      <button className="btn btn-ghost" onClick={onBack}><ArrowLeft className="size-4" /> Back</button>
+      <button className="btn btn-primary" onClick={onNext} disabled={nextDisabled}>{nextLabel} <ArrowRight className="size-4" /></button>
     </div>
   );
 }
-

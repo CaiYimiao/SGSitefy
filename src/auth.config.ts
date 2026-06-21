@@ -1,4 +1,5 @@
 import type { NextAuthConfig } from "next-auth";
+import type { Provider } from "next-auth/providers";
 import Google from "next-auth/providers/google";
 import Facebook from "next-auth/providers/facebook";
 
@@ -10,20 +11,22 @@ import Facebook from "next-auth/providers/facebook";
  * and pure callback functions live here. The heavy pieces — the Prisma adapter,
  * the db client, and the db-backed Credentials provider — are added in auth.ts,
  * which runs only in the Node runtime (API routes).
+ *
+ * Each OAuth provider is registered ONLY when its env keys are present, so a
+ * not-yet-configured provider can never throw a Configuration error.
  */
+const providers: Provider[] = [];
+if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
+  providers.push(Google({ clientId: process.env.AUTH_GOOGLE_ID, clientSecret: process.env.AUTH_GOOGLE_SECRET }));
+}
+if (process.env.AUTH_FACEBOOK_ID && process.env.AUTH_FACEBOOK_SECRET) {
+  providers.push(Facebook({ clientId: process.env.AUTH_FACEBOOK_ID, clientSecret: process.env.AUTH_FACEBOOK_SECRET }));
+}
+
 export default {
   session: { strategy: "jwt" },
   pages: { signIn: "/signin" },
-  providers: [
-    Google({
-      clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET,
-    }),
-    Facebook({
-      clientId: process.env.AUTH_FACEBOOK_ID,
-      clientSecret: process.env.AUTH_FACEBOOK_SECRET,
-    }),
-  ],
+  providers,
   callbacks: {
     jwt({ token, user }) {
       if (user) token.uid = (user as { id: string }).id;
