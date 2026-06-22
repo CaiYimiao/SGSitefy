@@ -2,14 +2,19 @@
  * AI client — Google AI Studio (OpenAI-compatible endpoint).
  *
  * Set in .env.local / Vercel:
- *   ANTIGRAVITY_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
- *   ANTIGRAVITY_API_KEY=your-google-ai-studio-key
+ *   GEMINI_API_KEY=your-google-ai-studio-key          (AIza...)
+ *   GEMINI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai  (optional)
+ *
+ * The old ANTIGRAVITY_* names are still read as a fallback so existing
+ * deployments keep working — you can migrate to GEMINI_* at any time.
  */
 
 const BASE_URL = (
-  process.env.ANTIGRAVITY_BASE_URL ?? "https://generativelanguage.googleapis.com/v1beta/openai"
+  process.env.GEMINI_BASE_URL ??
+  process.env.ANTIGRAVITY_BASE_URL ??
+  "https://generativelanguage.googleapis.com/v1beta/openai"
 ).replace(/\/$/, "");
-const API_KEY = process.env.ANTIGRAVITY_API_KEY ?? "";
+const API_KEY = process.env.GEMINI_API_KEY ?? process.env.ANTIGRAVITY_API_KEY ?? "";
 
 export const MODELS = {
   /** Gemini 2.5 Flash — fast + cheap. Use for: parser, intent routing. */
