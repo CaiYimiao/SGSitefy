@@ -5,9 +5,28 @@ import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { ResumeDraftBanner } from "@/components/resume-draft-banner";
 import { BreathingOrbs } from "@/components/breathing-orbs";
+import { DeleteSiteButton } from "@/components/delete-site-button";
 import { Plus, ExternalLink, Loader2, CheckCircle2, AlertCircle, Globe } from "lucide-react";
 
 type Status = { label: string; cls: string; icon: React.ReactNode; pulse?: boolean };
+
+/** Time-of-day greeting in Singapore time (the product's audience). */
+function greeting(): string {
+  const hour = Number(
+    new Intl.DateTimeFormat("en-US", { hour: "numeric", hour12: false, timeZone: "Asia/Singapore" }).format(new Date())
+  );
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
+}
+
+/** A friendly display name: the OAuth name, else a tidied first word from the email. */
+function displayName(name?: string | null, email?: string | null): string {
+  if (name && name.trim()) return name.trim();
+  const local = (email ?? "").split("@")[0].replace(/[._-]+/g, " ").replace(/\d+/g, "").trim();
+  const first = local.split(" ")[0];
+  return first ? first.charAt(0).toUpperCase() + first.slice(1) : "there";
+}
 
 function statusOf(raw: string): Status {
   const s = raw.toUpperCase();
@@ -32,14 +51,15 @@ export default async function DashboardPage() {
     include: { org: { include: { sites: { orderBy: { createdAt: "desc" } } } } },
   });
   const sites = memberships.flatMap((m) => m.org.sites);
+  const name = displayName(session?.user?.name, session?.user?.email);
 
   return (
     <main className="container relative z-10 max-w-5xl py-12">
       <BreathingOrbs />
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Your sites</h1>
-          <p className="text-sm text-muted-foreground">{session?.user?.email}</p>
+          <h1 className="text-2xl font-bold tracking-tight">{greeting()}, {name} 👋</h1>
+          <p className="mt-1 text-sm text-muted-foreground">Here are your sites.</p>
         </div>
         <div className="flex gap-2">
           <Button asChild>
@@ -92,6 +112,7 @@ export default async function DashboardPage() {
                   <Button asChild size="sm" variant="outline">
                     <Link href={`/new`}>Edit</Link>
                   </Button>
+                  <DeleteSiteButton siteId={s.id} name={s.customDomain ?? s.slug} />
                 </div>
                 {building && (
                   <p className="mt-3 text-xs text-amber-600">Still building — refresh in a moment.</p>
