@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ResumeDraftBanner } from "@/components/resume-draft-banner";
 import { BreathingOrbs } from "@/components/breathing-orbs";
 import { DeleteSiteButton } from "@/components/delete-site-button";
-import { Plus, ExternalLink, Loader2, CheckCircle2, AlertCircle, Globe } from "lucide-react";
+import { Plus, ExternalLink, Loader2, CheckCircle2, AlertCircle, Globe, ArrowLeft } from "lucide-react";
 
 type Status = { label: string; cls: string; icon: React.ReactNode; pulse?: boolean };
 
@@ -56,6 +56,12 @@ export default async function DashboardPage() {
   return (
     <main className="container relative z-10 max-w-5xl py-12">
       <BreathingOrbs />
+      <Link
+        href="/"
+        className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+      >
+        <ArrowLeft className="size-4" /> Back to SGSitefy
+      </Link>
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{greeting()}, {name} 👋</h1>

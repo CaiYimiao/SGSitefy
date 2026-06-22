@@ -1,11 +1,11 @@
 /**
- * Bespoke-gen agent.
+ * Bespoke-gen agent — AGENTIC.
  * For templates that declare custom regions (data-bespoke="region" with a
  * data-brief hint), this generates genuinely custom HTML/CSS per business via
- * Gemini — not slot-fill. Output is sanitised before it ever reaches a page.
- *
- * This is the "agent writes custom markup" path. It's still a single inference
- * call per build (fast + cheap), NOT a sandboxed coding agent.
+ * Gemini — not slot-fill — then runs a self-critique → revise loop so the model
+ * checks its own markup against the rules (CSS vars, no scripts, grounded,
+ * bilingual, responsive, accessible) and repairs the regions that fail. Output
+ * is sanitised before it ever reaches a page.
  */
 
 import { agChat, MODELS } from "@/lib/antigravity";
@@ -47,7 +47,28 @@ HARD RULES:
 7. Accessibility: alt text on images, semantic headings (h2/h3), sufficient contrast.
 8. Voice: concrete and plain. BANNED words: unlock, elevate, seamless, empower, world-class, one-stop, your trusted partner, nestled in the heart of.`;
 
-/** Generate sanitised bespoke HTML for each declared region. */
+const REVIEW_SYSTEM = `You are a STRICT front-end reviewer for SGSitefy bespoke page sections.
+
+You receive the business context and a map of region id → generated HTML. For each region, check the HTML against these rules and flag REAL violations only:
+- Colours: must reference var(--brand/--accent/--bg/--ink/--surface), never hard-coded hex.
+- No <script>, <style>, <link>, <iframe>, and no on* event handlers or javascript: URLs.
+- Grounding: every word must trace to the provided business profile — no invented facts, numbers, awards, or names.
+- Bilingual: prose text elements must carry data-en AND data-zh (idiomatic Simplified Chinese).
+- Responsive (flex/grid that wraps) and accessible (semantic headings, alt text).
+- No banned words: unlock, elevate, seamless, empower, world-class, one-stop, your trusted partner, nestled in the heart of.
+
+Your response MUST be a single JSON object: {"revise":{"<region id>":"<what to fix>"}}. Only include regions that need fixing. If all regions are good, return {"revise":{}}. No text before { or after }. No markdown.`;
+
+function parseMap(raw: string): Record<string, string> {
+  try {
+    const stripped = raw.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? raw;
+    return JSON.parse(stripped.trim());
+  } catch {
+    return {};
+  }
+}
+
+/** Generate sanitised bespoke HTML for each declared region (with self-review). */
 export async function generateBespokeRegions(
   profile: Partial<CompanyProfile>,
   description: string,
@@ -57,44 +78,65 @@ export async function generateBespokeRegions(
 ): Promise<Record<string, string>> {
   if (regions.length === 0) return {};
 
-  let raw: string;
+  const ctx = { company: { ...profile, description }, industryVibe: brand.industryVibe, availablePhotos: photoUrls };
+
+  // 1) Generate
+  let parsed: Record<string, string>;
   try {
-    raw = await agChat({
+    parsed = parseMap(await agChat({
       model: MODELS.worker,
       system: SYSTEM,
-      messages: [
-        {
-          role: "user",
-          content: JSON.stringify({
-            company: { ...profile, description },
-            industryVibe: brand.industryVibe,
-            availablePhotos: photoUrls,
-            regions,
-          }),
-        },
-      ],
+      messages: [{ role: "user", content: JSON.stringify({ ...ctx, regions }) }],
       max_tokens: 4000,
       temperature: 0.5,
-    });
+    }));
   } catch {
     return {}; // generation failed → template defaults stay in place
   }
+  if (Object.keys(parsed).length === 0) return {};
 
-  let parsed: Record<string, string>;
+  // 2) Self-critique → 3) revise flagged regions (best-effort)
   try {
-    const stripped = raw.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? raw;
-    parsed = JSON.parse(stripped.trim());
+    const reviewRaw = await agChat({
+      model: MODELS.worker,
+      system: REVIEW_SYSTEM,
+      messages: [{ role: "user", content: JSON.stringify({ ...ctx, html: parsed }) }],
+      max_tokens: 1500,
+      temperature: 0,
+    });
+    const revise = (parseMap(reviewRaw) as { revise?: Record<string, string> }).revise ?? {};
+    const toFix = Object.keys(revise).filter((r) => r in parsed);
+    if (toFix.length) {
+      const fixRaw = await agChat({
+        model: MODELS.worker,
+        system: SYSTEM,
+        messages: [{
+          role: "user",
+          content: JSON.stringify({
+            ...ctx,
+            regions: regions.filter((r) => toFix.includes(r.region)),
+            previousAttempt: Object.fromEntries(toFix.map((r) => [r, parsed[r]])),
+            fixes: Object.fromEntries(toFix.map((r) => [r, revise[r]])),
+            instruction: "Regenerate ONLY these regions, fixing the noted problems. Same JSON output format.",
+          }),
+        }],
+        max_tokens: 4000,
+        temperature: 0.4,
+      });
+      const fixed = parseMap(fixRaw);
+      for (const r of toFix) {
+        if (typeof fixed[r] === "string" && fixed[r].trim()) parsed[r] = fixed[r];
+      }
+    }
   } catch {
-    return {};
+    /* keep the first-pass output if review/revise fails */
   }
 
-  // Sanitise every generated block before it can reach a page
+  // Sanitise every block before it can reach a page
   const out: Record<string, string> = {};
   for (const { region } of regions) {
     const html = parsed[region];
-    if (typeof html === "string" && html.trim()) {
-      out[region] = sanitizeHtml(html);
-    }
+    if (typeof html === "string" && html.trim()) out[region] = sanitizeHtml(html);
   }
   return out;
 }

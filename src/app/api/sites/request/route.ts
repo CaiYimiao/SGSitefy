@@ -18,6 +18,25 @@ export async function POST(req: Request) {
     const session = await auth();
     const userId = (session?.user as { id?: string } | undefined)?.id;
 
+    // One UEN = one site. Block a duplicate build for a UEN this user already
+    // has (failed sites are excluded so they can retry).
+    const uen = typeof profile?.uen === "string" ? profile.uen.trim() : "";
+    if (userId && uen) {
+      const dup = await db.site.findFirst({
+        where: {
+          org: { members: { some: { userId } }, company: { is: { uen } } },
+          status: { not: "FAILED" },
+        },
+        select: { slug: true },
+      });
+      if (dup) {
+        return NextResponse.json(
+          { error: `You already have a site for UEN ${uen}. Edit or delete it from your dashboard first.`, slug: dup.slug },
+          { status: 409 }
+        );
+      }
+    }
+
     const { siteId, slug } = await createSite({
       profile,
       userId,
