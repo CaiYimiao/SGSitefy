@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   padding-top: 3px; /* clearance for the top accent stripe so it never overlaps the nav */
+  overflow-x: hidden; /* kill any stray horizontal scroll (and the red-stripe edge artifact) */
 }
 .sgsitefy-home a { color: inherit; text-decoration: none; }
 .sgsitefy-home img { display: block; }

@@ -46,7 +46,7 @@ export function SitefyChat() {
 
   return (
     <div className="ai-fab" id="ai-fab" role="complementary" aria-label="SitefyAI assistant">
-      <div className="ai-panel" aria-hidden={!open} role="dialog" aria-labelledby="ai-panel-title" aria-modal="false" style={{ display: open ? undefined : "none" }}>
+      <div className={`ai-panel${open ? " open" : ""}`} aria-hidden={!open} role="dialog" aria-labelledby="ai-panel-title" aria-modal="false">
         <div className="ai-panel-head">
           <div className="ai-panel-avatar" aria-hidden="true">✦</div>
           <div className="ai-panel-title">
