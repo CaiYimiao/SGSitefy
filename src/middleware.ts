@@ -27,6 +27,8 @@ export default auth((req) => {
 });
 
 export const config = {
-  // Run on app routes, skip static assets / images / auth API.
-  matcher: ["/((?!api/auth|_next/static|_next/image|favicon.ico|.*\\.).*)"],
+  // Run on app pages only. Skip ALL /api routes (they do their own auth and
+  // Inngest's /api/inngest sync uses request signing the auth wrapper must not
+  // touch), plus static assets / images.
+  matcher: ["/((?!api/|_next/static|_next/image|favicon.ico|.*\\.).*)"],
 };
