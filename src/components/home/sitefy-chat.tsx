@@ -3,6 +3,7 @@
 import * as React from "react";
 
 type Msg = { role: "ai" | "user"; text: string };
+type Edge = "" | "edge-left" | "edge-right" | "edge-top";
 
 const QUICK = [
   "What's included in my plan?",
@@ -11,16 +12,80 @@ const QUICK = [
   "What domains can I register?",
 ];
 
+const EDGE_THRESH = 48; // px from a screen edge to dock the assistant there
+
 export function SitefyChat() {
   const [open, setOpen] = React.useState(false);
   const [msgs, setMsgs] = React.useState<Msg[]>([]);
   const [input, setInput] = React.useState("");
   const [busy, setBusy] = React.useState(false);
+  const [edge, setEdge] = React.useState<Edge>("");
+  const [pos, setPos] = React.useState<{ left: number; top: number } | null>(null);
   const bodyRef = React.useRef<HTMLDivElement>(null);
+  const fabRef = React.useRef<HTMLDivElement>(null);
+  const handleRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight, behavior: "smooth" });
   }, [msgs, busy]);
+
+  // Drag-to-move via the 6-dot handle. On release it snaps to the nearest
+  // edge and sets an edge class so the panel propagates in the right
+  // direction (the .ai-fab.edge-* CSS handles the actual panel placement).
+  React.useEffect(() => {
+    const fab = fabRef.current;
+    const h = handleRef.current;
+    if (!fab || !h) return;
+    let dragging = false, sx = 0, sy = 0, ox = 0, oy = 0;
+
+    const onDown = (e: PointerEvent) => {
+      dragging = true;
+      try { h.setPointerCapture(e.pointerId); } catch { /* ignore */ }
+      const r = fab.getBoundingClientRect();
+      // Switch to absolute left/top positioning for the drag.
+      fab.style.left = r.left + "px";
+      fab.style.top = r.top + "px";
+      fab.style.right = "auto";
+      fab.style.bottom = "auto";
+      fab.classList.remove("edge-left", "edge-right", "edge-top");
+      setEdge("");
+      sx = e.clientX; sy = e.clientY; ox = r.left; oy = r.top;
+      e.preventDefault();
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      let nx = ox + (e.clientX - sx);
+      let ny = oy + (e.clientY - sy);
+      nx = Math.max(0, Math.min(window.innerWidth - fab.offsetWidth, nx));
+      ny = Math.max(0, Math.min(window.innerHeight - fab.offsetHeight, ny));
+      fab.style.left = nx + "px";
+      fab.style.top = ny + "px";
+    };
+    const onUp = (e: PointerEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      try { h.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
+      const r = fab.getBoundingClientRect();
+      const W = window.innerWidth;
+      const dL = r.left, dR = W - r.right, dT = r.top;
+      let nextEdge: Edge = "";
+      let left = r.left, top = r.top;
+      if (dT < EDGE_THRESH && dT <= dL && dT <= dR) { nextEdge = "edge-top"; top = 8; }
+      else if (dL < EDGE_THRESH && dL <= dR) { nextEdge = "edge-left"; left = 0; }
+      else if (dR < EDGE_THRESH) { nextEdge = "edge-right"; left = W - fab.offsetWidth; }
+      setEdge(nextEdge);
+      setPos({ left, top });
+    };
+
+    h.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    return () => {
+      h.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+  }, []);
 
   async function ask(text: string) {
     const q = text.trim();
@@ -44,8 +109,19 @@ export function SitefyChat() {
     }
   }
 
+  const fabStyle: React.CSSProperties | undefined = pos
+    ? { left: pos.left, top: pos.top, right: "auto", bottom: "auto" }
+    : undefined;
+
   return (
-    <div className="ai-fab" id="ai-fab" role="complementary" aria-label="SitefyAI assistant">
+    <div
+      ref={fabRef}
+      className={`ai-fab ${edge}`.trim()}
+      id="ai-fab"
+      role="complementary"
+      aria-label="SitefyAI assistant"
+      style={fabStyle}
+    >
       <div className={`ai-panel${open ? " open" : ""}`} aria-hidden={!open} role="dialog" aria-labelledby="ai-panel-title" aria-modal="false">
         <div className="ai-panel-head">
           <div className="ai-panel-avatar" aria-hidden="true">✦</div>
@@ -53,7 +129,7 @@ export function SitefyChat() {
             <strong id="ai-panel-title">SitefyAI</strong>
             <span>powered by Gemini</span>
           </div>
-          <button className="ai-panel-close" onClick={() => setOpen(false)} aria-label="Close SitefyAI panel">✕</button>
+          <button className="ai-panel-close" onClick={() => setOpen(false)} aria-label="Minimise SitefyAI panel" title="Minimise">✕</button>
         </div>
         <div className="ai-panel-body" ref={bodyRef}>
           <div className="ai-bubble ai-msg">
@@ -85,6 +161,9 @@ export function SitefyChat() {
         <div className="ai-powered-tag">SitefyAI · <span>powered by Gemini</span></div>
       </div>
       <div className="ai-fab-bar">
+        <button ref={handleRef} className="ai-drag-handle" aria-label="Drag to move SitefyAI" title="Drag to move">
+          <span /><span /><span /><span /><span /><span />
+        </button>
         <button className="ai-fab-btn" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="ai-panel">
           <span className="ai-fab-dot" aria-hidden="true" />
           <span className="ai-fab-label">
