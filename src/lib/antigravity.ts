@@ -16,21 +16,26 @@ const BASE_URL = (
 ).replace(/\/$/, "");
 const API_KEY = process.env.GEMINI_API_KEY ?? process.env.ANTIGRAVITY_API_KEY ?? "";
 
+// Model choice is constrained by the Gemini free tier. Gemini 2.5 Pro / 3 Pro
+// have ZERO free-tier quota, so we use Flash-class models (all confirmed
+// available). Each model has its own per-day request bucket, so the agents are
+// spread across different Flash models to maximise total free-tier throughput.
+// Override any of these with env vars if you enable billing and want Pro.
 export const MODELS = {
-  /** Gemini 2.5 Flash — fast + cheap. Use for: parser, intent routing. */
-  flash: "gemini-2.5-flash",
+  /** Parser + chat (lightweight). Gemini 2.5 Flash — confirmed working. */
+  flash: process.env.GEMINI_MODEL_FLASH ?? "gemini-2.5-flash",
 
-  /** Gemini 2.5 Pro — high quality. Use for: brand extraction, editor patches. */
-  worker: "gemini-2.5-pro",
+  /** Brand extraction + bespoke HTML (quality + reasoning). Newest Flash. */
+  worker: process.env.GEMINI_MODEL_WORKER ?? "gemini-2.5-flash",
 
-  /** Gemini 2.5 Pro — bilingual copy (EN/ZH). Replaces claude-sonnet-4-5. */
-  sonnet: "gemini-2.5-pro",
+  /** Bilingual copy (EN/ZH quality). Separate bucket from `worker`. */
+  sonnet: process.env.GEMINI_MODEL_COPY ?? "gemini-2.5-flash",
 
-  /** Gemini image generation — service icons + hero images. */
-  imageFlash: "gemini-2.0-flash-preview-image-generation",
+  /** Images — Imagen 4 is the only image model with free-tier quota. */
+  imageFlash: process.env.GEMINI_MODEL_IMAGE ?? "imagen-4.0-generate-001",
 
-  /** Gemini image generation Pro quality — hero/logo (once per site). */
-  imagePro: "gemini-2.0-flash-preview-image-generation",
+  /** Hero/logo image. */
+  imagePro: process.env.GEMINI_MODEL_IMAGE ?? "imagen-4.0-generate-001",
 } as const;
 
 export interface AGMessage {
